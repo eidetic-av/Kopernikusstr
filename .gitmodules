@@ -1,3 +1,6 @@
 [submodule "Assets/KvantStream"]
 	path = Assets/KvantStream
 	url = https://github.com/eidetic-av/KvantStream.git
+[submodule "Assets/Skinner"]
+	path = Assets/Skinner
+	url = https://github.com/eidetic-av/Skinner.git
