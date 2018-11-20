@@ -1,0 +1,3 @@
+[submodule "Assets/KvantStream"]
+	path = Assets/KvantStream
+	url = https://github.com/eidetic-av/KvantStream.git
