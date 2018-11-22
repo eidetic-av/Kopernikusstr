@@ -38,7 +38,7 @@ public class OscEnumerator : MonoBehaviour
     {
         // Remove our routing method to the OscServer callbacks
         OscReceiver.Server.MessageDispatcher.RemoveRootNodeCallback(gameObject.name.ToPascal(), RouteMessages);
-        // And remove the address bindings
+        // Remove the address bindings
         RemoveAllAddresses();
     }
 
@@ -57,79 +57,30 @@ public class OscEnumerator : MonoBehaviour
             if (component.GetType() == typeof(OscEnumerator))
                 continue;
 
-            // First iterate properties
-            foreach (var property in component.GetType().GetProperties())
+            // Iterate through members
+            foreach (var member in component.GetType().GetMembers())
             {
                 // Create the OSC address to bind to
-                var address = CreateAddress(component, property);
+                var address = CreateAddress(component, member);
 
-                var setMethod = property.GetSetMethod();
-                if (setMethod == null) continue;
-
-                var backingFieldType = setMethod.GetParameters()[0].ParameterType;
-
-                // Add a delegate representing the set method to the appropriate dictionary
-                bool addedToDictionary = false;
-                try
+                // Work out whether it's a property or field
+                var memberType = member.MemberType;
+                // and fill in appropriate variables
+                MethodInfo setMethod = null;
+                Type fieldType;
+                if (memberType == MemberTypes.Property)
                 {
-                    switch (backingFieldType.Name)
-                    {
-                        case "Int32":
-                            ParameterTypes.Add(address, MemberType.Int32);
-                            var intSetter = (Action<int>)Delegate.CreateDelegate(typeof(Action<int>), component, property.GetSetMethod());
-                            IntSetters.Add(address, intSetter);
-                            addedToDictionary = true;
-                            break;
-                        case "Single":
-                            ParameterTypes.Add(address, MemberType.Single);
-                            var singleSetter = (Action<Single>)Delegate.CreateDelegate(typeof(Action<Single>), component, property.GetSetMethod());
-                            SingleSetters.Add(address, singleSetter);
-                            addedToDictionary = true;
-                            break;
-                        case "Boolean":
-                            ParameterTypes.Add(address, MemberType.Boolean);
-                            var booleanSetter = (Action<bool>)Delegate.CreateDelegate(typeof(Action<bool>), component, property.GetSetMethod());
-                            BooleanSetters.Add(address, booleanSetter);
-                            addedToDictionary = true;
-                            break;
-                        case "Vector3":
-                            ParameterTypes.Add(address, MemberType.Vector3);
-                            var vector3Setter = (Action<Vector3>)Delegate.CreateDelegate(typeof(Action<Vector3>), component, property.GetSetMethod());
-                            Vector3Setters.Add(address, vector3Setter);
-                            addedToDictionary = true;
-                            break;
-                        case "Vector2":
-                            ParameterTypes.Add(address, MemberType.Vector2);
-                            var vector2Setter = (Action<Vector2>)Delegate.CreateDelegate(typeof(Action<Vector2>), component, property.GetSetMethod());
-                            Vector2Setters.Add(address, vector2Setter);
-                            addedToDictionary = true;
-                            break;
-                        case "String":
-                            ParameterTypes.Add(address, MemberType.String);
-                            var stringSetter = (Action<string>)Delegate.CreateDelegate(typeof(Action<string>), component, property.GetSetMethod());
-                            StringSetters.Add(address, stringSetter);
-                            addedToDictionary = true;
-                            break;
-                    }
+                    setMethod = ((PropertyInfo)member).GetSetMethod();
+                    // continue if there is no accessible set method to the property
+                    if (setMethod == null) continue;
+                    // fieldType is the type of the backing field in the case of properties
+                    fieldType = setMethod.GetParameters()[0].ParameterType;
                 }
-                catch (Exception exception)
+                else if (memberType == MemberTypes.Field)
                 {
-                    Debug.Log("Failed to bind " + "/" + address + "/");
-                    Debug.LogException(exception);
-                    addedToDictionary = false;
+                    fieldType = ((FieldInfo)member).FieldType;
                 }
-                if (addedToDictionary)
-                {
-                    InstanceAddresses.Add(address);
-                }
-            }
-            // Then we iterate through public fields
-            foreach (var field in component.GetType().GetFields())
-            {
-                // Create the OSC address to bind to
-                var address = CreateAddress(component, field);
-
-                var fieldType = field.FieldType;
+                else continue;
 
                 // Add a delegate representing the set method to the appropriate dictionary
                 bool addedToDictionary = false;
@@ -139,56 +90,61 @@ public class OscEnumerator : MonoBehaviour
                     {
                         case "Int32":
                             ParameterTypes.Add(address, MemberType.Int32);
-                            var intSetter = new Action<int>((int value) =>
-                            {
-                                field.SetValue(component, value);
-                            });
+                            Action<int> intSetter;
+                            if (memberType == MemberTypes.Property)
+                                intSetter = (Action<int>)Delegate.CreateDelegate(typeof(Action<int>), component, setMethod);
+                            else
+                                intSetter = new Action<int>((int value) => ((FieldInfo)member).SetValue(component, value));
                             IntSetters.Add(address, intSetter);
                             addedToDictionary = true;
                             break;
                         case "Single":
                             ParameterTypes.Add(address, MemberType.Single);
-                            var singleSetter = new Action<Single>((Single value) =>
-                            {
-                                Debug.Log("setting single value: " + value);
-                                field.SetValue(component, value);
-                            });
+                            Action<Single> singleSetter;
+                            if (memberType == MemberTypes.Property)
+                                singleSetter = (Action<Single>)Delegate.CreateDelegate(typeof(Action<Single>), component, setMethod);
+                            else
+                                singleSetter = new Action<Single>((Single value) => ((FieldInfo)member).SetValue(component, value));
                             SingleSetters.Add(address, singleSetter);
                             addedToDictionary = true;
                             break;
                         case "Boolean":
                             ParameterTypes.Add(address, MemberType.Boolean);
-                            var booleanSetter = new Action<bool>((bool value) =>
-                            {
-                                field.SetValue(component, value);
-                            });
+                            Action<bool> booleanSetter;
+                            if (memberType == MemberTypes.Property)
+                                booleanSetter = (Action<bool>)Delegate.CreateDelegate(typeof(Action<bool>), component, setMethod);
+                            else
+                                booleanSetter = new Action<bool>((bool value) => ((FieldInfo)member).SetValue(component, value));
                             BooleanSetters.Add(address, booleanSetter);
                             addedToDictionary = true;
                             break;
                         case "Vector3":
                             ParameterTypes.Add(address, MemberType.Vector3);
-                            var vector3Setter = new Action<Vector3>((Vector3 value) =>
-                            {
-                                field.SetValue(component, value);
-                            });
+                            Action<Vector3> vector3Setter;
+                            if (memberType == MemberTypes.Property)
+                                vector3Setter = (Action<Vector3>)Delegate.CreateDelegate(typeof(Action<Vector3>), component, setMethod);
+                            else
+                                vector3Setter = new Action<Vector3>((Vector3 value) => ((FieldInfo)member).SetValue(component, value));
                             Vector3Setters.Add(address, vector3Setter);
                             addedToDictionary = true;
                             break;
                         case "Vector2":
                             ParameterTypes.Add(address, MemberType.Vector2);
-                            var vector2Setter = new Action<Vector2>((Vector2 value) =>
-                            {
-                                field.SetValue(component, value);
-                            });
+                            Action<Vector2> vector2Setter;
+                            if (memberType == MemberTypes.Property)
+                                vector2Setter = (Action<Vector2>)Delegate.CreateDelegate(typeof(Action<Vector2>), component, setMethod);
+                            else
+                                vector2Setter = new Action<Vector2>((Vector2 value) => ((FieldInfo)member).SetValue(component, value));
                             Vector2Setters.Add(address, vector2Setter);
                             addedToDictionary = true;
                             break;
                         case "String":
                             ParameterTypes.Add(address, MemberType.String);
-                            var stringSetter = new Action<string>((string value) =>
-                            {
-                                field.SetValue(component, value);
-                            });
+                            Action<string> stringSetter;
+                            if (memberType == MemberTypes.Property)
+                                stringSetter = (Action<string>)Delegate.CreateDelegate(typeof(Action<string>), component, setMethod);
+                            else
+                                stringSetter = new Action<string>((string value) => ((FieldInfo)member).SetValue(component, value));
                             StringSetters.Add(address, stringSetter);
                             addedToDictionary = true;
                             break;
@@ -196,7 +152,7 @@ public class OscEnumerator : MonoBehaviour
                 }
                 catch (Exception exception)
                 {
-                    Debug.Log("Failed to bind " + "/" + address + "/");
+                    Debug.Log("Failed to bind " + address);
                     Debug.LogException(exception);
                     addedToDictionary = false;
                 }
@@ -210,7 +166,7 @@ public class OscEnumerator : MonoBehaviour
 
     void RemoveAllAddresses()
     {
-        foreach (var address in InstanceAddresses)
+        foreach (var address in InstanceAddresses.ToArray())
         {
             InstanceAddresses.Remove(address);
             if (IntSetters.Remove(address))
@@ -230,41 +186,57 @@ public class OscEnumerator : MonoBehaviour
 
     void RouteMessages(string address, OscDataHandle data)
     {
-        UnityMainThreadDispatcher.Instance().Enqueue((string dataAddress) =>
+        switch (ParameterTypes[address])
         {
-            if (InstanceAddresses.Contains(dataAddress))
-            {
-                switch (ParameterTypes[dataAddress])
+            case MemberType.Boolean:
+                // any non-zero is true
+                var boolData = (data.GetElementAsInt(0) != 0);
+                UnityMainThreadDispatcher.Instance().Enqueue((bool parameter) =>
                 {
-                    case MemberType.Int32:
-                        IntSetters[dataAddress].Invoke(data.GetElementAsInt(0));
-                        break;
-                    case MemberType.Single:
-                        SingleSetters[dataAddress].Invoke(data.GetElementAsFloat(0));
-                        break;
-                    case MemberType.Boolean:
-                            // any non-zero value is true
-                            var boolean = (data.GetElementAsInt(0) != 0);
-                        BooleanSetters[dataAddress].Invoke(boolean);
-                        break;
-                    case MemberType.Vector2:
-                        Vector2Setters[dataAddress].Invoke(new Vector2(data.GetElementAsFloat(0),
-                                data.GetElementAsFloat(1)));
-                        break;
-                    case MemberType.Vector3:
-                        Vector3Setters[dataAddress].Invoke(new Vector3(data.GetElementAsFloat(0),
-                                data.GetElementAsFloat(1), data.GetElementAsFloat(2)));
-                        break;
-                    case MemberType.String:
-                        int element = 0;
-                        string message = data.GetElementAsString(element++);
-                        while (data.GetElementAsString(element) != String.Empty)
-                            message += " " + data.GetElementAsString(element++);
-                        StringSetters[dataAddress].Invoke(message);
-                        break;
-                }
-            }
-        }, (string)address.Clone());
+                    BooleanSetters[address].Invoke(parameter);
+                }, boolData);
+                break;
+            case MemberType.Int32:
+                var intData = data.GetElementAsInt(0);
+                UnityMainThreadDispatcher.Instance().Enqueue((Int32 parameter) =>
+                {
+                    IntSetters[address].Invoke(parameter);
+                }, intData);
+                break;
+            case MemberType.Single:
+                var singleData = data.GetElementAsFloat(0);
+                UnityMainThreadDispatcher.Instance().Enqueue((Single parameter) =>
+                {
+                    SingleSetters[address].Invoke(parameter);
+                }, singleData);
+                break;
+            case MemberType.Vector2:
+                var vector2Data = new Vector2(data.GetElementAsFloat(0), data.GetElementAsFloat(1));
+                UnityMainThreadDispatcher.Instance().Enqueue((Vector2 parameter) =>
+                {
+                    Vector2Setters[address].Invoke(parameter);
+                }, vector2Data);
+                break;
+            case MemberType.Vector3:
+                var vector3Data = new Vector3(data.GetElementAsFloat(0), data.GetElementAsFloat(1),
+                    data.GetElementAsFloat(2));
+                UnityMainThreadDispatcher.Instance().Enqueue((Vector3 parameter) =>
+                {
+                    Vector3Setters[address].Invoke(parameter);
+                }, vector3Data);
+                break;
+            case MemberType.String:
+                // each word comes as a different index (delimited by a space)
+                int element = 0;
+                string message = data.GetElementAsString(element++);
+                while (data.GetElementAsString(element) != String.Empty)
+                    message += " " + data.GetElementAsString(element++);
+                UnityMainThreadDispatcher.Instance().Enqueue((string parameter) =>
+                {
+                    StringSetters[address].Invoke(parameter);
+                }, message);
+                break;
+        }
     }
 
     string CreateAddress(Component component, MemberInfo member)

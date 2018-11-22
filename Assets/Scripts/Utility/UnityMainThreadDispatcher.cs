@@ -1,25 +1,11 @@
-﻿/*
-Copyright 2015 Pim de Witte All Rights Reserved.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-using UnityEngine;
+﻿using OscJack;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEngine;
 
 /// Author: Pim de Witte (pimdewitte.com) and contributors
+/// Extended by eidetic
 /// <summary>
 /// A thread-safe class which holds a queue with actions to execute on the next Update() method. It can be used to make calls to the main thread for
 /// things such as UI Manipulation in Unity. It was developed for use in combination with the Firebase Unity plugin, which uses separate threads for event handling
@@ -62,16 +48,61 @@ public class UnityMainThreadDispatcher : MonoBehaviour
     {
         Enqueue(ActionWrapper(action));
     }
-    public void Enqueue(Action<string> action, string parameter)
-    {
-        Enqueue(ActionWrapper(action, parameter));
-    }
     IEnumerator ActionWrapper(Action a)
     {
         a();
         yield return null;
     }
+    public void Enqueue(Action<Int32> action, Int32 parameter)
+    {
+        Enqueue(ActionWrapper(action, parameter));
+    }
+    IEnumerator ActionWrapper(Action<Int32> a, Int32 parameter)
+    {
+        a(parameter);
+        yield return null;
+    }
+    public void Enqueue(Action<Single> action, Single parameter)
+    {
+        Enqueue(ActionWrapper(action, parameter));
+    }
+    IEnumerator ActionWrapper(Action<Single> a, Single parameter)
+    {
+        a(parameter);
+        yield return null;
+    }
+    public void Enqueue(Action<bool> action, bool parameter)
+    {
+        Enqueue(ActionWrapper(action, parameter));
+    }
+    IEnumerator ActionWrapper(Action<bool> a, bool parameter)
+    {
+        a(parameter);
+        yield return null;
+    }
+    public void Enqueue(Action<string> action, string parameter)
+    {
+        Enqueue(ActionWrapper(action, parameter));
+    }
     IEnumerator ActionWrapper(Action<string> a, string parameter)
+    {
+        a(parameter);
+        yield return null;
+    }
+    public void Enqueue(Action<Vector2> action, Vector2 parameter)
+    {
+        Enqueue(ActionWrapper(action, parameter));
+    }
+    IEnumerator ActionWrapper(Action<Vector2> a, Vector2 parameter)
+    {
+        a(parameter);
+        yield return null;
+    }
+    public void Enqueue(Action<Vector3> action, Vector3 parameter)
+    {
+        Enqueue(ActionWrapper(action, parameter));
+    }
+    IEnumerator ActionWrapper(Action<Vector3> a, Vector3 parameter)
     {
         a(parameter);
         yield return null;
