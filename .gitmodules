@@ -4,3 +4,6 @@
 [submodule "Assets/xNode"]
 	path = Assets/xNode
 	url = https://github.com/Siccity/xNode.git
+[submodule "Assets/Nodes"]
+	path = Assets/Nodes
+	url = https://github.com/eidetic-av/Nodes.git
