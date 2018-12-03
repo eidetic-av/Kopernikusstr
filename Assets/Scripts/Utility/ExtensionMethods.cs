@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Utility
 {
@@ -52,7 +54,7 @@ namespace Utility
         /// <returns>Int mapped to the new range, rounded to nearest.</returns>
         public static int Map(this int input, int minimumInput, int maximumInput, int minimumOutput, int maximumOutput)
         {
-            return (int) Math.Round(((input - minimumInput) / (float)(maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput);
+            return (int)Math.Round(((input - minimumInput) / (float)(maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput);
         }
 
         /// <summary>
@@ -117,6 +119,18 @@ namespace Utility
         public static string Copy(this string inputString)
         {
             return new string(inputString.ToCharArray());
+        }
+
+        /// <summary>
+        /// Convert the string to PascalCase.
+        /// </summary>
+        /// <param name="inputString">The input string to convert</param>
+        /// <returns>PascalCasedString</returns>
+        public static string ToPascal(this string input)
+        {
+            var alphaNumeric = Regex.Replace(input, "[^A-Za-z0-9]", string.Empty);
+            var output = alphaNumeric.First().ToString().ToUpper() + alphaNumeric.Substring(1);
+            return output;
         }
     }
 }
