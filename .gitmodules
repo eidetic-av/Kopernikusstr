@@ -1,6 +1,3 @@
-[submodule "Assets/Nodes"]
-	path = Assets/Nodes
-	url = https://github.com/eidetic-av/Nodes.git
 [submodule "Assets/Skinner"]
 	path = Assets/Skinner
 	url = https://github.com/eidetic-av/Skinner.git
