@@ -1,3 +1,6 @@
 [submodule "Assets/Skinner"]
 	path = Assets/Skinner
 	url = https://github.com/eidetic-av/Skinner.git
+[submodule "Assets/Confluence"]
+	path = Assets/Confluence
+	url = https://github.com/eidetic-av/Confluence.git
