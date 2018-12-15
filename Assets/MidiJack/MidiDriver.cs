@@ -187,7 +187,7 @@ namespace MidiJack
             }
         }
 
-        void Update()
+        public void Update()
         {
             // Update the note state array.
             foreach (var cs in _channelArray)

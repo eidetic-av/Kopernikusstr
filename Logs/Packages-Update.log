@@ -41,3 +41,14 @@ The following packages were added:
   com.unity.modules.vr@1.0.0
   com.unity.modules.wind@1.0.0
   com.unity.modules.xr@1.0.0
+
+=== Thu Dec  6 00:46:17 2018
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were added:
+  com.unity.collab-proxy@1.2.11
+The following packages were updated:
+  com.unity.package-manager-ui from version 1.9.9 to 2.0.3
+  com.unity.shadergraph from version 3.0.0-preview to 4.1.0-preview
