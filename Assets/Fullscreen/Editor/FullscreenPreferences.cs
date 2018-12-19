@@ -296,7 +296,7 @@ namespace Fullscreen {
         }
 
         private static string EscapeURL(string url) {
-            return WWW.EscapeURL(url).Replace("+", "%20");
+            return UnityEngine.Networking.UnityWebRequest.EscapeURL(url).Replace("+", "%20");
         }
 
         private static int GetIndexOnPreferences(EditorWindow instance) {
