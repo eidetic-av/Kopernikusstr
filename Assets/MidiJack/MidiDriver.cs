@@ -57,6 +57,17 @@ namespace MidiJack
         // Last update frame number
         int _lastFrame;
 
+        // Timecode message history
+        Queue<float> _midiClockHistory;
+
+        public Queue<float> MidiClockHistory
+        {
+            get { return _midiClockHistory; }
+        }
+        System.Diagnostics.Stopwatch MidiClockTimer;
+        public static float BeatsPerMinute;
+        public static float SecondsPerBeat;
+
         #endregion
 
         #region Accessor Methods
@@ -115,16 +126,17 @@ namespace MidiJack
 
         #region Editor Support
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         // Update timer
-        const float _updateInterval = 1.0f / 30;
+        const float _updateInterval = 1.0f / 120;
         float _lastUpdateTime;
 
         bool CheckUpdateInterval()
         {
             var current = Time.realtimeSinceStartup;
-            if (current - _lastUpdateTime > _updateInterval || current < _lastUpdateTime) {
+            if (current - _lastUpdateTime > _updateInterval || current < _lastUpdateTime)
+            {
                 _lastUpdateTime = current;
                 return true;
             }
@@ -134,8 +146,10 @@ namespace MidiJack
         // Total message count
         int _totalMessageCount;
 
-        public int TotalMessageCount {
-            get {
+        public int TotalMessageCount
+        {
+            get
+            {
                 UpdateIfNeeded();
                 return _totalMessageCount;
             }
@@ -144,11 +158,12 @@ namespace MidiJack
         // Message history
         Queue<MidiMessage> _messageHistory;
 
-        public Queue<MidiMessage> History {
+        public Queue<MidiMessage> History
+        {
             get { return _messageHistory; }
         }
 
-        #endif
+#endif
 
         #endregion
 
@@ -160,9 +175,13 @@ namespace MidiJack
             for (var i = 0; i < 17; i++)
                 _channelArray[i] = new ChannelState();
 
-            #if UNITY_EDITOR
+            _midiClockHistory = new Queue<float>();
+            MidiClockTimer = new System.Diagnostics.Stopwatch();
+            MidiClockTimer.Start();
+
+#if UNITY_EDITOR
             _messageHistory = new Queue<MidiMessage>();
-            #endif
+#endif
         }
 
         #endregion
@@ -174,16 +193,17 @@ namespace MidiJack
             if (Application.isPlaying)
             {
                 var frame = Time.frameCount;
-                if (frame != _lastFrame) {
+                if (frame != _lastFrame)
+                {
                     Update();
                     _lastFrame = frame;
                 }
             }
             else
             {
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
                 if (CheckUpdateInterval()) Update();
-                #endif
+#endif
             }
         }
 
@@ -227,7 +247,7 @@ namespace MidiJack
                 }
 
                 // Note off message?
-                if (statusCode == 8 || (statusCode == 9 && message.data2 == 0))
+                else if (statusCode == 8 || (statusCode == 9 && message.data2 == 0))
                 {
                     _channelArray[channelNumber]._noteArray[message.data1] = -1;
                     _channelArray[(int)MidiChannel.All]._noteArray[message.data1] = -1;
@@ -236,7 +256,7 @@ namespace MidiJack
                 }
 
                 // CC message?
-                if (statusCode == 0xb)
+                else if (statusCode == 0xb)
                 {
                     // Normalize the value.
                     var level = 1.0f / 127 * message.data2;
@@ -248,25 +268,46 @@ namespace MidiJack
                         knobDelegate((MidiChannel)channelNumber, message.data1, level);
                 }
 
-                #if UNITY_EDITOR
+                // 	MIDI Time Code message?
+                else if (statusCode == 0xf)
+                {
+                    // Add the current time to the time code history queue
+                    _midiClockHistory.Enqueue(Time.time);
+                    // Keep 96 messages in the queue (a bar worth)
+                    while (_midiClockHistory.Count > 96)
+                    {
+                        _midiClockHistory.Dequeue();
+                        // Calculate the tempo by averaging the difference between each time recorded
+                        var times = _midiClockHistory.ToArray();
+                        var sum = 0f;
+                        for (int i = 1; i < times.Length; i++)
+                        {
+                            sum += times[i] - times[i - 1];
+                        }
+                        SecondsPerBeat = sum / 96;
+                        BeatsPerMinute = 60 / (SecondsPerBeat * 24);
+                    }
+                }
+
+#if UNITY_EDITOR
                 // Record the message.
                 _totalMessageCount++;
                 _messageHistory.Enqueue(message);
-                #endif
+#endif
             }
 
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             // Truncate the history.
             while (_messageHistory.Count > 8)
                 _messageHistory.Dequeue();
-            #endif
+#endif
         }
 
         #endregion
 
         #region Native Plugin Interface
 
-        [DllImport("MidiJackPlugin", EntryPoint="MidiJackDequeueIncomingData")]
+        [DllImport("MidiJackPlugin", EntryPoint = "MidiJackDequeueIncomingData")]
         public static extern ulong DequeueIncomingData();
 
         #endregion
@@ -275,9 +316,12 @@ namespace MidiJack
 
         static MidiDriver _instance;
 
-        public static MidiDriver Instance {
-            get {
-                if (_instance == null) {
+        public static MidiDriver Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
                     _instance = new MidiDriver();
                     if (Application.isPlaying)
                         MidiStateUpdater.CreateGameObject(
