@@ -233,11 +233,10 @@ namespace MidiJack
                 var message = new MidiMessage(data);
 
                 // Split the first byte.
-                var statusCode = message.status >> 4;
+                var statusCode = (StatusCode)(message.status >> 4);
                 var channelNumber = message.status & 0xf;
 
-                // Note on message?
-                if (statusCode == 9)
+                if (statusCode == StatusCode.NoteOn)
                 {
                     var velocity = 1.0f / 127 * message.data2 + 1;
                     _channelArray[channelNumber]._noteArray[message.data1] = velocity;
@@ -246,8 +245,7 @@ namespace MidiJack
                         noteOnDelegate((MidiChannel)channelNumber, message.data1, velocity - 1);
                 }
 
-                // Note off message?
-                else if (statusCode == 8 || (statusCode == 9 && message.data2 == 0))
+                else if (statusCode == StatusCode.NoteOff || (statusCode == StatusCode.NoteOn && message.data2 == 0))
                 {
                     _channelArray[channelNumber]._noteArray[message.data1] = -1;
                     _channelArray[(int)MidiChannel.All]._noteArray[message.data1] = -1;
@@ -255,8 +253,7 @@ namespace MidiJack
                         noteOffDelegate((MidiChannel)channelNumber, message.data1);
                 }
 
-                // CC message?
-                else if (statusCode == 0xb)
+                else if (statusCode == StatusCode.ControlChange)
                 {
                     // Normalize the value.
                     var level = 1.0f / 127 * message.data2;
@@ -268,10 +265,9 @@ namespace MidiJack
                         knobDelegate((MidiChannel)channelNumber, message.data1, level);
                 }
 
-                // 	MIDI Time Code message?
-                else if (statusCode == 0xf)
+                else if (statusCode == StatusCode.Clock)
                 {
-                    // Add the current time to the time code history queue
+                    // Add the current time to the clock history queue
                     _midiClockHistory.Enqueue(Time.time);
                     // Keep 96 messages in the queue (a bar worth)
                     while (_midiClockHistory.Count > 96)
@@ -290,9 +286,12 @@ namespace MidiJack
                 }
 
 #if UNITY_EDITOR
-                // Record the message.
-                _totalMessageCount++;
-                _messageHistory.Enqueue(message);
+                // If it's not a clock, record the message.
+                if (statusCode != StatusCode.Clock)
+                {
+                    _totalMessageCount++;
+                    _messageHistory.Enqueue(message);
+                }
 #endif
             }
 
@@ -329,6 +328,11 @@ namespace MidiJack
                 }
                 return _instance;
             }
+        }
+
+        public enum StatusCode
+        {
+            NoteOn = 9, NoteOff = 8, ControlChange = 0xb, Clock = 0xf
         }
 
         #endregion
