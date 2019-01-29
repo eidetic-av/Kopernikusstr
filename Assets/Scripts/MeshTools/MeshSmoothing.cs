@@ -6,7 +6,7 @@
  * http://graphics.stanford.edu/courses/cs468-12-spring/LectureSlides/06_smoothing.pdf
  * http://wiki.unity3d.com/index.php?title=MeshSmoother
  * 
- * Original MeshSmoother by mattatz, additions added by Eidetic
+ * Original MeshSmoother by mattatz, additions by Eidetic
  */
 
 using UnityEngine;
@@ -25,9 +25,9 @@ public class MeshSmoothing
     public static List<int> PreviousTriangles;
     public static int[] LatestTriangles;
 
-    public static Mesh LaplacianFilter(Mesh mesh, int times, JobHandle jobHandlerDependency)
+    public static Mesh LaplacianFilter(Mesh mesh, int times)
     {
-        mesh.vertices = LaplacianFilter(mesh.vertices, mesh.triangles, times, jobHandlerDependency);
+        mesh.vertices = LaplacianFilter(mesh.vertices, mesh.triangles, times);
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
         return mesh;
@@ -36,7 +36,7 @@ public class MeshSmoothing
     public static Dictionary<int, VertexConnection> Network;
     public static Vector3[] LatestVertices;
 
-    public static Vector3[] LaplacianFilter(Vector3[] sourceVertices, int[] sourceTriangles, int times, JobHandle initialJobHandlerDependency)
+    public static Vector3[] LaplacianFilter(Vector3[] sourceVertices, int[] sourceTriangles, int times)
     {
         var filterJobHandlers = new List<JobHandle>();
         int batchSize = 250;
@@ -58,7 +58,7 @@ public class MeshSmoothing
 
             if (i == 0)
             {
-                filterJobHandlers.Add(job.Schedule(vertexArray.Length, batchSize, initialJobHandlerDependency));
+                filterJobHandlers.Add(job.Schedule(vertexArray.Length, batchSize));
             }
             else
             {
@@ -116,87 +116,6 @@ public class MeshSmoothing
         }
         return vertices;
     }
-
-    /*
-     * HC (Humphrey’s Classes) Smooth Algorithm - Reduces Shrinkage of Laplacian Smoother
-     * alpha 0.0 ~ 1.0
-     * beta  0.0 ~ 1.0
-    */
-    public static Mesh HCFilter(Mesh mesh, int times = 5, float alpha = 0.5f, float beta = 0.75f)
-    {
-        mesh.vertices = HCFilter(mesh.vertices, mesh.triangles, times, alpha, beta);
-        mesh.RecalculateNormals();
-        mesh.RecalculateBounds();
-        return mesh;
-    }
-
-    public static Mesh HCFilter(Mesh mesh, List<int> limitedTriangles, int times = 5, float alpha = 0.5f, float beta = 0.75f)
-    {
-        mesh.vertices = HCFilter(mesh.vertices, limitedTriangles, times, alpha, beta);
-        mesh.RecalculateNormals();
-        mesh.RecalculateBounds();
-        return mesh;
-    }
-
-    static Vector3[] HCFilter(Vector3[] vertices, int[] triangles, int times, float alpha, float beta)
-    {
-        alpha = Mathf.Clamp01(alpha);
-        beta = Mathf.Clamp01(beta);
-
-        var network = VertexConnection.BuildNetwork(triangles);
-
-        Vector3[] origin = new Vector3[vertices.Length];
-        Array.Copy(vertices, origin, vertices.Length);
-        for (int i = 0; i < times; i++)
-        {
-            vertices = HCFilter(network, origin, vertices, triangles, alpha, beta);
-        }
-        return vertices;
-    }
-
-    static Vector3[] HCFilter(Vector3[] vertices, List<int> limitedTriangles, int times, float alpha, float beta)
-    {
-        alpha = Mathf.Clamp01(alpha);
-        beta = Mathf.Clamp01(beta);
-
-        var limitedTrianglesArray = limitedTriangles.ToArray();
-
-        var network = VertexConnection.BuildNetwork(limitedTrianglesArray);
-        var limitedVertexCount = limitedTriangles.Max();
-        Vector3[] origin = new Vector3[limitedVertexCount];
-        Array.Copy(vertices, origin, limitedVertexCount);
-        for (int i = 0; i < times; i++)
-        {
-            vertices = HCFilter(network, origin, vertices, limitedTrianglesArray, alpha, beta);
-        }
-        return vertices;
-    }
-
-    public static Vector3[] HCFilter(Dictionary<int, VertexConnection> network, Vector3[] o, Vector3[] q, int[] triangles, float alpha, float beta)
-    {
-        //Vector3[] p = LaplacianFilter(network, q, triangles);
-        //Vector3[] b = new Vector3[o.Length];
-
-        //for (int i = 0; i < p.Length; i++)
-        //{
-        //    b[i] = p[i] - (alpha * o[i] + (1f - alpha) * q[i]);
-        //}
-
-        //for (int i = 0; i < p.Length; i++)
-        //{
-        //    var adjacents = network[i].Connection;
-        //    var bs = Vector3.zero;
-        //    foreach (int adj in adjacents)
-        //    {
-        //        bs += b[adj];
-        //    }
-        //    p[i] = p[i] - (beta * b[i] + (1 - beta) / adjacents.Count * bs);
-        //}
-
-        //return p;
-        return null;
-    }
-
 }
 
 
