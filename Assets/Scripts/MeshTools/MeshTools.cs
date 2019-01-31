@@ -5,45 +5,59 @@ using Unity.Jobs;
 using UnityEngine;
 public class MeshTools : MonoBehaviour
 {
+    // Inputs
     public Mesh InputMesh;
     public bool Bypass;
     public bool Freeze;
     public float NoiseIntensity;
     public int SmoothingTimes;
-    public MeshFilter OutputMeshFilter;
+
+    // Outputs
+    public Mesh OutputMesh;
+
+    public string OutputMeshId;
+
+    public bool RefreshOutput;
+
+    void Start()
+    {
+        if (InputMesh)
+            OutputMesh = Instantiate(InputMesh);
+    }
 
     void Update()
     {
-        if (Bypass)
+        if (RefreshOutput)
         {
-            OutputMeshFilter.mesh = InputMesh;
-            return;
+            MeshPublisher.Meshes.TryGetValue(OutputMeshId, out var mesh);
+            OutputMesh = mesh;
+            RefreshOutput = false;
         }
-        else if (Freeze)
-            return;
 
-        var intermediateMesh = Instantiate(InputMesh);
+        if (Bypass) OutputMesh = InputMesh;
 
-        var noiseJobVertices = new NativeArray<Vector3>(intermediateMesh.vertices, Allocator.TempJob);
-        var noiseJobNormals = new NativeArray<Vector3>(intermediateMesh.normals, Allocator.TempJob);
+        if (Bypass || Freeze) return;
 
-        new NoiseJob(noiseJobVertices, noiseJobNormals, NoiseIntensity)
-            .Schedule(InputMesh.vertexCount, 50)
-            .Complete();
+        // Allocate memory for the vertices because we
+        // calculate their new positions on multiple threads
+        var vertices = new NativeArray<Vector3>(InputMesh.vertices, Allocator.TempJob);
+        var normals = new NativeArray<Vector3>(InputMesh.normals, Allocator.TempJob);
 
-        OutputMeshFilter.mesh.SetVertices(noiseJobVertices.ToList());
+        new NoiseJob(vertices, normals, NoiseIntensity).Schedule(InputMesh.vertexCount, 50).Complete();
 
-        noiseJobVertices.Dispose();
-        noiseJobNormals.Dispose();
+        OutputMesh.SetVertices(vertices.ToList());
 
-        OutputMeshFilter.mesh = MeshSmoothing.LaplacianFilter(OutputMeshFilter.mesh, SmoothingTimes);
+        vertices.Dispose();
+        normals.Dispose();
+
+        // OutputMeshFilter.mesh = MeshSmoothing.LaplacianFilter(OutputMeshFilter.mesh, SmoothingTimes);
     }
 
     struct NoiseJob : IJobParallelFor
     {
-        public NativeArray<Vector3> vertices;
-        public NativeArray<Vector3> normals;
-        public float intensity;
+        NativeArray<Vector3> vertices;
+        NativeArray<Vector3> normals;
+        float intensity;
 
         public NoiseJob(NativeArray<Vector3> vertices, NativeArray<Vector3> normals, float intensity)
         {
