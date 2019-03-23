@@ -21,15 +21,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
+using System;
 using UnityEngine;
 
 namespace MidiJack
 {
     public class MidiStateUpdater : MonoBehaviour
     {
-        public delegate void Callback();
-
-        public static void CreateGameObject(Callback callback)
+        public static void CreateGameObject(Action callback)
         {
             var go = new GameObject("MIDI Updater");
 
@@ -37,14 +36,11 @@ namespace MidiJack
             go.hideFlags = HideFlags.HideInHierarchy;
 
             var updater = go.AddComponent<MidiStateUpdater>();
-            updater._callback = callback;
+            updater.Callback = callback;
         }
 
-        Callback _callback;
+        Action Callback;
 
-        void Update()
-        {
-            _callback();
-        }
+        void Update() => Callback.Invoke();
     }
 }

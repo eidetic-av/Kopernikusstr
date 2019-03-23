@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using Utility;
+using Eidetic.Utility;
 
 public class OscEnumerator : MonoBehaviour
 {
@@ -30,7 +30,7 @@ public class OscEnumerator : MonoBehaviour
     void OnEnable()
     {
         // Add our routing method to the OscServer callbacks
-        OscReceiver.Server.MessageDispatcher.AddRootNodeCallback(gameObject.name.ToPascal(), RouteMessages);
+        OscReceiver.Server.MessageDispatcher.AddRootNodeCallback(gameObject.name.ToPascalCase(), RouteMessages);
         // And bind all components to addresses
         BindAddresses();
     }
@@ -38,7 +38,7 @@ public class OscEnumerator : MonoBehaviour
     void OnDisable()
     {
         // Remove our routing method to the OscServer callbacks
-        OscReceiver.Server.MessageDispatcher.RemoveRootNodeCallback(gameObject.name.ToPascal(), RouteMessages);
+        OscReceiver.Server.MessageDispatcher.RemoveRootNodeCallback(gameObject.name.ToPascalCase(), RouteMessages);
         // Remove the address bindings
         RemoveAllAddresses();
     }
@@ -192,39 +192,26 @@ public class OscEnumerator : MonoBehaviour
             case MemberType.Boolean:
                 // any non-zero is true
                 var boolData = (data.GetElementAsInt(0) != 0);
-                UnityMainThreadDispatcher.Instance().Enqueue((bool parameter) =>
-                {
-                    BooleanSetters[address].Invoke(parameter);
-                }, boolData);
+                Threads.RunOnMain(BooleanSetters[address], boolData);
                 break;
             case MemberType.Int32:
                 var intData = data.GetElementAsInt(0);
-                UnityMainThreadDispatcher.Instance().Enqueue((Int32 parameter) =>
-                {
-                    IntSetters[address].Invoke(parameter);
-                }, intData);
+                Threads.RunOnMain(IntSetters[address], intData);
                 break;
             case MemberType.Single:
                 var singleData = data.GetElementAsFloat(0);
-                UnityMainThreadDispatcher.Instance().Enqueue((Single parameter) =>
-                {
-                    SingleSetters[address].Invoke(parameter);
-                }, singleData);
+                Threads.RunOnMain(SingleSetters[address], singleData);
                 break;
             case MemberType.Vector2:
                 var vector2Data = new Vector2(data.GetElementAsFloat(0), data.GetElementAsFloat(1));
-                UnityMainThreadDispatcher.Instance().Enqueue((Vector2 parameter) =>
-                {
-                    Vector2Setters[address].Invoke(parameter);
-                }, vector2Data);
+                Threads.RunOnMain(Vector2Setters[address], vector2Data);
                 break;
             case MemberType.Vector3:
-                var vector3Data = new Vector3(data.GetElementAsFloat(0), data.GetElementAsFloat(1),
+                var vector3Data = new Vector3(
+                    data.GetElementAsFloat(0),
+                    data.GetElementAsFloat(1),
                     data.GetElementAsFloat(2));
-                UnityMainThreadDispatcher.Instance().Enqueue((Vector3 parameter) =>
-                {
-                    Vector3Setters[address].Invoke(parameter);
-                }, vector3Data);
+                Threads.RunOnMain(Vector3Setters[address], vector3Data);
                 break;
             case MemberType.String:
                 // each word comes as a different index (delimited by a space)
@@ -232,19 +219,16 @@ public class OscEnumerator : MonoBehaviour
                 string message = data.GetElementAsString(element++);
                 while (data.GetElementAsString(element) != String.Empty)
                     message += " " + data.GetElementAsString(element++);
-                UnityMainThreadDispatcher.Instance().Enqueue((string parameter) =>
-                {
-                    StringSetters[address].Invoke(parameter);
-                }, message);
+                Threads.RunOnMain(StringSetters[address], message);
                 break;
         }
     }
 
     string CreateAddress(Component component, MemberInfo member)
     {
-        var objectNode = component.name.ToPascal();
-        var componentNode = component.GetType().Name.ToPascal();
-        var memberNode = member.Name.ToPascal();
+        var objectNode = component.name.ToPascalCase();
+        var componentNode = component.GetType().Name.ToPascalCase();
+        var memberNode = member.Name.ToPascalCase();
 
         string address = "/" + objectNode + "/" + componentNode + "/" + memberNode;
 

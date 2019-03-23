@@ -32,6 +32,7 @@ namespace OscJack
             }
         }
 
+
         public void AddRootNodeCallback(string rootNode, MessageCallback callback)
         {
             lock (RootNodeCallbackMap)

@@ -9,6 +9,7 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Diagnostics;
 
 #if OSC_SERVER_LIST
 using System.Collections.Generic;
@@ -123,7 +124,6 @@ namespace OscJack
         {
             var parser = new OscPacketParser(_dispatcher);
             var buffer = new byte[4096];
-
             while (!_disposed)
             {
                 try
