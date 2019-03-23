@@ -313,20 +313,19 @@ namespace MidiJack
 
         #region Singleton Class Instance
 
-        static MidiDriver _instance;
+        static MidiDriver instance;
 
         public static MidiDriver Instance
         {
             get
             {
-                if (_instance == null)
+                if (instance == null)
                 {
-                    _instance = new MidiDriver();
+                    instance = new MidiDriver();
                     if (Application.isPlaying)
-                        MidiStateUpdater.CreateGameObject(
-                            new MidiStateUpdater.Callback(_instance.Update));
+                        MidiStateUpdater.CreateGameObject(Instance.Update);
                 }
-                return _instance;
+                return instance;
             }
         }
 
