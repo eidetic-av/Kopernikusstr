@@ -86,6 +86,13 @@ namespace Eidetic.Utility
             else return value;
         }
 
+        /// <summary>
+        /// Rounds a float to an int
+        /// </summary>
+        /// <param name="value">The input value to round</param>
+        /// <returns>Value clamped to the specified range</returns>
+        public static int RoundToInt(this float value) => (int) Math.Round(value);
+
         public static float Pow(this float baseValue, float exponent) => (float) System.Math.Pow(baseValue, exponent);
 
         /// <summary>
