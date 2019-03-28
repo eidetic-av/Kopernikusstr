@@ -43,6 +43,20 @@ namespace Eidetic.Utility
         }
 
         /// <summary>
+        /// Map an int from one float range to another.
+        /// </summary>
+        /// <param name="input">The input int to map</param>
+        /// <param name="minimumInput">Original minimum value</param>
+        /// <param name="maximumInput">Original maximum value</param>
+        /// <param name="minimumOutput">New minimum value</param>
+        /// <param name="maximumOutput">New maximum value</param>
+        /// <returns>Float mapped to the new range</returns>
+        public static float Map(this int input, float minimumInput, float maximumInput, float minimumOutput, float maximumOutput)
+        {
+            return ((((float)input) - minimumInput) / (maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput;
+        }
+
+        /// <summary>
         /// Map an int from one range to another.
         /// </summary>
         /// <param name="input">The input int to map</param>
