@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Eidetic.Utility
@@ -53,7 +54,7 @@ namespace Eidetic.Utility
         /// <returns>Float mapped to the new range</returns>
         public static float Map(this int input, float minimumInput, float maximumInput, float minimumOutput, float maximumOutput)
         {
-            return ((((float)input) - minimumInput) / (maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput;
+            return ((((float) input) - minimumInput) / (maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput;
         }
 
         /// <summary>
@@ -143,6 +144,13 @@ namespace Eidetic.Utility
             return output;
         }
 
+        public static bool IsNullOrEmpty(this string input)
+        {
+            if (input == null) return true;
+            else if (input.Trim().Length == 0) return true;
+            else return false;
+        }
+
         public static T[] SubArray<T>(this T[] data, int index, int length)
         {
             T[] result = new T[length];
@@ -211,6 +219,27 @@ namespace Eidetic.Utility
             dictionary.Add(key, value);
         }
 
+        public static Dictionary<K, T> AsDictionary<K, T>(this IEnumerable<T> collection, Func<T, K> keySelector)
+        {
+            var dictionary = new Dictionary<K, T>();
+            foreach (var value in collection.Cast<T>())
+            {
+                dictionary.Add(keySelector.Invoke(value), value);
+            }
+            return dictionary;
+        }
+
+        public static Dictionary<K, T> SelectPair<K, T>(this Dictionary<K, T> inputDictionary, Predicate<T> selector)
+        {
+            var outputDictionary = new Dictionary<K, T>();
+            foreach (var key in inputDictionary.Keys)
+            {
+                var item = inputDictionary[key];
+                if (selector.Invoke(item)) outputDictionary.Add(key, item);
+            }
+            return outputDictionary;
+        }
+
         /// <summary>
         /// Return the C# name of a Type, as opposed to the .Net name that is
         /// returned with Type.Name
@@ -257,5 +286,52 @@ namespace Eidetic.Utility
                     return type.Name;
             }
         }
+
+        /// <summary> Return a prettiefied type name. </summary>
+        // Originally from xNode by Siccity
+        public static string PrettyName(this Type type)
+        {
+            if (type == null) return "null";
+            if (type == typeof(System.Object)) return "object";
+            if (type == typeof(float)) return "float";
+            else if (type == typeof(int)) return "int";
+            else if (type == typeof(long)) return "long";
+            else if (type == typeof(double)) return "double";
+            else if (type == typeof(string)) return "string";
+            else if (type == typeof(bool)) return "bool";
+            else if (type.IsGenericType)
+            {
+                string s = "";
+                Type genericType = type.GetGenericTypeDefinition();
+                if (genericType == typeof(List<>)) s = "List";
+                else s = type.GetGenericTypeDefinition().ToString();
+
+                Type[] types = type.GetGenericArguments();
+                string[] stypes = new string[types.Length];
+                for (int i = 0; i < types.Length; i++)
+                {
+                    stypes[i] = types[i].PrettyName();
+                }
+                return s + "<" + string.Join(", ", stypes) + ">";
+            }
+            else if (type.IsArray)
+            {
+                string rank = "";
+                for (int i = 1; i < type.GetArrayRank(); i++)
+                {
+                    rank += ",";
+                }
+                Type elementType = type.GetElementType();
+                if (!elementType.IsArray) return elementType.PrettyName() + "[" + rank + "]";
+                else
+                {
+                    string s = elementType.PrettyName();
+                    int i = s.IndexOf('[');
+                    return s.Substring(0, i) + "[" + rank + "]" + s.Substring(i);
+                }
+            }
+            else return type.Name;
+        }
+
     }
 }

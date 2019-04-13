@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Eidetic.Unity.Utility;
 using Eidetic.Utility;
 using UnityEngine;
@@ -109,6 +110,7 @@ public static class Threads
 {
     public static void RunOnMain(this Action action) => MainThreadDispatcher.AddToUpdateQueue(action);
     public static void RunOnMain<T>(this Action<T> action, T parameter) => MainThreadDispatcher.AddToUpdateQueue(() => action(parameter));
+    public static void InvokeOnMain(this MethodBase methodBase, object obj, object[] parameters) => Threads.RunOnMain(() => methodBase.Invoke(obj, parameters));
     public static void ForEachOnMain<T>(this List<T> list, Action<T> action) =>
         list.ForEach(item => MainThreadDispatcher.AddToUpdateQueue(() => action.Invoke(item)));
     public static void ForEachOnMain<T, K>(this Dictionary<T, K> dictionary, Action<T, K> action) =>
