@@ -70,8 +70,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: f2aff80574802eb4dabbce2988cb2067, type: 3}
-        m_Scale: {x: 1.539957, y: 1.22}
-        m_Offset: {x: 2, y: 0.4730315}
+        m_Scale: {x: 1.370683, y: 1.22}
+        m_Offset: {x: 2, y: 0.65133584}
     - _MaskMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
