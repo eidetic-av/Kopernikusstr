@@ -2,31 +2,29 @@
 using UnityEngine.UI;
 using System;
 using System.Collections;
-
-#if WINDOWS_UWP
-using NetworkCommunication;
-#else
 using System.Net.Sockets;
 using System.Threading;
-#endif
 
 
 public class PointCloudReceiver : MonoBehaviour
 {
-#if WINDOWS_UWP
-    TransferSocket socket;
-#else
     TcpClient socket;
-#endif
     public int port = 48002;
 
-    PointCloudRenderer pointCloudRenderer;
     bool bReadyForNextFrame = true;
     bool bConnected = false;
 
+    public Vector3 PointCloudRotation = Vector3.zero;
+    public Vector3 PointCloudTranslation = Vector3.zero;
+    public Vector3 PointCloudScale = Vector3.one;
+
+    public Vector3 MinimumBounds = new Vector3(-5, -5, -5);
+    public Vector3 MaximumBounds = new Vector3(5, 5, 5);
+
+    public Mesh Mesh;
+
     void Start()
     {
-        pointCloudRenderer = GetComponent<PointCloudRenderer>();
         Connect("127.0.0.1");
     }
 
@@ -42,41 +40,64 @@ public class PointCloudReceiver : MonoBehaviour
         {
             // Debug.Log("Requesting frame");
 
-#if WINDOWS_UWP
-            socket.RequestFrame();
-            socket.ReceiveFrameAsync();
-#else
             RequestFrame();
-#endif
             bReadyForNextFrame = false;
         }
-
-#if WINDOWS_UWP
-        if (socket.GetFrame(out vertices, out colors))
-    #else
         if (ReceiveFrame(out vertices, out colors))
-    #endif
         {
             // Debug.Log("Frame received");
-            pointCloudRenderer.Render(vertices, colors);
+            int nPoints = vertices != null ? (vertices.Length / 3) : 0;
+
+            Vector3[] points = new Vector3[nPoints];
+            int[] indices = new int[nPoints];
+            Color[] pointColors = new Color[nPoints];
+
+            var bounds = new Bounds();
+            bounds.SetMinMax(MinimumBounds, MaximumBounds);
+
+            int skippedVertices = 0;
+
+            for (int i = 0; i < nPoints; i++)
+            {
+                int pointIndex = 3 * i;
+
+                var vertexPosition = Quaternion.Euler(PointCloudRotation) *
+                    new Vector3(vertices[pointIndex + 0], vertices[pointIndex + 1], -vertices[pointIndex + 2]) + PointCloudTranslation;
+
+                vertexPosition.x = vertexPosition.x * PointCloudScale.x;
+                vertexPosition.y = vertexPosition.y * PointCloudScale.y;
+                vertexPosition.z = vertexPosition.z * PointCloudScale.z;
+
+                if (bounds.Contains(vertexPosition))
+                {
+                    points[i - skippedVertices] = vertexPosition;
+                    indices[i - skippedVertices] = i - skippedVertices;
+                    pointColors[i - skippedVertices] = new Color((float)colors[pointIndex + 0] / 256.0f, (float)colors[pointIndex + 1] / 256.0f, (float)colors[pointIndex + 2] / 256.0f, 1.0f);
+                }
+                else
+                    skippedVertices++;
+            }
+
+            if (Mesh != null)
+                Destroy(Mesh);
+            Mesh = new Mesh();
+            Mesh.vertices = points;
+            Mesh.colors = pointColors;
+            Mesh.SetIndices(indices, MeshTopology.Points, 0);
+            GetComponent<MeshFilter>().mesh = Mesh;
+
             bReadyForNextFrame = true;
         }
     }
 
     public void Connect(string IP)
     {
-#if WINDOWS_UWP
-        socket = new NetworkCommunication.TransferSocket(IP, port);
-#else
         socket = new TcpClient(IP, port);
-#endif
         bConnected = true;
         Debug.Log("Connected");
     }
 
     //Frame receiving for the editor
-#if WINDOWS_UWP
-#else
     void RequestFrame()
     {
         byte[] byteToSend = new byte[1];
@@ -127,5 +148,4 @@ public class PointCloudReceiver : MonoBehaviour
 
         return true;
     }
-#endif
 }
