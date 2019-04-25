@@ -49,6 +49,7 @@ namespace Eidetic.Unity.Utility
             GameObject.Destroy(gameObject);
         }
 
+        #if UNITY_EDITOR
         /// <summary>
         /// Set the value of a SerializedProperty without knowing the type
         /// </summary>
@@ -88,6 +89,7 @@ namespace Eidetic.Unity.Utility
                     break;
             }
         }
+        #endif
 
         /// <summary>
         /// Map a float from one range to another.

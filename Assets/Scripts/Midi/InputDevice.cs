@@ -23,6 +23,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -193,6 +194,8 @@ namespace Midi
             }
         }
 
+        public static List<InputDevice> OpenedDevices = new List<InputDevice>();
+
         /// <summary>
         /// Opens this input device.
         /// </summary>
@@ -212,6 +215,7 @@ namespace Midi
                 CheckReturnCode(Win32API.midiInOpen(out handle, deviceId,
                     inputCallbackDelegate, (UIntPtr)0));
                 isOpen = true;
+                OpenedDevices.Add(this);
             }
         }
 
@@ -251,7 +255,7 @@ namespace Midi
 
                 CheckReturnCode(Win32API.midiInClose(handle));
                 isOpen = false;
-
+                if (OpenedDevices.Contains(this)) OpenedDevices.Remove(this);
 #region SysEx
 
                 isClosing = false;
