@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Dancer.unity
     guid: 15e8f1f63a6bc1245832907d89f14d91
+  - enabled: 0
+    path: Assets/TrickFilm/LivescanScene.unity
+    guid: 257c4794cc607ef46afa6d01ffeb1ad0
+  - enabled: 1
+    path: Assets/TrickFilm/TrickFilm.unity
+    guid: 57ef66d96f3369d479156b5929fc7c50
   m_configObjects: {}
