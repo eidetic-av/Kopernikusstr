@@ -25,6 +25,13 @@ public class PointCloudReceiver : MonoBehaviour
     public MeshRenderer MeshRenderer;
     public ParticleSystem ParticleSystem;
 
+    public int EmissionRounds = 12;
+    public float EmissionInterval = 0.1f;
+
+    int CurrentEmissionRound = 0;
+    float LastEmissionTime;
+
+
     void Start()
     {
         Connect("127.0.0.1");
@@ -92,16 +99,27 @@ public class PointCloudReceiver : MonoBehaviour
 
             if (ParticleSystem != null)
             {
-                var mainModule = ParticleSystem.main;
-                mainModule.maxParticles = points.Length;
+                if (Time.time > LastEmissionTime + EmissionInterval)
+                {
+                    var emitCount = points.Length / EmissionRounds;
+                    
+                    for (int p = 0; p < emitCount; p++)
+                    {
+                        var pointNumber = (p * EmissionRounds) + EmissionRounds - (EmissionRounds - CurrentEmissionRound);
+                        if (pointNumber >= points.Length) break;
 
-                var particles = new ParticleSystem.Particle[points.Length];
-                ParticleSystem.GetParticles(particles);
+                        var emitParams = new ParticleSystem.EmitParams();
+                        emitParams.startColor = pointColors[pointNumber];
+                        emitParams.position = points[pointNumber];
+                        ParticleSystem.Emit(emitParams, 1);
+                    }
+                    ParticleSystem.Play();
 
-                for (int i = 0; i < points.Length; i++)
-                    particles[i].position = points[i];
+                    CurrentEmissionRound++;
+                    if (CurrentEmissionRound == EmissionRounds) CurrentEmissionRound = 0;
 
-                ParticleSystem.SetParticles(particles);
+                    LastEmissionTime = Time.time;
+                }
             }
 
             bReadyForNextFrame = true;
