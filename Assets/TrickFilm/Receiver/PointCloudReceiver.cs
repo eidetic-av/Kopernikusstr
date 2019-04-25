@@ -22,10 +22,13 @@ public class PointCloudReceiver : MonoBehaviour
     public Vector3 MaximumBounds = new Vector3(5, 5, 5);
 
     public Mesh Mesh;
+    public MeshRenderer MeshRenderer;
+    public ParticleSystem ParticleSystem;
 
     void Start()
     {
         Connect("127.0.0.1");
+        if (MeshRenderer == null) MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     void Update()
@@ -83,8 +86,23 @@ public class PointCloudReceiver : MonoBehaviour
             Mesh = new Mesh();
             Mesh.vertices = points;
             Mesh.colors = pointColors;
+
             Mesh.SetIndices(indices, MeshTopology.Points, 0);
             GetComponent<MeshFilter>().mesh = Mesh;
+
+            if (ParticleSystem != null)
+            {
+                var mainModule = ParticleSystem.main;
+                mainModule.maxParticles = points.Length;
+
+                var particles = new ParticleSystem.Particle[points.Length];
+                ParticleSystem.GetParticles(particles);
+
+                for (int i = 0; i < points.Length; i++)
+                    particles[i].position = points[i];
+
+                ParticleSystem.SetParticles(particles);
+            }
 
             bReadyForNextFrame = true;
         }
