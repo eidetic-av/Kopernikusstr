@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Net.Sockets;
 using System.Threading;
-
+using System.Collections.Generic;
 
 public class PointCloudReceiver : MonoBehaviour
 {
@@ -23,7 +23,7 @@ public class PointCloudReceiver : MonoBehaviour
 
     public Mesh Mesh;
     public MeshRenderer MeshRenderer;
-    public ParticleSystem ParticleSystem;
+    public List<ParticleSystem> ParticleSystems = new List<ParticleSystem>();
 
     public int EmissionRounds = 12;
     public float EmissionInterval = 0.1f;
@@ -97,12 +97,12 @@ public class PointCloudReceiver : MonoBehaviour
             Mesh.SetIndices(indices, MeshTopology.Points, 0);
             GetComponent<MeshFilter>().mesh = Mesh;
 
-            if (ParticleSystem != null)
+            if (Time.time > LastEmissionTime + EmissionInterval)
             {
-                if (Time.time > LastEmissionTime + EmissionInterval)
+                foreach (var particleSystem in ParticleSystems)
                 {
                     var emitCount = points.Length / EmissionRounds;
-                    
+
                     for (int p = 0; p < emitCount; p++)
                     {
                         var pointNumber = (p * EmissionRounds) + EmissionRounds - (EmissionRounds - CurrentEmissionRound);
@@ -111,15 +111,14 @@ public class PointCloudReceiver : MonoBehaviour
                         var emitParams = new ParticleSystem.EmitParams();
                         emitParams.startColor = pointColors[pointNumber];
                         emitParams.position = points[pointNumber];
-                        ParticleSystem.Emit(emitParams, 1);
+                        particleSystem.Emit(emitParams, 1);
                     }
-                    ParticleSystem.Play();
-
-                    CurrentEmissionRound++;
-                    if (CurrentEmissionRound == EmissionRounds) CurrentEmissionRound = 0;
-
-                    LastEmissionTime = Time.time;
+                    particleSystem.Play();
                 }
+
+                CurrentEmissionRound++;
+                if (CurrentEmissionRound == EmissionRounds) CurrentEmissionRound = 0;
+                LastEmissionTime = Time.time;
             }
 
             bReadyForNextFrame = true;
