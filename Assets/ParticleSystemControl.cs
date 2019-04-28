@@ -31,4 +31,76 @@ public class ParticleSystemControl : MonoBehaviour
             rendererModule.velocityScale = value;
         }
     }
+
+    public float TintHue
+    {
+        set
+        {
+            var colorBySpeedModule = ParticleSystem.colorBySpeed;
+            Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
+
+            float h, s, v;
+            Color.RGBToHSV(startingColor, out h, out s, out v);
+
+            h = value;
+
+            colorBySpeedModule.range = new Vector2(1, 1);
+
+            var gradient = new Gradient();
+            gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
+
+            var color = colorBySpeedModule.color;
+            color.gradient = gradient;
+
+            colorBySpeedModule.color = color;
+        }
+    }
+
+    public float TintSaturation
+    {
+        set
+        {
+            var colorBySpeedModule = ParticleSystem.colorBySpeed;
+            Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
+
+            float h, s, v;
+            Color.RGBToHSV(startingColor, out h, out s, out v);
+
+            s = value;
+
+            colorBySpeedModule.range = new Vector2(1, 1);
+
+            var gradient = new Gradient();
+            gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
+
+            var color = colorBySpeedModule.color;
+            color.gradient = gradient;
+
+            colorBySpeedModule.color = color;
+        }
+    }
+
+    public float TintValue
+    {
+        set
+        {
+            var colorBySpeedModule = ParticleSystem.colorBySpeed;
+            Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
+
+            float h, s, v;
+            Color.RGBToHSV(startingColor, out h, out s, out v);
+
+            v = value;
+
+            colorBySpeedModule.range = new Vector2(1, 1);
+
+            var gradient = new Gradient();
+            gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
+
+            var color = colorBySpeedModule.color;
+            color.gradient = gradient;
+
+            colorBySpeedModule.color = color;
+        }
+    }
 }
