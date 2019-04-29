@@ -107,7 +107,7 @@ public class PointCloudReceiver : MonoBehaviour
                 if (system.Emit)
                 {
                     system.ParticleSystem.Clear();
-                    for (int p = 0; p < points.Length; p+=EmissionRounds)
+                    for (int p = 0; p < points.Length; p+=2)
                     {
                         var emitParams = new ParticleSystem.EmitParams();
                         emitParams.startColor = pointColors[p];
