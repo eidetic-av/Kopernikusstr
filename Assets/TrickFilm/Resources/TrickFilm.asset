@@ -1,64 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9156417149456961055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dd50e4ff5a3cd7439b50c9febbc821e, type: 3}
-  m_Name: Counter
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 824, y: -2120}
-  ports:
-    keys:
-    - Max
-    - Increment
-    - Position
-    values:
-    - memberName: Max
-      memberType: 4
-      node: {fileID: -9156417149456961055}
-      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Increment
-      memberType: 16
-      node: {fileID: -9156417149456961055}
-      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Output
-        MemberType: 16
-        node: {fileID: -5484275887247157567}
-        reroutePoints: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Position
-      memberType: 4
-      node: {fileID: -9156417149456961055}
-      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: 1745475636512854187}
-        reroutePoints: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-  Increment: 0
-  Max: 3
-  Position: 4
---- !u!114 &-5484275887247157567
+--- !u!114 &-7035418126254352785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,7 +13,7 @@ MonoBehaviour:
   m_Name: Greater Than
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 584, y: -2168}
+  position: {x: 904, y: -2168}
   ports:
     keys:
     - Input
@@ -80,20 +22,20 @@ MonoBehaviour:
     values:
     - memberName: Input
       memberType: 4
-      node: {fileID: -5484275887247157567}
+      node: {fileID: -7035418126254352785}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: VelocityFloat
+      - MemberName: Output
         MemberType: 16
-        node: {fileID: 8925862713684985822}
+        node: {fileID: 1316296602054051631}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
     - memberName: Threshold
       memberType: 4
-      node: {fileID: -5484275887247157567}
+      node: {fileID: -7035418126254352785}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -102,19 +44,19 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: Output
       memberType: 16
-      node: {fileID: -5484275887247157567}
+      node: {fileID: -7035418126254352785}
       typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - MemberName: Increment
-        MemberType: 16
-        node: {fileID: -9156417149456961055}
+        MemberType: 4
+        node: {fileID: 7566771048923746195}
         reroutePoints: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
   Input: 0
-  Threshold: 0.9
+  Threshold: 120
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,9 +71,142 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 8925862713684985822}
-  - {fileID: -5484275887247157567}
-  - {fileID: -9156417149456961055}
   - {fileID: 1745475636512854187}
+  - {fileID: 7566771048923746195}
+  - {fileID: -7035418126254352785}
+  - {fileID: 2683364729984409849}
+  - {fileID: 7302561294701444724}
+  - {fileID: 429278317844653049}
+  - {fileID: 1316296602054051631}
+--- !u!114 &429278317844653049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135ca470f537d16429536fed473c176a, type: 3}
+  m_Name: Gate
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 824, y: -2520}
+  ports:
+    keys:
+    - Input
+    - GateInput
+    - Default
+    - Output
+    values:
+    - memberName: Input
+      memberType: 4
+      node: {fileID: 429278317844653049}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: GateInput
+      memberType: 4
+      node: {fileID: 429278317844653049}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: 7302561294701444724}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Default
+      memberType: 4
+      node: {fileID: 429278317844653049}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: 429278317844653049}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: InputB
+        MemberType: 4
+        node: {fileID: 1316296602054051631}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Input: 1
+  GateInput: 0
+  Default: 0
+--- !u!114 &1316296602054051631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fd7e680c63b3842a9ab619eb97d5fe, type: 3}
+  m_Name: Multiply
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 618.5, y: -2206.5}
+  ports:
+    keys:
+    - InputA
+    - InputB
+    - Output
+    values:
+    - memberName: InputA
+      memberType: 4
+      node: {fileID: 1316296602054051631}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Velocity
+        MemberType: 4
+        node: {fileID: 8925862713684985822}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputB
+      memberType: 4
+      node: {fileID: 1316296602054051631}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: 429278317844653049}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: 1316296602054051631}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -7035418126254352785}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  InputA: 0
+  InputB: 0
 --- !u!114 &1745475636512854187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +220,7 @@ MonoBehaviour:
   m_Name: Point Cloud Emitter
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1080, y: -2056}
+  position: {x: 1144, y: -1960}
   ports:
     keys:
     - Input
@@ -158,12 +233,171 @@ MonoBehaviour:
       connections:
       - MemberName: Position
         MemberType: 4
-        node: {fileID: -9156417149456961055}
+        node: {fileID: 7566771048923746195}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-  Input: -1
+  Input: 0
+--- !u!114 &2683364729984409849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df22a35677da33f41a999704277e809b, type: 3}
+  m_Name: Control Change
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: -2712}
+  ports:
+    keys:
+    - Int
+    - Float
+    values:
+    - memberName: Int
+      memberType: 16
+      node: {fileID: 2683364729984409849}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: 7302561294701444724}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Float
+      memberType: 16
+      node: {fileID: 2683364729984409849}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  DeviceName: Engine MIDI
+  Number: 1
+  BiDirectional: 0
+--- !u!114 &7302561294701444724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6ea6e0ab9ec7649bed84f109cd950e, type: 3}
+  m_Name: Less Than
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 824, y: -2712}
+  ports:
+    keys:
+    - Input
+    - Threshold
+    - Output
+    values:
+    - memberName: Input
+      memberType: 4
+      node: {fileID: 7302561294701444724}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Int
+        MemberType: 16
+        node: {fileID: 2683364729984409849}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Threshold
+      memberType: 4
+      node: {fileID: 7302561294701444724}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: 7302561294701444724}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: GateInput
+        MemberType: 4
+        node: {fileID: 429278317844653049}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Input: 25
+  Threshold: 25
+--- !u!114 &7566771048923746195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd50e4ff5a3cd7439b50c9febbc821e, type: 3}
+  m_Name: Counter
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1144, y: -2168}
+  ports:
+    keys:
+    - Increment
+    - Max
+    - Position
+    values:
+    - memberName: Increment
+      memberType: 4
+      node: {fileID: 7566771048923746195}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: -7035418126254352785}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Max
+      memberType: 4
+      node: {fileID: 7566771048923746195}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Position
+      memberType: 4
+      node: {fileID: 7566771048923746195}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: 1745475636512854187}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Increment: 0
+  Max: 3
+  Position: 0
 --- !u!114 &8925862713684985822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +430,11 @@ MonoBehaviour:
       node: {fileID: 8925862713684985822}
       typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - MemberName: InputA
+        MemberType: 4
+        node: {fileID: 1316296602054051631}
+        reroutePoints: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -250,11 +488,7 @@ MonoBehaviour:
       node: {fileID: 8925862713684985822}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: -5484275887247157567}
-        reroutePoints: []
+      connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -289,4 +523,4 @@ MonoBehaviour:
   Channel: 9
   NoteNumber: 0
   Velocity: 0
-  LastNoteVelocity: 0
+  LastNoteVelocity: 127
