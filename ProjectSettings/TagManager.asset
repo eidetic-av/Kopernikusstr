@@ -13,6 +13,7 @@ TagManager:
   - UI
   - 
   - 
+  - IgnoreBloom
   - 
   - 
   - 
@@ -34,9 +35,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Backdrop
+  - OutputSurface
   m_SortingLayers:
   - name: Default
     uniqueID: 0

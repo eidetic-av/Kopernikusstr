@@ -63,7 +63,9 @@ public class MainThreadDispatcher : MonoBehaviour
         {
             while (UpdateQueue.Count > 0)
             {
-                UpdateQueue.Dequeue().Invoke();
+                var action = UpdateQueue.Dequeue();
+                if (action != null)
+                    action.Invoke();
             }
         }
     }
