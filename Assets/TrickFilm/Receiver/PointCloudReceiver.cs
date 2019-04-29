@@ -9,6 +9,8 @@ using System.Collections.Generic;
 
 public class PointCloudReceiver : MonoBehaviour
 {
+    public static PointCloudReceiver Instance;
+
     TcpClient socket;
     public int port = 48002;
 
@@ -24,7 +26,7 @@ public class PointCloudReceiver : MonoBehaviour
 
     public Mesh Mesh;
     public MeshRenderer MeshRenderer;
-    [SerializeField] List<ParticleSystemWrapper> ParticleSystems = new List<ParticleSystemWrapper>();
+    [SerializeField] public List<ParticleSystemWrapper> ParticleSystems = new List<ParticleSystemWrapper>();
 
     public int EmissionRounds = 12;
     public float EmissionInterval = 0.1f;
@@ -32,9 +34,9 @@ public class PointCloudReceiver : MonoBehaviour
     int CurrentEmissionRound = 0;
     float LastEmissionTime;
 
-
     void Start()
     {
+        Instance = this;
         Connect("127.0.0.1");
         if (MeshRenderer == null) MeshRenderer = GetComponent<MeshRenderer>();
     }
@@ -98,39 +100,52 @@ public class PointCloudReceiver : MonoBehaviour
             Mesh.SetIndices(indices, MeshTopology.Points, 0);
             GetComponent<MeshFilter>().mesh = Mesh;
 
-            if (Time.time > LastEmissionTime + EmissionInterval)
+            for (int s = 0; s < ParticleSystems.Count; s++)
             {
-                foreach (var system in ParticleSystems)
+                var system = ParticleSystems[s];
+
+                if (system.Emit)
                 {
-                    if (system.Enabled)
+                    for (int p = 0; p < points.Length; p++)
                     {
-                        var emitCount = points.Length / EmissionRounds;
-
-                        for (int p = 0; p < emitCount; p++)
-                        {
-                            var pointNumber = (p * EmissionRounds) + EmissionRounds - (EmissionRounds - CurrentEmissionRound);
-                            if (pointNumber >= points.Length) break;
-
-                            var emitParams = new ParticleSystem.EmitParams();
-                            emitParams.startColor = pointColors[pointNumber];
-                            emitParams.position = points[pointNumber];
-                            system.ParticleSystem.Emit(emitParams, 1);
-                        }
-                        var mainModule = system.ParticleSystem.main;
-                        mainModule.ringBufferMode = ParticleSystemRingBufferMode.LoopUntilReplaced;
-                        system.ParticleSystem.Play();
+                        var emitParams = new ParticleSystem.EmitParams();
+                        emitParams.startColor = pointColors[p];
+                        emitParams.position = points[p];
+                        system.ParticleSystem.Emit(emitParams, 1);
                     }
-                    else
-                    {
-                        var mainModule = system.ParticleSystem.main;
-                        mainModule.ringBufferMode = ParticleSystemRingBufferMode.Disabled;
-                        system.ParticleSystem.Stop();
-                    }
+                    var mainModule = system.ParticleSystem.main;
+                    mainModule.ringBufferMode = ParticleSystemRingBufferMode.Disabled;
+                    system.ParticleSystem.Play();
+                    system.Emit = false;
                 }
+                else if (system.ConstantEmission && Time.time > LastEmissionTime + EmissionInterval)
+                {
+                    var emitCount = points.Length / EmissionRounds;
 
-                CurrentEmissionRound++;
-                if (CurrentEmissionRound == EmissionRounds) CurrentEmissionRound = 0;
-                LastEmissionTime = Time.time;
+                    for (int p = 0; p < emitCount; p++)
+                    {
+                        var pointNumber = (p * EmissionRounds) + EmissionRounds - (EmissionRounds - CurrentEmissionRound);
+                        if (pointNumber >= points.Length) break;
+
+                        var emitParams = new ParticleSystem.EmitParams();
+                        emitParams.startColor = pointColors[pointNumber];
+                        emitParams.position = points[pointNumber];
+                        system.ParticleSystem.Emit(emitParams, 1);
+                    }
+                    var mainModule = system.ParticleSystem.main;
+                    mainModule.ringBufferMode = ParticleSystemRingBufferMode.LoopUntilReplaced;
+                    system.ParticleSystem.Play();
+
+                    CurrentEmissionRound++;
+                    if (CurrentEmissionRound == EmissionRounds) CurrentEmissionRound = 0;
+                    LastEmissionTime = Time.time;
+                }
+                else
+                {
+                    var mainModule = system.ParticleSystem.main;
+                    mainModule.ringBufferMode = ParticleSystemRingBufferMode.Disabled;
+                    //if system.ParticleSystem.Stop();
+                }
             }
 
             bReadyForNextFrame = true;
@@ -197,9 +212,10 @@ public class PointCloudReceiver : MonoBehaviour
     }
 
     [System.Serializable]
-    public struct ParticleSystemWrapper
+    public class ParticleSystemWrapper
     {
-        [SerializeField] public ParticleSystem ParticleSystem;
-        [SerializeField] public bool Enabled;
+        public ParticleSystem ParticleSystem;
+        public bool Emit;
+        public bool ConstantEmission;
     }
 }

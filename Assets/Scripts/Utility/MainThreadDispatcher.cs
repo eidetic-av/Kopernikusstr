@@ -17,8 +17,6 @@ public class MainThreadDispatcher : MonoBehaviour
     {
         if (Instance != null) return;
         Instance = new GameObject("MainThreadDispatcher")
-            .WithHideFlags(HideFlags.NotEditable)
-            .InDontDestroyMode()
             .AddComponent<MainThreadDispatcher>();
     }
 
