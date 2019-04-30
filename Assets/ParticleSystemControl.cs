@@ -21,6 +21,16 @@ public class ParticleSystemControl : MonoBehaviour
         }
     }
 
+    public float MaxParticles
+    {
+        get => ParticleSystem.main.maxParticles;
+        set
+        {
+            var mainModule = ParticleSystem.main;
+            mainModule.maxParticles = Mathf.RoundToInt(value);
+        }
+    }
+
     public float BillboardStretch
     {
         set
@@ -36,23 +46,26 @@ public class ParticleSystemControl : MonoBehaviour
     {
         set
         {
-            var colorBySpeedModule = ParticleSystem.colorBySpeed;
-            Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
+            Threads.RunOnMain(() =>
+            {
+                var colorBySpeedModule = ParticleSystem.colorBySpeed;
+                Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
 
-            float h, s, v;
-            Color.RGBToHSV(startingColor, out h, out s, out v);
+                float h, s, v;
+                Color.RGBToHSV(startingColor, out h, out s, out v);
 
-            h = value;
+                h = value;
 
-            colorBySpeedModule.range = new Vector2(1, 1);
+                colorBySpeedModule.range = new Vector2(1, 1);
 
-            var gradient = new Gradient();
-            gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
+                var gradient = new Gradient();
+                gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
 
-            var color = colorBySpeedModule.color;
-            color.gradient = gradient;
+                var color = colorBySpeedModule.color;
+                color.gradient = gradient;
 
-            colorBySpeedModule.color = color;
+                colorBySpeedModule.color = color;
+            });
         }
     }
 
@@ -60,23 +73,26 @@ public class ParticleSystemControl : MonoBehaviour
     {
         set
         {
-            var colorBySpeedModule = ParticleSystem.colorBySpeed;
-            Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
+            Threads.RunOnMain(() =>
+            {
+                var colorBySpeedModule = ParticleSystem.colorBySpeed;
+                Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
 
-            float h, s, v;
-            Color.RGBToHSV(startingColor, out h, out s, out v);
+                float h, s, v;
+                Color.RGBToHSV(startingColor, out h, out s, out v);
 
-            s = value;
+                s = value;
 
-            colorBySpeedModule.range = new Vector2(1, 1);
+                colorBySpeedModule.range = new Vector2(1, 1);
 
-            var gradient = new Gradient();
-            gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
+                var gradient = new Gradient();
+                gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
 
-            var color = colorBySpeedModule.color;
-            color.gradient = gradient;
+                var color = colorBySpeedModule.color;
+                color.gradient = gradient;
 
-            colorBySpeedModule.color = color;
+                colorBySpeedModule.color = color;
+            });
         }
     }
 
@@ -84,23 +100,26 @@ public class ParticleSystemControl : MonoBehaviour
     {
         set
         {
-            var colorBySpeedModule = ParticleSystem.colorBySpeed;
-            Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
+            Threads.RunOnMain(() =>
+            {
+                var colorBySpeedModule = ParticleSystem.colorBySpeed;
+                Color startingColor = colorBySpeedModule.color.gradient.colorKeys[0].color;
 
-            float h, s, v;
-            Color.RGBToHSV(startingColor, out h, out s, out v);
+                float h, s, v;
+                Color.RGBToHSV(startingColor, out h, out s, out v);
 
-            v = value;
+                v = value;
 
-            colorBySpeedModule.range = new Vector2(1, 1);
+                colorBySpeedModule.range = new Vector2(1, 1);
 
-            var gradient = new Gradient();
-            gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
+                var gradient = new Gradient();
+                gradient.colorKeys = new GradientColorKey[] { new GradientColorKey(Color.HSVToRGB(h, s, v), 0) };
 
-            var color = colorBySpeedModule.color;
-            color.gradient = gradient;
+                var color = colorBySpeedModule.color;
+                color.gradient = gradient;
 
-            colorBySpeedModule.color = color;
+                colorBySpeedModule.color = color;
+            });
         }
     }
 }

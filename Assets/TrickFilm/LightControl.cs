@@ -9,4 +9,19 @@ public class LightControl : MonoBehaviour
         get => Light.intensity;
         set => Light.intensity = value;
     }
+    
+    public float SetHue
+    {
+        set
+        {
+            Threads.RunOnMain(() =>
+            {
+                float h, s, v;
+                Color.RGBToHSV(Light.color, out h, out s, out v);
+                h = value;
+
+                Light.color = Color.HSVToRGB(h, s, v);
+            });
+        }
+    }
 }
