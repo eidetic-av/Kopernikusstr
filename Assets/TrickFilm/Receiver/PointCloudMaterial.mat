@@ -9,13 +9,13 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PointCloudMaterial
   m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHATEST_ON
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _COLORCOLOR_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: TransparentCutout
+    RenderType: Transparent
   disabledShaderPasses:
   - ALWAYS
   m_SavedProperties:
@@ -127,7 +127,7 @@ Material:
     - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
-    - _ColorMode: 0
+    - _ColorMode: 4
     - _Cull: 2
     - _Cutoff: 1
     - _CutoffSpeed: 0.5
@@ -135,8 +135,8 @@ Material:
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
-    - _DistortionStrengthScaled: 0
-    - _DstBlend: 0
+    - _DistortionStrengthScaled: 0.1
+    - _DstBlend: 10
     - _EmissionEnabled: 0
     - _EmissionProb: 0.2
     - _EnableExternalAlpha: 0
@@ -149,7 +149,7 @@ Material:
     - _LightingEnabled: 0
     - _Metallic: 0.5
     - _ModDuration: 0.5
-    - _Mode: 1
+    - _Mode: 3
     - _NormalScale: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -166,13 +166,13 @@ Material:
     - _SrcBlend: 1
     - _Thickness: 1
     - _UVSec: 0
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _pointSize: 0.005
     m_Colors:
     - _Albedo: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1.738121, g: 1.738121, b: 1.738121, a: 1}
-    - _ColorAddSubDiff: {r: -1, g: 1, b: 0, a: 0}
+    - _Color: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5}
