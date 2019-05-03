@@ -31,6 +31,26 @@ public class ParticleSystemControl : MonoBehaviour
         }
     }
 
+
+    public float OrbitalVelocityX
+    {
+        set
+        {
+            var velocityModule = ParticleSystem.velocityOverLifetime;
+            velocityModule.orbitalX = value;
+        }
+    }
+
+
+    public float OrbitalVelocityY
+    {
+        set
+        {
+            var velocityModule = ParticleSystem.velocityOverLifetime;
+            velocityModule.orbitalY = value;
+        }
+    }
+
     public float BillboardStretch
     {
         set

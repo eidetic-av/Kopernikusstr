@@ -100,7 +100,8 @@ public class PointCloudReceiver : MonoBehaviour
 
                 if (system.Emit)
                 {
-                    system.ParticleSystem.Clear();
+                    if (system.ClearOnEmit)
+                        system.ParticleSystem.Clear();
 
                     for (int p = 0; p < points.Length; p+=3)
                     {
@@ -213,8 +214,9 @@ public class PointCloudReceiver : MonoBehaviour
     {
         public ParticleSystem ParticleSystem;
         public bool Emit;
+        public bool ClearOnEmit = true;
+
         public bool ConstantEmission;
-        
         public int EmissionRounds = 15;
         public float EmissionInterval = 0.015f;
 
