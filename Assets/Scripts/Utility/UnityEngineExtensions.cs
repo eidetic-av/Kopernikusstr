@@ -91,28 +91,24 @@ namespace Eidetic.Unity.Utility
         }
         #endif
 
-        /// <summary>
-        /// Map a float from one range to another.
-        /// </summary>
-        /// <param name="input">The input float to map</param>
-        /// <param name="inputRange">Original range</param>
-        /// <param name="outputRange">New range</param>
-        /// <returns>Float mapped to the new range.</returns>
         public static float Map(this float input, Vector2 inputRange, Vector2 outputRange)
         {
             return ((input - inputRange.x) / (inputRange.y - inputRange.x)) * (outputRange.y - outputRange.x) + outputRange.x;
         }
 
-        /// <summary>
-        /// Map a double from one range to another.
-        /// </summary>
-        /// <param name="input">The input double to map</param>
-        /// <param name="inputRange">Original range</param>
-        /// <param name="outputRange">New range</param>
-        /// <returns>Double mapped to the new range.</returns>
         public static double Map(this double input, Vector2 inputRange, Vector2 outputRange)
         {
             return ((input - inputRange.x) / (inputRange.y - inputRange.x)) * (outputRange.y - outputRange.x) + outputRange.x;
         }
+
+        public static Vector3 RotateBy(this Vector3 input, Vector3 rotation) =>
+            Quaternion.Euler(rotation) * input;
+
+        public static Vector3 TranslateBy(this Vector3 input, Vector3 translation) =>
+            input + translation;
+
+        public static Vector3 ScaleBy(this Vector3 input, Vector3 translation) =>
+            new Vector3();
+
     }
 }

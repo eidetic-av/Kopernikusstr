@@ -6,6 +6,7 @@ using System.Collections;
 using System.Net.Sockets;
 using System.Threading;
 using System.Collections.Generic;
+using Eidetic.Unity.Utility;
 
 public class PointCloudReceiver : MonoBehaviour
 {
@@ -14,8 +15,8 @@ public class PointCloudReceiver : MonoBehaviour
     TcpClient socket;
     public int port = 48002;
 
-    bool bReadyForNextFrame = true;
-    bool bConnected = false;
+    bool ReadyForNextFrame = true;
+    bool Connected = false;
 
     public Vector3 PointCloudRotation = Vector3.zero;
     public Vector3 PointCloudTranslation = Vector3.zero;
@@ -28,82 +29,59 @@ public class PointCloudReceiver : MonoBehaviour
     public MeshRenderer MeshRenderer;
     [SerializeField] public List<ParticleSystemWrapper> ParticleSystems = new List<ParticleSystemWrapper>();
 
-    void Start()
-    {
-        Instance = this;
-        Connect("127.0.0.1");
-        if (MeshRenderer == null) MeshRenderer = GetComponent<MeshRenderer>();
-    }
+    void Start() => Connect("127.0.0.1");
 
     void Update()
     {
-        if (!bConnected)
-            return;
+        if (!Connected) return;
 
         float[] vertices;
         byte[] colors;
 
-        if (bReadyForNextFrame)
-        {
-            // Debug.Log("Requesting frame");
+        if (ReadyForNextFrame) RequestFrame();
 
-            RequestFrame();
-            bReadyForNextFrame = false;
-        }
         if (ReceiveFrame(out vertices, out colors))
         {
-            // Debug.Log("Frame received");
-            int nPoints = vertices != null ? (vertices.Length / 3) : 0;
+            int nPoints = vertices == null ? 0 : (vertices.Length / 3);
 
             Vector3[] points = new Vector3[nPoints];
             int[] indices = new int[nPoints];
             Color[] pointColors = new Color[nPoints];
 
-            var bounds = new Bounds();
-            bounds.SetMinMax(MinimumBounds, MaximumBounds);
-
-            int skippedVertices = 0;
-
             for (int i = 0; i < nPoints; i++)
             {
-                int pointIndex = 3 * i;
+                int point = 3 * i;
 
-                var vertexPosition = Quaternion.Euler(PointCloudRotation) *
-                    new Vector3(vertices[pointIndex + 0], vertices[pointIndex + 1], -vertices[pointIndex + 2]) + PointCloudTranslation;
+                Vector3 vertexPosition = new Vector3(vertices[point + 0], vertices[point + 1], -vertices[point + 2]);
+                    //.RotateBy(PointCloudRotation)
+                    //.TranslateBy(PointCloudTranslation)
+                    //.ScaleBy(PointCloudScale);
 
-                vertexPosition.x = vertexPosition.x * PointCloudScale.x;
-                vertexPosition.y = vertexPosition.y * PointCloudScale.y;
-                vertexPosition.z = vertexPosition.z * PointCloudScale.z;
+                points[i] = vertexPosition;
+                indices[i] = i;
+                pointColors[i] = new Color(colors[point + 0] / 256.0f, colors[point + 1] / 256.0f, colors[point + 2] / 256.0f, 1.0f);
 
-                if (bounds.Contains(vertexPosition))
-                {
-                    points[i - skippedVertices] = vertexPosition;
-                    indices[i - skippedVertices] = i - skippedVertices;
-                    pointColors[i - skippedVertices] = new Color((float)colors[pointIndex + 0] / 256.0f, (float)colors[pointIndex + 1] / 256.0f, (float)colors[pointIndex + 2] / 256.0f, 1.0f);
-                }
-                else
-                    skippedVertices++;
             }
 
-            if (Mesh != null)
-                Destroy(Mesh);
-            Mesh = new Mesh();
-            Mesh.vertices = points;
-            Mesh.colors = pointColors;
+            if (Mesh != null) Destroy(Mesh);
+
+            Mesh = new Mesh()
+            {
+                vertices = points,
+                colors = pointColors
+            };
 
             Mesh.SetIndices(indices, MeshTopology.Points, 0);
+
             GetComponent<MeshFilter>().mesh = Mesh;
 
-            for (int s = 0; s < ParticleSystems.Count; s++)
+            foreach (var system in ParticleSystems)
             {
-                var system = ParticleSystems[s];
+                if (system.ClearOnEmit) system.ParticleSystem.Clear();
 
                 if (system.Emit)
                 {
-                    if (system.ClearOnEmit)
-                        system.ParticleSystem.Clear();
-
-                    for (int p = 0; p < points.Length; p+=3)
+                    for (int p = 0; p < points.Length; p += 3)
                     {
                         var emitParams = new ParticleSystem.EmitParams();
                         emitParams.startColor = pointColors[p];
@@ -146,20 +124,22 @@ public class PointCloudReceiver : MonoBehaviour
                 }
             }
 
-            bReadyForNextFrame = true;
+            ReadyForNextFrame = true;
         }
     }
 
     public void Connect(string IP)
     {
         socket = new TcpClient(IP, port);
-        bConnected = true;
+        Connected = true;
+        Instance = this;
         Debug.Log("Connected");
     }
-
-    //Frame receiving for the editor
+    
     void RequestFrame()
     {
+        ReadyForNextFrame = false;
+
         byte[] byteToSend = new byte[1];
         byteToSend[0] = 0;
 
