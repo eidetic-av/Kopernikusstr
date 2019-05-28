@@ -52,10 +52,12 @@ public class PointCloudReceiver : MonoBehaviour
             {
                 int point = 3 * i;
 
-                Vector3 vertexPosition = new Vector3(vertices[point + 0], vertices[point + 1], -vertices[point + 2]);
-                    //.RotateBy(PointCloudRotation)
-                    //.TranslateBy(PointCloudTranslation)
-                    //.ScaleBy(PointCloudScale);
+                Vector3 vertexPosition = new Vector3(vertices[point + 0], vertices[point + 1], -vertices[point + 2])
+                    .RotateBy(PointCloudRotation)
+                    .ScaleBy(PointCloudScale)
+                    .TranslateBy(PointCloudTranslation);
+
+
 
                 points[i] = vertexPosition;
                 indices[i] = i;
@@ -116,7 +118,7 @@ public class PointCloudReceiver : MonoBehaviour
                     if (system.CurrentEmissionRound == system.EmissionRounds) system.CurrentEmissionRound = 0;
                     system.LastEmissionTime = Time.time;
                 }
-                else
+                else if (!system.ConstantEmission)
                 {
                     var mainModule = system.ParticleSystem.main;
                     mainModule.ringBufferMode = ParticleSystemRingBufferMode.Disabled;
