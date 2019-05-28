@@ -107,8 +107,8 @@ namespace Eidetic.Unity.Utility
         public static Vector3 TranslateBy(this Vector3 input, Vector3 translation) =>
             input + translation;
 
-        public static Vector3 ScaleBy(this Vector3 input, Vector3 translation) =>
-            new Vector3();
+        public static Vector3 ScaleBy(this Vector3 input, Vector3 scale) =>
+            new Vector3(input.x * scale.x, input.y * scale.y, input.z * scale.z);
 
     }
 }

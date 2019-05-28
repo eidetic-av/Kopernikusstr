@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ParticleSystemControl : MonoBehaviour
 {
-    public ParticleSystem ParticleSystem;
+    ParticleSystem ParticleSystem;
 
     public void Awake()
     {
-        if (ParticleSystem == null) ParticleSystem = GetComponent<ParticleSystem>();
+        ParticleSystem = GetComponent<ParticleSystem>();
     }
 
     public float NoiseIntensity
@@ -18,6 +18,16 @@ public class ParticleSystemControl : MonoBehaviour
         {
             var noiseModule = ParticleSystem.noise;
             noiseModule.strength = new ParticleSystem.MinMaxCurve(value);
+        }
+    }
+
+    public float Speed
+    {
+        get => ParticleSystem.main.simulationSpeed;
+        set
+        {
+            var mainModule = ParticleSystem.main;
+            mainModule.simulationSpeed = value;
         }
     }
 
