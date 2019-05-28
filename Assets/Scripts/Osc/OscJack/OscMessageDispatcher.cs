@@ -74,6 +74,7 @@ namespace OscJack
 
         internal void Dispatch(string address, OscDataHandle data)
         {
+            //UnityEngine.Debug.Log(address);
             // First see if there are any callbacks assigned to the root node to handle
             lock (RootNodeCallbackMap)
             {
