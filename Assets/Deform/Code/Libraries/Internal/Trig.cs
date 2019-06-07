@@ -112,7 +112,7 @@ namespace Deform.Math.Trig
 				case TrigType.Tan:
 					return Mathf.Tan (t);
 				default:
-					Debug.Log ("TrigType is not Sin, Cos or Tan. Using Sin.");
+					UnityEngine.Debug.Log ("TrigType is not Sin, Cos or Tan. Using Sin.");
 					return Mathf.Sin (t);
 			}
 		}

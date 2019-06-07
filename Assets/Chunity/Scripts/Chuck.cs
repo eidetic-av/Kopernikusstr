@@ -35,7 +35,7 @@ public class Chuck
                 // note: when things go poorly, mixer.SetFloat 
                 // never *actually* returns false and so this error message will not be seen.
                 // instead, will see "Assertion failed on expression: 'res == FMOD_OK'
-                Debug.Log( "ChucK ID C++ storage failed for " + name );
+                UnityEngine.Debug.Log( "ChucK ID C++ storage failed for " + name );
                 return;
             }
             else
@@ -46,12 +46,12 @@ public class Chuck
 
             // store association in c-sharp
             ids.Add( name, _nextValidID );
-            Debug.Log( "ChucK instance " + name + " has been initialized!" );
+            UnityEngine.Debug.Log( "ChucK instance " + name + " has been initialized!" );
             _nextValidID++;
         }
         else
         {
-            Debug.Log( "ChucK instance " + name + " has already been initialized." );
+            UnityEngine.Debug.Log( "ChucK instance " + name + " has already been initialized." );
         }
     }
 
@@ -62,7 +62,7 @@ public class Chuck
 
         if( !initChuckInstance( id, sampleRate ) )
         {
-            Debug.Log( "Chuck C++ initialization failed for filter" );
+            UnityEngine.Debug.Log( "Chuck C++ initialization failed for filter" );
             return System.UInt32.MaxValue;
         }
         else
@@ -95,7 +95,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( name + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( name + " has not been initialized as a ChucK instance" );
         }
         return false;
     }
@@ -118,7 +118,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( name + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( name + " has not been initialized as a ChucK instance" );
         }
         return false;
     }
@@ -161,7 +161,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( name + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( name + " has not been initialized as a ChucK instance" );
         }
         return false;
     }
@@ -204,7 +204,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -227,7 +227,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -253,7 +253,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -276,7 +276,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -302,7 +302,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -325,7 +325,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -356,7 +356,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -374,7 +374,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -392,7 +392,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -413,7 +413,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -435,7 +435,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -465,7 +465,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -483,7 +483,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -501,7 +501,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -519,7 +519,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -537,7 +537,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -555,7 +555,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -578,7 +578,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -596,7 +596,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -614,7 +614,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -632,7 +632,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -650,7 +650,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -668,7 +668,7 @@ public class Chuck
         }
         else
         {
-            Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
+            UnityEngine.Debug.Log( chuckName + " has not been initialized as a ChucK instance" );
             return false;
         }
     }
@@ -904,28 +904,28 @@ public class Chuck
 
     public void Quit()
     {
-        Debug.Log( "ChucK quitting now" );
+        UnityEngine.Debug.Log( "ChucK quitting now" );
         cleanRegisteredChucks();
     }
 
     static void ChoutCallback( System.String str )
     {
-        Debug.Log( "[chout]: " + str );
+        UnityEngine.Debug.Log( "[chout]: " + str );
     }
 
     static void CherrCallback( System.String str )
     {
-        Debug.LogError( "[cherr]: " + str );
+        UnityEngine.Debug.LogError( "[cherr]: " + str );
     }
 
     static void StdoutCallback( System.String str )
     {
-        Debug.Log( str );
+        UnityEngine.Debug.Log( str );
     }
 
     static void StderrCallback( System.String str )
     {
-        Debug.LogError( str );
+        UnityEngine.Debug.LogError( str );
     }
 
     public static AudioMixerGroup FindAudioMixerGroup( string name )

@@ -135,7 +135,7 @@ public class PointCloudReceiver : MonoBehaviour
         socket = new TcpClient(IP, port);
         Connected = true;
         Instance = this;
-        Debug.Log("Connected");
+        UnityEngine.Debug.Log("Connected");
     }
     
     void RequestFrame()

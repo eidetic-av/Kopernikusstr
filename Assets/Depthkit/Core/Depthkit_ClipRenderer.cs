@@ -236,7 +236,7 @@ namespace Depthkit
         {
             if (material == null || _metadata == null)
             {
-                Debug.LogWarning("Couldn't set material props");
+                UnityEngine.Debug.LogWarning("Couldn't set material props");
                 return;
             }
 
@@ -278,7 +278,7 @@ namespace Depthkit
             }
 
             if (_texture.width == 0 || _texture.height < 2) {
-                Debug.Log ("texture too small");
+                UnityEngine.Debug.Log ("texture too small");
                 return;
             }
 
@@ -289,7 +289,7 @@ namespace Depthkit
             //don't scale below the size of the actual mesh
             while (MeshScalar > textureWidth || MeshScalar > textureHeight)
             {
-                Debug.LogError("texture too small for Mesh Density. Increase Mesh Density to show textures this size.");
+                UnityEngine.Debug.LogError("texture too small for Mesh Density. Increase Mesh Density to show textures this size.");
                 return;
             }
 

@@ -6,7 +6,7 @@ public class NetworkThreadRunner : MonoBehaviour
     void Start()
     {
         if (NetworkThread.Connect(5004))
-            Debug.Log("Started NetworkThread");
+            UnityEngine.Debug.Log("Started NetworkThread");
     }
 
     void OnDestroy()
@@ -18,7 +18,7 @@ public class NetworkThreadRunner : MonoBehaviour
     {
         while (NetworkThread.ReceivedData.Count > 0)
         {
-            Debug.Log(Encoding.UTF8.GetString(NetworkThread.ReceivedData.Dequeue()));
+            UnityEngine.Debug.Log(Encoding.UTF8.GetString(NetworkThread.ReceivedData.Dequeue()));
         }
     }
 }

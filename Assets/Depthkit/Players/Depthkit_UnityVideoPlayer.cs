@@ -192,7 +192,7 @@ namespace Depthkit
                 return GammaCorrection.LinearToGammaSpace;
 #elif UNITY_2017_1_OR_NEWER
                 //https://issuetracker.unity3d.com/issues/regression-videos-are-dark-when-using-linear-color-space?page=1
-                Debug.LogWarning("Unity Video Player does not display correct color on Windows between version 2017.1 and 2018.2. Use AVPro, switch to Gamma Color Space, or upgrade Unity to use Depthkit with this project.");
+                UnityEngine.Debug.LogWarning("Unity Video Player does not display correct color on Windows between version 2017.1 and 2018.2. Use AVPro, switch to Gamma Color Space, or upgrade Unity to use Depthkit with this project.");
                 return GammaCorrection.LinearToGammaSpace2x;
 #else
                 return GammaCorrection.LinearToGammaSpace;
