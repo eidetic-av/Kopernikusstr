@@ -48,7 +48,7 @@ namespace Depthkit
                 }
                 catch (Exception e)
                 {
-                    Debug.LogError("AVProVideo not found in project: " + e.ToString());
+                    UnityEngine.Debug.LogError("AVProVideo not found in project: " + e.ToString());
                 }
             }
         }

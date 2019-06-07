@@ -131,7 +131,7 @@ namespace Depthkit
                 {
                     return Player.Events;
                 }
-                Debug.LogError("Unable to access events as player is currently null");
+                UnityEngine.Debug.LogError("Unable to access events as player is currently null");
                 return null;
             }
         }
@@ -417,7 +417,7 @@ namespace Depthkit
         {
             if (_renderer != null && _renderer.GetVersion() < _renderType.CompatibleVersion())
             {
-                Debug.LogError(_renderType.Name() + "-" + _renderer.GetVersion() +
+                UnityEngine.Debug.LogError(_renderType.Name() + "-" + _renderer.GetVersion() +
                     " is not compatible with current SDK version (DepthkitSDK-" + Depthkit_Info.Version +
                     "). Please upgrade your Look to at least version: " +
                     _renderType.Name() + "-" + _renderType.CompatibleVersion() + ". Latest looks can be found at https://www.depthkit.tv/downloads ");
@@ -477,7 +477,7 @@ namespace Depthkit
                     break;
 #endif
                 default:
-                    Debug.LogError("Renderer Not Found");
+                    UnityEngine.Debug.LogError("Renderer Not Found");
                     _renderer = gameObject.AddComponent<Depthkit_PhotoLook>();
                     break;
             }
@@ -577,7 +577,7 @@ namespace Depthkit
             }
             catch (System.Exception)
             {
-                Debug.LogError("Invaid Depthkit Metadata Format. Make sure you are using the proper metadata export from Depthkit Visualize.");
+                UnityEngine.Debug.LogError("Invaid Depthkit Metadata Format. Make sure you are using the proper metadata export from Depthkit Visualize.");
                 return;
             }
 

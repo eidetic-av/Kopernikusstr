@@ -153,8 +153,8 @@ public class OscEnumerator : MonoBehaviour
                 }
                 catch (Exception exception)
                 {
-                    Debug.Log("Failed to bind " + address);
-                    Debug.LogException(exception);
+                    UnityEngine.Debug.Log("Failed to bind " + address);
+                    UnityEngine.Debug.LogException(exception);
                     addedToDictionary = false;
                 }
                 if (addedToDictionary)

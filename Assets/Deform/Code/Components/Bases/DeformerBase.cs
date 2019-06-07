@@ -133,7 +133,7 @@ namespace Deform
 #if UNITY_EDITOR
 			if (!Application.isPlaying)
 			{
-				Debug.LogError ("UpdateMeshAsync doesn't work in edit-mode");
+				UnityEngine.Debug.LogError ("UpdateMeshAsync doesn't work in edit-mode");
 				return;
 			}
 #endif

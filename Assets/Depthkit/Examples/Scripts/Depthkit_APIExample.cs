@@ -67,29 +67,29 @@ public class Depthkit_APIExample : MonoBehaviour
     void OnClipLoadingStart()
     {
         // If we are inside this block, we can confirm that our controller function worked and we are subscribed to the loading event; 
-        Debug.Log("APIExample: Loading Started");
+        UnityEngine.Debug.Log("APIExample: Loading Started");
     }
 
     void OnClipLoadingFinished()
     {
         // When this code is reached we know that the Clip has been loaded, so we can safely call play
         // If Play is called without a clip being properly loaded, it will return null and not play the clip.
-        Debug.Log("APIExample: Loading Finished");
+        UnityEngine.Debug.Log("APIExample: Loading Finished");
         clip.Player.Play();
     }
 
     void OnClipPlaybackPaused()
     {
-        // Debug.Log("APIExample: Playback Paused");
+        // UnityEngine.Debug.Log("APIExample: Playback Paused");
     }
 
     void OnClipPlaybackStarted()
     {
-        // Debug.Log("APIExample: Playback Started");
+        // UnityEngine.Debug.Log("APIExample: Playback Started");
     }
 
     void OnClipPlaybackStopped()
     {
-        // Debug.Log("APIExample: Playback Stopped");
+        // UnityEngine.Debug.Log("APIExample: Playback Stopped");
     }
 }

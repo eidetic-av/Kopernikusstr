@@ -86,11 +86,11 @@ public class ComplexFloat
 
         if (PrintInput)
         {
-            Debug.Log(Input);
+            UnityEngine.Debug.Log(Input);
         }
         if (PrintOutput)
         {
-            Debug.Log(Value);
+            UnityEngine.Debug.Log(Value);
         }
     }
 
