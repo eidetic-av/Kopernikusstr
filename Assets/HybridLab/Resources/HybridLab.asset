@@ -180,6 +180,319 @@ MonoBehaviour:
   tintHue: -1
   tintSaturation: -1
   tintValue: -1
+--- !u!114 &-8449435456362556325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f0e61983420b344828e572435cbeeb, type: 3}
+  m_Name: Quad LFO
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -808, y: -152}
+  ports:
+    keys:
+    - Clock
+    - MultiplierAPosition
+    - MultiplierBPosition
+    - MultiplierCPosition
+    - MasterSine
+    - MultiplierASine
+    - MultiplierBSine
+    - MultiplierCSine
+    - MasterTriangle
+    - MultiplierATriangle
+    - MultiplierBTriangle
+    - MultiplierCTriangle
+    - MasterSawtooth
+    - MultiplierASawtooth
+    - MultiplierBSawtooth
+    - MultiplierCSawtooth
+    values:
+    - memberName: Clock
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierAPosition
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierBPosition
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierCPosition
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MasterSine
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierASine
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierBSine
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierCSine
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MasterTriangle
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierATriangle
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierBTriangle
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierCTriangle
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MasterSawtooth
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierASawtooth
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierBSawtooth
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: MultiplierCSawtooth
+      memberType: 4
+      node: {fileID: -8449435456362556325}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Clock: 120
+  MultiplierAPosition: 8
+  MultiplierBPosition: 3
+  MultiplierCPosition: 9
+  MasterSine: 0
+  MasterSinePort:
+    memberName: MasterSine
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierASine: 0
+  MultiplierASinePort:
+    memberName: MultiplierASine
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierBSine: 0
+  MultiplierBSinePort:
+    memberName: MultiplierBSine
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierCSine: 0
+  MultiplierCSinePort:
+    memberName: MultiplierCSine
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MasterTriangle: 0
+  MasterTrianglePort:
+    memberName: MasterTriangle
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierATriangle: 0
+  MultiplierATrianglePort:
+    memberName: MultiplierATriangle
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierBTriangle: 0
+  MultiplierBTrianglePort:
+    memberName: MultiplierBTriangle
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierCTriangle: 0
+  MultiplierCTrianglePort:
+    memberName: MultiplierCTriangle
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MasterSawtooth: 0
+  MasterSawtoothPort:
+    memberName: MasterSawtooth
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierASawtooth: 0
+  MultiplierASawtoothPort:
+    memberName: MultiplierASawtooth
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierBSawtooth: 0
+  MultiplierBSawtoothPort:
+    memberName: MultiplierBSawtooth
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
+  MultiplierCSawtooth: 0
+  MultiplierCSawtoothPort:
+    memberName: MultiplierCSawtooth
+    memberType: 4
+    node: {fileID: -8449435456362556325}
+    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    connections: []
+    Direction: 1
+    ConnectionType: 0
+    Dynamic: 0
 --- !u!114 &-8195178466769236526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +742,7 @@ MonoBehaviour:
   m_Name: Quad LFO
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -632, y: -664}
+  position: {x: -616, y: -616}
   ports:
     keys:
     - Clock
@@ -605,10 +918,10 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  Clock: 120
+  Clock: 170
   MultiplierAPosition: 17
   MultiplierBPosition: 16
-  MultiplierCPosition: 14
+  MultiplierCPosition: 17
   MasterSine: 0
   MasterSinePort:
     memberName: MasterSine
@@ -1938,6 +2251,7 @@ MonoBehaviour:
   - {fileID: -7883679012643922405}
   - {fileID: -3457807814032043601}
   - {fileID: 2096015514091571186}
+  - {fileID: -8449435456362556325}
   LoadOnPlay: 1
 --- !u!114 &84377897559767805
 MonoBehaviour:

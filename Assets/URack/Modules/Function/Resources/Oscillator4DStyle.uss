@@ -1,0 +1,70 @@
+.Oscillator4D {
+    height: 600;
+}
+
+#ClockHeader {
+    padding-top: 6;
+    padding-bottom: 6;
+}
+
+#MultiplesHeaderUnderline {
+    width: 120;
+    height: 8;
+    margin-bottom: 2;
+    align-self: center;
+    border-width: 2;
+    border-bottom-width: 0px;
+    border-color: #898989;
+    background-image: none;
+}
+
+.MultiplesWrapper {
+	flex-direction: column;
+}
+
+.Multiples {
+	flex-direction: row;
+}
+
+.Column {
+    flex-direction: column;
+    align-items: center;
+}
+
+SliderElement .Slider {
+    margin-top: -10;
+	height: 120;
+}
+
+SliderElement PortElement {
+    margin-top: -5;
+}
+
+.Slider #unity-tracker {
+    background-color: #898989;
+    margin-left: 2;
+    width: 4;
+}
+
+.Slider #unity-dragger {
+    border-width: 1px;
+    border-color: #444;
+    width: 10;
+    height: 18;
+}
+
+#Clock #unity-dragger {
+    background-color: #4a74ae;
+}
+
+#MultiplierX #unity-dragger {
+    background-color: #578980;
+}
+
+#MultiplierY #unity-dragger {
+    background-color: #D5444A;
+}
+
+#MultiplierZ #unity-dragger {
+    background-color: #FFEA60;
+}

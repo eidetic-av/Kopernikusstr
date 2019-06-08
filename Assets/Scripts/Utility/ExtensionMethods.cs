@@ -54,7 +54,7 @@ namespace Eidetic.Utility
         /// <returns>Float mapped to the new range</returns>
         public static float Map(this int input, float minimumInput, float maximumInput, float minimumOutput, float maximumOutput)
         {
-            return ((((float) input) - minimumInput) / (maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput;
+            return ((((float)input) - minimumInput) / (maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput;
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Eidetic.Utility
         /// <returns>Int mapped to the new range, rounded to nearest.</returns>
         public static int Map(this int input, int minimumInput, int maximumInput, int minimumOutput, int maximumOutput)
         {
-            return (int) Math.Round(((input - minimumInput) / (float) (maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput);
+            return (int)Math.Round(((input - minimumInput) / (float)(maximumInput - minimumInput)) * (maximumOutput - minimumOutput) + minimumOutput);
         }
 
         /// <summary>
@@ -106,9 +106,9 @@ namespace Eidetic.Utility
         /// </summary>
         /// <param name="value">The input value to round</param>
         /// <returns>Value clamped to the specified range</returns>
-        public static int RoundToInt(this float value) => (int) Math.Round(value);
+        public static int RoundToInt(this float value) => (int)Math.Round(value);
 
-        public static float Pow(this float baseValue, float exponent) => (float) System.Math.Pow(baseValue, exponent);
+        public static float Pow(this float baseValue, float exponent) => (float)System.Math.Pow(baseValue, exponent);
 
         /// <summary>
         /// Create a duplicate of a string.
@@ -331,6 +331,31 @@ namespace Eidetic.Utility
                 }
             }
             else return type.Name;
+        }
+
+        public static string Prettify(this string pascalCaseInput)
+        {
+            var output = "";
+            for (int i = 0; i < pascalCaseInput.Length; i++)
+            {
+                var c = pascalCaseInput[i];
+                if (i == 0)
+                    output += char.ToUpper(c);
+                else
+                {
+                    var previousCharacter = output[output.Length - 1];
+                    if (char.IsLetter(previousCharacter))
+                    {
+                        if (char.IsDigit(c)) output += " " + c;
+                        else if (char.IsUpper(previousCharacter)) output += c;
+                        else if (char.IsUpper(c)) output += " " + c;
+                        else output += c;
+                    }
+                    else if (char.IsDigit(previousCharacter))
+                        output += c;
+                }
+            }
+            return output;
         }
 
     }
