@@ -14,6 +14,8 @@ namespace Eidetic.URack
         /// See: <see cref="AddModule{T}"/> </summary>
         [SerializeField] public List<Module> Modules = new List<Module>();
 
+        [SerializeField, HideInInspector] public bool Open;
+
         /// <summary> Add a module to the rack by type </summary>
         public T AddModule<T>() where T : Module
         {

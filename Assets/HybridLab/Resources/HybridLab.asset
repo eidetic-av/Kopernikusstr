@@ -358,7 +358,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Clock: 120
-  MultiplierAPosition: 8
+  MultiplierAPosition: 1
   MultiplierBPosition: 3
   MultiplierCPosition: 9
   MasterSine: 0

@@ -47,8 +47,9 @@ namespace Eidetic.URack.UI
 
             void Drag(MouseMoveEvent mouseMoveEvent)
             {
-                Debug.Log(mouseMoveEvent.target is JackElement);
+                var hoveringOtherJack = mouseMoveEvent.target is JackElement && mouseMoveEvent.target != this;
             }
+
         }
     }
 }

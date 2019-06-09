@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 namespace Eidetic.URack.UI
@@ -10,13 +11,10 @@ namespace Eidetic.URack.UI
     public class RackElement : DraggableElement
     {
         public static RackElement Instance { get; private set; }
-        public static RackElement Instantiate(Rack rack)
-        {
-            Instance = new RackElement(rack);
-            return Instance;
-        }
 
         public Rack Rack { get; private set; }
+
+        public static void Instantiate(Rack rack) => Instance = new RackElement(rack);
 
         public RackElement(Rack rack) : base()
         {
@@ -24,37 +22,6 @@ namespace Eidetic.URack.UI
             Rack = rack;
 
             Instance.Add(ModuleElement.Create(ScriptableObject.CreateInstance<Function.Oscillator4D>()));
-            
-            LoadStyleSheets(this, this.GetType());
-        }
-
-        public void Attach()
-        {
-            OnAttach();
-            foreach (var moduleElement in Children())
-                AttachModule(moduleElement as ModuleElement);
-        }
-
-        public void Detach()
-        {
-            OnDetach();
-            foreach (var moduleElement in Children())
-                AttachModule(moduleElement as ModuleElement);
-        }
-
-        public void AttachModule(ModuleElement moduleElement)
-        {
-            if (Instance.Contains(moduleElement))
-                DetachModule(moduleElement);
-            Add(moduleElement);
-            moduleElement.OnAttach();
-        }
-
-        public void DetachModule(ModuleElement element)
-        {
-            if (!Instance.Contains(element)) return;
-            Remove(element);
-            OnDetach();
         }
     }
 }

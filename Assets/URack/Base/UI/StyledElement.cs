@@ -10,22 +10,18 @@ namespace Eidetic.URack.UI
 {
     public class StyledElement : VisualElement
     {
-        public Action OnAttach;
-        public Action OnDetach;
+        public EventCallback<AttachToPanelEvent> OnAttach;
+        public EventCallback<DetachFromPanelEvent> OnDetach;
 
         public StyledElement() : base()
         {
-            OnAttach = () => LoadStyleSheets(this, this.GetType());
-            OnDetach = () => ClearStyleSheets(this);
+            OnAttach = e => LoadStyleSheets(this, GetType());
+            RegisterCallback(OnAttach);
         }
 
-        /// <summary>
-        /// Load StyleSheet of name 'ThisElementType.uss' inside 'Resources'.
-        /// <para>If the Element Type inherits from a base class, load it's base
-        /// class StyleSheet (and it's n parents' StyleSheets).</para>
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="elementType"></param>
+        // Load StyleSheet of name 'ThisElementType.uss' inside 'Resources'.
+        // If the Element Type inherits from a base class, load it's base
+        // class StyleSheet (and it's n parents' StyleSheets).
         static public void LoadStyleSheets(StyledElement element, Type elementType)
         {
             if (elementType.BaseType != null && elementType.BaseType != typeof(StyledElement) && elementType.BaseType != typeof(Module))

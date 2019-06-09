@@ -1,53 +1,54 @@
 using System;
+using System.Collections.Generic;
 using Eidetic.URack.UI;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Linq;
+
 
 namespace Eidetic.URack.Editor
 {
     [CustomEditor(typeof(Rack))]
     public class RackEditor : EditorWindow
     {
+        static Rack Rack;
 
-        [UnityEditor.Callbacks.OnOpenAsset(1)]
+        [UnityEditor.Callbacks.OnOpenAsset(0)]
         public static bool OnOpenAsset(int instanceID, int line)
         {
-            var selectedAsset = Selection.activeObject as Rack;
-            if (selectedAsset != null)
+            Rack = Selection.activeObject as Rack;
+            if (Rack != null)
             {
-                OpenRack(selectedAsset);
+                Rack.Open = true;
+                GetWindow();
                 return true;
             }
             return false;
         }
 
-        RackElement Element;
         [MenuItem("Window/URack")]
-        public static void OpenRack(Rack rackAsset)
-        {
-            UI.RackElement.Instantiate(rackAsset);
-            GetWindow();
-        }
-
-        static RackEditor GetWindow()
-        {
-            var window = GetWindow<RackEditor>(true, "URack");
-            window.rootVisualElement.Clear();
-            window.rootVisualElement.Add(UI.RackElement.Instance);
-            return window;
-        }
+        static RackEditor GetWindow() => GetWindow<RackEditor>(true, "URack");
 
         public void OnEnable()
         {
-            GetWindow();
-            UI.RackElement.Instance.Attach();
+            Debug.Log("Enable");
+            if (!Rack)
+            {
+                Rack = Resources.LoadAll<Rack>("").FirstOrDefault(r => r.Open);
+                if (!Rack) return;
+            }
+            UI.RackElement.Instantiate(Rack);
+            var root = GetWindow().rootVisualElement;
+            root.Clear();
+            root.Add(UI.RackElement.Instance);
+            root.Add(UI.RackControls.Instance);
         }
 
-        public void OnDisable()
+        public void OnDestroy()
         {
-            UI.RackElement.Instance.Detach();
+            Rack.Open = false;
         }
     }
 }
