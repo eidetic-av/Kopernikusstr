@@ -10,13 +10,22 @@ namespace Eidetic.URack.UI
 {
     public class StyledElement : VisualElement
     {
+        EventCallback<AttachToPanelEvent> Attach;
+        EventCallback<DetachFromPanelEvent> Detach;
+
         public EventCallback<AttachToPanelEvent> OnAttach;
         public EventCallback<DetachFromPanelEvent> OnDetach;
 
         public StyledElement() : base()
         {
+            Attach = e => OnAttach.Invoke(e);
+            RegisterCallback(Attach);
+
+            Detach = e => OnDetach.Invoke(e);
+            RegisterCallback(Detach);
+
             OnAttach = e => LoadStyleSheets(this, GetType());
-            RegisterCallback(OnAttach);
+            OnDetach = e => { };
         }
 
         // Load StyleSheet of name 'ThisElementType.uss' inside 'Resources'.

@@ -58,18 +58,16 @@ namespace Eidetic.URack.UI
             Debug.Log("Delete Module");
         }
 
-        class DropBox : DraggableElement
+        public class DropBox : Box
         {
             public DropBox(string label) : base()
             {
                 AddToClassList("dropbox");
                 Add(new Label(label));
-                OnRelease += Drop;
             }
 
-            void Drop(MouseUpEvent mouseUpEvent)
+            public void Drop(MouseUpEvent mouseUpEvent)
             {
-                Debug.Log("Drop");
             }
         }
 

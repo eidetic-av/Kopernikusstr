@@ -19,6 +19,7 @@ namespace Eidetic.URack.UI
             // Drag event occurs on entire Rack
             if (this is URack)
                 RegisterCallback<MouseMoveEvent>(e => { if (TouchActive) OnDrag.Invoke(e); });
+
             // The handlers for the instance drag are added in the touch
             // callback and removed in the release callback
             else OnTouch += e =>
@@ -35,13 +36,13 @@ namespace Eidetic.URack.UI
         {
             Dragging = true;
             AddToClassList("Dragging");
+            URack.Instance.OnRelease += DragReleaseCallback;
         }
         void DragReleaseCallback(MouseUpEvent mouseUpEvent)
         {
             Dragging = false;
             RemoveFromClassList("Dragging");
             URack.Instance.OnRelease -= DragReleaseCallback;
-            URack.Instance.OnDrag -= OnDrag;
         }
     }
 }

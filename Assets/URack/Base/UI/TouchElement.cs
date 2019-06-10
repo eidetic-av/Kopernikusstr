@@ -10,39 +10,44 @@ namespace Eidetic.URack.UI
 {
     public class TouchElement : StyledElement
     {
-        public Action<MouseDownEvent> OnTouch;
-        public Action<MouseUpEvent> OnRelease;
+        public EventCallback<MouseDownEvent> OnTouch = e => { };
+        public EventCallback<MouseUpEvent> OnRelease = e => { };
 
         public bool TouchActive { get; private set; } = false;
-        public bool HoldActive { get; private set; } = false;
+
+
+        EventCallback<MouseDownEvent> TouchCallback;
+        EventCallback<MouseUpEvent> ReleaseCallback;
 
         public TouchElement() : base()
         {
-            OnTouch = BaseTouchCallback;
-            RegisterCallback<MouseDownEvent>(e => OnTouch.Invoke(e));
+            TouchCallback = e => Touch(e);
+            RegisterCallback(TouchCallback);
 
-            // Release occurs on the whole rack only
-            if (this is URack)
+            ReleaseCallback = e => Release(e);
+            // Release occurs on the whole rack
+            OnAttach += e => URack.Instance.RegisterCallback(ReleaseCallback);
+        }
+
+        void Touch(MouseDownEvent mouseDownEvent)
+        {
+            if (mouseDownEvent.button == (int)MouseButton.LeftMouse)
             {
-                OnRelease = BaseReleaseCallback;
-                RegisterCallback<MouseUpEvent>(e => OnRelease.Invoke(e));
+                TouchActive = true;
+                AddToClassList("Touch");
+                OnTouch(mouseDownEvent);
             }
-            else OnRelease = e => { };
         }
 
-        void BaseTouchCallback(MouseDownEvent mouseDownEvent)
+        void Release(MouseUpEvent mouseUpEvent)
         {
-            if (mouseDownEvent.button != (int)MouseButton.LeftMouse) return;
-            TouchActive = true;
-            AddToClassList("Touch");
-            if (!(this is URack)) URack.Instance.OnRelease += OnRelease;
-        }
-        void BaseReleaseCallback(MouseUpEvent mouseUpEvent)
-        {
-            TouchActive = false;
-            RemoveFromClassList("Touch");
-            RemoveFromClassList("Hold");
-            if (!(this is URack)) URack.Instance.OnRelease -= OnRelease;
+            if (TouchActive)
+            {
+                TouchActive = false;
+                RemoveFromClassList("Touch");
+                OnRelease(mouseUpEvent);
+                Debug.Log("Release called from: " + GetType().Name);
+            }
         }
     }
 }
