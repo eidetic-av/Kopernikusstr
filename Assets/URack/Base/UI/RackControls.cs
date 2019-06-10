@@ -64,6 +64,12 @@ namespace Eidetic.URack.UI
             {
                 AddToClassList("dropbox");
                 Add(new Label(label));
+                OnRelease += Drop;
+            }
+
+            void Drop(MouseUpEvent mouseUpEvent)
+            {
+                Debug.Log("Drop");
             }
         }
 
