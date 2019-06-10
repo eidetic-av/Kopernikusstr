@@ -72,7 +72,7 @@ xsi:schemaLocation="UnityEngine.UIElements
         low-value="18"
         defaultValue="12"
         readonlyValue="true"/>
-      <URack:PortElement name="SIN"/>
+      <URack:PortElement name="Sin"/>
       <URack:PortElement name="Tri" />
       <URack:PortElement name="Saw" />
     </VisualElement>

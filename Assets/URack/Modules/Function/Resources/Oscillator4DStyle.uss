@@ -1,11 +1,3 @@
-ModuleElement.Oscillator4D {
-    background-color: #ccc;
-}
-
-    ModuleElement.Oscillator4D ModuleHeader {
-        color: #666;
-    }
-
 .column {
     flex-direction: column;
     align-items: center;

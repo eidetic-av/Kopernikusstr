@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Name: Envelope Generator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 648, y: 632}
+  position: {x: 664, y: 568}
   ports:
     keys:
     - Length
@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_Name: Scale Controller
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 72, y: -856}
+  position: {x: 216, y: -872}
   ports:
     keys:
     - X
@@ -2729,7 +2729,7 @@ MonoBehaviour:
   m_Name: Rotation Controller
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -104, y: -648}
+  position: {x: -120, y: -488}
   ports:
     keys:
     - XRotation

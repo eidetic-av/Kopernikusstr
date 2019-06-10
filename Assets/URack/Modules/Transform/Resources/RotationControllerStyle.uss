@@ -1,0 +1,11 @@
+ModuleElement.RotationController {
+    width:70px;
+}
+
+.RotationController #Container {
+    flex-direction: column;
+}
+
+ModuleHeader TextElement {
+    white-space: normal;
+}

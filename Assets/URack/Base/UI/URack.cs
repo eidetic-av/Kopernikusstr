@@ -21,13 +21,20 @@ namespace Eidetic.URack.UI
             Instance = this;
             Rack = rack;
 
-            Instance.Add(UI.RackControls.Instance);
+            Add(UI.RackControls.Instance);
 
             foreach (var module in Rack.Modules)
             {
-                Instance.Add(ModuleElement.Create(module));
+                Add(ModuleElement.Create(module));
             }
+        }
 
+        public void UpdateLayout()
+        {
+            // Make sure the RackControls are always on top of the modules
+            //Remove(RackControls.Instance);
+            //Add(RackControls.Instance);
+            //UI.RackControls.Instance.BringToFront();
         }
     }
 }

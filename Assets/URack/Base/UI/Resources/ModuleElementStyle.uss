@@ -1,12 +1,12 @@
 ModuleElement {
     height: 500px;
-    background-color: #bbb;
+    background-color: #ccc;
     border-width: 1px;
     border-color: #777;
 }
 
     ModuleElement #Container {
-        padding: 12px;
+        padding: 10px;
         padding-top: 6px;
         flex-direction: row;
         flex-grow: 1;

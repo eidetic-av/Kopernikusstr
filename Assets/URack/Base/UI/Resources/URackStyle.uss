@@ -28,6 +28,8 @@ URack {
     justify-content: center;
     color: #444;
     white-space: normal;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 Button {
@@ -46,8 +48,8 @@ TextInput, FloatInput {
     -unity-text-align: middle-center;
     border-width: 0;
     padding: 2px;
+    padding-bottom: 3px;
 }
-
 
 #BlankPanel {
     background-color: rgba(255, 255, 255, .5);

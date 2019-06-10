@@ -48,4 +48,7 @@ Button {
     height: 70px;
     background-color: #ddd;
     margin: 5px;
+    padding: 5px;
+    justify-content: center;
+    -unity-text-align: middle-center;
 }

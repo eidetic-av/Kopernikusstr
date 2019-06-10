@@ -170,7 +170,7 @@ namespace Eidetic.URack.UI
         void DuplicateModule()
         {
             URack.Instance.Remove(Blank);
-            var newModule = URack.Instance.Rack.AddModule(this.Module.GetType());
+            var newModule = URack.Instance.Rack.CopyModule(this.Module);
             URack.Instance.Add(Create(newModule));
         }
     }
