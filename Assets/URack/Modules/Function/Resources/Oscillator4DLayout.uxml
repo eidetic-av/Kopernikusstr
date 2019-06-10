@@ -9,9 +9,8 @@ xsi:schemaLocation="UnityEngine.UIElements
 
   <VisualElement name="Container">
 
-    <VisualElement class="Column">
-      
-      <Label name="ClockHeader" text="w" />
+    <VisualElement class="column" name="column--w">
+      <Label class="column__label" text="W" />
 
       <URack:SliderElement name="Clock"
         defaultValue="120"
@@ -25,59 +24,57 @@ xsi:schemaLocation="UnityEngine.UIElements
       <URack:PortElement name="Saw" />
     </VisualElement>
 
-    <VisualElement class="MultiplesWrapper">
+    <VisualElement class="column" name="column--x">
+      <Label class="column__label" text="X" />
 
-      <Label name="MultiplesHeader" text="Multiples" />
+      <URack:SliderElement name="MultiplierX"
+        type="dictionary"
+        dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers"
+        showLabel="false"
+        showValue="true"
+        high-value="0"
+        low-value="18"
+        defaultValue="5"
+        readonlyValue="true"/>
+      <URack:PortElement name="Sin"/>
+      <URack:PortElement name="Tri" />
+      <URack:PortElement name="Saw" />
+
+    </VisualElement>
+
+    <VisualElement class="column" name="column--y">
+      <Label class="column__label" text="Y" />
+
+      <URack:SliderElement name="MultiplierY"
+        type="dictionary"
+        dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers"
+        showLabel="false"
+        showValue="true"
+        high-value="0"
+        low-value="18"
+        defaultValue="8"
+        readonlyValue="true"/>
+      <URack:PortElement name="Sin"/>
+      <URack:PortElement name="Tri" />
+      <URack:PortElement name="Saw" />
+
+    </VisualElement>
+
+    <VisualElement class="column" name="column--z">
+      <Label class="column__label" text="Z" />
       
-      <VisualElement class="Multiples">
-        
-        <VisualElement class="Column">
-          
-          <URack:SliderElement name="MultiplierX"
-            type="dictionary"
-            dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers"
-            showLabel="false"
-            showValue="true"
-            high-value="0"
-            low-value="18"
-            defaultValue="5"
-            readonlyValue="true"/>
-          <URack:PortElement name="Sin"/>
-          <URack:PortElement name="Tri" />
-          <URack:PortElement name="Saw" />
-        
-        </VisualElement>
-        <VisualElement class="Column">
-          
-          <URack:SliderElement name="MultiplierY" 
-            type="dictionary"
-            dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers"
-            showLabel="false"
-            showValue="true"
-            high-value="0"
-            low-value="18"
-            defaultValue="8"
-            readonlyValue="true"/>
-          <URack:PortElement name="Sin"/>
-          <URack:PortElement name="Tri" />
-          <URack:PortElement name="Saw" />
-        
-        </VisualElement>
-        <VisualElement class="Column">
-          <URack:SliderElement name="MultiplierZ" 
-            type="dictionary"
-            dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers"
-            showLabel="false"
-            showValue="true"
-            high-value="0"
-            low-value="18"
-            defaultValue="12"
-            readonlyValue="true"/>
-          <URack:PortElement name="Sin"/>
-          <URack:PortElement name="Tri" />
-          <URack:PortElement name="Saw" />
-        </VisualElement>
-      </VisualElement>
+      <URack:SliderElement name="MultiplierZ"
+        type="dictionary"
+        dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers"
+        showLabel="false"
+        showValue="true"
+        high-value="0"
+        low-value="18"
+        defaultValue="12"
+        readonlyValue="true"/>
+      <URack:PortElement name="SIN"/>
+      <URack:PortElement name="Tri" />
+      <URack:PortElement name="Saw" />
     </VisualElement>
 
   </VisualElement>

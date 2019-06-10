@@ -1,31 +1,20 @@
-#ClockHeader {
-    padding-top: 6px;
-    padding-bottom: 6px;
+ModuleElement.Oscillator4D {
+    background-color: #ccc;
 }
 
-#MultiplesHeaderUnderline {
-    width: 120px;
-    height: 8px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    align-self: center;
-    border-width: 1px;
-    border-bottom-width: 0px;
-    border-color: #777;
-    background-image: none;
-}
+    ModuleElement.Oscillator4D ModuleHeader {
+        color: #666;
+    }
 
-.MultiplesWrapper {
-    flex-direction: column;
-}
-
-.Multiples {
-    flex-direction: row;
-}
-
-.Column {
+.column {
     flex-direction: column;
     align-items: center;
+}
+
+.column__label {
+    -unity-font: resource("Fonts/SpaceGrotesk-SemiBold");
+    font-size: 18px;
+    margin: 5px;
 }
 
 SliderElement .Slider {
@@ -46,18 +35,34 @@ SliderElement .Slider {
         height: 18px;
     }
 
-#Clock #unity-dragger {
+#column--w Label, #column--w #Label {
+    color: #4a74ae;
+}
+
+#column--w #unity-dragger {
     background-color: #4a74ae;
 }
 
-#MultiplierX #unity-dragger {
+#column--x Label, #column--x #Label {
+    color: #578980;
+}
+
+#column--x #unity-dragger {
     background-color: #578980;
 }
 
-#MultiplierY #unity-dragger {
+#column--y Label, #column--y #Label {
+    color: #D5444A;
+}
+
+#column--y #unity-dragger {
     background-color: #D5444A;
 }
 
-#MultiplierZ #unity-dragger {
+#column--z Label, #column--z #Label {
+    color: #FFEA60;
+}
+
+#column--z #unity-dragger {
     background-color: #FFEA60;
 }

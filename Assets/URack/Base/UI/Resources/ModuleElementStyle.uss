@@ -10,7 +10,7 @@ ModuleElement {
         padding-top: 6px;
         flex-direction: row;
         flex-grow: 1;
-        align-items: center;
+        align-items: flex-start;
     }
 
     ModuleElement.Dragging {

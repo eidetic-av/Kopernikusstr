@@ -66,10 +66,11 @@ namespace Eidetic.URack.UI
                 var moduleTemplate = Resources.Load<VisualTreeAsset>(module.GetType().Name + "Layout");
                 moduleTemplate.CloneTree(element);
 
-                LoadStyleSheets(element, module.GetType());
-
                 element.Header.OnDrag += element.DragModule;
                 element.Header.OnRelease += element.DropModule;
+
+                element.AddToClassList(module.GetType().Name);
+                LoadStyleSheets(element, module.GetType());
 
                 return element;
             }
@@ -130,8 +131,12 @@ namespace Eidetic.URack.UI
         void DropModule(MouseUpEvent mouseUpEvent)
         {
             // Dropping onto the 'Delete' DropBox 
-            if (RackControls.Instance.DeleteModuleDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
+            if (RackControls.Instance.DeleteDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
                 DeleteModule();
+
+            // Dropping onto the 'Duplicate' DropBox 
+            else if (RackControls.Instance.DuplicateDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
+                DuplicateModule();
 
             // Dropping onto a space in the Rack
             else
@@ -160,6 +165,13 @@ namespace Eidetic.URack.UI
             URack.Instance.Rack.RemoveModule(this.Module);
             URack.Instance.Remove(this);
             URack.Instance.Remove(Blank);
+        }
+
+        void DuplicateModule()
+        {
+            URack.Instance.Remove(Blank);
+            var newModule = URack.Instance.Rack.AddModule(this.Module.GetType());
+            URack.Instance.Add(Create(newModule));
         }
     }
 }

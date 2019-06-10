@@ -8,18 +8,18 @@ URack {
     flex-grow: 1;
     flex-wrap: wrap;
     background-color: #20202a;
-    -unity-font: resource("Fonts/SpaceGrotesk-Label");
+    -unity-font: resource("Fonts/SpaceGrotesk-Medium");
     font-size: 13px;
     margin: 5px;
 }
 
 .header {
-    -unity-font: resource("Fonts/SpaceGrotesk-Header");
+    -unity-font: resource("Fonts/SpaceGrotesk-Regular");
     font-size: 18px;
 }
 
 .unity-base-field {
-    -unity-font: resource("Fonts/SpaceGrotesk-Field");
+    -unity-font: resource("Fonts/SpaceGrotesk-Light");
     font-size: 12px;
 }
 
