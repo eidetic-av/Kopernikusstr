@@ -8,7 +8,7 @@ using Eidetic.Utility;
 
 namespace Eidetic.URack.UI
 {
-    public partial class ModuleElement : DraggableElement
+    public partial class ModuleElement : TouchElement
     {
         public bool MovingModule { get; private set; }
 
@@ -22,16 +22,14 @@ namespace Eidetic.URack.UI
         public Module Module { get; set; }
 
         ModuleHeader Header;
-        class ModuleHeader : TouchElement
+        class ModuleHeader : DraggableElement
         {
-            public bool DragActive;
             ModuleElement ModuleElement;
             public ModuleHeader(ModuleElement parentModule) : base()
             {
                 ModuleElement = parentModule;
                 AddToClassList("header");
                 Add(new TextElement().WithText(parentModule.Module.Name.Prettify()));
-                OnTouch += e => DragActive = true;
             }
         }
 
@@ -70,8 +68,8 @@ namespace Eidetic.URack.UI
 
                 LoadStyleSheets(element, module.GetType());
 
-                URack.Instance.AddDragAction(element, element.DragModule);
-                URack.Instance.OnRelease += element.DropModule;
+                element.Header.OnDrag += element.DragModule;
+                element.Header.OnRelease += element.DropModule;
 
                 return element;
             }
@@ -80,9 +78,7 @@ namespace Eidetic.URack.UI
 
         void DragModule(MouseMoveEvent mouseMoveEvent)
         {
-            if (!Header.DragActive || !this.Dragging) return;
-
-            if (MovingModule == false)
+            if (!MovingModule)
             {
                 StartDragMousePosition = mouseMoveEvent.localMousePosition;
                 CurrentDragMousePosition = StartDragMousePosition;
@@ -98,8 +94,6 @@ namespace Eidetic.URack.UI
                 URack.Instance.Insert(StartDragModuleIndex, Blank);
 
                 MovingModule = true;
-
-                AddToClassList("Drag");
             }
 
             CurrentDragMousePosition = mouseMoveEvent.localMousePosition;
@@ -133,9 +127,6 @@ namespace Eidetic.URack.UI
 
         void DropModule(MouseUpEvent mouseUpEvent)
         {
-            Header.DragActive = false;
-            if (!MovingModule) return;
-
             URack.Instance.Remove(this);
 
             this.style.position = Position.Relative;
@@ -154,7 +145,7 @@ namespace Eidetic.URack.UI
             StartDragModuleIndex = -1;
             ModuleDropIndex = -1;
 
-            RemoveFromClassList("Drag");
+            Debug.Log("Drop");
         }
     }
 }

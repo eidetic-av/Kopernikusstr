@@ -47,7 +47,7 @@ namespace Eidetic.URack.UI
             public JackElement(Port port = null)
             {
                 Port = port;
-                URack.Instance.AddDragAction(this, Drag);
+                OnDrag += Drag;
             }
 
             static JackElement hoveringJack;

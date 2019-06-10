@@ -10,11 +10,10 @@ namespace Eidetic.URack.UI
 {
     public class TouchElement : StyledElement
     {
-        public EventCallback<MouseDownEvent> OnTouch = e => { };
-        public EventCallback<MouseUpEvent> OnRelease = e => { };
-
         public bool TouchActive { get; private set; } = false;
 
+        public EventCallback<MouseDownEvent> OnTouch = e => { };
+        public EventCallback<MouseUpEvent> OnRelease = e => { };
 
         EventCallback<MouseDownEvent> TouchCallback;
         EventCallback<MouseUpEvent> ReleaseCallback;
@@ -46,7 +45,6 @@ namespace Eidetic.URack.UI
                 TouchActive = false;
                 RemoveFromClassList("Touch");
                 OnRelease(mouseUpEvent);
-                Debug.Log("Release called from: " + GetType().Name);
             }
         }
     }

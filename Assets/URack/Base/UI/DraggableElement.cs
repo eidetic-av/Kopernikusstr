@@ -10,39 +10,35 @@ namespace Eidetic.URack.UI
 {
     public class DraggableElement : TouchElement
     {
-        Action<MouseMoveEvent> OnDrag;
         public bool Dragging { get; protected set; } = false;
+
+        public EventCallback<MouseMoveEvent> OnDrag = e => { };
+
+        EventCallback<MouseMoveEvent> DragCallback;
 
         public DraggableElement() : base()
         {
-            OnDrag = BaseDragCallback;
-            // Drag event occurs on entire Rack
-            if (this is URack)
-                RegisterCallback<MouseMoveEvent>(e => { if (TouchActive) OnDrag.Invoke(e); });
+            OnRelease += ReleaseDrag;
 
-            // The handlers for the instance drag are added in the touch
-            // callback and removed in the release callback
-            else OnTouch += e =>
+            DragCallback = e => Drag(e);
+            // Drag occurs on the whole rack
+            OnAttach += e => URack.Instance.RegisterCallback(DragCallback);
+        }
+        void Drag(MouseMoveEvent mouseMoveEvent)
+        {
+            if (TouchActive)
             {
-                URack.Instance.OnDrag += OnDrag;
-                URack.Instance.OnRelease += DragReleaseCallback;
-            };
+                Dragging = true;
+                if (!ClassListContains("Dragging"))
+                    AddToClassList("Dragging");
+                OnDrag(mouseMoveEvent);
+            }
         }
-        public void AddDragAction(DraggableElement element, Action<MouseMoveEvent> action)
-        {
-            OnDrag += e => { if (element.Dragging) action.Invoke(e); };
-        }
-        void BaseDragCallback(MouseMoveEvent mouseMoveEvent)
-        {
-            Dragging = true;
-            AddToClassList("Dragging");
-            URack.Instance.OnRelease += DragReleaseCallback;
-        }
-        void DragReleaseCallback(MouseUpEvent mouseUpEvent)
+
+        void ReleaseDrag(MouseUpEvent mouseUpEvent)
         {
             Dragging = false;
             RemoveFromClassList("Dragging");
-            URack.Instance.OnRelease -= DragReleaseCallback;
         }
     }
 }

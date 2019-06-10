@@ -13,7 +13,7 @@ ModuleElement {
         align-items: center;
     }
 
-    ModuleElement.Drag {
+    ModuleElement.Dragging {
         opacity: .66;
     }
 
