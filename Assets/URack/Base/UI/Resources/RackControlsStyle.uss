@@ -30,6 +30,10 @@ Button {
     right: 0px;
 }
 
+    #Toolbar Button {
+        margin: 10px;
+    }
+
 #DropBar {
     position: absolute;
     bottom: 0px;

@@ -581,11 +581,7 @@ MonoBehaviour:
       node: {fileID: -8195178466769236526}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: BloomIntensity
-        MemberType: 16
-        node: {fileID: -3727964213142868859}
-        reroutePoints: []
+      connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -651,11 +647,7 @@ MonoBehaviour:
       node: {fileID: -8190004930908122433}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: EmissionRate
-        MemberType: 16
-        node: {fileID: -8474961230750607269}
-        reroutePoints: []
+      connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -812,11 +804,7 @@ MonoBehaviour:
       node: {fileID: -7914297811538614634}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: InputA
-        MemberType: 4
-        node: {fileID: 7968136676402057183}
-        reroutePoints: []
+      connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -940,11 +928,7 @@ MonoBehaviour:
     node: {fileID: -7914297811538614634}
     typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089
-    connections:
-    - MemberName: InputA
-      MemberType: 4
-      node: {fileID: 7968136676402057183}
-      reroutePoints: []
+    connections: []
     Direction: 1
     ConnectionType: 0
     Dynamic: 0
@@ -1085,9 +1069,6 @@ MonoBehaviour:
     - Length
     - Shape
     - Trigger
-    - Value
-    - Running
-    - EnvelopePosition
     values:
     - memberName: Length
       memberType: 4
@@ -1118,37 +1099,6 @@ MonoBehaviour:
         node: {fileID: -7186348343016496547}
         reroutePoints: []
       Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Value
-      memberType: 16
-      node: {fileID: -7883679012643922405}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: -3457807814032043601}
-        reroutePoints: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Running
-      memberType: 16
-      node: {fileID: -7883679012643922405}
-      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: EnvelopePosition
-      memberType: 16
-      node: {fileID: -7883679012643922405}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
       ConnectionType: 0
       Dynamic: 0
   Length: 0.25
@@ -1862,11 +1812,7 @@ MonoBehaviour:
       node: {fileID: -3457807814032043601}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Speed
-        MemberType: 16
-        node: {fileID: 2096015514091571186}
-        reroutePoints: []
+      connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -2030,9 +1976,6 @@ MonoBehaviour:
     - Length
     - Shape
     - Trigger
-    - Value
-    - Running
-    - EnvelopePosition
     values:
     - memberName: Length
       memberType: 4
@@ -2063,41 +2006,6 @@ MonoBehaviour:
         node: {fileID: -3714102316685379379}
         reroutePoints: []
       Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Value
-      memberType: 16
-      node: {fileID: -1245162474127291772}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: 6501367907943255913}
-        reroutePoints: []
-      - MemberName: InputA
-        MemberType: 4
-        node: {fileID: -6922136520103624334}
-        reroutePoints: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Running
-      memberType: 16
-      node: {fileID: -1245162474127291772}
-      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: EnvelopePosition
-      memberType: 16
-      node: {fileID: -1245162474127291772}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
       ConnectionType: 0
       Dynamic: 0
   Length: 0.5
@@ -2226,11 +2134,9 @@ MonoBehaviour:
   - {fileID: 7968136676402057183}
   - {fileID: 5202767237711656925}
   - {fileID: 4316568967663184667}
-  - {fileID: -8474961230750607269}
   - {fileID: -3714102316685379379}
   - {fileID: -6104011588177357161}
   - {fileID: 4858699801095851018}
-  - {fileID: -3727964213142868859}
   - {fileID: 8475875551648803324}
   - {fileID: 7945762725008678183}
   - {fileID: -7475863515175722769}
@@ -2250,9 +2156,8 @@ MonoBehaviour:
   - {fileID: -7186348343016496547}
   - {fileID: -7883679012643922405}
   - {fileID: -3457807814032043601}
-  - {fileID: 2096015514091571186}
   - {fileID: -8449435456362556325}
-  LoadOnPlay: 1
+  - {fileID: 0}
 --- !u!114 &84377897559767805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2961,9 +2866,6 @@ MonoBehaviour:
     - Length
     - Shape
     - Trigger
-    - Value
-    - Running
-    - EnvelopePosition
     values:
     - memberName: Length
       memberType: 4
@@ -2998,37 +2900,6 @@ MonoBehaviour:
         node: {fileID: -2134614878785344887}
         reroutePoints: []
       Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Value
-      memberType: 16
-      node: {fileID: 5879419128740899487}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: -6019574675606638750}
-        reroutePoints: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Running
-      memberType: 16
-      node: {fileID: 5879419128740899487}
-      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: EnvelopePosition
-      memberType: 16
-      node: {fileID: 5879419128740899487}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
       ConnectionType: 0
       Dynamic: 0
   Length: 0.06751813
@@ -3153,11 +3024,7 @@ MonoBehaviour:
       node: {fileID: 6501367907943255913}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Speed
-        MemberType: 16
-        node: {fileID: -8474961230750607269}
-        reroutePoints: []
+      connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -3264,11 +3131,7 @@ MonoBehaviour:
       node: {fileID: 7945762725008678183}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: BloomThreshold
-        MemberType: 16
-        node: {fileID: -3727964213142868859}
-        reroutePoints: []
+      connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
@@ -3312,11 +3175,7 @@ MonoBehaviour:
       node: {fileID: 7968136676402057183}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: MultiplierASine
-        MemberType: 4
-        node: {fileID: -7914297811538614634}
-        reroutePoints: []
+      connections: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0

@@ -21,9 +21,13 @@ namespace Eidetic.URack.UI
             Instance = this;
             Rack = rack;
 
-            Instance.Add(ModuleElement.Create(ScriptableObject.CreateInstance<Function.Oscillator4D>()));
-
             Instance.Add(UI.RackControls.Instance);
+
+            foreach (var module in Rack.Modules)
+            {
+                Instance.Add(ModuleElement.Create(module));
+            }
+
         }
     }
 }

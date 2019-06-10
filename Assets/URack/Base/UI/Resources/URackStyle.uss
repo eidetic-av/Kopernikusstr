@@ -10,6 +10,7 @@ URack {
     background-color: #20202a;
     -unity-font: resource("Fonts/SpaceGrotesk-Label");
     font-size: 13px;
+    margin: 5px;
 }
 
 .header {

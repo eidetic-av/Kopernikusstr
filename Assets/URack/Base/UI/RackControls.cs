@@ -50,12 +50,10 @@ namespace Eidetic.URack.UI
 
         void ShowNewModuleWindow()
         {
-            Debug.Log("New Module");
-        }
+            var module = URack.Instance.Rack.AddModule<Function.Oscillator4D>();
+            var moduleElement = ModuleElement.Create(module);
 
-        void DeleteModule()
-        {
-            Debug.Log("Delete Module");
+            URack.Instance.Add(moduleElement);
         }
 
         public class DropBox : Box
