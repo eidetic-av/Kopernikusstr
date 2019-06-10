@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 using System.Reflection;
 using System.Linq;
 
-namespace Eidetic.URack.UI
+namespace Eidetic.URack.Base.UI
 {
     public class SliderElement : StyledElement
     {

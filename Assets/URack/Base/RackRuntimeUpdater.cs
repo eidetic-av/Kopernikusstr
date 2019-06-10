@@ -2,8 +2,9 @@ using MidiJack;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Eidetic.Unity.Utility;
+using Eidetic.URack.Base;
 
-namespace Eidetic.URack
+namespace Eidetic.URack.Runtime
 {
     public class RackRuntimeUpdater : MonoBehaviour
     {

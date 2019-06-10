@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-namespace Eidetic.URack
+namespace Eidetic.URack.Base
 {
     [Serializable]
     public class Port

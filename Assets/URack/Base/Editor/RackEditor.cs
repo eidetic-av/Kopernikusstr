@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Eidetic.URack.UI;
+using Eidetic.URack.Base;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -37,10 +37,10 @@ namespace Eidetic.URack.Editor
                 Rack = Resources.LoadAll<Rack>("").FirstOrDefault(r => r.Open);
                 if (!Rack) return;
             }
-            UI.URack.Instantiate(Rack);
+            Base.UI.URack.Instantiate(Rack);
             var root = GetWindow().rootVisualElement;
             root.Clear();
-            root.Add(UI.URack.Instance);
+            root.Add(Base.UI.URack.Instance);
         }
 
         public void OnDestroy()

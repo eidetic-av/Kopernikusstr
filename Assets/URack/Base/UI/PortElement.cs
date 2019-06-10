@@ -7,7 +7,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Eidetic.URack.UI
+namespace Eidetic.URack.Base.UI
 {
     public class PortElement : VisualElement
     {

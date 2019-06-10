@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-namespace Eidetic.URack.UI
+namespace Eidetic.URack.Base.UI
 {
     public class URack : DraggableElement
     {
@@ -16,12 +16,16 @@ namespace Eidetic.URack.UI
 
         public static void Instantiate(Rack rack) => Instance = new URack(rack);
 
+        CableLayer CableLayer;
+
         public URack(Rack rack) : base()
         {
             Instance = this;
             Rack = rack;
 
             Add(UI.RackControls.Instance);
+
+            Add(CableLayer = new CableLayer());
 
             foreach (var module in Rack.Modules)
             {

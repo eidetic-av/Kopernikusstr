@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Eidetic.URack;
+using Eidetic.URack.Base;
 using Eidetic.Utility;
 using UnityEngine;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Eidetic.Utility;
 
-namespace Eidetic.URack.UI
+namespace Eidetic.URack.Base.UI
 {
     public class TouchElement : StyledElement
     {

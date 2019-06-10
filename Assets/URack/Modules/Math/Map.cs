@@ -1,4 +1,5 @@
 using Eidetic.Utility;
+using Eidetic.URack.Base;
 
 namespace Eidetic.URack.Math
 {

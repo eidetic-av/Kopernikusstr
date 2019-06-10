@@ -5,7 +5,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Eidetic.URack
+namespace Eidetic.URack.Base
 {
     [CreateAssetMenu, Serializable]
     public class Rack : ScriptableObject

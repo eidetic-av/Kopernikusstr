@@ -8,7 +8,7 @@ using Eidetic.Utility;
 using UnityEditor;
 using UnityEngine;
 
-namespace Eidetic.URack
+namespace Eidetic.URack.Base
 {
     [InitializeOnLoad]
     public abstract partial class Module : ScriptableObject
@@ -23,7 +23,7 @@ namespace Eidetic.URack
                 else if (stateChange == PlayModeStateChange.ExitingPlayMode) OnExit();
             };
         }
-        private static void OnPlay() => RackRuntimeUpdater.Instantiate();
+        private static void OnPlay() => Runtime.RackRuntimeUpdater.Instantiate();
         private static void OnExit() => ActiveModules.ForEachOnMain(n => n.Exit());
 
         [SerializeField] private PortDictionary ports = new PortDictionary();
