@@ -50,10 +50,16 @@ namespace Eidetic.URack.Base.UI
                 OnDrag += Drag;
             }
 
+            static JackElement sourceJack;
             static JackElement hoveringJack;
+
+            // don't know why this offset is needed
+            static Vector2 mouseOffset = new Vector2(-5, -26);
 
             void Drag(MouseMoveEvent mouseMoveEvent)
             {
+                sourceJack = this;
+
                 if (mouseMoveEvent.target is JackElement && mouseMoveEvent.target != this)
                 {
                     if (hoveringJack != null && hoveringJack != mouseMoveEvent.target)
@@ -68,15 +74,30 @@ namespace Eidetic.URack.Base.UI
                     hoveringJack.RemoveFromClassList("connectable");
                     hoveringJack = null;
                 }
+
+                CableLayer.Instance.DrawCable(GetHashCode(),
+                    worldBound.center + mouseOffset,
+                    mouseMoveEvent.mousePosition + mouseOffset);
+
+                CableLayer.Instance.MarkDirtyRepaint();
             }
 
             static void Release(MouseUpEvent mouseUpEvent)
             {
                 if (hoveringJack != null)
                 {
-                    hoveringJack.RemoveFromClassList("connectable");
                     // connection logic here
+
+                    CableLayer.Instance.DrawCable(sourceJack.GetHashCode(),
+                        sourceJack.worldBound.center + mouseOffset,
+                        hoveringJack.worldBound.center + mouseOffset);
+
+                    hoveringJack.RemoveFromClassList("connectable");
                     hoveringJack = null;
+                }
+                else
+                {
+                    CableLayer.Instance.RemoveCable(sourceJack.GetHashCode());
                 }
             }
 

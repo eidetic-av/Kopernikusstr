@@ -2,7 +2,7 @@
 <UXML
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="UnityEngine.UIElements"
-    xmlns:URack="Eidetic.URack.UI"
+    xmlns:URack="Eidetic.URack.Base.UI"
     xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd"
 xsi:schemaLocation="UnityEngine.UIElements
 ../UIElementsSchema/UnityEngine.UIElements.xsd">

@@ -23,14 +23,13 @@ namespace Eidetic.URack.Base.UI
             Instance = this;
             Rack = rack;
 
-            Add(UI.RackControls.Instance);
-
-            Add(CableLayer = new CableLayer());
-
             foreach (var module in Rack.Modules)
             {
                 Add(ModuleElement.Create(module));
             }
+
+            Add(UI.RackControls.Instance);
+            Add(CableLayer = new CableLayer());
         }
 
         public void UpdateLayout()

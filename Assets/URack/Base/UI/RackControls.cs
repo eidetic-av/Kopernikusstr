@@ -28,6 +28,8 @@ namespace Eidetic.URack.Base.UI
 
         public RackControls()
         {
+            pickingMode = PickingMode.Ignore;
+
             Toolbar = new Box();
             Toolbar.name = "Toolbar";
 
