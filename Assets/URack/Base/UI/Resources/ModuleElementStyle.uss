@@ -1,38 +1,38 @@
 ModuleElement {
-    height: 500;
+    height: 500px;
     background-color: #bbb;
     border-width: 1px;
     border-color: #777;
 }
 
-ModuleElement #Container {
-    padding: 12;
-    padding-top: 6;
-    flex-direction: row;
-    flex-grow: 1;
-    align-items: center;
-}
+    ModuleElement #Container {
+        padding: 12px;
+        padding-top: 6px;
+        flex-direction: row;
+        flex-grow: 1;
+        align-items: center;
+    }
 
-ModuleElement.Drag {
-    opacity: .66;
-}
+    ModuleElement.Drag {
+        opacity: .66;
+    }
+
+    ModuleElement .unity-base-text-field__input {
+        background-image: none;
+        background-color: rgba(255, 255, 255, .3);
+        color: #333;
+        flex-grow: 0;
+        width: 45px;
+        margin-left: 5px;
+    }
 
 ModuleHeader {
     background-color: rgba(255, 255, 255, .45);
     color: #444;
-    height: 40;
+    height: 40px;
     align-items: center;
     align-content: center;
     justify-content: center;
-}
-
-ModuleElement .unity-base-text-field__input {
-    background-image: none;
-    background-color: rgba(255, 255, 255, .3);
-    color: #333;
-    flex-grow: 0;
-    width: 45;
-    margin-left: 5;
 }
 
 
@@ -45,51 +45,55 @@ PortElement {
     align-items: center;
 }
 
-PortElement #Label {
-    -unity-text-align: middle-center;
-    white-space: nowrap;
-}
+    PortElement #Label {
+        -unity-text-align: middle-center;
+        white-space: nowrap;
+    }
 
 JackElement {
-    width: 45;
-    height: 40;
+    width: 45px;
+    height: 40px;
     background-image: url("Port.png");
 }
 
-JackElement.connectable {
-    background-color: rgba(255, 255, 255, .3);
-}
+    JackElement.connectable {
+        background-color: rgba(255, 255, 255, .3);
+    }
 
 SliderElement {
-	width: 50;
+    width: 50px;
 }
 
-SliderElement .Slider {
-	width: 50;
-	height: 150;
-	align-self: center;
-}
+    SliderElement .Slider {
+        width: 50px;
+        height: 150px;
+        align-self: center;
+    }
 
-SliderElement .unity-base-slider__input {
-	align-items: center;
-}
+    SliderElement .unity-base-slider__input {
+        align-items: center;
+    }
 
-SliderElement #unity-tracker {
-	width: 8;
-	left: 21;
-	background-image: none;
-    background-color: #666;
-}
+    SliderElement #unity-tracker {
+        width: 8px;
+        left: 21px;
+        background-image: none;
+        background-color: #666;
+    }
 
-SliderElement #unity-dragger {
-	width: 8;
-	height: 16;
-	margin-left: 0;
-	background-image: none;
-    background-color: #000;
-}
+    SliderElement #unity-dragger {
+        width: 8px;
+        height: 16px;
+        margin-left: 0;
+        background-image: none;
+        background-color: #000;
+    }
 
-SliderElement .Value #unity-text-input
-{
-	-unity-text-align: middle-center
-}
+    SliderElement .Value #unity-text-input {
+        -unity-text-align: middle-center
+    }
+
+
+    SliderElement PortElement {
+        margin-top: -5px;
+    }

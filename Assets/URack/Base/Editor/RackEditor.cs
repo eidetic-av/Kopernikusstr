@@ -10,10 +10,12 @@ using System.Linq;
 
 namespace Eidetic.URack.Editor
 {
-    [CustomEditor(typeof(Rack))]
     public class RackEditor : EditorWindow
     {
         static Rack Rack;
+
+        [MenuItem("Window/URack")]
+        static RackEditor GetWindow() => GetWindow<RackEditor>(true, "URack");
 
         [UnityEditor.Callbacks.OnOpenAsset(0)]
         public static bool OnOpenAsset(int instanceID, int line)
@@ -28,12 +30,8 @@ namespace Eidetic.URack.Editor
             return false;
         }
 
-        [MenuItem("Window/URack")]
-        static RackEditor GetWindow() => GetWindow<RackEditor>(true, "URack");
-
         public void OnEnable()
         {
-            Debug.Log("Enable");
             if (!Rack)
             {
                 Rack = Resources.LoadAll<Rack>("").FirstOrDefault(r => r.Open);

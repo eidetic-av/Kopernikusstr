@@ -72,9 +72,12 @@ namespace Eidetic.URack.UI
 
             static void Release(MouseUpEvent mouseUpEvent)
             {
-                hoveringJack.RemoveFromClassList("connectable");
-                // connection logic here
-                hoveringJack = null;
+                if (hoveringJack != null)
+                {
+                    hoveringJack.RemoveFromClassList("connectable");
+                    // connection logic here
+                    hoveringJack = null;
+                }
             }
 
         }

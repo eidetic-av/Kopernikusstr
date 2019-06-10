@@ -19,20 +19,33 @@ namespace Eidetic.URack.UI
             }
         }
 
+        Box Toolbar;
         Button NewModuleButton;
-        Button DeleteModuleButton;
+
+        Box DropBar;
+        DropBox DeleteModuleDropBox;
 
         public RackControls()
         {
+            Toolbar = new Box();
+            Toolbar.name = "Toolbar";
+
             NewModuleButton = new Button(ShowNewModuleWindow);
             NewModuleButton.name = "NewModuleButton";
             NewModuleButton.Add(new Label("New Module"));
-            Add(NewModuleButton);
-            
-            DeleteModuleButton = new Button(DeleteModule);
-            DeleteModuleButton.name = "DeleteModuleButton";
-            DeleteModuleButton.Add(new Label("Delete Module"));
-            Add(DeleteModuleButton);
+
+            Toolbar.Add(NewModuleButton);
+
+            Add(Toolbar);
+
+            DropBar = new Box();
+            DropBar.name = "DropBar";
+
+            DeleteModuleDropBox = new DropBox("Delete Module");
+
+            DropBar.Add(DeleteModuleDropBox);
+
+            Add(DropBar);
         }
 
         void ShowNewModuleWindow()
@@ -43,6 +56,15 @@ namespace Eidetic.URack.UI
         void DeleteModule()
         {
             Debug.Log("Delete Module");
+        }
+
+        class DropBox : DraggableElement
+        {
+            public DropBox(string label) : base()
+            {
+                AddToClassList("dropbox");
+                Add(new Label(label));
+            }
         }
 
     }

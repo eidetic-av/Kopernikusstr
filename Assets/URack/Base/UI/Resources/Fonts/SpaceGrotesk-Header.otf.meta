@@ -3,8 +3,8 @@ guid: bbad0792390ac7d4986b8bff33819aca
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 18
-  forceTextureCase: -1
+  fontSize: 16
+  forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
@@ -12,8 +12,7 @@ TrueTypeFontImporter:
   fontNames:
   - Space Grotesk
   fallbackFontReferences:
-  - {instanceID: 0}
-  - {instanceID: 0}
+  - {fileID: 12800000, guid: 0ae8e1f3a138bbc4c8a91c8f8dca3e15, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

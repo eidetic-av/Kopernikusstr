@@ -1,29 +1,26 @@
-.Oscillator4D {
-    height: 600;
-}
-
 #ClockHeader {
-    padding-top: 6;
-    padding-bottom: 6;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 #MultiplesHeaderUnderline {
-    width: 120;
-    height: 8;
-    margin-bottom: 2;
+    width: 120px;
+    height: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     align-self: center;
-    border-width: 2;
+    border-width: 1px;
     border-bottom-width: 0px;
-    border-color: #898989;
+    border-color: #777;
     background-image: none;
 }
 
 .MultiplesWrapper {
-	flex-direction: column;
+    flex-direction: column;
 }
 
 .Multiples {
-	flex-direction: row;
+    flex-direction: row;
 }
 
 .Column {
@@ -32,26 +29,22 @@
 }
 
 SliderElement .Slider {
-    margin-top: -10;
-	height: 120;
+    margin-top: -10px;
+    height: 120px;
 }
 
-SliderElement PortElement {
-    margin-top: -5;
-}
+    SliderElement .Slider #unity-tracker {
+        background-color: #898989;
+        margin-left: 2px;
+        width: 4px;
+    }
 
-.Slider #unity-tracker {
-    background-color: #898989;
-    margin-left: 2;
-    width: 4;
-}
-
-.Slider #unity-dragger {
-    border-width: 1px;
-    border-color: #444;
-    width: 10;
-    height: 18;
-}
+    SliderElement .Slider #unity-dragger {
+        border-width: 1px;
+        border-color: #444;
+        width: 10px;
+        height: 18px;
+    }
 
 #Clock #unity-dragger {
     background-color: #4a74ae;

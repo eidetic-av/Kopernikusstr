@@ -1,30 +1,43 @@
-﻿RackControls {
+﻿
+RackControls {
+    width: 0px;
+    height: 100%;
     position: absolute;
-	top: 0;
-	right: 0;
-	padding: 10;
-	justify-content: flex-start;
+    top: 0px;
+    right: 0px;
 }
 
 Button {
-	margin-bottom: 7;
-    width: 70;
-    height: 50;
-	border-width: 1px;
-	border-color: #666;
-	background-color: #ccc;
+    margin-bottom: 7px;
+    width: 70px;
+    height: 50px;
+    border-width: 1px;
+    border-color: #666;
+    background-color: #ccc;
 }
 
-Button:hover {
-	background-color: #ddd;
+    Button:hover {
+        background-color: #ddd;
+    }
+
+    Button:active {
+        background-color: #999;
+    }
+
+#Toolbar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
-Button:active {
-	background-color: #999;
+#DropBar {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
-#NewModuleButton {
-}
-
-#DeleteModuleButton {
+.dropbox {
+    width: 100px;
+    height: 70px;
+    background-color: #ddd;
 }
