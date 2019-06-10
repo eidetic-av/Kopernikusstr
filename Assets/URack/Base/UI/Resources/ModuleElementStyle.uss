@@ -14,7 +14,7 @@ ModuleElement {
     }
 
     ModuleElement.Dragging {
-        opacity: .66;
+        opacity: .8;
     }
 
     ModuleElement .unity-base-text-field__input {

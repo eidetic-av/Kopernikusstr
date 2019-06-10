@@ -23,7 +23,7 @@ namespace Eidetic.URack.UI
         Button NewModuleButton;
 
         Box DropBar;
-        DropBox DeleteModuleDropBox;
+        public DropBox DeleteModuleDropBox { get; private set; }
 
         public RackControls()
         {
@@ -64,10 +64,6 @@ namespace Eidetic.URack.UI
             {
                 AddToClassList("dropbox");
                 Add(new Label(label));
-            }
-
-            public void Drop(MouseUpEvent mouseUpEvent)
-            {
             }
         }
 

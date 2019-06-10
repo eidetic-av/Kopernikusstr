@@ -93,6 +93,8 @@ namespace Eidetic.URack.UI
 
                 URack.Instance.Insert(StartDragModuleIndex, Blank);
 
+                AddToClassList("Dragging");
+
                 MovingModule = true;
             }
 
@@ -127,25 +129,30 @@ namespace Eidetic.URack.UI
 
         void DropModule(MouseUpEvent mouseUpEvent)
         {
-            URack.Instance.Remove(this);
+            // Dropping onto the 'Delete' DropBox 
+            if (RackControls.Instance.DeleteModuleDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
+            {
+                URack.Instance.Remove(this);
+                URack.Instance.Remove(Blank);
+            }
+            // Dropping onto a space in the Rack
+            else
+            {
+                URack.Instance.Remove(this);
+                var rowIndex = ModuleDropIndex != -1 ? ModuleDropIndex : StartDragModuleIndex;
+                URack.Instance.Insert(rowIndex, this);
+                URack.Instance.Remove(Blank);
+            }
 
+            // Reset all the move parameters
             this.style.position = Position.Relative;
             this.style.left = 0;
             this.style.top = 0;
-
-            var rowIndex = ModuleDropIndex != -1 ? ModuleDropIndex : StartDragModuleIndex;
-
-            URack.Instance.Insert(rowIndex, this);
-
-            URack.Instance.Remove(Blank);
-
             MovingModule = false;
             StartDragMousePosition = Vector2.zero;
             CurrentDragMousePosition = Vector2.zero;
             StartDragModuleIndex = -1;
             ModuleDropIndex = -1;
-
-            Debug.Log("Drop");
         }
     }
 }
