@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9fd785df7010f408358b2c800aa9ef, type: 3}
-  m_Name: TestRack
+  m_Name: Test
   m_EditorClassIdentifier: 
   Modules: []
   Open: 0

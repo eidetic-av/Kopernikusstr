@@ -1,6 +1,30 @@
 ﻿RackControls {
-    width: 50;
-    height: 50;
     position: absolute;
-    background-color: #f00;
+	top: 0;
+	right: 0;
+	padding: 10;
+	justify-content: flex-start;
+}
+
+Button {
+	margin-bottom: 7;
+    width: 70;
+    height: 50;
+	border-width: 1px;
+	border-color: #666;
+	background-color: #ccc;
+}
+
+Button:hover {
+	background-color: #ddd;
+}
+
+Button:active {
+	background-color: #999;
+}
+
+#NewModuleButton {
+}
+
+#DeleteModuleButton {
 }

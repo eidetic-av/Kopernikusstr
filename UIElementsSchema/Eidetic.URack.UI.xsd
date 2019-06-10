@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:editor="UnityEditor.UIElements" xmlns:upm="UnityEditor.PackageManager.UI" xmlns:engine="UnityEngine.UIElements" xmlns="UnityEditor.VFX.UI" elementFormDefault="qualified" targetNamespace="Eidetic.URack.UI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:editor="UnityEditor.UIElements" xmlns:upm="UnityEditor.PackageManager.UI" xmlns:engine="UnityEngine.UIElements" xmlns="Eidetic.URack.UI" elementFormDefault="qualified" targetNamespace="Eidetic.URack.UI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="UnityEngine.UIElements.xsd" namespace="UnityEngine.UIElements" />
   <xs:complexType name="PortElementType">
     <xs:complexContent mixed="false">
@@ -11,9 +11,31 @@
         <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
         <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
         <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
+        <xs:attribute default="false" name="showLabel" type="xs:boolean" use="optional" />
         <xs:anyAttribute processContents="lax" />
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="PortElement" substitutionGroup="engine:VisualElement" xmlns:q1="Eidetic.URack.UI" type="q1:PortElementType" />
+  <xs:element name="PortElement" substitutionGroup="engine:VisualElement" type="PortElementType" />
+  <xs:complexType name="SliderElementType">
+    <xs:complexContent mixed="false">
+      <xs:restriction base="engine:VisualElementType">
+        <xs:attribute default="" name="name" type="xs:string" use="optional" />
+        <xs:attribute default="" name="view-data-key" type="xs:string" use="optional" />
+        <xs:attribute default="Position" name="picking-mode" type="engine:VisualElement_picking-mode_Type" use="optional" />
+        <xs:attribute default="" name="tooltip" type="xs:string" use="optional" />
+        <xs:attribute default="0" name="tabindex" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="focusable" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
+        <xs:attribute default="false" name="showLabel" type="xs:boolean" use="optional" />
+        <xs:attribute default="false" name="showValue" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="type" type="xs:string" use="optional" />
+        <xs:attribute default="0" name="defaultValue" type="xs:float" use="optional" />
+        <xs:attribute default="false" name="readonlyValue" type="xs:boolean" use="optional" />
+        <xs:attribute default="" name="dictionaryName" type="xs:string" use="optional" />
+        <xs:anyAttribute processContents="lax" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SliderElement" substitutionGroup="engine:VisualElement" type="SliderElementType" />
 </xs:schema>

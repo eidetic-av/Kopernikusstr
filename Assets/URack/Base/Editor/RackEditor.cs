@@ -39,11 +39,10 @@ namespace Eidetic.URack.Editor
                 Rack = Resources.LoadAll<Rack>("").FirstOrDefault(r => r.Open);
                 if (!Rack) return;
             }
-            UI.RackElement.Instantiate(Rack);
+            UI.URack.Instantiate(Rack);
             var root = GetWindow().rootVisualElement;
             root.Clear();
-            root.Add(UI.RackElement.Instance);
-            root.Add(UI.RackControls.Instance);
+            root.Add(UI.URack.Instance);
         }
 
         public void OnDestroy()

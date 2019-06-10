@@ -1,0 +1,47 @@
+/* Get rid of all the Unity background images for buttons/fields etc. */
+* {
+	background-image: none;
+}
+
+URack {
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    background-color: #20202a;
+    -unity-font: resource("Fonts/SpaceGrotesk-Label");
+}
+
+.header {
+    -unity-font: resource("Fonts/SpaceGrotesk-Header");
+}
+
+.unity-base-field {
+    -unity-font: resource("Fonts/SpaceGrotesk-Field");
+}
+
+#Label, Label {
+	align-self: center;
+	justify-content: center;
+    color: #444;
+	white-space: normal;
+}
+
+Button {
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+
+Button Label {
+	margin: 0;
+	padding: 0;
+}
+
+TextInput {
+    -unity-text-align: middle-center;
+}
+
+
+#BlankPanel {
+    background: rgba(255, 255, 255, .5);
+}

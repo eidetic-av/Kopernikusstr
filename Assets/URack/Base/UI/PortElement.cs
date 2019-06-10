@@ -38,16 +38,43 @@ namespace Eidetic.URack.UI
         }
         class JackElement : DraggableElement
         {
+            static JackElement()
+            {
+                URack.Instance.OnRelease += Release;
+            }
+
             Port Port;
             public JackElement(Port port = null)
             {
                 Port = port;
-                RackElement.Instance.AddDragAction(this, Drag);
+                URack.Instance.AddDragAction(this, Drag);
             }
+
+            static JackElement hoveringJack;
 
             void Drag(MouseMoveEvent mouseMoveEvent)
             {
-                var hoveringOtherJack = mouseMoveEvent.target is JackElement && mouseMoveEvent.target != this;
+                if (mouseMoveEvent.target is JackElement && mouseMoveEvent.target != this)
+                {
+                    if (hoveringJack != null && hoveringJack != mouseMoveEvent.target)
+                    {
+                        hoveringJack.RemoveFromClassList("connectable");
+                    }
+                    hoveringJack = mouseMoveEvent.target as JackElement;
+                    hoveringJack.AddToClassList("connectable");
+                }
+                else if (hoveringJack != null)
+                {
+                    hoveringJack.RemoveFromClassList("connectable");
+                    hoveringJack = null;
+                }
+            }
+
+            static void Release(MouseUpEvent mouseUpEvent)
+            {
+                hoveringJack.RemoveFromClassList("connectable");
+                // connection logic here
+                hoveringJack = null;
             }
 
         }

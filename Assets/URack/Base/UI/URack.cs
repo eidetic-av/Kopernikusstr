@@ -8,20 +8,22 @@ using UnityEngine.UIElements;
 
 namespace Eidetic.URack.UI
 {
-    public class RackElement : DraggableElement
+    public class URack : DraggableElement
     {
-        public static RackElement Instance { get; private set; }
+        public static URack Instance { get; private set; }
 
         public Rack Rack { get; private set; }
 
-        public static void Instantiate(Rack rack) => Instance = new RackElement(rack);
+        public static void Instantiate(Rack rack) => Instance = new URack(rack);
 
-        public RackElement(Rack rack) : base()
+        public URack(Rack rack) : base()
         {
             Instance = this;
             Rack = rack;
 
             Instance.Add(ModuleElement.Create(ScriptableObject.CreateInstance<Function.Oscillator4D>()));
+
+            Instance.Add(UI.RackControls.Instance);
         }
     }
 }

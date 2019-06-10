@@ -29,6 +29,7 @@ namespace Eidetic.URack.UI
             public ModuleHeader(ModuleElement parentModule) : base()
             {
                 ModuleElement = parentModule;
+                AddToClassList("header");
                 Add(new TextElement().WithText(parentModule.Module.Name.Prettify()));
                 OnTouch += e => DragActive = true;
             }
@@ -69,8 +70,8 @@ namespace Eidetic.URack.UI
 
                 LoadStyleSheets(element, module.GetType());
 
-                RackElement.Instance.AddDragAction(element, element.DragModule);
-                RackElement.Instance.OnRelease += element.DropModule;
+                URack.Instance.AddDragAction(element, element.DragModule);
+                URack.Instance.OnRelease += element.DropModule;
 
                 return element;
             }
@@ -86,7 +87,7 @@ namespace Eidetic.URack.UI
                 StartDragMousePosition = mouseMoveEvent.localMousePosition;
                 CurrentDragMousePosition = StartDragMousePosition;
                 StartDragElementPosition = new Vector2(layout.x, layout.y);
-                StartDragModuleIndex = RackElement.Instance.IndexOf(this);
+                StartDragModuleIndex = URack.Instance.IndexOf(this);
 
                 this.style.position = Position.Absolute;
                 BringToFront();
@@ -94,7 +95,7 @@ namespace Eidetic.URack.UI
                 Blank.style.width = this.layout.width;
                 Blank.style.height = this.layout.height;
 
-                RackElement.Instance.Insert(StartDragModuleIndex, Blank);
+                URack.Instance.Insert(StartDragModuleIndex, Blank);
 
                 MovingModule = true;
 
@@ -108,23 +109,23 @@ namespace Eidetic.URack.UI
 
             // see if we are overlapping the edges of other modules to
             // add the insert blank in between and update the drop index
-            foreach (var module in RackElement.Instance.Children())
+            foreach (var module in URack.Instance.Children())
             {
                 if (module == Blank) continue;
                 var leftCatchZone = new Rect(module.layout.x - 50, 0, 100, 400);
                 if (leftCatchZone.Contains(CurrentDragMousePosition))
                 {
-                    RackElement.Instance.Remove(Blank);
-                    RackElement.Instance.Insert(RackElement.Instance.IndexOf(module), Blank);
-                    ModuleDropIndex = RackElement.Instance.IndexOf(Blank);
+                    URack.Instance.Remove(Blank);
+                    URack.Instance.Insert(URack.Instance.IndexOf(module), Blank);
+                    ModuleDropIndex = URack.Instance.IndexOf(Blank);
                     break;
                 }
                 var rightCatchZone = new Rect(module.layout.xMax - 50, 0, 100, 400);
                 if (rightCatchZone.Contains(CurrentDragMousePosition))
                 {
-                    RackElement.Instance.Remove(Blank);
-                    RackElement.Instance.Insert(RackElement.Instance.IndexOf(module) + 1, Blank);
-                    ModuleDropIndex = RackElement.Instance.IndexOf(Blank);
+                    URack.Instance.Remove(Blank);
+                    URack.Instance.Insert(URack.Instance.IndexOf(module) + 1, Blank);
+                    ModuleDropIndex = URack.Instance.IndexOf(Blank);
                     break;
                 }
             }
@@ -135,7 +136,7 @@ namespace Eidetic.URack.UI
             Header.DragActive = false;
             if (!MovingModule) return;
 
-            RackElement.Instance.Remove(this);
+            URack.Instance.Remove(this);
 
             this.style.position = Position.Relative;
             this.style.left = 0;
@@ -143,9 +144,9 @@ namespace Eidetic.URack.UI
 
             var rowIndex = ModuleDropIndex != -1 ? ModuleDropIndex : StartDragModuleIndex;
 
-            RackElement.Instance.Insert(rowIndex, this);
+            URack.Instance.Insert(rowIndex, this);
 
-            RackElement.Instance.Remove(Blank);
+            URack.Instance.Remove(Blank);
 
             MovingModule = false;
             StartDragMousePosition = Vector2.zero;

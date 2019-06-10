@@ -11,7 +11,6 @@ namespace Eidetic.URack.UI
     public class TouchElement : StyledElement
     {
         public Action<MouseDownEvent> OnTouch;
-        public Action<MouseDownEvent> OnHold;
         public Action<MouseUpEvent> OnRelease;
 
         public bool TouchActive { get; private set; } = false;
@@ -22,36 +21,28 @@ namespace Eidetic.URack.UI
             OnTouch = BaseTouchCallback;
             RegisterCallback<MouseDownEvent>(e => OnTouch.Invoke(e));
 
-            OnHold = BaseHoldCallback;
-            RegisterCallback<MouseDownEvent>(e => OnHold.Invoke(e));
-
             // Release occurs on the whole rack only
-            OnRelease = e => { };
-            if (this is RackElement)
+            if (this is URack)
+            {
+                OnRelease = BaseReleaseCallback;
                 RegisterCallback<MouseUpEvent>(e => OnRelease.Invoke(e));
+            }
+            else OnRelease = e => { };
         }
 
         void BaseTouchCallback(MouseDownEvent mouseDownEvent)
         {
-            if (mouseDownEvent.button != (int) MouseButton.LeftMouse) return;
+            if (mouseDownEvent.button != (int)MouseButton.LeftMouse) return;
             TouchActive = true;
             AddToClassList("Touch");
-            RackElement.Instance.OnRelease += BaseReleaseCallback;
-        }
-
-        void BaseHoldCallback(MouseDownEvent mouseDownEvent)
-        {
-            if (mouseDownEvent.button != (int)MouseButton.RightMouse) return;
-            HoldActive = true;
-            AddToClassList("Hold");
-            RackElement.Instance.OnRelease += BaseReleaseCallback;
+            if (!(this is URack)) URack.Instance.OnRelease += OnRelease;
         }
         void BaseReleaseCallback(MouseUpEvent mouseUpEvent)
         {
             TouchActive = false;
             RemoveFromClassList("Touch");
             RemoveFromClassList("Hold");
-            RackElement.Instance.OnRelease -= BaseReleaseCallback;
+            if (!(this is URack)) URack.Instance.OnRelease -= OnRelease;
         }
     }
 }
