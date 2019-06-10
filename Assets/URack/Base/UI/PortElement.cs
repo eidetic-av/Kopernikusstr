@@ -11,8 +11,6 @@ namespace Eidetic.URack.Base.UI
 {
     public class PortElement : VisualElement
     {
-        public PortElement() : base() { }
-
         public class Factory : UxmlFactory<PortElement, Traits> { }
         public class Traits : BindableElement.UxmlTraits
         {

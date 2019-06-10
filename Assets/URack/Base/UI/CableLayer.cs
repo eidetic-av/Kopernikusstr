@@ -62,11 +62,9 @@ namespace Eidetic.URack.Base.UI
                 //Handles.DrawBezier(start, middle, startTangent, middleEndTangent, Color.red, null, 5);
                 //Handles.DrawBezier(middle, end, middleStartTangent, endTangent, Color.red, null, 5);
 
-                Handles.color = Color.red;
+                Handles.color = new Color(255, 0, 0, .5f);
                 Handles.DrawAAPolyLine(Texture2D.whiteTexture, 5, new Vector3[] { start, end });
             }
-
-            Instance.BringToFront();
         }
 
         public void DrawCable(int hashCode, Vector2 startPoint, Vector2 endPoint) =>

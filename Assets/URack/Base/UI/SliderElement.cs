@@ -124,9 +124,12 @@ namespace Eidetic.URack.Base.UI
 
                             var sliderIntElement = (SliderInt)sliderElement;
 
+                            sliderIntElement.lowValue = 0;
+
                             if (dictionaryType == typeof(Dictionary<string, float>))
                             {
                                 var floatDictionary = (Dictionary<string, float>)dictionaryInfo.GetValue(null);
+                                sliderIntElement.highValue = floatDictionary.Count - 1;
                                 sliderIntElement.RegisterCallback<ChangeEvent<int>>(e =>
                                         valueBox.value = floatDictionary.Keys.ElementAt(e.newValue));
                                 valueBox.value = floatDictionary.Keys.ElementAt(Mathf.RoundToInt(sliderValue));
@@ -134,6 +137,7 @@ namespace Eidetic.URack.Base.UI
                             else if (dictionaryType == typeof(Dictionary<string, int>))
                             {
                                 var intDictionary = (Dictionary<string, int>)dictionaryInfo.GetValue(null);
+                                sliderIntElement.highValue = intDictionary.Count - 1;
                                 sliderIntElement.RegisterCallback<ChangeEvent<int>>(e =>
                                         valueBox.value = intDictionary.Keys.ElementAt(e.newValue));
                                 valueBox.value = intDictionary.Keys.ElementAt(Mathf.RoundToInt(sliderValue));

@@ -55,8 +55,8 @@ namespace Eidetic.URack.Base.UI
 
         void ShowNewModuleWindow()
         {
-            //var module = URack.Instance.Rack.AddModule<Transform.RotationController>();
-            var module = URack.Instance.Rack.AddModule<Function.Oscillator4D>();
+            var module = URack.Instance.Rack.AddModule<Transform.RotationController>();
+            //var module = URack.Instance.Rack.AddModule<Function.Oscillator4D>();
             var moduleElement = ModuleElement.Create(module);
 
             URack.Instance.Add(moduleElement);
