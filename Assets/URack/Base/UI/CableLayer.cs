@@ -23,10 +23,21 @@ namespace Eidetic.URack.Base.UI
 
         static Dictionary<int, Cable> Cables = new Dictionary<int, Cable>();
 
-        public CableLayer() : base(OnGUI)
+        CableLayer() : base(OnGUI)
         {
             name = "CableLayer";
             pickingMode = PickingMode.Ignore;
+
+            var outputPorts = URack.Instance.Rack.Modules
+                .SelectMany(m => m.Ports)
+                .Where(p => p.IsOutput && p.IsConnected);
+
+            foreach (var port in outputPorts)
+                DrawCable(port.GetHashCode(),
+                    PortElement.PortElements[port].worldBound.center,
+                    PortElement.PortElements[port.Connection].worldBound.center);
+
+            MarkDirtyRepaint();
         }
 
         public static void OnGUI()

@@ -5,11 +5,14 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Eidetic.Utility;
+using System.Collections.Generic;
 
 namespace Eidetic.URack.Base.UI
 {
     public partial class ModuleElement : TouchElement
     {
+        public static Dictionary<string, Type> ModuleTypes = new Dictionary<string, Type>();
+
         public bool MovingModule { get; private set; }
 
         public Vector2 StartDragMousePosition { get; private set; }
@@ -22,16 +25,6 @@ namespace Eidetic.URack.Base.UI
         public Module Module { get; set; }
 
         ModuleHeader Header;
-        class ModuleHeader : DraggableElement
-        {
-            ModuleElement ModuleElement;
-            public ModuleHeader(ModuleElement parentModule) : base()
-            {
-                ModuleElement = parentModule;
-                AddToClassList("header");
-                Add(new TextElement().WithText(parentModule.Module.Name.Prettify()));
-            }
-        }
 
         static BlankPanel blank;
         static BlankPanel Blank
@@ -43,38 +36,37 @@ namespace Eidetic.URack.Base.UI
                 return blank;
             }
         }
-        class BlankPanel : ModuleElement
+
+        public ModuleElement(Module module) : base()
         {
-            public BlankPanel()
-            {
-                name = "BlankPanel";
-            }
-        }
+            if (module == null) return;
 
-        ModuleElement() : base() { }
+            module.BindElement(this);
 
-        public static ModuleElement Create(Module module)
-        {
-            if (module != null)
-            {
-                var element = new ModuleElement();
-                module.BindElement(element);
+            var moduleType = module.GetType();
 
-                element.Header = new ModuleHeader(element);
-                element.Add(element.Header);
+            // This element is given the class name of it's underlying module type
+            AddToClassList(moduleType.Name);
 
-                var moduleTemplate = Resources.Load<VisualTreeAsset>(module.GetType().Name + "Layout");
-                moduleTemplate.CloneTree(element);
+            // store types in dictionary for access as a string
+            ModuleTypes[moduleType.Name] = moduleType;
 
-                element.Header.OnDrag += element.DragModule;
-                element.Header.OnRelease += element.DropModule;
+            LoadStyleSheets(this, moduleType);
 
-                element.AddToClassList(module.GetType().Name);
-                LoadStyleSheets(element, module.GetType());
+            Header = new ModuleHeader(this);
+            Add(Header);
 
-                return element;
-            }
-            else return null;
+            var moduleTemplate = Resources.Load<VisualTreeAsset>(moduleType.Name + "Layout");
+            moduleTemplate.CloneTree(this);
+
+            // Add events
+            Header.OnDrag += DragModule;
+            Header.OnRelease += DropModule;
+
+            // Make sure the layout is refreshed when this module is attached or detached
+            OnAttach += e => URack.Instance.RefreshLayout();
+            OnDetach += e => URack.Instance.RefreshLayout();
+
         }
 
         void DragModule(MouseMoveEvent mouseMoveEvent)
@@ -171,7 +163,24 @@ namespace Eidetic.URack.Base.UI
         {
             URack.Instance.Remove(Blank);
             var newModule = URack.Instance.Rack.CopyModule(this.Module);
-            URack.Instance.Add(Create(newModule));
+            URack.Instance.Add(new ModuleElement(newModule));
+        }
+        class ModuleHeader : DraggableElement
+        {
+            ModuleElement ModuleElement;
+            public ModuleHeader(ModuleElement parentModule) : base()
+            {
+                ModuleElement = parentModule;
+                AddToClassList("header");
+                Add(new TextElement().WithText(parentModule.Module.Name.Prettify()));
+            }
+        }
+        class BlankPanel : ModuleElement
+        {
+            public BlankPanel() : base(null)
+            {
+                name = "BlankPanel";
+            }
         }
     }
 }

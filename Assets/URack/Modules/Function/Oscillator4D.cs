@@ -14,9 +14,6 @@ namespace Eidetic.URack.Function
         [Input, Range(0, 12)] public int MultipleIndexY = 10;
         [Input, Range(0, 12)] public int MultipleIndexZ = 10;
 
-        /// <summary> Speed of the oscillator in BPM </summary>
-        [Input] public float Speed { get; set; } = 120f;
-
         /// <summary> Sine wave output value. </summary>
         [Output] public float Sine => CalculateSin();
         [Output] public float SineX => CalculateSin(Multipliers.ElementAt(MultipleIndexX).Value);
@@ -47,7 +44,7 @@ namespace Eidetic.URack.Function
         public float CalculateRamp(float multiplier = 1) => (((Phase * multiplier) % 1f) * 2) - 1;
 
         /// <summary> Length of the oscillator cycle in seconds. </summary>
-        public float Length => (60 / Speed) * 4;
+        public float Length => (60 / Clock) * 4;
 
         int LastPhaseCalculationFrame;
         float phase;

@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Eidetic.URack.Base
 {
-    [InitializeOnLoad]
+    [InitializeOnLoad, Serializable]
     public abstract partial class Module : ScriptableObject
     {
         public static List<Module> ActiveModules { get; protected set; }

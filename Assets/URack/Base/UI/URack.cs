@@ -16,8 +16,6 @@ namespace Eidetic.URack.Base.UI
 
         public static void Instantiate(Rack rack) => Instance = new URack(rack);
 
-        CableLayer CableLayer;
-
         public URack(Rack rack) : base()
         {
             Instance = this;
@@ -25,19 +23,21 @@ namespace Eidetic.URack.Base.UI
 
             foreach (var module in Rack.Modules)
             {
-                Add(ModuleElement.Create(module));
+                Add(new ModuleElement(module));
             }
 
-            Add(UI.RackControls.Instance);
-            Add(CableLayer = new CableLayer());
+            OnAttach += e => RefreshLayout();
         }
 
-        public void UpdateLayout()
+        public void RefreshLayout()
         {
-            // Make sure the RackControls are always on top of the modules
-            //Remove(RackControls.Instance);
-            //Add(RackControls.Instance);
-            //UI.RackControls.Instance.BringToFront();
+            if (Contains(RackControls.Instance))
+                Remove(RackControls.Instance);
+            Add(RackControls.Instance);
+
+            if (Contains(CableLayer.Instance))
+                Remove(CableLayer.Instance);
+            Add(CableLayer.Instance);
         }
     }
 }

@@ -55,12 +55,18 @@ namespace Eidetic.URack.Base.UI
 
         void ShowNewModuleWindow()
         {
-            var module = URack.Instance.Rack.AddModule<Transform.RotationController>();
-            //var module = URack.Instance.Rack.AddModule<Function.Oscillator4D>();
-            var moduleElement = ModuleElement.Create(module);
+            AddModule(typeof(Function.Oscillator4D));
+            AddModule(typeof(Transform.RotationController));
+        }
+
+        void AddModule(Type moduleType)
+        {
+            var module = URack.Instance.Rack.AddModule(moduleType);
+            var moduleElement = new ModuleElement(module);
 
             URack.Instance.Add(moduleElement);
         }
+
 
         public class DropBox : Box
         {

@@ -9,7 +9,8 @@ xsi:schemaLocation="UnityEngine.UIElements
 
   <VisualElement name="Container">
 
-      <URack:PortElement name="X"/>
+      <URack:PortElement name="X"
+                         member="XRotation"/>
       <URack:PortElement name="Y" />
       <URack:PortElement name="Z" />
 

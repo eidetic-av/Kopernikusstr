@@ -19,7 +19,8 @@ xsi:schemaLocation="UnityEngine.UIElements
         high-value="55"
         low-value="210" />
 
-      <URack:PortElement name="Sin"/>
+      <URack:PortElement name="Sin"
+                         member="Sine"/>
       <URack:PortElement name="Tri" />
       <URack:PortElement name="Saw" />
     </VisualElement>

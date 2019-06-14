@@ -1,4 +1,6 @@
+
 ModuleElement {
+    width: auto;
     height: 500px;
     background-color: #ccc;
     border-width: 1px;
@@ -42,6 +44,8 @@ PortElement {
     margin-top: 5px;
     margin-bottom: 5px;
     width: 50px;
+    height: 40px;
+    background-image: url("Port.png");
     align-items: center;
 }
 
@@ -50,13 +54,7 @@ PortElement {
         white-space: nowrap;
     }
 
-JackElement {
-    width: 45px;
-    height: 40px;
-    background-image: url("Port.png");
-}
-
-    JackElement.connectable {
+    PortElement.connectable #Label {
         background-color: rgba(255, 255, 255, .3);
     }
 

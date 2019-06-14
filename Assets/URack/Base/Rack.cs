@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Eidetic.URack.Function;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -26,8 +26,15 @@ namespace Eidetic.URack.Base
         public virtual Module AddModule(Type type)
         {
             Module module = ScriptableObject.CreateInstance(type) as Module;
-            Modules.Add(module);
             module.Rack = this;
+            module.name = type.Name.Prettify();
+            Modules.Add(module);
+
+            // TODO:
+            // these need to be changed to methods available at runtime
+            UnityEditor.AssetDatabase.AddObjectToAsset(module, this);
+            UnityEditor.AssetDatabase.SaveAssets();
+
             return module;
         }
 
@@ -48,6 +55,11 @@ namespace Eidetic.URack.Base
             module.ClearConnections();
             Modules.Remove(module);
             if (Application.isPlaying) Destroy(module);
+
+            // TODO:
+            // these need to be changed to methods available at runtime
+            UnityEditor.AssetDatabase.RemoveObjectFromAsset(module);
+            UnityEditor.AssetDatabase.SaveAssets();
         }
 
         /// <summary> Remove all modules and connections from the rack </summary>
