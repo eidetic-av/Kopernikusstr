@@ -9,8 +9,19 @@ xsi:schemaLocation="UnityEngine.UIElements
 
   <VisualElement name="Container">
 
+
+    <!-- <URack:SliderElement
+        type="float"
+        member="MultiplierX"
+        showLabel="false"
+        showValue="true"
+        low-value="-180"
+        high-value="180"
+        defaultValue="180"
+        readonlyValue="true"/> -->
+
       <URack:PortElement name="X"
-                         member="EulerX"/>
+                       member="EulerX"/>
       <URack:PortElement name="Y"
                          member="EulerY"/>
       <URack:PortElement name="Z"

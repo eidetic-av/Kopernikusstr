@@ -14,6 +14,7 @@ namespace Eidetic.URack.Base.UI
     public class PortElement : DraggableElement
     {
         public static Dictionary<Port, PortElement> PortElements = new Dictionary<Port, PortElement>();
+        public static Dictionary<PortElement, Port> Ports = new Dictionary<PortElement, Port>();
 
         static PortElement draggingPortElement;
         static PortElement hoveringPortElement;
@@ -50,7 +51,7 @@ namespace Eidetic.URack.Base.UI
                 // if we can't find the member info, don't create the port
                 if (memberInfo == null) return;
 
-                // add appropriate classes to the port element like the return type and the port direction
+                // add appropriate classes to the port element like the return type
                 portElement.AddToClassList(memberInfo.DeclaringType.ToString());
 
                 // link this PortElement to the port property in the Module instance
@@ -69,6 +70,7 @@ namespace Eidetic.URack.Base.UI
 
 
                 PortElements[portElement.Port] = portElement;
+                Ports[portElement] = portElement.Port;
             }
 
             // No children allowed in this element
@@ -110,23 +112,30 @@ namespace Eidetic.URack.Base.UI
 
         void Release(MouseUpEvent mouseUpEvent)
         {
-            CableLayer.Instance.RemoveCable(draggingPortElement.Port.GetHashCode());
-
-            if (hoveringPortElement != null && hoveringPortElement.Port.IsInput)
+            if (draggingPortElement != null)
             {
-                // disconnect the target port if it already is connected
-                // to a different output
-                if (hoveringPortElement.Port.IsConnected)
-                    hoveringPortElement.Port.Disconnect(0);
+                CableLayer.Instance.RemoveCable(draggingPortElement.Port.GetHashCode());
 
-                // connect the ports
-                draggingPortElement.Port.Connect(hoveringPortElement.Port);
+                if (hoveringPortElement != null)
+                {
+                    // remove the temporary hovering class
+                    hoveringPortElement.RemoveFromClassList("connectable");
+
+                    if (hoveringPortElement.Port.IsInput)
+                    {
+                        // disconnect the target port if it already is connected
+                        // to a different output
+                        if (hoveringPortElement.Port.IsConnected)
+                            hoveringPortElement.Port.Disconnect(0);
+
+                        // connect the ports
+                        draggingPortElement.Port.Connect(hoveringPortElement.Port);
+                    }
+                }
+
+                hoveringPortElement = null;
+                draggingPortElement = null;
             }
-
-            // remove the temporary hovering class
-            hoveringPortElement.RemoveFromClassList("connectable");
-            hoveringPortElement = null;
-            draggingPortElement = null;
         }
 
         public class Factory : UxmlFactory<PortElement, Traits> { }

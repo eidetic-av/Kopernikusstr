@@ -25,36 +25,41 @@ namespace Eidetic.URack.Base.UI
 
         static Dictionary<int, Cable> Cables = new Dictionary<int, Cable>();
 
+        bool Redraw = false;
+
         CableLayer() : base(OnGUI)
         {
             name = "CableLayer";
             pickingMode = PickingMode.Ignore;
 
-            var outputPorts = URack.Instance.Rack.Modules
-                .SelectMany(m => m.Ports)
-                .Where(p => p.IsOutput && p.IsConnected);
-
-            foreach (var port in outputPorts)
-                DrawCable(port.GetHashCode(),
-                    PortElement.PortElements[port].worldBound.center,
-                    PortElement.PortElements[port.Connection].worldBound.center);
-
-            MarkDirtyRepaint();
+            RegisterCallback<AttachToPanelEvent>(e => Redraw = true );
         }
 
         public static void OnGUI()
         {
+            if (Instance.Redraw)
+            {
+                var outputPorts = URack.Instance.Rack.Modules
+                    .SelectMany(m => m.Ports)
+                    .Where(p => p.IsOutput && p.IsConnected);
+
+                foreach (var port in outputPorts)
+                    Instance.DrawCable(port.GetHashCode(),
+                        PortElement.PortElements[port].worldBound.center + PortMouseOffset,
+                        PortElement.PortElements[port.Connection].worldBound.center + PortMouseOffset);
+            }
+
             foreach (var cable in Cables.Values)
             {
                 var start = cable.startPoint;
                 var end = cable.endPoint;
 
-                var distance = start - end;
-                var tension = 0.4f;
+                //var distance = start - end;
+                //var tension = 0.4f;
 
-                var slump = Mathf.Abs((1 - tension) * (150 + 1 * distance.x));
+                //var slump = Mathf.Abs((1 - tension) * (150 + 1 * distance.x));
 
-                var middle = new Vector2((start.x + end.x) / 2f, (start.y + end.y) / 2f + slump);
+                //var middle = new Vector2((start.x + end.x) / 2f, (start.y + end.y) / 2f + slump);
 
                 //Vector2 startTangent = start;
                 //if (start.x < end.x) startTangent.x = Mathf.LerpUnclamped(start.x, middle.x, 0.7f);
@@ -75,8 +80,8 @@ namespace Eidetic.URack.Base.UI
                 //Handles.DrawBezier(start, middle, startTangent, middleEndTangent, Color.red, null, 5);
                 //Handles.DrawBezier(middle, end, middleStartTangent, endTangent, Color.red, null, 5);
 
-                Handles.color = new Color(255, 0, 0, .75f);
-                Handles.DrawAAPolyLine(Texture2D.whiteTexture, 5, new Vector3[] { start, end });
+                Handles.color = new Color(255, 0, 0, .5f);
+                Handles.DrawAAPolyLine(Texture2D.whiteTexture, 8, new Vector3[] { start, end });
             }
         }
 

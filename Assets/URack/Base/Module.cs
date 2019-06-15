@@ -117,8 +117,15 @@ namespace Eidetic.URack.Base
         public object GetValue(Port port) => Getters[port.MemberName]();
         internal void ValueUpdate()
         {
-            foreach (var port in Ports.Where(port => port.IsInput && port.IsConnected))
-                Setters[port.MemberName].Invoke(port.Connection.Module.GetValue(port.Connection));
+            foreach (var port in Ports.Where(port => port.IsInput))
+            {
+                if (port.IsConnected)
+                    Setters[port.MemberName].Invoke(port.Connection.Module.GetValue(port.Connection));
+                else
+                {
+
+                }
+            }
         }
         internal virtual void Awake() { }
         internal virtual void Start()

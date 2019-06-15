@@ -12,7 +12,7 @@ namespace Eidetic.URack.Transform
         [Input] public float EulerX, EulerY, EulerZ;
         [Input] public float DampingRate = 3f;
 
-        public float MultiplierX, MultiplierY, MultiplierZ = 60f;
+        public float MultiplierX = 60f, MultiplierY = 60f, MultiplierZ = 60f;
 
         public GameObject Target { get; private set; }
 
@@ -28,23 +28,19 @@ namespace Eidetic.URack.Transform
         {
             if (Target == null) return;
 
-            var newX = EulerX * MultiplierX;
-            var newY = EulerY * MultiplierY;
-            var newZ = EulerZ * MultiplierZ;
+            if (Mathf.Abs(currentX - EulerX) > 0.005f)
+                currentX = currentX + (EulerX - currentX) / DampingRate;
+            else currentX = EulerX;
 
-            if (Mathf.Abs(currentX - newX) > 0.005f)
-                currentX = currentX + (newX - currentX) / DampingRate;
-            else currentX = newX;
+            if (Mathf.Abs(currentY - EulerY) > 0.005f)
+                currentY = currentY + (EulerY - currentY) / DampingRate;
+            else currentY = EulerY;
 
-            if (Mathf.Abs(currentY - newY) > 0.005f)
-                currentY = currentY + (newY - currentY) / DampingRate;
-            else currentY = newY;
+            if (Mathf.Abs(currentZ - EulerZ) > 0.005f)
+                currentZ = currentZ + (EulerZ - currentZ) / DampingRate;
+            else currentZ = EulerZ;
 
-            if (Mathf.Abs(currentZ - newZ) > 0.005f)
-                currentZ = currentZ + (newZ - currentZ) / DampingRate;
-            else currentZ = newZ;
-
-            Target.transform.rotation = Quaternion.Euler(currentX, currentY, currentZ);
+            Target.transform.rotation = Quaternion.Euler(currentX * MultiplierX, currentY * MultiplierY, currentZ * MultiplierZ);
         }
     }
 }

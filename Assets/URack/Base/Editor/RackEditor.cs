@@ -15,7 +15,7 @@ namespace Eidetic.URack.Editor
         static Rack Rack;
 
         [MenuItem("Window/URack")]
-        static RackEditor GetWindow() => GetWindow<RackEditor>(true, "URack");
+        public static RackEditor GetWindow() => GetWindow<RackEditor>(true, "URack");
 
         [UnityEditor.Callbacks.OnOpenAsset(0)]
         public static bool OnOpenAsset(int instanceID, int line)
