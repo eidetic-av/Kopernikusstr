@@ -20,12 +20,9 @@ xsi:schemaLocation="UnityEngine.UIElements
         defaultValue="180"
         readonlyValue="true"/> -->
 
-      <URack:PortElement name="X"
-                       member="EulerX"/>
-      <URack:PortElement name="Y"
-                         member="EulerY"/>
-      <URack:PortElement name="Z"
-                         member="EulerZ"/>
+      <URack:PortElement member="EulerX"/>
+      <URack:PortElement member="EulerY"/>
+      <URack:PortElement member="EulerZ"/>
 
   </VisualElement>
 

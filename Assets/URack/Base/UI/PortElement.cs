@@ -65,9 +65,7 @@ namespace Eidetic.URack.Base.UI
 
                 var showLabel = true;
                 showLabelAttribute.TryGetValueFromBag(bag, context, ref showLabel);
-                if (showLabel && !portElement.name.IsNullOrEmpty())
-                    portElement.Add(new TextElement().WithText(portElement.name).WithName("Label"));
-
+                if (showLabel) portElement.Add(new TextElement().WithText(memberName.Prettify()).WithName("Label"));
 
                 PortElements[portElement.Port] = portElement;
                 Ports[portElement] = portElement.Port;

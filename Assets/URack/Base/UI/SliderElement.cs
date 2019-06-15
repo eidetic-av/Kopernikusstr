@@ -33,8 +33,6 @@ namespace Eidetic.URack.Base.UI
 
             UxmlStringAttributeDescription memberNameAttribute = new UxmlStringAttributeDescription { name = "member" };
 
-            UxmlBoolAttributeDescription showLabelAttribute = new UxmlBoolAttributeDescription { name = "showLabel" };
-
             PortElement PortElement;
 
             public override void Init(VisualElement element, IUxmlAttributes bag, CreationContext context)
@@ -87,7 +85,7 @@ namespace Eidetic.URack.Base.UI
                 }
 
 
-                var showValue = false;
+                var showValue = true;
                 showValueAttribute.TryGetValueFromBag(bag, context, ref showValue);
                 if (showValue)
                 {
