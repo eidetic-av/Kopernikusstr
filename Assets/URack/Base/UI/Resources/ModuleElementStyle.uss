@@ -1,7 +1,7 @@
 
 ModuleElement {
     width: auto;
-    height: 500px;
+    height: 540px;
     background-color: #ccc;
     border-width: 1px;
     border-color: #777;
@@ -41,17 +41,20 @@ ModuleHeader {
 /* Components */
 
 PortElement {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    position: relative;
     width: 50px;
-    height: 40px;
-    background-image: url("Port.png");
+    height: 45px;
+    margin-bottom: 15px;
+    justify-content: initial;
     align-items: center;
+    background-image: url("Port.png");
 }
 
     PortElement #Label {
         -unity-text-align: middle-center;
         white-space: nowrap;
+        position: relative;
+        top: 40px;
     }
 
     PortElement.connectable #Label {

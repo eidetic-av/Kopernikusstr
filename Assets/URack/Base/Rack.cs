@@ -54,7 +54,6 @@ namespace Eidetic.URack.Base
         {
             module.ClearConnections();
             Modules.Remove(module);
-            if (Application.isPlaying) Destroy(module);
 
             // TODO:
             // these need to be changed to methods available at runtime
@@ -65,7 +64,13 @@ namespace Eidetic.URack.Base
         /// <summary> Remove all modules and connections from the rack </summary>
         public void Clear()
         {
-            if (Application.isPlaying) foreach (var module in Modules) Destroy(module);
+            foreach (var module in Modules)
+            {
+                // TODO:
+                // these need to be changed to methods available at runtime
+                UnityEditor.AssetDatabase.RemoveObjectFromAsset(module);
+                UnityEditor.AssetDatabase.SaveAssets();
+            }
             Modules.Clear();
         }
 

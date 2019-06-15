@@ -90,11 +90,19 @@ namespace Eidetic.URack.Base
         public virtual void OnCreateConnection(Port from, Port to)
         {
             RunSetters();
+
+            var fromElement = UI.PortElement.PortElements[from];
+            var toElement = UI.PortElement.PortElements[to];
+
+            UI.CableLayer.Instance.DrawCable(from.GetHashCode(),
+                fromElement.worldBound.center + UI.CableLayer.PortMouseOffset,
+                toElement.worldBound.center + UI.CableLayer.PortMouseOffset);
         }
 
         public virtual void OnRemoveConnection(Port removedPort)
         {
             RunSetters();
+            UI.CableLayer.Instance.RemoveCable(removedPort.GetHashCode());
         }
 
         public void RunSetters()

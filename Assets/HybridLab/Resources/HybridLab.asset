@@ -1069,6 +1069,9 @@ MonoBehaviour:
     - Length
     - Shape
     - Trigger
+    - Value
+    - Running
+    - EnvelopePosition
     values:
     - memberName: Length
       memberType: 4
@@ -1099,6 +1102,33 @@ MonoBehaviour:
         node: {fileID: -7186348343016496547}
         reroutePoints: []
       Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Value
+      memberType: 16
+      node: {fileID: -7883679012643922405}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Running
+      memberType: 16
+      node: {fileID: -7883679012643922405}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: EnvelopePosition
+      memberType: 16
+      node: {fileID: -7883679012643922405}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
       ConnectionType: 0
       Dynamic: 0
   Length: 0.25
@@ -1976,6 +2006,9 @@ MonoBehaviour:
     - Length
     - Shape
     - Trigger
+    - Value
+    - Running
+    - EnvelopePosition
     values:
     - memberName: Length
       memberType: 4
@@ -2006,6 +2039,33 @@ MonoBehaviour:
         node: {fileID: -3714102316685379379}
         reroutePoints: []
       Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Value
+      memberType: 16
+      node: {fileID: -1245162474127291772}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Running
+      memberType: 16
+      node: {fileID: -1245162474127291772}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: EnvelopePosition
+      memberType: 16
+      node: {fileID: -1245162474127291772}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
       ConnectionType: 0
       Dynamic: 0
   Length: 0.5
@@ -2157,7 +2217,10 @@ MonoBehaviour:
   - {fileID: -7883679012643922405}
   - {fileID: -3457807814032043601}
   - {fileID: -8449435456362556325}
+  - {fileID: -8474961230750607269}
+  - {fileID: 2096015514091571186}
   - {fileID: 0}
+  LoadOnPlay: 0
 --- !u!114 &84377897559767805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2729,7 +2792,7 @@ MonoBehaviour:
   m_Name: Rotation Controller
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -120, y: -488}
+  position: {x: -136, y: -600}
   ports:
     keys:
     - XRotation
@@ -2866,6 +2929,9 @@ MonoBehaviour:
     - Length
     - Shape
     - Trigger
+    - Value
+    - Running
+    - EnvelopePosition
     values:
     - memberName: Length
       memberType: 4
@@ -2900,6 +2966,33 @@ MonoBehaviour:
         node: {fileID: -2134614878785344887}
         reroutePoints: []
       Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Value
+      memberType: 16
+      node: {fileID: 5879419128740899487}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Running
+      memberType: 16
+      node: {fileID: 5879419128740899487}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: EnvelopePosition
+      memberType: 16
+      node: {fileID: 5879419128740899487}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
       ConnectionType: 0
       Dynamic: 0
   Length: 0.06751813
@@ -2949,7 +3042,7 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 376, y: 88}
+  position: {x: 456, y: 72}
   ports:
     keys:
     - Input

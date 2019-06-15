@@ -253,7 +253,6 @@ namespace Eidetic.URack.Base
         /// <param name="port">The <see cref="Port"/> to connect to</param>
         public void Connect(Port port)
         {
-            Debug.Log("Connecting");
             if (connections == null) connections = new List<PortConnection>();
             if (port == null) { Debug.LogWarning("Cannot connect to null port"); return; }
             if (port == this) { Debug.LogWarning("Cannot connect port to self."); return; }
@@ -266,7 +265,6 @@ namespace Eidetic.URack.Base
             if (!port.IsConnectedTo(this)) port.connections.Add(new PortConnection(this));
             Module.OnCreateConnection(this, port);
             port.Module.OnCreateConnection(this, port);
-            Debug.Log("Connected");
         }
 
         public List<Port> GetConnections()

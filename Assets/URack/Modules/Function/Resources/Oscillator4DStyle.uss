@@ -1,3 +1,7 @@
+ModuleElement.Oscillator4D {
+    background-color: #222;
+}
+
 .column {
     flex-direction: column;
     align-items: center;
@@ -21,11 +25,17 @@ SliderElement .Slider {
     }
 
     SliderElement .Slider #unity-dragger {
-        border-width: 1px;
-        border-color: #444;
-        width: 10px;
-        height: 18px;
+        border-width: 2px;
+        border-color: rgba(0, 0, 0, .5);
+        width: 35px;
+        height: 25px;
     }
+
+#Label {
+    background-color: rgba(255, 255, 255, 0.20);
+    padding: 5px;
+    margin-top: -5px;
+}
 
 #column--w Label, #column--w #Label {
     color: #4a74ae;

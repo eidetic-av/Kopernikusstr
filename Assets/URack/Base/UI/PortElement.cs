@@ -45,7 +45,7 @@ namespace Eidetic.URack.Base.UI
                 if (memberName == "") return;
 
                 // try and get the member information from it's type
-                var memberInfo = moduleType.GetMember(memberName).Single();
+                var memberInfo = moduleType.GetMember(memberName)?.SingleOrDefault();
 
                 // if we can't find the member info, don't create the port
                 if (memberInfo == null) return;
@@ -59,6 +59,7 @@ namespace Eidetic.URack.Base.UI
                 portElement.Port = module.GetPort(memberInfo.Name);
 
                 portElement.OnDrag += portElement.Drag;
+
                 portElement.OnRelease += portElement.Release;
 
                 var showLabel = true;
@@ -77,22 +78,17 @@ namespace Eidetic.URack.Base.UI
             }
         }
 
-        // don't know why this offset is needed
-        static Vector2 mouseOffset = new Vector2(-5, -26);
-
         void Drag(MouseMoveEvent mouseMoveEvent)
         {
-            draggingPortElement = this;
-
-            Debug.Log(draggingPortElement.Port.GetHashCode());
+            if (Port.IsOutput)
+                draggingPortElement = this;
+            else if (Port.IsInput && Port.IsConnected)
+                draggingPortElement = PortElements[Port.Connection];
 
             if (draggingPortElement.Port.IsConnected)
-            {
                 draggingPortElement.Port.Disconnect(0);
-                CableLayer.Instance.RemoveCable(draggingPortElement.Port.GetHashCode());
-            }
 
-            if (mouseMoveEvent.target is PortElement && mouseMoveEvent.target != this)
+            if (mouseMoveEvent.target is PortElement && ((PortElement)mouseMoveEvent.target).Port.IsInput)
             {
                 if (hoveringPortElement != null && hoveringPortElement != mouseMoveEvent.target)
                 {
@@ -108,32 +104,29 @@ namespace Eidetic.URack.Base.UI
             }
 
             CableLayer.Instance.DrawCable(draggingPortElement.Port.GetHashCode(),
-                worldBound.center + mouseOffset,
-                mouseMoveEvent.mousePosition + mouseOffset);
-
-            CableLayer.Instance.MarkDirtyRepaint();
+                draggingPortElement.worldBound.center + CableLayer.PortMouseOffset,
+                mouseMoveEvent.mousePosition + CableLayer.PortMouseOffset);
         }
 
         void Release(MouseUpEvent mouseUpEvent)
         {
+            CableLayer.Instance.RemoveCable(draggingPortElement.Port.GetHashCode());
+
             if (hoveringPortElement != null && hoveringPortElement.Port.IsInput)
             {
+                // disconnect the target port if it already is connected
+                // to a different output
+                if (hoveringPortElement.Port.IsConnected)
+                    hoveringPortElement.Port.Disconnect(0);
+
                 // connect the ports
                 draggingPortElement.Port.Connect(hoveringPortElement.Port);
-
-                // draw the static cable
-                CableLayer.Instance.DrawCable(draggingPortElement.Port.GetHashCode(),
-                    draggingPortElement.worldBound.center + mouseOffset,
-                    hoveringPortElement.worldBound.center + mouseOffset);
-
-                // remove the temporary hovering class
-                hoveringPortElement.RemoveFromClassList("connectable");
-                hoveringPortElement = null;
             }
-            else if (draggingPortElement != null)
-            {
-                CableLayer.Instance.RemoveCable(draggingPortElement.Port.GetHashCode());
-            }
+
+            // remove the temporary hovering class
+            hoveringPortElement.RemoveFromClassList("connectable");
+            hoveringPortElement = null;
+            draggingPortElement = null;
         }
 
         public class Factory : UxmlFactory<PortElement, Traits> { }

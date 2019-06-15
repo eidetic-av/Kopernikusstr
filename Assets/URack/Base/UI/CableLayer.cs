@@ -11,6 +11,8 @@ namespace Eidetic.URack.Base.UI
 {
     public class CableLayer : IMGUIContainer
     {
+        public static readonly Vector2 PortMouseOffset = new Vector2(-5, -26);
+
         static CableLayer instance;
         public static CableLayer Instance
         {
@@ -73,15 +75,25 @@ namespace Eidetic.URack.Base.UI
                 //Handles.DrawBezier(start, middle, startTangent, middleEndTangent, Color.red, null, 5);
                 //Handles.DrawBezier(middle, end, middleStartTangent, endTangent, Color.red, null, 5);
 
-                Handles.color = new Color(255, 0, 0, .5f);
+                Handles.color = new Color(255, 0, 0, .75f);
                 Handles.DrawAAPolyLine(Texture2D.whiteTexture, 5, new Vector3[] { start, end });
             }
         }
 
-        public void DrawCable(int hashCode, Vector2 startPoint, Vector2 endPoint) =>
+        public void DrawCable(int hashCode, Vector2 startPoint, Vector2 endPoint)
+        {
             Cables[hashCode] = new Cable(startPoint, endPoint);
+            MarkDirtyRepaint();
+        }
 
-        public void RemoveCable(int hashCode) => Cables.Remove(hashCode);
+        public void RemoveCable(int hashCode)
+        {
+            if (Cables.ContainsKey(hashCode))
+            {
+                Cables.Remove(hashCode);
+                MarkDirtyRepaint();
+            }
+        }
 
         struct Cable
         {

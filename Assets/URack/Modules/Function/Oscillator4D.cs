@@ -10,37 +10,37 @@ namespace Eidetic.URack.Function
     {
         /// <summary> Master clock rate in beats per minute. </summary>
         [Input, Range(40, 70)] public float Clock = 120f;
-        [Input, Range(0, 12)] public int MultipleIndexX = 10;
         [Input, Range(0, 12)] public int MultipleIndexY = 10;
         [Input, Range(0, 12)] public int MultipleIndexZ = 10;
+        [Input, Range(0, 12)] public int MultipleIndexW = 10;
 
         /// <summary> Sine wave output value. </summary>
-        [Output] public float Sine => CalculateSin();
-        [Output] public float SineX => CalculateSin(Multipliers.ElementAt(MultipleIndexX).Value);
-        [Output] public float SineY => CalculateSin(Multipliers.ElementAt(MultipleIndexY).Value);
-        [Output] public float SineZ => CalculateSin(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float SinX => CalculateSin();
+        [Output] public float SinY => CalculateSin(Multipliers.ElementAt(MultipleIndexY).Value);
+        [Output] public float SinZ => CalculateSin(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float SinW => CalculateSin(Multipliers.ElementAt(MultipleIndexW).Value);
 
         /// <summary> Triangle wave output value.</summary>
-        [Output] public float Triangle => CalculateTriangle();
-        [Output] public float TriangleX => CalculateSin(Multipliers.ElementAt(MultipleIndexX).Value);
-        [Output] public float TriangleY => CalculateSin(Multipliers.ElementAt(MultipleIndexY).Value);
-        [Output] public float TriangleZ => CalculateSin(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float TriX => CalculateTri();
+        [Output] public float TriY => CalculateTri(Multipliers.ElementAt(MultipleIndexY).Value);
+        [Output] public float TriZ => CalculateTri(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float TriW => CalculateTri(Multipliers.ElementAt(MultipleIndexW).Value);
 
         /// <summary> Sawtooth wave output value. </summary>
-        [Output] public float Sawtooth => CalculateSawTooth();
-        [Output] public float SawtoothX => CalculateSin(Multipliers.ElementAt(MultipleIndexX).Value);
-        [Output] public float SawtoothY => CalculateSin(Multipliers.ElementAt(MultipleIndexY).Value);
-        [Output] public float SawtoothZ => CalculateSin(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float SawX => CalculateSaw();
+        [Output] public float SawY => CalculateSaw(Multipliers.ElementAt(MultipleIndexY).Value);
+        [Output] public float SawZ => CalculateSaw(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float SawW => CalculateSaw(Multipliers.ElementAt(MultipleIndexW).Value);
 
         /// <summary> Ramp (inverse-sawtooth) wave output value. </summary>
-        [Output] public float Ramp => CalculateRamp();
-        [Output] public float RampX => CalculateSin(Multipliers.ElementAt(MultipleIndexX).Value);
-        [Output] public float RampY => CalculateSin(Multipliers.ElementAt(MultipleIndexY).Value);
-        [Output] public float RampZ => CalculateSin(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float RampX => CalculateRamp();
+        [Output] public float RampY => CalculateRamp(Multipliers.ElementAt(MultipleIndexY).Value);
+        [Output] public float RampZ => CalculateRamp(Multipliers.ElementAt(MultipleIndexZ).Value);
+        [Output] public float RampW => CalculateRamp(Multipliers.ElementAt(MultipleIndexW).Value);
 
         public float CalculateSin(float multiplier = 1) => Mathf.Sin((Phase * multiplier) * (Mathf.PI * 2));
-        public float CalculateTriangle(float multiplier = 1) => (Mathf.PingPong((Phase * multiplier), .5f) * 4) - 1;
-        public float CalculateSawTooth(float multiplier = 1) => CalculateRamp(multiplier) * -1;
+        public float CalculateTri(float multiplier = 1) => (Mathf.PingPong((Phase * multiplier), .5f) * 4) - 1;
+        public float CalculateSaw(float multiplier = 1) => CalculateRamp(multiplier) * -1;
         public float CalculateRamp(float multiplier = 1) => (((Phase * multiplier) % 1f) * 2) - 1;
 
         /// <summary> Length of the oscillator cycle in seconds. </summary>
