@@ -32,7 +32,7 @@ namespace Eidetic.URack.Base.UI
             name = "CableLayer";
             pickingMode = PickingMode.Ignore;
 
-            RegisterCallback<AttachToPanelEvent>(e => Redraw = true );
+            RegisterCallback<AttachToPanelEvent>(e => Redraw = true);
         }
 
         public static void OnGUI()
@@ -51,6 +51,9 @@ namespace Eidetic.URack.Base.UI
 
             foreach (var cable in Cables.Values)
             {
+                var thickness = 8;
+                var color = new Color(255, 0, 0);
+
                 var start = cable.startPoint;
                 var end = cable.endPoint;
 
@@ -80,8 +83,14 @@ namespace Eidetic.URack.Base.UI
                 //Handles.DrawBezier(start, middle, startTangent, middleEndTangent, Color.red, null, 5);
                 //Handles.DrawBezier(middle, end, middleStartTangent, endTangent, Color.red, null, 5);
 
-                Handles.color = new Color(255, 0, 0, .5f);
-                Handles.DrawAAPolyLine(Texture2D.whiteTexture, 8, new Vector3[] { start, end });
+                Handles.color = color;
+                Handles.DrawAAPolyLine(Texture2D.whiteTexture, thickness, new Vector3[] { start, end });
+
+                GUI.DrawTexture(new Rect(start.x - thickness / 2, start.y - thickness / 2, thickness, thickness),
+                    Resources.Load<Texture2D>("Cap"), ScaleMode.ScaleToFit, true, 0, color, 0, 0);
+
+                GUI.DrawTexture(new Rect(end.x - thickness / 2, end.y - thickness / 2, thickness, thickness),
+                    Resources.Load<Texture2D>("Cap"), ScaleMode.ScaleToFit, true, 0, color, 0, 0);
             }
         }
 
