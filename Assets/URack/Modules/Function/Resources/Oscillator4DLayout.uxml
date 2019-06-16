@@ -1,33 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <UXML xmlns:xsi="http:/www.w3.org/2001/XMLSchema-instance" xmlns="UnityEngine.UIElements" xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" xsi:schemaLocation="UnityEngine.UIElements ../UIElementsSchema/UnityEngine.UIElements.xsd" xmlns:URack="Eidetic.URack.Base.UI">
   <VisualElement name="Container">
-    <div class="column" name="X">
+    <VisualElement class="column" name="X">
       <Label class="column__label" text="X"></Label>
       <URack:SliderElement high-value="55" low-value="210" member="Clock" showLabel="false"></URack:SliderElement>
       <URack:PortElement member="SinX"></URack:PortElement>
       <URack:PortElement member="TriX"></URack:PortElement>
       <URack:PortElement member="SawX"></URack:PortElement>
-    </div>
-    <div class="column" name="Y">
+    </VisualElement>
+    <VisualElement class="column" name="Y">
       <Label class="column__label" text="Y"></Label>
       <URack:SliderElement dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers" member="MultipleIndexY" showLabel="false" type="dictionary"></URack:SliderElement>
       <URack:PortElement member="SinY"></URack:PortElement>
       <URack:PortElement member="TriY"></URack:PortElement>
       <URack:PortElement member="SawY"></URack:PortElement>
-    </div>
-    <div class="column" name="Z">
+    </VisualElement>
+    <VisualElement class="column" name="Z">
       <Label class="column__label" text="Z"></Label>
       <URack:SliderElement dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers" member="MultipleIndexZ" showLabel="false" type="dictionary"></URack:SliderElement>
       <URack:PortElement member="SinZ"></URack:PortElement>
       <URack:PortElement member="TriZ"></URack:PortElement>
       <URack:PortElement member="SawZ"></URack:PortElement>
-    </div>
-    <div class="column" name="W">
+    </VisualElement>
+    <VisualElement class="column" name="W">
       <Label class="column__label" text="W"></Label>
       <URack:SliderElement dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers" member="MultipleIndexW" showLabel="false" type="dictionary"></URack:SliderElement>
       <URack:PortElement member="SinW"></URack:PortElement>
       <URack:PortElement member="TriW"></URack:PortElement>
       <URack:PortElement member="SawW"></URack:PortElement>
-    </div>
+    </VisualElement>
   </VisualElement>
 </UXML>

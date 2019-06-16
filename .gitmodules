@@ -7,3 +7,6 @@
 [submodule "Assets/Slim"]
 	path = Assets/Slim
 	url = https://github.com/eidetic-av/UIElements-Slim
+[submodule "Assets/Sass"]
+	path = Assets/Sass
+	url = https://github.com/eidetic-av/UIElements-Sass.git
