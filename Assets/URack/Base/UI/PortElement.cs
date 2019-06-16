@@ -70,12 +70,6 @@ namespace Eidetic.URack.Base.UI
                 PortElements[portElement.Port] = portElement;
                 Ports[portElement] = portElement.Port;
             }
-
-            // No children allowed in this element
-            public override IEnumerable<UxmlChildElementDescription> uxmlChildElementsDescription
-            {
-                get { yield break; }
-            }
         }
 
         void Drag(MouseMoveEvent mouseMoveEvent)

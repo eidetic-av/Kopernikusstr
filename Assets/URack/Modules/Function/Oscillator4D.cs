@@ -10,9 +10,9 @@ namespace Eidetic.URack.Function
     {
         /// <summary> Master clock rate in beats per minute. </summary>
         [Input, Range(40, 70)] public float Clock = 120f;
-        [Input] public int MultipleIndexY = 10;
-        [Input] public int MultipleIndexZ = 10;
-        [Input] public int MultipleIndexW = 10;
+        [Input] public int MultipleIndexY = 8;
+        [Input] public int MultipleIndexZ = 3;
+        [Input] public int MultipleIndexW = 12;
 
         /// <summary> Sine wave output value. </summary>
         [Output] public float SinX => CalculateSin(Phase.x);

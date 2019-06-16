@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5513272659552194879
+--- !u!114 &-6721528407151754397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,7 +21,7 @@ MonoBehaviour:
     values:
     - memberName: EulerX
       memberType: 4
-      module: {fileID: -5513272659552194879}
+      module: {fileID: -6721528407151754397}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -30,7 +30,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: EulerY
       memberType: 4
-      module: {fileID: -5513272659552194879}
+      module: {fileID: -6721528407151754397}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -39,7 +39,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: EulerZ
       memberType: 4
-      module: {fileID: -5513272659552194879}
+      module: {fileID: -6721528407151754397}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -48,7 +48,71 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: DampingRate
       memberType: 4
-      module: {fileID: -5513272659552194879}
+      module: {fileID: -6721528407151754397}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  EulerX: 0
+  EulerY: 0
+  EulerZ: 0
+  DampingRate: 3
+  MultiplierX: 60
+  MultiplierY: 60
+  MultiplierZ: 60
+--- !u!114 &-8565960931449489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93afcd837666b8440bf453d5aecac985, type: 3}
+  m_Name: Rotation Controller
+  m_EditorClassIdentifier: 
+  ports:
+    keys:
+    - EulerX
+    - EulerY
+    - EulerZ
+    - DampingRate
+    values:
+    - memberName: EulerX
+      memberType: 4
+      module: {fileID: -8565960931449489}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: EulerY
+      memberType: 4
+      module: {fileID: -8565960931449489}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: EulerZ
+      memberType: 4
+      module: {fileID: -8565960931449489}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: DampingRate
+      memberType: 4
+      module: {fileID: -8565960931449489}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -77,10 +141,11 @@ MonoBehaviour:
   m_Name: New Rack
   m_EditorClassIdentifier: 
   Modules:
-  - {fileID: 7212092801052362294}
-  - {fileID: -5513272659552194879}
+  - {fileID: -6721528407151754397}
+  - {fileID: 216868421609880154}
+  - {fileID: -8565960931449489}
   Open: 1
---- !u!114 &7212092801052362294
+--- !u!114 &216868421609880154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +182,7 @@ MonoBehaviour:
     values:
     - memberName: Clock
       memberType: 4
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -126,7 +191,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: MultipleIndexY
       memberType: 4
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -135,7 +200,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: MultipleIndexZ
       memberType: 4
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -144,7 +209,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: MultipleIndexW
       memberType: 4
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -153,7 +218,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SinX
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -162,7 +227,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SinY
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -171,7 +236,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SinZ
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -180,7 +245,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SinW
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -189,7 +254,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: TriX
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -198,7 +263,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: TriY
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -207,7 +272,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: TriZ
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -216,7 +281,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: TriW
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -225,7 +290,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SawX
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -234,7 +299,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SawY
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -243,7 +308,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SawZ
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -252,7 +317,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: SawW
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -261,7 +326,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: RampX
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -270,7 +335,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: RampY
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -279,7 +344,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: RampZ
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -288,7 +353,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: RampW
       memberType: 16
-      module: {fileID: 7212092801052362294}
+      module: {fileID: 216868421609880154}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -298,6 +363,6 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   Clock: 120
-  MultipleIndexY: 10
-  MultipleIndexZ: 10
-  MultipleIndexW: 10
+  MultipleIndexY: 8
+  MultipleIndexZ: 3
+  MultipleIndexW: 12

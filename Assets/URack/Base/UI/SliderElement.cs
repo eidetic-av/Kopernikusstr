@@ -25,15 +25,11 @@ namespace Eidetic.URack.Base.UI
 
             UxmlStringAttributeDescription dictionaryNameAttribute = new UxmlStringAttributeDescription { name = "dictionaryName" };
 
-            UxmlFloatAttributeDescription defaultValueAttribute = new UxmlFloatAttributeDescription { name = "defaultValue" };
-
             UxmlBoolAttributeDescription readonlyValueAttribute = new UxmlBoolAttributeDescription { name = "readonlyValue" };
 
             UxmlBoolAttributeDescription showValueAttribute = new UxmlBoolAttributeDescription { name = "showValue" };
 
             UxmlStringAttributeDescription memberNameAttribute = new UxmlStringAttributeDescription { name = "member" };
-
-            PortElement PortElement;
 
             public override void Init(VisualElement element, IUxmlAttributes bag, CreationContext context)
             {
@@ -42,9 +38,9 @@ namespace Eidetic.URack.Base.UI
                 var container = element as SliderElement;
                 container.AddToClassList("Slider");
 
-                PortElement = (PortElement)new PortElement.Factory().Create(bag, context);
+                var portElement = (PortElement)new PortElement.Factory().Create(bag, context);
 
-                container.Add(PortElement);
+                container.Add(portElement);
 
                 var direction = SliderDirection.Vertical;
                 directionAttribute.TryGetValueFromBag(bag, context, ref direction);

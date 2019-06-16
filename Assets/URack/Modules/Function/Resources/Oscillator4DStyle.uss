@@ -37,34 +37,34 @@ SliderElement .Slider {
     margin-top: -5px;
 }
 
-#column--w Label, #column--w #Label {
+#W Label, #W #Label {
     color: #4a74ae;
 }
 
-#column--w #unity-dragger {
+#W #unity-dragger {
     background-color: #4a74ae;
 }
 
-#column--x Label, #column--x #Label {
+#X Label, #X #Label {
     color: #578980;
 }
 
-#column--x #unity-dragger {
+#X #unity-dragger {
     background-color: #578980;
 }
 
-#column--y Label, #column--y #Label {
+#Y Label, #Y #Label {
     color: #D5444A;
 }
 
-#column--y #unity-dragger {
+#Y #unity-dragger {
     background-color: #D5444A;
 }
 
-#column--z Label, #column--z #Label {
+#Z Label, #Z #Label {
     color: #FFEA60;
 }
 
-#column--z #unity-dragger {
+#Z #unity-dragger {
     background-color: #FFEA60;
 }
