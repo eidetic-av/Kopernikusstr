@@ -13,7 +13,7 @@ namespace Eidetic.URack.Base.UI
     {
         public static Dictionary<string, Type> ModuleTypes = new Dictionary<string, Type>();
 
-        public static bool MovingModule { get; private set; }
+        public static bool IsMoving { get; private set; }
 
         public Vector2 StartDragMousePosition { get; private set; }
         public Vector2 CurrentDragMousePosition { get; private set; }
@@ -71,7 +71,7 @@ namespace Eidetic.URack.Base.UI
 
         void DragModule(MouseMoveEvent mouseMoveEvent)
         {
-            if (!MovingModule)
+            if (!IsMoving)
             {
                 StartDragMousePosition = mouseMoveEvent.localMousePosition;
                 CurrentDragMousePosition = StartDragMousePosition;
@@ -88,7 +88,7 @@ namespace Eidetic.URack.Base.UI
 
                 AddToClassList("Dragging");
 
-                MovingModule = true;
+                IsMoving = true;
             }
 
             CurrentDragMousePosition = mouseMoveEvent.localMousePosition;
@@ -143,7 +143,7 @@ namespace Eidetic.URack.Base.UI
             this.style.position = Position.Relative;
             this.style.left = 0;
             this.style.top = 0;
-            MovingModule = false;
+            IsMoving = false;
             StartDragMousePosition = Vector2.zero;
             CurrentDragMousePosition = Vector2.zero;
             StartDragModuleIndex = -1;

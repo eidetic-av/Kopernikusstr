@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -18,45 +20,54 @@ namespace Eidetic.URack.Base.UI
                 return instance;
             }
         }
+        public static Label DuplicateDropBox { get; private set; } = new Label("Duplicate Module").WithClass("dropbox");
+        public static Label DeleteDropBox { get; private set; } = new Label("Delete Module").WithClass("dropbox");
 
-        Box Toolbar;
-        Button NewModuleButton;
+        static Box dropBar = new Box() { name = "drop-bar" };
 
-        Box DropBar;
-        public DropBox DuplicateDropBox { get; private set; }
-        public DropBox DeleteDropBox { get; private set; }
+        static Box newModuleWindow = new Box() { name = "new-module-window" };
+        static bool showingNewModuleWindow => Instance.Contains(newModuleWindow);
 
         public RackControls()
         {
             pickingMode = PickingMode.Ignore;
 
-            Toolbar = new Box();
-            Toolbar.name = "Toolbar";
+            dropBar.Add(DuplicateDropBox);
+            dropBar.Add(DeleteDropBox);
 
-            NewModuleButton = new Button(ShowNewModuleWindow);
-            NewModuleButton.name = "NewModuleButton";
-            NewModuleButton.Add(new Label("New Module"));
+            Add(dropBar);
 
-            Toolbar.Add(NewModuleButton);
+            var moduleList = new Box() { name = "module-list" };
+            newModuleWindow.Add(moduleList);
 
-            Add(Toolbar);
+            // Add all module classes to the new module window list
+            foreach (var module in Assembly.GetAssembly(typeof(Module)).GetTypes()
+                .Where(t => t.IsSubclassOf(typeof(Module)) && !t.IsAbstract))
+            {
+                var assemblyName = module.FullName.Split('.');
+                var moduleGroup = assemblyName[assemblyName.Length - 2];
+                var moduleName = assemblyName.Last();
+                var addButton = new Button() { text = moduleName };
+                addButton.RegisterCallback<MouseUpEvent>(e => AddModule(module.UnderlyingSystemType));
+                moduleList.Add(addButton);
+            }
 
-            DropBar = new Box();
-            DropBar.name = "DropBar";
-
-            DuplicateDropBox = new DropBox("Duplicate Module");
-            DeleteDropBox = new DropBox("Delete Module");
-
-            DropBar.Add(DuplicateDropBox);
-            DropBar.Add(DeleteDropBox);
-
-            Add(DropBar);
+            URack.OnSwipeUp += ShowNewModuleWindow;
         }
 
-        void ShowNewModuleWindow()
+        public static void ShowNewModuleWindow()
         {
-            AddModule(typeof(Function.Oscillator4D));
-            AddModule(typeof(Transform.RotationController));
+            if (!showingNewModuleWindow)
+            {
+                Instance.Add(newModuleWindow);
+                URack.OnSwipeDown += HideNewModuleWindow;
+            }
+        }
+
+        public static void HideNewModuleWindow()
+        {
+            Instance.Remove(newModuleWindow);
+            URack.OnSwipeDown -= HideNewModuleWindow;
         }
 
         void AddModule(Type moduleType)
@@ -65,16 +76,8 @@ namespace Eidetic.URack.Base.UI
             var moduleElement = new ModuleElement(module);
 
             URack.Instance.Add(moduleElement);
-        }
 
-
-        public class DropBox : Box
-        {
-            public DropBox(string label) : base()
-            {
-                AddToClassList("dropbox");
-                Add(new Label(label));
-            }
+            if (showingNewModuleWindow) HideNewModuleWindow();
         }
 
     }
