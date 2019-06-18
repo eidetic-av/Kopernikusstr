@@ -2,32 +2,32 @@
 <UXML xmlns:xsi="http:/www.w3.org/2001/XMLSchema-instance" xmlns="UnityEngine.UIElements" xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" xsi:schemaLocation="UnityEngine.UIElements ../UIElementsSchema/UnityEngine.UIElements.xsd" xmlns:URack="Eidetic.URack.Base.UI">
   <VisualElement name="Container">
     <VisualElement class="column" name="X">
-      <Label class="column__label" text="X"></Label>
+      <Label text="X"></Label>
       <URack:SliderElement high-value="55" low-value="210" member="Clock" showLabel="false"></URack:SliderElement>
-      <URack:PortElement member="SinX"></URack:PortElement>
-      <URack:PortElement member="TriX"></URack:PortElement>
-      <URack:PortElement member="SawX"></URack:PortElement>
+      <URack:PortElement member="SinX" name="Sin"></URack:PortElement>
+      <URack:PortElement member="TriX" name="Tri"></URack:PortElement>
+      <URack:PortElement member="SawX" name="Saw"></URack:PortElement>
     </VisualElement>
     <VisualElement class="column" name="Y">
-      <Label class="column__label" text="Y"></Label>
+      <Label text="Y"></Label>
       <URack:SliderElement dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers" member="MultipleIndexY" showLabel="false" type="dictionary"></URack:SliderElement>
-      <URack:PortElement member="SinY"></URack:PortElement>
-      <URack:PortElement member="TriY"></URack:PortElement>
-      <URack:PortElement member="SawY"></URack:PortElement>
+      <URack:PortElement member="SinY" name="Sin"></URack:PortElement>
+      <URack:PortElement member="TriY" name="Tri"></URack:PortElement>
+      <URack:PortElement member="SawY" name="Saw"></URack:PortElement>
     </VisualElement>
     <VisualElement class="column" name="Z">
-      <Label class="column__label" text="Z"></Label>
+      <Label text="Z"></Label>
       <URack:SliderElement dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers" member="MultipleIndexZ" showLabel="false" type="dictionary"></URack:SliderElement>
-      <URack:PortElement member="SinZ"></URack:PortElement>
-      <URack:PortElement member="TriZ"></URack:PortElement>
-      <URack:PortElement member="SawZ"></URack:PortElement>
+      <URack:PortElement member="SinZ" name="Sin"></URack:PortElement>
+      <URack:PortElement member="TriZ" name="Tri"></URack:PortElement>
+      <URack:PortElement member="SawZ" name="Saw"></URack:PortElement>
     </VisualElement>
     <VisualElement class="column" name="W">
-      <Label class="column__label" text="W"></Label>
+      <Label text="W"></Label>
       <URack:SliderElement dictionaryName="Eidetic.URack.Function.Oscillator4D.Multipliers" member="MultipleIndexW" showLabel="false" type="dictionary"></URack:SliderElement>
-      <URack:PortElement member="SinW"></URack:PortElement>
-      <URack:PortElement member="TriW"></URack:PortElement>
-      <URack:PortElement member="SawW"></URack:PortElement>
+      <URack:PortElement member="SinW" name="Sin"></URack:PortElement>
+      <URack:PortElement member="TriW" name="Tri"></URack:PortElement>
+      <URack:PortElement member="SawW" name="Saw"></URack:PortElement>
     </VisualElement>
   </VisualElement>
 </UXML>

@@ -1,70 +1,62 @@
 ModuleElement.Oscillator4D {
-    background-color: #222;
+  background-color: #222;
 }
 
 .column {
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-
-.column__label {
-    -unity-font: resource("Fonts/SpaceGrotesk-SemiBold");
-    font-size: 18px;
-    margin: 5px;
+.column Label {
+  -unity-font: resource("Fonts/SpaceGrotesk-SemiBold");
+  font-size: 18px;
+  margin: 5px;
+  padding: 5px;
+}
+.column PortElement Label {
+  font-size: 14px;
+  margin-top: -5px;
 }
 
 SliderElement .Slider {
-    margin-top: -10px;
-    height: 120px;
+  margin-top: -10px;
+  height: 120px;
+}
+SliderElement .Slider #unity-tracker {
+  background-color: #898989;
+  margin-left: 2px;
+  width: 4px;
+}
+SliderElement .Slider #unity-dragger {
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.5);
+  width: 35px;
+  height: 25px;
 }
 
-    SliderElement .Slider #unity-tracker {
-        background-color: #898989;
-        margin-left: 2px;
-        width: 4px;
-    }
-
-    SliderElement .Slider #unity-dragger {
-        border-width: 2px;
-        border-color: rgba(0, 0, 0, .5);
-        width: 35px;
-        height: 25px;
-    }
-
-#Label {
-    background-color: rgba(255, 255, 255, 0.20);
-    padding: 5px;
-    margin-top: -5px;
+#X Label {
+  color: #578980;
 }
-
-#W Label, #W #Label {
-    color: #4a74ae;
-}
-
-#W #unity-dragger {
-    background-color: #4a74ae;
-}
-
-#X Label, #X #Label {
-    color: #578980;
-}
-
 #X #unity-dragger {
-    background-color: #578980;
+  background-color: #578980;
 }
 
-#Y Label, #Y #Label {
-    color: #D5444A;
+#Y Label {
+  color: #D5444A;
 }
-
 #Y #unity-dragger {
-    background-color: #D5444A;
+  background-color: #D5444A;
 }
 
-#Z Label, #Z #Label {
-    color: #FFEA60;
+#Z Label {
+  color: #FFEA60;
 }
-
 #Z #unity-dragger {
-    background-color: #FFEA60;
+  background-color: #FFEA60;
+}
+
+#W Label {
+  color: #4A74AE;
+}
+#W #unity-dragger {
+  background-color: #4A74AE;
 }

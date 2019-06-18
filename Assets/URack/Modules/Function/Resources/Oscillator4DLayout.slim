@@ -1,18 +1,18 @@
 UXML xmlns:URack='Eidetic.URack.Base.UI'
     VisualElement name='Container'
         VisualElement class='column' name='X'
-            Label class='column__label' text='X'
-            URack:SliderElement member='Clock' high-value=55 low-value=210 showLabel="false"
-            URack:PortElement member='SinX'
-            URack:PortElement member='TriX'
-            URack:PortElement member='SawX'
+            Label text='X'
+            URack:SliderElement [member='Clock'
+                high-value=55 low-value=210 showLabel='false']
+            URack:PortElement member='SinX' name='Sin'
+            URack:PortElement member='TriX' name='Tri'
+            URack:PortElement member='SawX' name='Saw'
+
         - ['Y', 'Z', 'W'].each do |osc|
             VisualElement class='column' name=osc
-                Label class='column__label' text=osc
-                - multipleName = 'MultipleIndex' << osc
-                URack:SliderElement [member=multipleName type='dictionary'
+                Label text=osc
+                URack:SliderElement [member=('MultipleIndex' + osc) type='dictionary'
                     dictionaryName='Eidetic.URack.Function.Oscillator4D.Multipliers'
-                    showLabel="false"]
+                    showLabel='false']
                 - ['Sin', 'Tri', 'Saw'].each do |oscType|
-                    - name = oscType << osc
-                    URack:PortElement member=name
+                    URack:PortElement member=(oscType + osc) name=oscType

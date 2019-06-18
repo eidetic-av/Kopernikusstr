@@ -13,11 +13,6 @@ URack {
     margin: 5px;
 }
 
-.header {
-    -unity-font: resource("Fonts/SpaceGrotesk-Regular");
-    font-size: 18px;
-}
-
 .unity-base-field {
     -unity-font: resource("Fonts/SpaceGrotesk-Light");
     font-size: 12px;
