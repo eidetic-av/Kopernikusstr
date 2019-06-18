@@ -1,17 +1,26 @@
 using System;
 using Eidetic.Unity.UI.Utility;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Eidetic.Utility;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Eidetic.URack.Base.UI
 {
     public partial class ModuleElement : TouchElement
     {
         public static Dictionary<string, Type> ModuleTypes = new Dictionary<string, Type>();
+
+        public static Texture GetModuleImage(Type moduleType)
+        {
+            throw new System.NotImplementedException();
+
+            var assemblyName = moduleType.FullName.Split('.');
+            var moduleGroup = assemblyName[assemblyName.Length - 2];
+            var moduleName = assemblyName.Last();
+            var resource = AssetDatabase.LoadAssetAtPath<Texture>("Assets/URack/Modules/" + moduleGroup + "/" + moduleName + ".jpg");
+        }
 
         public static bool IsMoving { get; private set; }
 

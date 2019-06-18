@@ -86,7 +86,7 @@ namespace Eidetic.URack.Base.UI
             else if (Port.IsInput && Port.IsConnected)
                 draggingPortElement = PortElements[Port.Connection];
 
-            if (draggingPortElement.Port.IsConnected)
+            if (draggingPortElement != null && draggingPortElement.Port.IsConnected)
                 draggingPortElement.Port.Disconnect(0);
 
             if (mouseMoveEvent.target is PortElement && ((PortElement)mouseMoveEvent.target).Port.IsInput)

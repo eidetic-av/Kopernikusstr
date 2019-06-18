@@ -40,15 +40,18 @@ namespace Eidetic.URack.Base.UI
             var moduleList = new Box() { name = "module-list" };
             newModuleWindow.Add(moduleList);
 
-            // Add all module classes to the new module window list
-            foreach (var module in Assembly.GetAssembly(typeof(Module)).GetTypes()
+            // Add all module types to the new module window list
+            foreach (var moduleType in Assembly.GetAssembly(typeof(Module)).GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(Module)) && !t.IsAbstract))
             {
-                var assemblyName = module.FullName.Split('.');
+                var assemblyName = moduleType.FullName.Split('.');
                 var moduleGroup = assemblyName[assemblyName.Length - 2];
                 var moduleName = assemblyName.Last();
-                var addButton = new Button() { text = moduleName };
-                addButton.RegisterCallback<MouseUpEvent>(e => AddModule(module.UnderlyingSystemType));
+                var properType = moduleType.UnderlyingSystemType;
+                var addButton = new Button() { text = moduleName.Prettify() };
+                addButton.AddToClassList("module-type-button");
+                //addButton.Add(new Image() { image = ModuleElement.GetModuleImage(properType) });
+                addButton.RegisterCallback<MouseUpEvent>(e => AddModule(properType));
                 moduleList.Add(addButton);
             }
 

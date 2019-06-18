@@ -51,8 +51,8 @@ namespace Eidetic.URack.Base.UI
 
             foreach (var cable in Cables.Values)
             {
-                var thickness = 8;
-                var color = new Color(255, 0, 0);
+                var thickness = 10;
+                var color = Color.blue / 1.5f;
 
                 var start = cable.startPoint;
                 var end = cable.endPoint;

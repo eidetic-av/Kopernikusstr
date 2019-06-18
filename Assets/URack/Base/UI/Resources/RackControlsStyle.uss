@@ -37,6 +37,19 @@ Button:active {
   height: 100%;
   margin: 10px;
   background-color: rgba(255, 255, 255, 0.66);
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#new-module-window #module-list .module-type-button {
+  margin: 10px;
+  padding: 10px;
+  min-width: 100px;
+  min-height: 200px;
+  font-size: 16px;
+  -unity-text-align: upper-center;
+  white-space: normal;
 }
 
 #drop-bar {
