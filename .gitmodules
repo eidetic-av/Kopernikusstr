@@ -16,3 +16,6 @@
 [submodule "assets/UIElements-SLim"]
 	path = assets/UIElements-SLim
 	url = https://github.com/eidetic-av/UIElements-SLim
+[submodule "Assets/URack"]
+	path = Assets/URack
+	url = https://github.com/eidetic-av/URack.git
