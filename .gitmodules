@@ -10,3 +10,9 @@
 [submodule "Assets/Sass"]
 	path = Assets/Sass
 	url = https://github.com/eidetic-av/UIElements-Sass.git
+[submodule "Assets/UIElements-Sass"]
+	path = Assets/UIElements-Sass
+	url = https://github.com/eidetic-av/UIElements-Sass
+[submodule "assets/UIElements-SLim"]
+	path = assets/UIElements-SLim
+	url = https://github.com/eidetic-av/UIElements-SLim
