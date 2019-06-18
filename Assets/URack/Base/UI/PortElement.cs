@@ -16,6 +16,8 @@ namespace Eidetic.URack.Base.UI
         public static Dictionary<Port, PortElement> PortElements = new Dictionary<Port, PortElement>();
         public static Dictionary<PortElement, Port> Ports = new Dictionary<PortElement, Port>();
 
+        public static bool IsDragging => draggingPortElement != null;
+
         static PortElement draggingPortElement;
         static PortElement hoveringPortElement;
 

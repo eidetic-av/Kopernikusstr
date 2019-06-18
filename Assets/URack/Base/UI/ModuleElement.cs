@@ -13,7 +13,7 @@ namespace Eidetic.URack.Base.UI
     {
         public static Dictionary<string, Type> ModuleTypes = new Dictionary<string, Type>();
 
-        public bool MovingModule { get; private set; }
+        public static bool MovingModule { get; private set; }
 
         public Vector2 StartDragMousePosition { get; private set; }
         public Vector2 CurrentDragMousePosition { get; private set; }
@@ -123,11 +123,11 @@ namespace Eidetic.URack.Base.UI
         void DropModule(MouseUpEvent mouseUpEvent)
         {
             // Dropping onto the 'Delete' DropBox 
-            if (RackControls.Instance.DeleteDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
+            if (RackControls.DeleteDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
                 DeleteModule();
 
             // Dropping onto the 'Duplicate' DropBox 
-            else if (RackControls.Instance.DuplicateDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
+            else if (RackControls.DuplicateDropBox.worldBound.Contains(mouseUpEvent.mousePosition))
                 DuplicateModule();
 
             // Dropping onto a space in the Rack

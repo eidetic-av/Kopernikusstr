@@ -14,6 +14,27 @@ namespace Eidetic.URack.Base
 {
     public static class ExtensionMethods
     {
+        // Todo: there must be a way to make these following "WithClass" methods generic
+
+        // Add a class to a visual element and return the visual element
+        public static VisualElement WithClass(this VisualElement element, string className)
+        {
+            element.AddToClassList(className);
+            return element;
+        }
+        // Add a class to a label and return the label
+        public static Label WithClass(this Label label, string className)
+        {
+            label.AddToClassList(className);
+            return label;
+        }
+        // Add a class to a box and return the label
+        public static Box WithClass(this Box box, string className)
+        {
+            box.AddToClassList(className);
+            return box;
+        }
+
         public static string ToPascalCase(this string input)
         {
             var alphaNumeric = System.Text.RegularExpressions.Regex.Replace(input, "[^A-Za-z0-9]", string.Empty);
