@@ -271,7 +271,7 @@ MonoBehaviour:
       connections:
       - MemberName: BloomIntensity
         MemberType: 16
-        node: {fileID: -3727964213142868859}
+        node: {fileID: 0}
         reroutePoints: []
       Direction: 1
       ConnectionType: 0
@@ -1917,7 +1917,6 @@ MonoBehaviour:
   - {fileID: -3714102316685379379}
   - {fileID: -6104011588177357161}
   - {fileID: 4858699801095851018}
-  - {fileID: -3727964213142868859}
   - {fileID: 8475875551648803324}
   - {fileID: 7945762725008678183}
   - {fileID: -7475863515175722769}
@@ -1938,7 +1937,8 @@ MonoBehaviour:
   - {fileID: -7883679012643922405}
   - {fileID: -3457807814032043601}
   - {fileID: 2096015514091571186}
-  LoadOnPlay: 1
+  - {fileID: 0}
+  LoadOnPlay: 0
 --- !u!114 &84377897559767805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2953,7 +2953,7 @@ MonoBehaviour:
       connections:
       - MemberName: BloomThreshold
         MemberType: 16
-        node: {fileID: -3727964213142868859}
+        node: {fileID: 0}
         reroutePoints: []
       Direction: 1
       ConnectionType: 0
