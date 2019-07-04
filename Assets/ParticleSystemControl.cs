@@ -21,6 +21,46 @@ public class ParticleSystemControl : MonoBehaviour
         }
     }
 
+    public float NoiseFrequency
+    {
+        get => ParticleSystem.noise.frequency;
+        set
+        {
+            var noiseModule = ParticleSystem.noise;
+            noiseModule.frequency = value;
+        }
+    }
+
+    public float NoiseScrollSpeed
+    {
+        get => ParticleSystem.noise.scrollSpeed.constant;
+        set
+        {
+            var noiseModule = ParticleSystem.noise;
+            noiseModule.scrollSpeed = new ParticleSystem.MinMaxCurve(value);
+        }
+    }
+
+    public float NoisePositionAmount
+    {
+        get => ParticleSystem.noise.positionAmount.constant;
+        set
+        {
+            var noiseModule = ParticleSystem.noise;
+            noiseModule.positionAmount = new ParticleSystem.MinMaxCurve(value);
+        }
+    }
+
+    public float EmissionRate
+    {
+        get => ParticleSystem.emission.rateOverTime.constant;
+        set
+        {
+            var emissionModule = ParticleSystem.emission;
+            emissionModule.rateOverTime = new ParticleSystem.MinMaxCurve(value);
+        }
+    }
+
     public float Speed
     {
         get => ParticleSystem.main.simulationSpeed;
