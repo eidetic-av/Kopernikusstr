@@ -134,7 +134,7 @@ Material:
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.0019607844, g: 0.0019607844, b: 0.0019607844, a: 1}
+    - _Color: {r: 0.0025994766, g: 0.0025994766, b: 0.0025994766, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 1, b: 0, a: 0}
     - _EmissionColor: {r: 0.3490566, g: 0.34411713, b: 0.34411713, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
