@@ -5528,8 +5528,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 1
+      scalar: 2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6278,7 +6278,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 0.00006549854
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -8039,7 +8039,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.9845916
+      scalar: 1.1691905
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -8205,7 +8205,7 @@ ParticleSystem:
     scrollSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.0031846762
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -8418,7 +8418,7 @@ ParticleSystem:
     positionAmount:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.003440121
+      scalar: 2.4176834
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -24850,7 +24850,7 @@ Camera:
     height: 1
   near clip plane: 9.82
   far clip plane: 1000
-  field of view: 41
+  field of view: 52
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

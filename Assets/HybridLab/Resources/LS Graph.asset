@@ -1,6 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7908531989501349808
+--- !u!114 &-8038924899995996264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6593a1f9d8a457448280e07f8718b06, type: 3}
+  m_Name: Rotation Controller
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1432, y: 248}
+  ports:
+    keys:
+    - XRotation
+    - YRotation
+    - ZRotation
+    - DampingRate
+    values:
+    - memberName: XRotation
+      memberType: 4
+      node: {fileID: -8038924899995996264}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: YRotation
+      memberType: 4
+      node: {fileID: -8038924899995996264}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: ZRotation
+      memberType: 4
+      node: {fileID: -8038924899995996264}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: 6504354740356728776}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: DampingRate
+      memberType: 4
+      node: {fileID: -8038924899995996264}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+  _targetName: Large
+  XRotation: 0
+  YRotation: 0
+  ZRotation: 33.4
+  DampingRate: 180
+--- !u!114 &-7979741978198522576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,7 +79,7 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 40, y: -184}
+  position: {x: -504, y: 120}
   ports:
     keys:
     - Input
@@ -27,20 +93,20 @@ MonoBehaviour:
     values:
     - memberName: Input
       memberType: 4
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: MultiplierBSine
-        MemberType: 4
-        node: {fileID: 6293483302747388457}
+      - MemberName: flux
+        MemberType: 16
+        node: {fileID: 2840535049652178834}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
     - memberName: InputMinimum
       memberType: 4
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -49,7 +115,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: InputMaximum
       memberType: 4
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -58,7 +124,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: OutputMinimum
       memberType: 4
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -67,7 +133,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: OutputMaximum
       memberType: 4
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -76,7 +142,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: Power
       memberType: 4
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -85,27 +151,31 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: Output
       memberType: 16
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -7192278311764002631}
+        reroutePoints: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
     - memberName: RoundedOutput
       memberType: 16
-      node: {fileID: -7908531989501349808}
+      node: {fileID: -7979741978198522576}
       typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  Input: -0.99125105
+  Input: 0.7442464
   InputMinimum: 0
-  InputMaximum: 1
+  InputMaximum: 100
   OutputMinimum: 0
-  OutputMaximum: 360
+  OutputMaximum: 5
   Power: 1
 --- !u!114 &-7199228254256137293
 MonoBehaviour:
@@ -120,7 +190,7 @@ MonoBehaviour:
   m_Name: Property Manipulator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -216, y: -216}
+  position: {x: -664, y: -232}
   ports:
     keys:
     - Input
@@ -134,7 +204,7 @@ MonoBehaviour:
       connections:
       - MemberName: Output
         MemberType: 16
-        node: {fileID: 1979159946539922839}
+        node: {fileID: -905207492022689435}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
@@ -151,8 +221,8 @@ MonoBehaviour:
   _targetName: Large
   ComponentTypeName: ParticleSystemControl
   PropertyName: NoiseIntensity
-  Input: 0.21358672
-  DampingRate: 1
+  Input: 1
+  DampingRate: 15
 --- !u!114 &-7192278311764002631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +236,7 @@ MonoBehaviour:
   m_Name: Property Manipulator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -216, y: 504}
+  position: {x: -296, y: 56}
   ports:
     keys:
     - Input
@@ -177,7 +247,11 @@ MonoBehaviour:
       node: {fileID: -7192278311764002631}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: -7979741978198522576}
+        reroutePoints: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
@@ -193,8 +267,119 @@ MonoBehaviour:
   _targetName: Large
   ComponentTypeName: ParticleSystemControl
   PropertyName: NoisePositionAmount
-  Input: 0
-  DampingRate: 3
+  Input: 0.03721232
+  DampingRate: 5
+--- !u!114 &-6463880693984181191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69aa19cd8876fc946a76cb5d43c02f06, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1032, y: 24}
+  ports:
+    keys:
+    - Input
+    - InputMinimum
+    - InputMaximum
+    - OutputMinimum
+    - OutputMaximum
+    - Power
+    - Output
+    - RoundedOutput
+    values:
+    - memberName: Input
+      memberType: 4
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: energy
+        MemberType: 16
+        node: {fileID: 2840535049652178834}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMinimum
+      memberType: 4
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMaximum
+      memberType: 4
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMinimum
+      memberType: 4
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMaximum
+      memberType: 4
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Power
+      memberType: 4
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -4446846606848334557}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: RoundedOutput
+      memberType: 16
+      node: {fileID: -6463880693984181191}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Input: 0.004629391
+  InputMinimum: 0
+  InputMaximum: 1
+  OutputMinimum: 0.5
+  OutputMaximum: 22
+  Power: 4
 --- !u!114 &-4446846606848334557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +393,7 @@ MonoBehaviour:
   m_Name: Property Manipulator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -136, y: 136}
+  position: {x: -712, y: -24}
   ports:
     keys:
     - Input
@@ -219,7 +404,11 @@ MonoBehaviour:
       node: {fileID: -4446846606848334557}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: -6463880693984181191}
+        reroutePoints: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
@@ -235,8 +424,288 @@ MonoBehaviour:
   _targetName: Large
   ComponentTypeName: ParticleSystemControl
   PropertyName: EmissionRate
-  Input: 500
+  Input: 0.12919602
   DampingRate: 1
+--- !u!114 &-977834356622237685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f695cea44b331684098694955670f602, type: 3}
+  m_Name: Osc Receiver
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1384, y: 504}
+  ports:
+    keys:
+    - Integer
+    - Float
+    - Boolean
+    - Trigger
+    values:
+    - memberName: Integer
+      memberType: 4
+      node: {fileID: -977834356622237685}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Float
+      memberType: 4
+      node: {fileID: -977834356622237685}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Boolean
+      memberType: 4
+      node: {fileID: -977834356622237685}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Trigger
+      memberType: 16
+      node: {fileID: -977834356622237685}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Port: 9002
+  MessageAddress: /address-name
+  Integer: 0
+  Float: 0
+  Boolean: 0
+--- !u!114 &-905207492022689435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69aa19cd8876fc946a76cb5d43c02f06, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -952, y: -232}
+  ports:
+    keys:
+    - Input
+    - InputMinimum
+    - InputMaximum
+    - OutputMinimum
+    - OutputMaximum
+    - Power
+    - Output
+    - RoundedOutput
+    values:
+    - memberName: Input
+      memberType: 4
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: harmonicity
+        MemberType: 16
+        node: {fileID: 2840535049652178834}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMinimum
+      memberType: 4
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMaximum
+      memberType: 4
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMinimum
+      memberType: 4
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMaximum
+      memberType: 4
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Power
+      memberType: 4
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -7199228254256137293}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: RoundedOutput
+      memberType: 16
+      node: {fileID: -905207492022689435}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Input: 0.5
+  InputMinimum: 0
+  InputMaximum: 1
+  OutputMinimum: 0
+  OutputMaximum: 2
+  Power: 2
+--- !u!114 &-486727625680667079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69aa19cd8876fc946a76cb5d43c02f06, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -760, y: 152}
+  ports:
+    keys:
+    - Input
+    - InputMinimum
+    - InputMaximum
+    - OutputMinimum
+    - OutputMaximum
+    - Power
+    - Output
+    - RoundedOutput
+    values:
+    - memberName: Input
+      memberType: 4
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: flatness
+        MemberType: 16
+        node: {fileID: 2840535049652178834}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMinimum
+      memberType: 4
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMaximum
+      memberType: 4
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMinimum
+      memberType: 4
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMaximum
+      memberType: 4
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Power
+      memberType: 4
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: RoundedOutput
+      memberType: 16
+      node: {fileID: -486727625680667079}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Input: 0.7442464
+  InputMinimum: 0
+  InputMaximum: 1
+  OutputMinimum: 0
+  OutputMaximum: 3
+  Power: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,17 +720,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -7199228254256137293}
-  - {fileID: 1979159946539922839}
-  - {fileID: 6293483302747388457}
-  - {fileID: 3008896910400408144}
-  - {fileID: -7908531989501349808}
   - {fileID: 6531122561471891687}
   - {fileID: -4446846606848334557}
-  - {fileID: 5611418104068584317}
-  - {fileID: 5481820178953075152}
   - {fileID: -7192278311764002631}
-  LoadOnPlay: 1
---- !u!114 &1979159946539922839
+  - {fileID: 1182269443778619261}
+  - {fileID: 2840535049652178834}
+  - {fileID: -905207492022689435}
+  - {fileID: -6463880693984181191}
+  - {fileID: 7823416449869552918}
+  - {fileID: -486727625680667079}
+  - {fileID: 5859870536392559398}
+  - {fileID: -8038924899995996264}
+  - {fileID: 6504354740356728776}
+  - {fileID: -7979741978198522576}
+  - {fileID: -977834356622237685}
+  LoadOnPlay: 0
+--- !u!114 &1182269443778619261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,256 +744,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69aa19cd8876fc946a76cb5d43c02f06, type: 3}
-  m_Name: Map
+  m_Script: {fileID: 11500000, guid: 4f137bfc2baa7724b8baa6a289aeb925, type: 3}
+  m_Name: Translation Controller
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -456, y: -248}
+  position: {x: -1368, y: 56}
   ports:
     keys:
-    - Input
-    - InputMinimum
-    - InputMaximum
-    - OutputMinimum
-    - OutputMaximum
-    - Power
-    - Output
-    - RoundedOutput
+    - X
+    - Y
+    - Z
+    - DampingRate
     values:
-    - memberName: Input
+    - memberName: X
       memberType: 4
-      node: {fileID: 1979159946539922839}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: MultiplierCSine
-        MemberType: 4
-        node: {fileID: 6293483302747388457}
-        reroutePoints: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: InputMinimum
-      memberType: 4
-      node: {fileID: 1979159946539922839}
+      node: {fileID: 1182269443778619261}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-    - memberName: InputMaximum
+    - memberName: Y
       memberType: 4
-      node: {fileID: 1979159946539922839}
+      node: {fileID: 1182269443778619261}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-    - memberName: OutputMinimum
+    - memberName: Z
       memberType: 4
-      node: {fileID: 1979159946539922839}
+      node: {fileID: 1182269443778619261}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-    - memberName: OutputMaximum
+    - memberName: DampingRate
       memberType: 4
-      node: {fileID: 1979159946539922839}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Power
-      memberType: 4
-      node: {fileID: 1979159946539922839}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Output
-      memberType: 16
-      node: {fileID: 1979159946539922839}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: -7199228254256137293}
-        reroutePoints: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: RoundedOutput
-      memberType: 16
-      node: {fileID: 1979159946539922839}
-      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-  Input: -0.5051068
-  InputMinimum: -1
-  InputMaximum: 1
-  OutputMinimum: 0
-  OutputMaximum: 1
-  Power: 1
---- !u!114 &3008896910400408144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69aa19cd8876fc946a76cb5d43c02f06, type: 3}
-  m_Name: Map
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -456, y: 8}
-  ports:
-    keys:
-    - Input
-    - InputMinimum
-    - InputMaximum
-    - OutputMinimum
-    - OutputMaximum
-    - Power
-    - Output
-    - RoundedOutput
-    values:
-    - memberName: Input
-      memberType: 4
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - MemberName: MultiplierBSine
-        MemberType: 4
-        node: {fileID: 6293483302747388457}
-        reroutePoints: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: InputMinimum
-      memberType: 4
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: InputMaximum
-      memberType: 4
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: OutputMinimum
-      memberType: 4
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: OutputMaximum
-      memberType: 4
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Power
-      memberType: 4
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: Output
-      memberType: 16
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: RoundedOutput
-      memberType: 16
-      node: {fileID: 3008896910400408144}
-      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-  Input: -0.99125105
-  InputMinimum: -1
-  InputMaximum: 1
-  OutputMinimum: 0
-  OutputMaximum: 3
-  Power: 1
---- !u!114 &5481820178953075152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68d3a0ce2750bf947988f46e20de4d46, type: 3}
-  m_Name: Auto Rotate
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 152, y: 264}
-  ports:
-    keys:
-    - SpeedX
-    - SpeedY
-    - SpeedZ
-    values:
-    - memberName: SpeedX
-      memberType: 4
-      node: {fileID: 5481820178953075152}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: SpeedY
-      memberType: 4
-      node: {fileID: 5481820178953075152}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: SpeedZ
-      memberType: 4
-      node: {fileID: 5481820178953075152}
+      node: {fileID: 1182269443778619261}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -527,10 +793,138 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   _targetName: Large
-  SpeedX: 0
-  SpeedY: 0
-  SpeedZ: 0
---- !u!114 &5611418104068584317
+  X: 0.6103149
+  Y: 0
+  Z: 0
+  DampingRate: 30
+--- !u!114 &2840535049652178834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07403e6cfebb66458bc46dd2595598a, type: 3}
+  m_Name: EOC Receiver
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1624, y: -264}
+  ports:
+    keys:
+    - azim
+    - dist
+    - centroid
+    - flatness
+    - flux
+    - harmonicity
+    - energy
+    - pitch
+    values:
+    - memberName: azim
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: 6504354740356728776}
+        reroutePoints: []
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: 5859870536392559398}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: dist
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: centroid
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: flatness
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -486727625680667079}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: flux
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -7979741978198522576}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: harmonicity
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -905207492022689435}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: energy
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -6463880693984181191}
+        reroutePoints: []
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: 7823416449869552918}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: pitch
+      memberType: 16
+      node: {fileID: 2840535049652178834}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Port: 9000
+  TrackId: 9
+--- !u!114 &5859870536392559398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -543,7 +937,7 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -440, y: 248}
+  position: {x: -1656, y: 104}
   ports:
     keys:
     - Input
@@ -557,20 +951,20 @@ MonoBehaviour:
     values:
     - memberName: Input
       memberType: 4
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: MultiplierCSine
-        MemberType: 4
-        node: {fileID: 6293483302747388457}
+      - MemberName: azim
+        MemberType: 16
+        node: {fileID: 2840535049652178834}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
     - memberName: InputMinimum
       memberType: 4
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -579,7 +973,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: InputMaximum
       memberType: 4
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -588,7 +982,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: OutputMinimum
       memberType: 4
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -597,7 +991,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: OutputMaximum
       memberType: 4
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -606,7 +1000,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: Power
       memberType: 4
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -615,7 +1009,7 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: Output
       memberType: 16
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -624,20 +1018,20 @@ MonoBehaviour:
       Dynamic: 0
     - memberName: RoundedOutput
       memberType: 16
-      node: {fileID: 5611418104068584317}
+      node: {fileID: 5859870536392559398}
       typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  Input: -0.5051068
-  InputMinimum: -1
-  InputMaximum: 1
-  OutputMinimum: 10
-  OutputMaximum: 1000
+  Input: -113.2
+  InputMinimum: 0
+  InputMaximum: 127
+  OutputMinimum: -0.5
+  OutputMaximum: 0.5
   Power: 1
---- !u!114 &6293483302747388457
+--- !u!114 &6504354740356728776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -646,342 +1040,108 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70f0e61983420b344828e572435cbeeb, type: 3}
-  m_Name: Quad LFO
+  m_Script: {fileID: 11500000, guid: 69aa19cd8876fc946a76cb5d43c02f06, type: 3}
+  m_Name: Map
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -664, y: -168}
+  position: {x: -1720, y: 360}
   ports:
     keys:
-    - Clock
-    - MultiplierAPosition
-    - MultiplierBPosition
-    - MultiplierCPosition
-    - MasterSine
-    - MultiplierASine
-    - MultiplierBSine
-    - MultiplierCSine
-    - MasterTriangle
-    - MultiplierATriangle
-    - MultiplierBTriangle
-    - MultiplierCTriangle
-    - MasterSawtooth
-    - MultiplierASawtooth
-    - MultiplierBSawtooth
-    - MultiplierCSawtooth
+    - Input
+    - InputMinimum
+    - InputMaximum
+    - OutputMinimum
+    - OutputMaximum
+    - Power
+    - Output
+    - RoundedOutput
     values:
-    - memberName: Clock
+    - memberName: Input
       memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierAPosition
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierBPosition
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierCPosition
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 0
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MasterSine
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierASine
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierBSine
-      memberType: 4
-      node: {fileID: 6293483302747388457}
+      node: {fileID: 6504354740356728776}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: -7908531989501349808}
+      - MemberName: azim
+        MemberType: 16
+        node: {fileID: 2840535049652178834}
         reroutePoints: []
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: 3008896910400408144}
-        reroutePoints: []
-      Direction: 1
+      Direction: 0
       ConnectionType: 0
       Dynamic: 0
-    - memberName: MultiplierCSine
+    - memberName: InputMinimum
       memberType: 4
-      node: {fileID: 6293483302747388457}
+      node: {fileID: 6504354740356728776}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMaximum
+      memberType: 4
+      node: {fileID: 6504354740356728776}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMinimum
+      memberType: 4
+      node: {fileID: 6504354740356728776}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMaximum
+      memberType: 4
+      node: {fileID: 6504354740356728776}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Power
+      memberType: 4
+      node: {fileID: 6504354740356728776}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: 6504354740356728776}
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: Input
+      - MemberName: ZRotation
         MemberType: 4
-        node: {fileID: 1979159946539922839}
-        reroutePoints: []
-      - MemberName: Input
-        MemberType: 4
-        node: {fileID: 5611418104068584317}
+        node: {fileID: -8038924899995996264}
         reroutePoints: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-    - memberName: MasterTriangle
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+    - memberName: RoundedOutput
+      memberType: 16
+      node: {fileID: 6504354740356728776}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-    - memberName: MultiplierATriangle
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierBTriangle
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierCTriangle
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MasterSawtooth
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierASawtooth
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierBSawtooth
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-    - memberName: MultiplierCSawtooth
-      memberType: 4
-      node: {fileID: 6293483302747388457}
-      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Direction: 1
-      ConnectionType: 0
-      Dynamic: 0
-  Clock: 120
-  MultiplierAPosition: 3
-  MultiplierBPosition: 12
-  MultiplierCPosition: 9
-  MasterSine: 0
-  MasterSinePort:
-    memberName: MasterSine
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierASine: 0
-  MultiplierASinePort:
-    memberName: MultiplierASine
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierBSine: 0
-  MultiplierBSinePort:
-    memberName: MultiplierBSine
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections:
-    - MemberName: Input
-      MemberType: 4
-      node: {fileID: -7908531989501349808}
-      reroutePoints: []
-    - MemberName: Input
-      MemberType: 4
-      node: {fileID: 3008896910400408144}
-      reroutePoints: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierCSine: 0
-  MultiplierCSinePort:
-    memberName: MultiplierCSine
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections:
-    - MemberName: Input
-      MemberType: 4
-      node: {fileID: 1979159946539922839}
-      reroutePoints: []
-    - MemberName: Input
-      MemberType: 4
-      node: {fileID: 5611418104068584317}
-      reroutePoints: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MasterTriangle: 0
-  MasterTrianglePort:
-    memberName: MasterTriangle
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierATriangle: 0
-  MultiplierATrianglePort:
-    memberName: MultiplierATriangle
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierBTriangle: 0
-  MultiplierBTrianglePort:
-    memberName: MultiplierBTriangle
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierCTriangle: 0
-  MultiplierCTrianglePort:
-    memberName: MultiplierCTriangle
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MasterSawtooth: 0
-  MasterSawtoothPort:
-    memberName: MasterSawtooth
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierASawtooth: 0
-  MultiplierASawtoothPort:
-    memberName: MultiplierASawtooth
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierBSawtooth: 0
-  MultiplierBSawtoothPort:
-    memberName: MultiplierBSawtooth
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
-  MultiplierCSawtooth: 0
-  MultiplierCSawtoothPort:
-    memberName: MultiplierCSawtooth
-    memberType: 4
-    node: {fileID: 6293483302747388457}
-    typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    connections: []
-    Direction: 1
-    ConnectionType: 0
-    Dynamic: 0
+  Input: -113.2
+  InputMinimum: -180
+  InputMaximum: 180
+  OutputMinimum: 0
+  OutputMaximum: 180
+  Power: 1
 --- !u!114 &6531122561471891687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,7 +1155,7 @@ MonoBehaviour:
   m_Name: Property Manipulator
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -232, y: -40}
+  position: {x: -424, y: -200}
   ports:
     keys:
     - Input
@@ -1022,5 +1182,112 @@ MonoBehaviour:
   _targetName: Large
   ComponentTypeName: ParticleSystemControl
   PropertyName: NoiseScrollSpeed
-  Input: 0.0023800135
+  Input: 0
   DampingRate: 1
+--- !u!114 &7823416449869552918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69aa19cd8876fc946a76cb5d43c02f06, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1000, y: 312}
+  ports:
+    keys:
+    - Input
+    - InputMinimum
+    - InputMaximum
+    - OutputMinimum
+    - OutputMaximum
+    - Power
+    - Output
+    - RoundedOutput
+    values:
+    - memberName: Input
+      memberType: 4
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: energy
+        MemberType: 16
+        node: {fileID: 2840535049652178834}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMinimum
+      memberType: 4
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputMaximum
+      memberType: 4
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMinimum
+      memberType: 4
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: OutputMaximum
+      memberType: 4
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Power
+      memberType: 4
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: RoundedOutput
+      memberType: 16
+      node: {fileID: 7823416449869552918}
+      typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Input: 0.004629391
+  InputMinimum: 0
+  InputMaximum: 1
+  OutputMinimum: 0
+  OutputMaximum: 2
+  Power: 2
