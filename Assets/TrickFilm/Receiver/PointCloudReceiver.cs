@@ -11,25 +11,30 @@ using Eidetic.Unity.Utility;
 public class PointCloudReceiver : MonoBehaviour
 {
     public static PointCloudReceiver Instance;
+    [SerializeField] int port = 48002;
+    [SerializeField] Vector3 PointCloudRotation = Vector3.zero;
+    [SerializeField] Vector3 PointCloudTranslation = Vector3.zero;
+    [SerializeField] Vector3 PointCloudScale = Vector3.one;
+    // [SerializeField] Vector3 MinimumBounds = new Vector3(-5, -5, -5);
+    // [SerializeField] Vector3 MaximumBounds = new Vector3(5, 5, 5);
+    [SerializeField] public List<ParticleSystemWrapper> ParticleSystems = new List<ParticleSystemWrapper>();
 
     TcpClient socket;
-    public int port = 48002;
-
     bool ReadyForNextFrame = true;
     bool Connected = false;
 
-    public Vector3 PointCloudRotation = Vector3.zero;
-    public Vector3 PointCloudTranslation = Vector3.zero;
-    public Vector3 PointCloudScale = Vector3.one;
+    MeshFilter MeshFilter;
+    Mesh Mesh;
 
-    public Vector3 MinimumBounds = new Vector3(-5, -5, -5);
-    public Vector3 MaximumBounds = new Vector3(5, 5, 5);
-
-    public Mesh Mesh;
-    public MeshRenderer MeshRenderer;
-    [SerializeField] public List<ParticleSystemWrapper> ParticleSystems = new List<ParticleSystemWrapper>();
-
-    void Start() => Connect("127.0.0.1");
+    void Start()
+    {
+        Connect("127.0.0.1");
+        if (gameObject.GetComponent<MeshFilter>() == null)
+            MeshFilter = gameObject.AddComponent<MeshFilter>();
+        else MeshFilter = gameObject.GetComponent<MeshFilter>();
+        Mesh = new Mesh();
+        MeshFilter.mesh = Mesh;
+    }
 
     void Update()
     {
@@ -57,28 +62,28 @@ public class PointCloudReceiver : MonoBehaviour
                     .ScaleBy(PointCloudScale)
                     .TranslateBy(PointCloudTranslation);
 
-
-
                 points[i] = vertexPosition;
                 indices[i] = i;
                 pointColors[i] = new Color(colors[point + 0] / 256.0f, colors[point + 1] / 256.0f, colors[point + 2] / 256.0f, 1.0f);
 
             }
 
-            if (Mesh != null) Destroy(Mesh);
+            Mesh.Clear();
 
-            Mesh = new Mesh()
-            {
-                vertices = points,
-                colors = pointColors
-            };
+            Mesh.vertices = points;
+            Mesh.colors = pointColors;
 
             Mesh.SetIndices(indices, MeshTopology.Points, 0);
 
-            GetComponent<MeshFilter>().mesh = Mesh;
+            MeshFilter.mesh = Mesh;
 
             foreach (var system in ParticleSystems)
             {
+                if (system == null || !system.ParticleSystem.gameObject.activeInHierarchy) continue;
+
+                // validations
+                if (system.EmissionRounds == 0) system.EmissionRounds = 1;
+
                 if (system.ClearOnEmit) system.ParticleSystem.Clear();
 
                 if (system.Emit)
@@ -112,7 +117,8 @@ public class PointCloudReceiver : MonoBehaviour
                     }
                     var mainModule = system.ParticleSystem.main;
                     mainModule.ringBufferMode = ParticleSystemRingBufferMode.LoopUntilReplaced;
-                    system.ParticleSystem.Play();
+                    // if (s)
+                    // system.ParticleSystem.Play();
 
                     system.CurrentEmissionRound++;
                     if (system.CurrentEmissionRound == system.EmissionRounds) system.CurrentEmissionRound = 0;
@@ -122,10 +128,8 @@ public class PointCloudReceiver : MonoBehaviour
                 {
                     var mainModule = system.ParticleSystem.main;
                     mainModule.ringBufferMode = ParticleSystemRingBufferMode.Disabled;
-                    //if system.ParticleSystem.Stop();
                 }
             }
-
             ReadyForNextFrame = true;
         }
     }
@@ -137,7 +141,7 @@ public class PointCloudReceiver : MonoBehaviour
         Instance = this;
         UnityEngine.Debug.Log("Connected");
     }
-    
+
     void RequestFrame()
     {
         ReadyForNextFrame = false;
@@ -199,7 +203,7 @@ public class PointCloudReceiver : MonoBehaviour
         public bool ClearOnEmit = true;
 
         public bool ConstantEmission;
-        public int EmissionRounds = 15;
+        public int EmissionRounds = 5;
         public float EmissionInterval = 0.015f;
 
         [NonSerialized] public int CurrentEmissionRound = 0;
