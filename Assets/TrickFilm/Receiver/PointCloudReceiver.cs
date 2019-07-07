@@ -23,17 +23,9 @@ public class PointCloudReceiver : MonoBehaviour
     bool ReadyForNextFrame = true;
     bool Connected = false;
 
-    MeshFilter MeshFilter;
-    Mesh Mesh;
-
     void Start()
     {
         Connect("127.0.0.1");
-        if (gameObject.GetComponent<MeshFilter>() == null)
-            MeshFilter = gameObject.AddComponent<MeshFilter>();
-        else MeshFilter = gameObject.GetComponent<MeshFilter>();
-        Mesh = new Mesh();
-        MeshFilter.mesh = Mesh;
     }
 
     void Update()
@@ -68,15 +60,6 @@ public class PointCloudReceiver : MonoBehaviour
 
             }
 
-            Mesh.Clear();
-
-            Mesh.vertices = points;
-            Mesh.colors = pointColors;
-
-            Mesh.SetIndices(indices, MeshTopology.Points, 0);
-
-            MeshFilter.mesh = Mesh;
-
             foreach (var system in ParticleSystems)
             {
                 if (system == null || !system.ParticleSystem.gameObject.activeInHierarchy) continue;
@@ -102,23 +85,45 @@ public class PointCloudReceiver : MonoBehaviour
                 }
                 else if (system.ConstantEmission && Time.time > system.LastEmissionTime + system.EmissionInterval)
                 {
-                    var maxEmit = points.Length > system.ParticleSystem.main.maxParticles * system.EmissionRounds ? system.ParticleSystem.main.maxParticles * system.EmissionRounds : points.Length;
-                    var emitCount = maxEmit / system.EmissionRounds;
+                    //var maxEmit = points.Length > system.ParticleSystem.main.maxParticles * system.EmissionRounds ? system.ParticleSystem.main.maxParticles * system.EmissionRounds : points.Length;
+                    //var emitCount = maxEmit / system.EmissionRounds;
+                    var emitCount = system.ParticleSystem.main.maxParticles / system.EmissionRounds;
 
-                    for (int p = 0; p < emitCount; p++)
+                    //for (int p = 0; p < emitCount; p++)
+                    //{
+                    //    var pointNumber = (p * system.EmissionRounds) + system.EmissionRounds - (system.EmissionRounds - system.CurrentEmissionRound);
+                    //    if (pointNumber >= points.Length) break;
+
+                    //    var emitParams = new ParticleSystem.EmitParams();
+                    //    emitParams.startColor = pointColors[pointNumber];
+                    //    emitParams.position = points[pointNumber];
+                    //    system.ParticleSystem.Emit(emitParams, 1);
+                    //}
+
+                    var particleIndexOffset = emitCount * system.CurrentEmissionRound;
+
+                    system.ParticleSystem.Emit(emitCount);
+
+                    var newParticleCount = system.ParticleSystem.particleCount;
+
+                    var allParticles = new ParticleSystem.Particle[system.ParticleSystem.particleCount];
+
+                    system.ParticleSystem.GetParticles(allParticles);
+
+                    for (int p = particleIndexOffset; p < newParticleCount; p++)
                     {
                         var pointNumber = (p * system.EmissionRounds) + system.EmissionRounds - (system.EmissionRounds - system.CurrentEmissionRound);
-                        if (pointNumber >= points.Length) break;
+                        if (pointNumber >= points.Length) pointNumber = pointNumber - points.Length;
 
-                        var emitParams = new ParticleSystem.EmitParams();
-                        emitParams.startColor = pointColors[pointNumber];
-                        emitParams.position = points[pointNumber];
-                        system.ParticleSystem.Emit(emitParams, 1);
+                        allParticles[p].startColor = pointColors[pointNumber];
+                        allParticles[p].position = points[pointNumber];
                     }
+
+                    system.ParticleSystem.SetParticles(allParticles);
+
                     var mainModule = system.ParticleSystem.main;
                     mainModule.ringBufferMode = ParticleSystemRingBufferMode.LoopUntilReplaced;
-                    // if (s)
-                    // system.ParticleSystem.Play();
+                    system.ParticleSystem.Play();
 
                     system.CurrentEmissionRound++;
                     if (system.CurrentEmissionRound == system.EmissionRounds) system.CurrentEmissionRound = 0;
