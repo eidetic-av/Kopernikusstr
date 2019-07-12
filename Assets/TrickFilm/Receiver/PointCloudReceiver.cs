@@ -69,7 +69,10 @@ public class PointCloudReceiver : MonoBehaviour
 
                 if (system.Emit)
                 {
-                    system.ParticleSystem.Clear();
+                    if (system.ClearOnEmit) system.ParticleSystem.Clear();
+
+                    var newParticleOffset = 0;
+                    if (!system.ClearOnEmit) newParticleOffset = system.ParticleSystem.particleCount;
 
                     var emitCount = points.Length / system.ManualEmissionSkip;
 
@@ -79,11 +82,11 @@ public class PointCloudReceiver : MonoBehaviour
 
                     system.ParticleSystem.GetParticles(particles);
 
-                    for (int p = 0; p < particles.Length; p++)
+                    for (int p = 0; p < particles.Length - newParticleOffset; p++)
                     {
                         var pointIndex = (p * (system.ManualEmissionSkip)) % points.Length;
-                        particles[p].startColor = pointColors[pointIndex];
-                        particles[p].position = points[pointIndex];
+                        particles[p + newParticleOffset].startColor = pointColors[pointIndex];
+                        particles[p + newParticleOffset].position = points[pointIndex];
                     }
 
                     system.ParticleSystem.SetParticles(particles);

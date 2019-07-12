@@ -1198,7 +1198,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 0.8381223
+  Input: 0.87025404
   Minimum: 0
   Maximum: 1
 --- !u!114 &-6598243469733595110
@@ -1481,7 +1481,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 0.6762446
+  Input: 0.7405081
   InputMinimum: -1
   InputMaximum: 1
   OutputMinimum: 0.5
@@ -1866,7 +1866,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 0.6762446
+  Input: 0.7405081
   InputMinimum: -1
   InputMaximum: 1
   OutputMinimum: 0
@@ -1959,7 +1959,7 @@ MonoBehaviour:
       connections:
       - MemberName: Output
         MemberType: 16
-        node: {fileID: 2166509443243487038}
+        node: {fileID: 2083714740000982661}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
@@ -2046,7 +2046,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 1.3381224
+  Input: 1.370254
   Minimum: 0
   Maximum: 1
 --- !u!114 &-1494788572779912182
@@ -2658,7 +2658,8 @@ MonoBehaviour:
   - {fileID: -2459695216086700712}
   - {fileID: -2819944169990960979}
   - {fileID: 2166509443243487038}
-  LoadOnPlay: 1
+  - {fileID: 2083714740000982661}
+  LoadOnPlay: 0
 --- !u!114 &1393927638506982145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2971,6 +2972,64 @@ MonoBehaviour:
   NoteNumber: 3
   Velocity: 0
   LastNoteVelocity: 127
+--- !u!114 &2083714740000982661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4daafeaf5af3841498a6c451bad7b9b1, type: 3}
+  m_Name: Add
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 420.1695, y: 1337.641}
+  ports:
+    keys:
+    - InputA
+    - InputB
+    - Output
+    values:
+    - memberName: InputA
+      memberType: 4
+      node: {fileID: 2083714740000982661}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: 2166509443243487038}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputB
+      memberType: 4
+      node: {fileID: 2083714740000982661}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: 2083714740000982661}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: InputB
+        MemberType: 4
+        node: {fileID: -2459695216086700712}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Debug: 0
+  InputA: 0
+  InputB: 0
 --- !u!114 &2166509443243487038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2984,7 +3043,7 @@ MonoBehaviour:
   m_Name: Multiply
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 552, y: 1208}
+  position: {x: 424, y: 1144}
   ports:
     keys:
     - InputA
@@ -3019,13 +3078,13 @@ MonoBehaviour:
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: InputB
-        MemberType: 4
-        node: {fileID: -2459695216086700712}
-        reroutePoints: []
       - MemberName: NoiseIntensity
         MemberType: 16
         node: {fileID: -7742260341181236561}
+        reroutePoints: []
+      - MemberName: InputA
+        MemberType: 4
+        node: {fileID: 2083714740000982661}
         reroutePoints: []
       Direction: 1
       ConnectionType: 0
@@ -3873,7 +3932,7 @@ MonoBehaviour:
   ScaleY: 1
   OffsetX: 0
   OffsetY: 0
-  Hue: 0.8381223
+  Hue: 0.87025404
   Saturation: 0
   Value: 1
 --- !u!114 &6055810721682770416
@@ -4874,6 +4933,6 @@ MonoBehaviour:
   ScaleY: 1
   OffsetX: 0
   OffsetY: 0
-  Hue: 0.33812237
+  Hue: 0.37025404
   Saturation: 0
   Value: 1

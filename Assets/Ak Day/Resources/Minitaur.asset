@@ -110,7 +110,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 0.007882068
+  Input: 0.007942611
   InputMinimum: -1
   InputMaximum: 1
   OutputMinimum: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
   Debug: 0
   _targetName: System2
   XRotation: 0
-  YRotation: -2914.2085
+  YRotation: -162.43283
   ZRotation: 0
   DampingRate: 1
 --- !u!114 &-6670981308278399701
@@ -827,7 +827,7 @@ MonoBehaviour:
       Dynamic: 0
   Debug: 0
   InputA: 90.708664
-  InputB: -3007.8953
+  InputB: -256.11963
 --- !u!114 &-6568205962364056477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,7 +934,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 0.007882068
+  Input: 0.007942611
   InputMinimum: -1
   InputMaximum: 1
   OutputMinimum: 0
@@ -1417,8 +1417,8 @@ MonoBehaviour:
       Dynamic: 0
   Debug: 0
   _targetName: ClickSystem1
-  X: 0.30236423
-  Y: 0.7559105
+  X: 0.30238238
+  Y: 0.75595593
   Z: 0
   DampingRate: 3
 --- !u!114 &-2139478559189952548
@@ -2017,7 +2017,7 @@ MonoBehaviour:
       Dynamic: 0
   Debug: 0
   _targetName: ClickSystem2
-  XRotation: -45.354694
+  XRotation: -45.357418
   YRotation: 0
   ZRotation: 0
   DampingRate: 1
@@ -2084,7 +2084,7 @@ MonoBehaviour:
       Dynamic: 0
   Debug: 0
   _targetName: ClickSystem1
-  XRotation: -45.35463
+  XRotation: -45.357353
   YRotation: 0
   ZRotation: 0
   DampingRate: 1
@@ -2176,7 +2176,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  InputA: 3007.8953
+  InputA: 256.11963
   InputB: -1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   - {fileID: -8604283447533220620}
   - {fileID: -8003846643462480254}
   - {fileID: 1420458517840623033}
-  LoadOnPlay: 1
+  LoadOnPlay: 0
 --- !u!114 &777871803866971574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2419,7 +2419,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 0.007882068
+  Input: 0.007942611
   InputMinimum: -1
   InputMaximum: 1
   OutputMinimum: 0
@@ -2954,8 +2954,8 @@ MonoBehaviour:
       Dynamic: 0
   Debug: 0
   _targetName: ClickSystem2
-  X: -0.20157614
-  Y: 0.7559105
+  X: -0.20158824
+  Y: 0.75595593
   Z: 0
   DampingRate: 3
 --- !u!114 &1579159214544408016
@@ -3080,7 +3080,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  InputA: 3007.8953
+  InputA: 256.11963
   InputB: 8.503937
 --- !u!114 &2268657607460236989
 MonoBehaviour:
@@ -3643,7 +3643,7 @@ MonoBehaviour:
       ConnectionType: 0
       Dynamic: 0
   Debug: 0
-  Input: 0.007882068
+  Input: 0.007942611
   InputMinimum: -1
   InputMaximum: 1
   OutputMinimum: 0
@@ -4513,7 +4513,7 @@ MonoBehaviour:
   Debug: 0
   _targetName: System1
   XRotation: 0
-  YRotation: 3016.3992
+  YRotation: 264.62357
   ZRotation: 0
   DampingRate: 3
 --- !u!114 &9154419273850428319
