@@ -23,12 +23,33 @@ namespace OscJack
 
         public void AddCallback(string address, MessageCallback callback)
         {
+            if (address == null || address == "" || address == " ") return;
+
+            if (address[0] != '/') address = address.Insert(0, "/");
+            
             lock (AddressCallbackMap)
             {
                 if (AddressCallbackMap.ContainsKey(address))
                     AddressCallbackMap[address] += callback;
                 else
                     AddressCallbackMap[address] = callback;
+            }
+        }
+
+        public void RemoveCallback(string address, MessageCallback callback)
+        {
+            if (address == null || address == "" || address == " ") return;
+            if (!AddressCallbackMap.ContainsKey(address)) return;
+
+            if (address[0] != '/') address = address.Insert(0, "/");
+
+            lock (AddressCallbackMap)
+            {
+                var temp = AddressCallbackMap[address] - callback;
+                if (temp != null)
+                    AddressCallbackMap[address] = temp;
+                else
+                    AddressCallbackMap.Remove(address);
             }
         }
 
@@ -41,18 +62,6 @@ namespace OscJack
                     RootNodeCallbackMap[rootNode] += callback;
                 else
                     RootNodeCallbackMap[rootNode] = callback;
-            }
-        }
-
-        public void RemoveCallback(string address, MessageCallback callback)
-        {
-            lock (AddressCallbackMap)
-            {
-                var temp = AddressCallbackMap[address] - callback;
-                if (temp != null)
-                    AddressCallbackMap[address] = temp;
-                else
-                    AddressCallbackMap.Remove(address);
             }
         }
 
@@ -74,7 +83,6 @@ namespace OscJack
 
         internal void Dispatch(string address, OscDataHandle data)
         {
-            //UnityEngine.Debug.Log(address);
             // First see if there are any callbacks assigned to the root node to handle
             lock (RootNodeCallbackMap)
             {
