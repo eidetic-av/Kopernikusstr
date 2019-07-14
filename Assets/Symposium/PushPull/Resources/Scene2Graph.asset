@@ -123,6 +123,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Port: 9000
   TrackId: 1
@@ -186,6 +187,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   InputA: 39.90319
   InputB: 0
@@ -298,6 +300,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0.27713096
   InputMinimum: 0
@@ -364,6 +367,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   InputA: 0.14944662
   InputB: 0.12768435
@@ -412,8 +416,68 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0
+--- !u!114 &-4022366559687670114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4daafeaf5af3841498a6c451bad7b9b1, type: 3}
+  m_Name: Add
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 168, y: -536}
+  ports:
+    keys:
+    - InputA
+    - InputB
+    - Output
+    values:
+    - memberName: InputA
+      memberType: 4
+      node: {fileID: -4022366559687670114}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: -1727691127640009966}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputB
+      memberType: 4
+      node: {fileID: -4022366559687670114}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: -4022366559687670114}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: StartSize
+        MemberType: 16
+        node: {fileID: 8139187755135102831}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Graph: {fileID: 0}
+  Debug: 0
+  InputA: 0
+  InputB: 0
 --- !u!114 &-3762557359216604880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +537,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   InputA: 0.4234266
   InputB: 0.12768435
@@ -581,6 +646,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0.9181372
   InputMinimum: 0
@@ -639,6 +705,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0.05406495
   DampingRate: 3
@@ -656,7 +723,7 @@ MonoBehaviour:
   m_Name: Multiply
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 56, y: -392}
+  position: {x: -104, y: -584}
   ports:
     keys:
     - InputA
@@ -691,13 +758,14 @@ MonoBehaviour:
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: StartSize
-        MemberType: 16
-        node: {fileID: 8139187755135102831}
+      - MemberName: InputA
+        MemberType: 4
+        node: {fileID: -4022366559687670114}
         reroutePoints: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   InputA: 0.12768435
   InputB: 2
@@ -836,6 +904,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Port: 9000
   TrackId: 22
@@ -895,6 +964,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   InputA: 0
   InputB: 180
@@ -957,6 +1027,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0
   DampingRate: 5
@@ -1070,6 +1141,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 279.32233
   InputMinimum: 0
@@ -1113,7 +1185,8 @@ MonoBehaviour:
   - {fileID: -5193399006379521370}
   - {fileID: 6941129800063106967}
   - {fileID: -1348298924340113408}
-  LoadOnPlay: 1
+  - {fileID: -4022366559687670114}
+  active: 1
 --- !u!114 &252959766777275096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,6 +1242,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0.9181372
   DampingRate: 1
@@ -1284,6 +1358,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Port: 9000
   TrackId: 21
@@ -1347,6 +1422,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   InputA: 0.13014248
   InputB: 0.12768435
@@ -1451,6 +1527,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0.13014248
   InputMinimum: 0
@@ -1523,6 +1600,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   _targetName: PaintLarge
   XRotation: 0
@@ -1634,6 +1712,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0.009633561
   InputMinimum: 0
@@ -1696,6 +1775,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   input: 0
   reset: 0
@@ -1786,7 +1866,7 @@ MonoBehaviour:
       connections:
       - MemberName: Output
         MemberType: 16
-        node: {fileID: -1727691127640009966}
+        node: {fileID: -4022366559687670114}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
@@ -1920,6 +2000,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Target: PaintLarge
   lifetime: 1
@@ -1953,7 +2034,7 @@ MonoBehaviour:
   m_Name: Add
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 296, y: -360}
+  position: {x: 360, y: -392}
   ports:
     keys:
     - InputA
@@ -1999,6 +2080,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   InputA: 0
   InputB: 0.12768435
@@ -2107,6 +2189,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  Graph: {fileID: 0}
   Debug: 0
   Input: 0.13014248
   InputMinimum: 0

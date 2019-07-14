@@ -81,6 +81,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   TargetSystem: 0
   emit: 0
@@ -202,6 +203,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0.00489521
   InputMinimum: 0
@@ -268,6 +270,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0
   DampingRate: 5
@@ -453,6 +456,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Clock: 170
   MultiplierAPosition: 3
@@ -803,6 +807,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 1
   Target: System2
   lifetime: 1
@@ -924,6 +929,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0.3815055
   InputMinimum: 0
@@ -986,6 +992,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: 1.526022
   InputB: 0.25
@@ -1048,6 +1055,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: 0.000009484256
   InputB: 0.015
@@ -1098,6 +1106,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: 1.3555653
   InputB: 1
@@ -1156,6 +1165,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0
   Threshold: 1
@@ -1183,6 +1193,7 @@ MonoBehaviour:
     - harmonicity
     - energy
     - pitch
+    - Onset
     values:
     - memberName: azim
       memberType: 16
@@ -1264,9 +1275,20 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+    - memberName: Onset
+      memberType: 16
+      node: {fileID: -3151561982542615914}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Port: 9000
   TrackId: 22
+  onset: 0
 --- !u!114 &-2737741931423699332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,6 +1498,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Target: System1
   lifetime: 1
@@ -1577,6 +1600,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   TargetSystem: 1
   emit: 0
@@ -1644,6 +1668,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: 0
   InputB: -0
@@ -1716,6 +1741,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0
   GateInput: 0
@@ -1761,7 +1787,7 @@ MonoBehaviour:
   - {fileID: 6753483144046872418}
   - {fileID: -8594169256369908517}
   - {fileID: -5346415931758824727}
-  LoadOnPlay: 0
+  active: 1
 --- !u!114 &733704765555694243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,6 +1843,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: 15.741435
   InputB: -1
@@ -1875,6 +1902,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: -1
   InputB: 0
@@ -1902,6 +1930,7 @@ MonoBehaviour:
     - harmonicity
     - energy
     - pitch
+    - Onset
     values:
     - memberName: azim
       memberType: 16
@@ -1995,9 +2024,20 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+    - memberName: Onset
+      memberType: 16
+      node: {fileID: 1334170007512601663}
+      typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Port: 9000
   TrackId: 21
+  onset: 0
 --- !u!114 &1721856041569263197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2058,6 +2098,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0
   Threshold: 24
@@ -2162,6 +2203,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0.4117742
   InputMinimum: 0
@@ -2224,6 +2266,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: 0
   InputB: 1
@@ -2328,6 +2371,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 160.2
   InputMinimum: -180
@@ -2440,6 +2484,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0
   InputMinimum: 0
@@ -2498,6 +2543,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   InputA: 0
   InputB: 0
@@ -2552,6 +2598,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: -0.9937744
   Threshold: 0
@@ -2640,6 +2687,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Length: 0.125
   Shape:
@@ -2725,6 +2773,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0.00489521
   Threshold: 0.1
@@ -2797,6 +2846,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
+  graph: {fileID: 11400000}
   Debug: 0
   Input: 0
   GateInput: 0
