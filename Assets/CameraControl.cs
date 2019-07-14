@@ -11,4 +11,9 @@ public class CameraControl : MonoBehaviour
         get => Camera.fieldOfView;
         set => Camera.fieldOfView = value;
     }
+    public float FarClip
+    {
+        get => Camera.farClipPlane;
+        set => Camera.farClipPlane = value;
+    }
 }

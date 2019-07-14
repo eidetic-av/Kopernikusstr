@@ -81,7 +81,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   TargetSystem: 0
   emit: 0
@@ -203,13 +203,13 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 0.00489521
+  Input: 0.091449805
   InputMinimum: 0
   InputMaximum: 1
   OutputMinimum: 0
-  OutputMaximum: 2
+  OutputMaximum: 2.5
   Power: 2.5
 --- !u!114 &-7389794615940380460
 MonoBehaviour:
@@ -239,7 +239,7 @@ MonoBehaviour:
       connections:
       - MemberName: Output
         MemberType: 16
-        node: {fileID: -1298789880763783042}
+        node: {fileID: 2951860034004126189}
         reroutePoints: []
       Direction: 0
       ConnectionType: 0
@@ -270,11 +270,11 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 0
+  Input: -0.7320099
   DampingRate: 5
-  Output: 12.593148
+  Output: -1.7102343
 --- !u!114 &-7027404079401692979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   Clock: 170
   MultiplierAPosition: 3
@@ -807,9 +807,9 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
-  Debug: 1
-  Target: System2
+  Graph: {fileID: 11400000}
+  Debug: 0
+  Target: Red
   lifetime: 1
   speed: 1
   emissionRate: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   Input: 0.3815055
   InputMinimum: 0
@@ -992,7 +992,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   InputA: 1.526022
   InputB: 0.25
@@ -1055,9 +1055,9 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  InputA: 0.000009484256
+  InputA: 0.024992343
   InputB: 0.015
 --- !u!114 &-4956362353587231168
 MonoBehaviour:
@@ -1106,7 +1106,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   InputA: 1.3555653
   InputB: 1
@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_Name: Greater Than
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -712, y: -648}
+  position: {x: -744, y: -744}
   ports:
     keys:
     - Input
@@ -1165,9 +1165,9 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 0
+  Input: 43.376785
   Threshold: 1
 --- !u!114 &-3151561982542615914
 MonoBehaviour:
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_Name: EOC Receiver
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -952, y: -824}
+  position: {x: -984, y: -952}
   ports:
     keys:
     - azim
@@ -1194,6 +1194,9 @@ MonoBehaviour:
     - energy
     - pitch
     - Onset
+    - pascalX
+    - pascalY
+    - pascalPitch
     values:
     - memberName: azim
       memberType: 16
@@ -1284,7 +1287,34 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+    - memberName: pascalX
+      memberType: 16
+      node: {fileID: -3151561982542615914}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: pascalY
+      memberType: 16
+      node: {fileID: -3151561982542615914}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: pascalPitch
+      memberType: 16
+      node: {fileID: -3151561982542615914}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Graph: {fileID: 11400000}
   Debug: 0
   Port: 9000
   TrackId: 22
@@ -1498,9 +1528,9 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Target: System1
+  Target: Blue
   lifetime: 1
   speed: 1
   emissionRate: 0
@@ -1600,7 +1630,7 @@ MonoBehaviour:
       Direction: 0
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   TargetSystem: 1
   emit: 0
@@ -1622,7 +1652,7 @@ MonoBehaviour:
   m_Name: Add
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -424, y: -728}
+  position: {x: -520, y: -792}
   ports:
     keys:
     - InputA
@@ -1661,17 +1691,17 @@ MonoBehaviour:
       typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - MemberName: Input
+      - MemberName: InputA
         MemberType: 4
-        node: {fileID: -7389794615940380460}
+        node: {fileID: 2951860034004126189}
         reroutePoints: []
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  InputA: 0
-  InputB: -0
+  InputA: 42.820465
+  InputB: -45.012974
 --- !u!114 &-1227344109213752613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,10 +1771,10 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 0
-  GateInput: 0
+  Input: 44.579372
+  GateInput: 1
   Default: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -1787,6 +1817,8 @@ MonoBehaviour:
   - {fileID: 6753483144046872418}
   - {fileID: -8594169256369908517}
   - {fileID: -5346415931758824727}
+  - {fileID: 2951860034004126189}
+  LoadOnStartup: 1
   active: 1
 --- !u!114 &733704765555694243
 MonoBehaviour:
@@ -1843,9 +1875,9 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  InputA: 15.741435
+  InputA: -1.9547904
   InputB: -1
 --- !u!114 &793204252767377390
 MonoBehaviour:
@@ -1902,10 +1934,10 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   InputA: -1
-  InputB: 0
+  InputB: 45.012974
 --- !u!114 &1334170007512601663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,6 +1963,9 @@ MonoBehaviour:
     - energy
     - pitch
     - Onset
+    - pascalX
+    - pascalY
+    - pascalPitch
     values:
     - memberName: azim
       memberType: 16
@@ -2033,7 +2068,34 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+    - memberName: pascalX
+      memberType: 16
+      node: {fileID: 1334170007512601663}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: pascalY
+      memberType: 16
+      node: {fileID: 1334170007512601663}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: pascalPitch
+      memberType: 16
+      node: {fileID: 1334170007512601663}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Graph: {fileID: 11400000}
   Debug: 0
   Port: 9000
   TrackId: 21
@@ -2098,9 +2160,9 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 0
+  Input: 44.579372
   Threshold: 24
 --- !u!114 &2660011036773002475
 MonoBehaviour:
@@ -2203,7 +2265,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   Input: 0.4117742
   InputMinimum: 0
@@ -2211,6 +2273,65 @@ MonoBehaviour:
   OutputMinimum: 0
   OutputMaximum: -3
   Power: 2
+--- !u!114 &2951860034004126189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fd7e680c63b3842a9ab619eb97d5fe, type: 3}
+  m_Name: Multiply
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -296, y: -936}
+  ports:
+    keys:
+    - InputA
+    - InputB
+    - Output
+    values:
+    - memberName: InputA
+      memberType: 4
+      node: {fileID: 2951860034004126189}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Output
+        MemberType: 16
+        node: {fileID: -1298789880763783042}
+        reroutePoints: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: InputB
+      memberType: 4
+      node: {fileID: 2951860034004126189}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      Direction: 0
+      ConnectionType: 0
+      Dynamic: 0
+    - memberName: Output
+      memberType: 16
+      node: {fileID: 2951860034004126189}
+      typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - MemberName: Input
+        MemberType: 4
+        node: {fileID: -7389794615940380460}
+        reroutePoints: []
+      Direction: 1
+      ConnectionType: 0
+      Dynamic: 0
+  Graph: {fileID: 11400000}
+  Debug: 0
+  InputA: -2.1925087
+  InputB: 1.5
 --- !u!114 &3428801924338767747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2266,7 +2387,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   InputA: 0
   InputB: 1
@@ -2371,9 +2492,9 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 160.2
+  Input: 71.57
   InputMinimum: -180
   InputMaximum: 180
   OutputMinimum: 0
@@ -2392,7 +2513,7 @@ MonoBehaviour:
   m_Name: Map
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -616, y: 264}
+  position: {x: -632, y: 216}
   ports:
     keys:
     - Input
@@ -2484,7 +2605,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   Input: 0
   InputMinimum: 0
@@ -2543,7 +2664,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   InputA: 0
   InputB: 0
@@ -2598,9 +2719,9 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: -0.9937744
+  Input: 0.60910034
   Threshold: 0
 --- !u!114 &6096194885190205789
 MonoBehaviour:
@@ -2687,7 +2808,7 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
   Length: 0.125
   Shape:
@@ -2773,9 +2894,9 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 0.00489521
+  Input: 0.091449805
   Threshold: 0.1
 --- !u!114 &8560790247423032284
 MonoBehaviour:
@@ -2846,8 +2967,8 @@ MonoBehaviour:
       Direction: 1
       ConnectionType: 0
       Dynamic: 0
-  graph: {fileID: 11400000}
+  Graph: {fileID: 11400000}
   Debug: 0
-  Input: 0
-  GateInput: 0
+  Input: 43.376785
+  GateInput: 1
   Default: 0

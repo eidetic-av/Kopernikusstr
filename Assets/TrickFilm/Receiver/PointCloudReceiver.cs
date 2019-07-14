@@ -71,22 +71,21 @@ public class PointCloudReceiver : MonoBehaviour
                 {
                     if (system.ClearOnEmit) system.ParticleSystem.Clear();
 
-                    var newParticleOffset = 0;
-                    if (!system.ClearOnEmit) newParticleOffset = system.ParticleSystem.particleCount;
+                    var particleOffset = system.ParticleSystem.particleCount;
 
                     var emitCount = points.Length / system.ManualEmissionSkip;
 
                     system.ParticleSystem.Emit(emitCount);
 
-                    var particles = new ParticleSystem.Particle[emitCount];
+                    var particles = new ParticleSystem.Particle[system.ParticleSystem.particleCount];
 
                     system.ParticleSystem.GetParticles(particles);
 
-                    for (int p = 0; p < particles.Length - newParticleOffset; p++)
+                    for (int p = particleOffset; p < particles.Length; p++)
                     {
                         var pointIndex = (p * (system.ManualEmissionSkip)) % points.Length;
-                        particles[p + newParticleOffset].startColor = pointColors[pointIndex];
-                        particles[p + newParticleOffset].position = points[pointIndex];
+                        particles[p].startColor = pointColors[pointIndex];
+                        particles[p].position = points[pointIndex];
                     }
 
                     system.ParticleSystem.SetParticles(particles);
@@ -99,26 +98,27 @@ public class PointCloudReceiver : MonoBehaviour
                 {
                     var emitCount = system.ParticleSystem.main.maxParticles / system.EmissionRounds;
 
-                    var particleIndexOffset = emitCount * system.CurrentEmissionRound;
+                    //var particleOffset = emitCount * system.CurrentEmissionRound;
+                    var particleOffset = system.ParticleSystem.particleCount;
 
                     system.ParticleSystem.Emit(emitCount);
 
-                    var newParticleCount = system.ParticleSystem.particleCount;
+                    var particles = new ParticleSystem.Particle[system.ParticleSystem.particleCount];
 
-                    var allParticles = new ParticleSystem.Particle[newParticleCount];
+                    system.ParticleSystem.GetParticles(particles);
 
-                    system.ParticleSystem.GetParticles(allParticles);
-
-                    for (int p = particleIndexOffset; p < newParticleCount; p++)
+                    for (int p = particleOffset; p < particles.Length; p++)
                     {
-                        var pointNumber = (p * system.EmissionRounds) + system.EmissionRounds - (system.EmissionRounds - system.CurrentEmissionRound);
-                        if (pointNumber >= points.Length) pointNumber = pointNumber - points.Length;
+                        //var pointIndex = (p * system.EmissionRounds) + system.EmissionRounds - (system.EmissionRounds - system.CurrentEmissionRound);
+                        //if (pointIndex >= points.Length) pointIndex = pointIndex - points.Length;
 
-                        allParticles[p].startColor = pointColors[pointNumber];
-                        allParticles[p].position = points[pointNumber];
+                        var pointIndex = (p - particleOffset + (system.EmissionRounds * system.CurrentEmissionRound)) % points.Length;
+
+                        particles[p].startColor = pointColors[pointIndex];
+                        particles[p].position = points[pointIndex];
                     }
 
-                    system.ParticleSystem.SetParticles(allParticles);
+                    system.ParticleSystem.SetParticles(particles);
 
                     var mainModule = system.ParticleSystem.main;
 
