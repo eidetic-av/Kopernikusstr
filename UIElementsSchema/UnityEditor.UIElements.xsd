@@ -290,6 +290,7 @@
         <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
         <xs:attribute default="" name="label" type="xs:string" use="optional" />
         <xs:attribute default="0" name="value" type="xs:float" use="optional" />
+        <xs:attribute default="false" name="readonly" type="xs:boolean" use="optional" />
         <xs:anyAttribute processContents="lax" />
       </xs:restriction>
     </xs:complexContent>
@@ -314,6 +315,7 @@
         <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
         <xs:attribute default="" name="label" type="xs:string" use="optional" />
         <xs:attribute default="0" name="value" type="xs:double" use="optional" />
+        <xs:attribute default="false" name="readonly" type="xs:boolean" use="optional" />
         <xs:anyAttribute processContents="lax" />
       </xs:restriction>
     </xs:complexContent>
@@ -338,6 +340,7 @@
         <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
         <xs:attribute default="" name="label" type="xs:string" use="optional" />
         <xs:attribute default="0" name="value" type="xs:int" use="optional" />
+        <xs:attribute default="false" name="readonly" type="xs:boolean" use="optional" />
         <xs:anyAttribute processContents="lax" />
       </xs:restriction>
     </xs:complexContent>
@@ -362,6 +365,7 @@
         <xs:attribute default="" name="binding-path" type="xs:string" use="optional" />
         <xs:attribute default="" name="label" type="xs:string" use="optional" />
         <xs:attribute default="0" name="value" type="xs:long" use="optional" />
+        <xs:attribute default="false" name="readonly" type="xs:boolean" use="optional" />
         <xs:anyAttribute processContents="lax" />
       </xs:restriction>
     </xs:complexContent>

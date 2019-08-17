@@ -45,6 +45,7 @@
         <xs:attribute default="false" name="showLabel" type="xs:boolean" use="optional" />
         <xs:attribute default="false" name="showField" type="xs:boolean" use="optional" />
         <xs:attribute default="" name="member" type="xs:string" use="optional" />
+        <xs:attribute default="" name="control" type="xs:string" use="optional" />
         <xs:anyAttribute processContents="lax" />
       </xs:restriction>
     </xs:complexContent>
