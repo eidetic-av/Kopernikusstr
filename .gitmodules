@@ -4,3 +4,6 @@
 [submodule "Assets/Confluence"]
 	path = Assets/Confluence
 	url = https://github.com/eidetic-av/Confluence.git
+[submodule "Assets/URack"]
+	path = Assets/URack
+	url = https://github.com/eidetic-av/URack.git
