@@ -8,9 +8,6 @@ namespace Eidetic.URack.Networking
 {
     public class EOCReceiver : Module
     {
-        public ValueStore Values = new ValueStore();
-        public ConnectionStore Connections = new ConnectionStore();
-
         internal static Dictionary<int, OscServer> Servers = new Dictionary<int, OscServer>();
         internal static Dictionary<OscServer, List<EOCReceiver>> Tracks = new Dictionary<OscServer, List<EOCReceiver>>();
 
@@ -42,10 +39,9 @@ namespace Eidetic.URack.Networking
             Server.MessageDispatcher.AddRootNodeCallback("track", OnMessageReceived);
         }
 
-        public override void ElementAttach(ModuleElement element)
+        public void ElementAttach(ModuleElement element, UnityEngine.UIElements.Box container)
         {
-            base.ElementAttach(element);
-            element.Add(new IntSelector(this, "Track"));
+            container.Add(new IntSelector(this, "Track"));
         }
 
         new void OnDestroy()

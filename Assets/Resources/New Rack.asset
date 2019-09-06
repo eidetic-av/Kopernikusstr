@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2951268338829830806
+--- !u!114 &-8640930333230089223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,229 +9,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18cf700d20f801449648028aea1a640, type: 3}
+  m_Script: {fileID: 11500000, guid: 52fded8cf93a63443accda938fdd0cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ports:
-    keys:
-    - Emit
-    - Size
-    - Life
-    - Speed
-    - Gravity
-    - NoiseDepth
-    - NoiseFrequency
-    - NoiseScroll
-    - OrbitalVelocityX
-    - OrbitalVelocityY
-    - RadialVelocity
-    - BillboardStretch
-    - StartSpeed
-    - Shape
-    - PointCloudInput
-    - PointCloudOutput
-    values:
-    - MemberName: Emit
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -1
-      MaximumValue: 1
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: Size
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: 0
-      MaximumValue: 0.25
-      Exponent: 2
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: Life
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: 0
-      MaximumValue: 2
-      Exponent: 2
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: Speed
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: 0
-      MaximumValue: 2
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: Gravity
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -2
-      MaximumValue: 2
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: NoiseDepth
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: 0
-      MaximumValue: 2
-      Exponent: 2
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: NoiseFrequency
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: 0
-      MaximumValue: 2
-      Exponent: 2
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: NoiseScroll
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -1
-      MaximumValue: 1
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: OrbitalVelocityX
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -3
-      MaximumValue: 3
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: OrbitalVelocityY
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -3
-      MaximumValue: 3
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: RadialVelocity
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -2
-      MaximumValue: 2
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: BillboardStretch
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: 0
-      MaximumValue: 1
-      Exponent: 2
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: StartSpeed
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -2
-      MaximumValue: 2
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: Shape
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: 0
-      MaximumValue: 1
-      Exponent: 2
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      Dynamic: 0
-    - MemberName: PointCloudInput
-      Direction: 0
-      ConnectionType: 1
-      MinimumValue: -1
-      MaximumValue: 1
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: Eidetic.URack.Base.CustomTypes.PointCloud, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
-      Dynamic: 0
-    - MemberName: PointCloudOutput
-      Direction: 1
-      ConnectionType: 0
-      MinimumValue: -1
-      MaximumValue: 1
-      Exponent: 1
-      Attenuation: 1
-      Module: {fileID: -2951268338829830806}
-      TypeQualifiedName: Eidetic.URack.Base.CustomTypes.PointCloud, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
-      Dynamic: 0
-  Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   Values:
-    keys: []
-    values: []
+    keys:
+    - MinX
+    - MaxX
+    - PreRotationX
+    - MinY
+    - MaxY
+    - MinZ
+    - MaxZ
+    - PreRotationY
+    - TranslationZ
+    - TranslationX
+    - TranslationY
+    - RotationX
+    - RotationZ
+    - ScaleY
+    - ScaleX
+    - PreRotationZ
+    - ScaleZ
+    values:
+    - -0.215
+    - 0.09
+    - 0.065
+    - -0.285
+    - 0.295
+    - -0.3550001
+    - 0.255
+    - -0.035
+    - -0.235
+    - 0.02
+    - -0.04499999
+    - -0.16
+    - -3.445894E-08
+    - 0.6399999
+    - -0.675
+    - 0.005
+    - 0.87
   Connections:
-    keys: []
-    values: []
-  CurrentMode: 0
+    keys:
+    - PointCloud
+    - NewFrame
+    values:
+    - MemberName: PointCloudInput
+      Module: {fileID: 6186754734565001669}
+    - MemberName: Emit
+      Module: {fileID: 6186754734565001669}
+  Rack: {fileID: 11400000}
+  PreRotationX: 11.7
+  PreRotationY: -6.3
+  PreRotationZ: 0.9
+  MinX: -1.075
+  MaxX: 0.45
+  MinY: -1.425
+  MaxY: 1.4749999
+  MinZ: -1.7750003
+  MaxZ: 1.275
+  RotationX: -28.8
+  RotationY: 0
+  RotationZ: -0.0000062026083
+  TranslationX: 0.10000002
+  TranslationY: -0.22499993
+  TranslationZ: -1.1750001
+  ScaleX: -1.35
+  ScaleY: 1.2799997
+  ScaleZ: 1.74
+  NewFrame: 1
+  Address: 10.0.1.4
+  Port: 48002
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +94,112 @@ MonoBehaviour:
   m_Name: New Rack
   m_EditorClassIdentifier: 
   modules:
-  - {fileID: -2951268338829830806}
+  - {fileID: -8640930333230089223}
+  - {fileID: 6186754734565001669}
+  - {fileID: 4455239103000901555}
+  - {fileID: 4043201383943993224}
   Open: 1
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
+--- !u!114 &4043201383943993224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cf38e454d11184c9dd3753f9cf7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 0, y: 0}
+  Values:
+    keys: []
+    values: []
+  Connections:
+    keys: []
+    values: []
+  Rack: {fileID: 11400000}
+  Input: 0
+  Scale: 1
+  Offset: 0
+--- !u!114 &4455239103000901555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 2, y: 0}
+  Values:
+    keys:
+    - TrackA-SpeedIndex
+    - TrackB-SpeedIndex
+    - TrackC-SpeedIndex
+    - TrackD-SpeedIndex
+    values:
+    - 0.1700001
+    - 0.54
+    - 0.22
+    - 0.14
+  Connections:
+    keys:
+    - TrackA-Sin
+    values:
+    - MemberName: Size
+      Module: {fileID: 6186754734565001669}
+  Rack: {fileID: 11400000}
+  Clock: 120
+  TrackA:
+    MemberName: TrackA
+    Module: {fileID: 4455239103000901555}
+    speedIndex: 9
+  TrackB:
+    MemberName: TrackB
+    Module: {fileID: 4455239103000901555}
+    speedIndex: 12
+  TrackC:
+    MemberName: TrackC
+    Module: {fileID: 4455239103000901555}
+    speedIndex: 9
+  TrackD:
+    MemberName: TrackD
+    Module: {fileID: 4455239103000901555}
+    speedIndex: 9
+--- !u!114 &6186754734565001669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89fc00c8be771f478b2347273f78c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 1, y: 0}
+  Values:
+    keys:
+    - Size
+    values:
+    - -0.605
+  Connections:
+    keys:
+    - PointCloudInput
+    - Emit
+    - Size
+    values:
+    - MemberName: PointCloud
+      Module: {fileID: -8640930333230089223}
+    - MemberName: NewFrame
+      Module: {fileID: -8640930333230089223}
+    - MemberName: TrackA-Sin
+      Module: {fileID: 4455239103000901555}
+  Rack: {fileID: 11400000}

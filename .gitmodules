@@ -7,3 +7,6 @@
 [submodule "Assets/URack"]
 	path = Assets/URack
 	url = https://github.com/eidetic-av/URack.git
+[submodule "assets/URack"]
+	path = assets/URack
+	url = https://github.com/eidetic-av/URack.git
