@@ -1,6 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8640930333230089223
+--- !u!114 &-7346318380270685378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cf38e454d11184c9dd3753f9cf7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 5, y: 0}
+  Values:
+    keys:
+    - Offset
+    - Scale
+    values:
+    - 0.09
+    - 1
+  Connections:
+    keys:
+    - Input
+    - Output
+    values:
+    - MemberName: Output
+      Module: {fileID: -3309672737114717885}
+    - MemberName: TranslationY
+      Module: {fileID: -6212002351920233346}
+  Rack: {fileID: 11400000}
+  Input: 0.225
+  Scale: 1
+  Offset: 0.089999996
+--- !u!114 &-6212002351920233346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17,70 +50,138 @@ MonoBehaviour:
     keys:
     - MinX
     - MaxX
-    - PreRotationX
     - MinY
     - MaxY
-    - MinZ
     - MaxZ
-    - PreRotationY
+    - MinZ
     - TranslationZ
-    - TranslationX
-    - TranslationY
-    - RotationX
-    - RotationZ
-    - ScaleY
-    - ScaleX
-    - PreRotationZ
     - ScaleZ
+    - TranslationY
+    - RotationZ
+    - RotationX
     values:
-    - -0.215
+    - -0.135
+    - 0.155
+    - -0.09
     - 0.09
-    - 0.065
-    - -0.285
-    - 0.295
-    - -0.3550001
-    - 0.255
-    - -0.035
-    - -0.235
-    - 0.02
-    - -0.04499999
-    - -0.16
-    - -3.445894E-08
-    - 0.6399999
-    - -0.675
-    - 0.005
-    - 0.87
+    - 0.68
+    - -0.14
+    - -0.325
+    - 0.28
+    - 0.06
+    - -0.02
+    - 1
   Connections:
     keys:
     - PointCloud
     - NewFrame
+    - RotationX
+    - TranslationY
     values:
     - MemberName: PointCloudInput
-      Module: {fileID: 6186754734565001669}
+      Module: {fileID: 7567094390250630597}
     - MemberName: Emit
-      Module: {fileID: 6186754734565001669}
+      Module: {fileID: 7567094390250630597}
+    - MemberName: Output
+      Module: {fileID: -3309672737114717885}
+    - MemberName: Output
+      Module: {fileID: -7346318380270685378}
   Rack: {fileID: 11400000}
-  PreRotationX: 11.7
-  PreRotationY: -6.3
-  PreRotationZ: 0.9
-  MinX: -1.075
-  MaxX: 0.45
-  MinY: -1.425
-  MaxY: 1.4749999
-  MinZ: -1.7750003
-  MaxZ: 1.275
-  RotationX: -28.8
+  PreRotationX: 0
+  PreRotationY: 0
+  PreRotationZ: 0
+  MinX: -0.675
+  MaxX: 0.775
+  MinY: -0.45000002
+  MaxY: 0.45000002
+  MinZ: -0.7
+  MaxZ: 3.4
+  RotationX: 40.5
   RotationY: 0
-  RotationZ: -0.0000062026083
-  TranslationX: 0.10000002
-  TranslationY: -0.22499993
-  TranslationZ: -1.1750001
-  ScaleX: -1.35
-  ScaleY: 1.2799997
-  ScaleZ: 1.74
-  NewFrame: 1
+  RotationZ: -3.6
+  TranslationX: 0
+  TranslationY: 0.83475
+  TranslationZ: -1.625
+  ScaleX: 1
+  ScaleY: 1
+  ScaleZ: 0.56
+  NewFrame: 0
   Address: 10.0.1.4
   Port: 48002
+--- !u!114 &-3309672737114717885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cf38e454d11184c9dd3753f9cf7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 4, y: 0}
+  Values:
+    keys:
+    - Offset
+    values:
+    - 0.225
+  Connections:
+    keys:
+    - Output
+    values:
+    - MemberName: Input
+      Module: {fileID: -7346318380270685378}
+  Rack: {fileID: 11400000}
+  Input: 0
+  Scale: 1
+  Offset: 0.225
+--- !u!114 &-2413422134617920517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 3, y: 0}
+  Values:
+    keys:
+    - TrackA-SpeedIndex
+    - TrackB-SpeedIndex
+    - TrackC-SpeedIndex
+    values:
+    - 0.6099999
+    - -0.01000004
+    - 0.58
+  Connections:
+    keys:
+    - TrackA-Saw
+    values:
+    - MemberName: Angle
+      Module: {fileID: 4305728341256925313}
+  Rack: {fileID: 11400000}
+  Clock: 120
+  TrackA:
+    MemberName: TrackA
+    Module: {fileID: -2413422134617920517}
+    speedIndex: 12
+  TrackB:
+    MemberName: TrackB
+    Module: {fileID: -2413422134617920517}
+    speedIndex: 7
+  TrackC:
+    MemberName: TrackC
+    Module: {fileID: -2413422134617920517}
+    speedIndex: 12
+  TrackD:
+    MemberName: TrackD
+    Module: {fileID: -2413422134617920517}
+    speedIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,14 +195,52 @@ MonoBehaviour:
   m_Name: New Rack
   m_EditorClassIdentifier: 
   modules:
-  - {fileID: -8640930333230089223}
-  - {fileID: 6186754734565001669}
-  - {fileID: 4455239103000901555}
-  - {fileID: 4043201383943993224}
+  - {fileID: -6212002351920233346}
+  - {fileID: 4305728341256925313}
+  - {fileID: 7567094390250630597}
+  - {fileID: -2413422134617920517}
+  - {fileID: -3309672737114717885}
+  - {fileID: -7346318380270685378}
+  - {fileID: 5877875403359952554}
   Open: 1
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
---- !u!114 &4043201383943993224
+--- !u!114 &4305728341256925313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b968a3bb3a21cd46bf6f3a587c105bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Position: {x: 1, y: 0}
+  Values:
+    keys:
+    - Scale
+    - Angle
+    - Size
+    values:
+    - -1
+    - 1
+    - -0.755
+  Connections:
+    keys:
+    - PointCloudInput
+    - Emit
+    - Angle
+    values:
+    - MemberName: PointCloud
+      Module: {fileID: -6212002351920233346}
+    - MemberName: NewFrame
+      Module: {fileID: -6212002351920233346}
+    - MemberName: TrackA-Saw
+      Module: {fileID: -2413422134617920517}
+  Rack: {fileID: 11400000}
+--- !u!114 &5877875403359952554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +263,7 @@ MonoBehaviour:
   Input: 0
   Scale: 1
   Offset: 0
---- !u!114 &4455239103000901555
+--- !u!114 &7567094390250630597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,63 +272,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b968a3bb3a21cd46bf6f3a587c105bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Position: {x: 2, y: 0}
   Values:
     keys:
-    - TrackA-SpeedIndex
-    - TrackB-SpeedIndex
-    - TrackC-SpeedIndex
-    - TrackD-SpeedIndex
-    values:
-    - 0.1700001
-    - 0.54
-    - 0.22
-    - 0.14
-  Connections:
-    keys:
-    - TrackA-Sin
-    values:
-    - MemberName: Size
-      Module: {fileID: 6186754734565001669}
-  Rack: {fileID: 11400000}
-  Clock: 120
-  TrackA:
-    MemberName: TrackA
-    Module: {fileID: 4455239103000901555}
-    speedIndex: 9
-  TrackB:
-    MemberName: TrackB
-    Module: {fileID: 4455239103000901555}
-    speedIndex: 12
-  TrackC:
-    MemberName: TrackC
-    Module: {fileID: 4455239103000901555}
-    speedIndex: 9
-  TrackD:
-    MemberName: TrackD
-    Module: {fileID: 4455239103000901555}
-    speedIndex: 9
---- !u!114 &6186754734565001669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b89fc00c8be771f478b2347273f78c88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Position: {x: 1, y: 0}
-  Values:
-    keys:
+    - Scale
     - Size
     values:
-    - -0.605
+    - -1
+    - -0.45
   Connections:
     keys:
     - PointCloudInput
@@ -197,9 +290,9 @@ MonoBehaviour:
     - Size
     values:
     - MemberName: PointCloud
-      Module: {fileID: -8640930333230089223}
+      Module: {fileID: -6212002351920233346}
     - MemberName: NewFrame
-      Module: {fileID: -8640930333230089223}
-    - MemberName: TrackA-Sin
-      Module: {fileID: 4455239103000901555}
+      Module: {fileID: -6212002351920233346}
+    - MemberName: TrackB-Sin
+      Module: {fileID: -2413422134617920517}
   Rack: {fileID: 11400000}
