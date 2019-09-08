@@ -13,14 +13,14 @@ namespace Eidetic.URack.Networking
 
         [SerializeField] public int Port = 9000;
 
-        [Output] public float azim { get; set; } // Degrees 0-180
-        [Output] public float dist { get; set; } // Metres 1-10
-        [Output] public float centroid { get; set; }
-        [Output] public float flatness { get; set; }
-        [Output] public float flux { get; set; }
-        [Output] public float harmonicity { get; set; }
-        [Output] public float energy { get; set; }
-        [Output] public float pitch { get; set; }
+        [Output, Indicator] public float azim { get; set; } // Degrees 0-180
+        [Output, Indicator] public float dist { get; set; } // Metres 1-10
+        [Output, Indicator] public float centroid { get; set; }
+        [Output, Indicator] public float flatness { get; set; }
+        [Output, Indicator] public float flux { get; set; }
+        [Output, Indicator] public float harmonicity { get; set; }
+        [Output, Indicator] public float energy { get; set; }
+        [Output, Indicator] public float pitch { get; set; }
 
         OscServer Server;
 
