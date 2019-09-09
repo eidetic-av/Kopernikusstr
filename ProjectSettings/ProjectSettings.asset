@@ -3,7 +3,7 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 19
+  serializedVersion: 20
   productGUID: 8f77db6719ebe184c8ce51706e26d6f1
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -91,7 +91,6 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  graphicsJobMode: 0
   fullscreenMode: 2
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
@@ -302,6 +301,11 @@ PlayerSettings:
     m_GraphicsJobs: 0
   - m_BuildTarget: WebGLSupport
     m_GraphicsJobs: 0
+  m_BuildTargetGraphicsJobMode:
+  - m_BuildTarget: PS4Player
+    m_GraphicsJobMode: 0
+  - m_BuildTarget: XboxOnePlayer
+    m_GraphicsJobMode: 0
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: WindowsStandaloneSupport
     m_APIs: 02000000
