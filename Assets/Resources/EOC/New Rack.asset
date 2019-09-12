@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4711134538810122244
+--- !u!114 &-7571791586412303822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,28 +9,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cf38e454d11184c9dd3753f9cf7a8b, type: 3}
+  m_Script: {fileID: 11500000, guid: a5597e7a1d123af43b8dd63e139e392a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Values:
     keys:
-    - Scale
-    - Offset
+    - Drag
     values:
-    - 1
-    - 0.59
+    - -1
   Connections:
     Connections:
     - Key: Output
       Value:
-        MemberName: Saturation
-        Module: {fileID: -1035823823809269961}
+        MemberName: Brightness
+        Module: {fileID: -2671778298873312354}
+  Rack: {fileID: 11400000}
+  Position: {x: 3, y: 0}
+  Input: -1
+  Drag: 0
+  Output: -1
+--- !u!114 &-7127767101369695876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97bd5ab4db84a2498ddc41f63d3001d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Threshold
+    - Default
+    values:
+    - -1
+    - -1
+  Connections:
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: Input
+        Module: {fileID: -7571791586412303822}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
-  Input: 0
-  Scale: 0.18359578
-  Offset: 0.59
---- !u!114 &-1035823823809269961
+  Input: -1.0248132
+  Threshold: -1
+  Default: -1
+  Trigger: 0
+--- !u!114 &-2671778298873312354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,30 +73,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:Eidetic.URack.Lifx:LifxLan
   Values:
     keys:
-    - Saturation
     - Brightness
     - Hue
-    - Kelvin
-    - Red
-    - Green
-    - Blue
     values:
     - 1
-    - 1
-    - -0.57
-    - 0.07000001
-    - 1
-    - 1
-    - 1
+    - 0.105
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 1, y: 0}
+  Position: {x: 0, y: 0}
   LightState:
-    Hue: 0
-    Saturation: 0
-    Brightness: 100
+    Hue: 198
+    Saturation: 50
+    Brightness: 0
     Kelvin: 3500
+--- !u!114 &-1151550549070677702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - Gain
+    - Scale
+    values:
+    - 1
+    - -0.205
+    - 0.5
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: Input
+        Module: {fileID: -7127767101369695876}
+  Rack: {fileID: 11400000}
+  Position: {x: 1, y: 0}
+  Port: 9000
+  Gain: -1.025
+  Scale: 2.8125
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,13 +132,15 @@ MonoBehaviour:
   m_Name: New Rack
   m_EditorClassIdentifier: 
   modules:
-  - {fileID: 344366236925853330}
-  - {fileID: -1035823823809269961}
-  - {fileID: -4711134538810122244}
+  - {fileID: -2671778298873312354}
+  - {fileID: -1151550549070677702}
+  - {fileID: -7127767101369695876}
+  - {fileID: -7571791586412303822}
+  - {fileID: 5006553242390574235}
   Open: 1
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
---- !u!114 &344366236925853330
+--- !u!114 &5006553242390574235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,42 +153,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Values:
-    keys:
-    - TrackA-SpeedIndex
-    - TrackB-SpeedIndex
-    - TrackC-SpeedIndex
-    - TrackD-SpeedIndex
-    values:
-    - 0.4099998
-    - 0.6899999
-    - 0.5
-    - 0.6599999
+    keys: []
+    values: []
   Connections:
-    Connections:
-    - Key: TrackA-Sin
-      Value:
-        MemberName: Brightness
-        Module: {fileID: -1035823823809269961}
-    - Key: TrackA-Sin
-      Value:
-        MemberName: Scale
-        Module: {fileID: -4711134538810122244}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   Clock: 120
   TrackA:
     MemberName: TrackA
-    Module: {fileID: 344366236925853330}
-    speedIndex: 11
+    Module: {fileID: 5006553242390574235}
+    speedIndex: 0
   TrackB:
     MemberName: TrackB
-    Module: {fileID: 344366236925853330}
-    speedIndex: 13
+    Module: {fileID: 5006553242390574235}
+    speedIndex: 0
   TrackC:
     MemberName: TrackC
-    Module: {fileID: 344366236925853330}
-    speedIndex: 12
+    Module: {fileID: 5006553242390574235}
+    speedIndex: 0
   TrackD:
     MemberName: TrackD
-    Module: {fileID: 344366236925853330}
-    speedIndex: 13
+    Module: {fileID: 5006553242390574235}
+    speedIndex: 0

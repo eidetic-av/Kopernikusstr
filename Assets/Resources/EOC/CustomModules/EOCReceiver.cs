@@ -13,13 +13,16 @@ namespace Eidetic.URack.Networking
 
         [SerializeField] public int Port = 9000;
 
+        [Input(-5f, 5f, 1, 0), Knob] public float Gain = 0f;
+        [Input(0, 5, 2, 1), Knob] public float Scale = 1f;
+
         [Output, Indicator] public float azim { get; set; } // Degrees 0-180
         [Output, Indicator] public float dist { get; set; } // Metres 1-10
         [Output, Indicator] public float centroid { get; set; }
         [Output, Indicator] public float flatness { get; set; }
         [Output, Indicator] public float flux { get; set; }
         [Output, Indicator] public float harmonicity { get; set; }
-        [Output, Indicator] public float energy { get; set; }
+        [Output, Indicator] public float Energy { get; set; }
         [Output, Indicator] public float pitch { get; set; }
 
         OscServer Server;
@@ -91,7 +94,7 @@ namespace Eidetic.URack.Networking
                         harmonicity = data.GetElementAsFloat(1);
                         break;
                     case "energy":
-                        energy = data.GetElementAsFloat(1);
+                        Energy = (data.GetElementAsFloat(1) * Scale) + Gain;
                         break;
                     case "pitch":
                         pitch = data.GetElementAsFloat(1);
