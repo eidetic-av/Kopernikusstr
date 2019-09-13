@@ -1,0 +1,438 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8649821450974061416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bec4b9d0591b9248bb95f5eb7eff2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - RotateX
+    - TranslateZ
+    - TranslateX
+    - PlaybackSpeed
+    - Scale
+    values:
+    - -0.42
+    - -0.515
+    - -0.065
+    - 0.18
+    - -0.585
+  Connections:
+    Connections:
+    - Key: PointCloud
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: -2591921403063782733}
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 1}
+  FolderName: Emanouella
+  PlaybackSpeed: 0.18
+  RotateX: -75.6
+  RotateY: 0
+  RotateZ: 0
+  TranslateX: -0.97499996
+  TranslateY: 0
+  TranslateZ: -7.725
+  Scale: 1.0375
+--- !u!114 &-7372480596497256324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bec4b9d0591b9248bb95f5eb7eff2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  FolderName: Emanouella
+  PlaybackSpeed: 0
+  RotateX: 0
+  RotateY: 0
+  RotateZ: 0
+  TranslateX: 0
+  TranslateY: 0
+  TranslateZ: 0
+  Scale: 1
+--- !u!114 &-6180524421869805823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cf38e454d11184c9dd3753f9cf7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Scale
+    - Offset
+    values:
+    - -0.34
+    - 0.74
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 4, y: 0}
+  Input: 0.55566406
+  Scale: -0.34
+  Offset: 0.74
+--- !u!114 &-3782579401328885452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd854d1793da3a42a33b696824fc11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Offset
+    - OffsetScale
+    - Scale
+    values:
+    - 1
+    - -0.22
+    - 0.14
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 3, y: 0}
+  Input: 0.55566406
+  Scale: 0.42000002
+  OffsetScale: -0.65999997
+  Offset: 1
+--- !u!114 &-2646614599038596120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd854d1793da3a42a33b696824fc11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - OffsetScale
+    - Scale
+    - Offset
+    values:
+    - -0.295
+    - 0.4
+    - 1
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 2, y: 0}
+  Input: 0.55566406
+  Scale: 1.1999999
+  OffsetScale: -0.885
+  Offset: 1
+--- !u!114 &-2591921403063782733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89fc00c8be771f478b2347273f78c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - SpawnRate
+    - Lifetime
+    - Turbulence
+    - Size
+    - Noise
+    - ColorOffsetGreen
+    - ColorOffsetRed
+    - ColorOffsetBlue
+    - ScrollSpeed
+    - Glow
+    - TurbulenceScaleX
+    - TurbulenceScaleY
+    values:
+    - 1
+    - -0.385
+    - 0.63
+    - -0.505
+    - -0.27
+    - -0.19
+    - -0.1350001
+    - -0.185
+    - -0.565
+    - 0.16
+    - -0.6
+    - 0.165
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 1, y: 1}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fd785df7010f408358b2c800aa9ef, type: 3}
+  m_Name: New Rack
+  m_EditorClassIdentifier: 
+  modules:
+  - {fileID: 2723041799373995609}
+  - {fileID: 8769648991363762815}
+  - {fileID: -2591921403063782733}
+  - {fileID: 3041474910365419992}
+  - {fileID: 9027389411688654988}
+  - {fileID: -3782579401328885452}
+  - {fileID: -6180524421869805823}
+  - {fileID: -2646614599038596120}
+  - {fileID: -8649821450974061416}
+  - {fileID: 0}
+  - {fileID: -7372480596497256324}
+  Open: 1
+  ScrollPosition: {x: -540, y: -210}
+  Zoom: 1
+--- !u!114 &2723041799373995609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bec4b9d0591b9248bb95f5eb7eff2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - RotateY
+    - Scale
+    - RotateZ
+    - RotateX
+    - ScaleX
+    - ScaleY
+    - ScaleZ
+    - TranslateZ
+    - TranslateY
+    - PlaybackSpeed
+    - FolderName
+    values:
+    - -1
+    - -0.335
+    - 0.75
+    - -0.295
+    - 0.305
+    - 0.33
+    - 1
+    - -0.185
+    - -0.02000001
+    - 0.4
+    - Emanouella
+  Connections:
+    Connections:
+    - Key: PointCloud
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: 3041474910365419992}
+    - Key: PointCloud
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: 9027389411688654988}
+    - Key: PointCloud
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: 0}
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  FolderName: Emanouella
+  PlaybackSpeed: 0.39999998
+  RotateX: -53.100002
+  RotateY: -180
+  RotateZ: 87.51709
+  TranslateX: 0
+  TranslateY: -0.30000016
+  TranslateZ: -2.7750003
+  Scale: 1.6625
+--- !u!114 &3041474910365419992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89fc00c8be771f478b2347273f78c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - SpawnRate
+    - Lifetime
+    - Size
+    - ColorOffsetGreen
+    - Noise
+    - ColorOffsetRed
+    - ColorOffsetBlue
+    - ScrollSpeed
+    - Turbulence
+    - Glow
+    - TurbulenceScaleX
+    - TurbulenceScaleY
+    - TurbulenceScaleZ
+    values:
+    - -1
+    - -0.54
+    - 0.275
+    - 0.02999997
+    - -0.24
+    - 0.05
+    - 1
+    - -0.815
+    - -1
+    - 0.44
+    - 0.6349999
+    - 0.675
+    - 0.72
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 5, y: 0}
+--- !u!114 &8769648991363762815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - TrackA-SpeedIndex
+    - TrackB-SpeedIndex
+    - TrackC-SpeedIndex
+    - TrackD-SpeedIndex
+    - Clock
+    values:
+    - 1
+    - 0.5
+    - 0.29
+    - 0.8599999
+    - 0.04000002
+  Connections:
+    Connections:
+    - Key: TrackA-Saw
+      Value:
+        MemberName: RotateZ
+        Module: {fileID: 2723041799373995609}
+    - Key: TrackA-Saw
+      Value:
+        MemberName: Input
+        Module: {fileID: -3782579401328885452}
+    - Key: TrackA-Saw
+      Value:
+        MemberName: Input
+        Module: {fileID: -6180524421869805823}
+    - Key: TrackA-Saw
+      Value:
+        MemberName: Input
+        Module: {fileID: -2646614599038596120}
+  Rack: {fileID: 11400000}
+  Position: {x: 1, y: 0}
+  Clock: 152
+  TrackA:
+    MemberName: TrackA
+    Module: {fileID: 8769648991363762815}
+    speedIndex: 16
+  TrackB:
+    MemberName: TrackB
+    Module: {fileID: 8769648991363762815}
+    speedIndex: 12
+  TrackC:
+    MemberName: TrackC
+    Module: {fileID: 8769648991363762815}
+    speedIndex: 10
+  TrackD:
+    MemberName: TrackD
+    Module: {fileID: 8769648991363762815}
+    speedIndex: 14
+--- !u!114 &9027389411688654988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89fc00c8be771f478b2347273f78c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - SpawnRate
+    - Lifetime
+    - Size
+    - Noise
+    - ColorOffsetGreen
+    - ColorOffsetRed
+    - ColorOffsetBlue
+    - Turbulence
+    - TurbulenceScaleX
+    - TurbulenceScaleZ
+    - Glow
+    - TurbulenceScaleY
+    values:
+    - -1
+    - -0.615
+    - -0.275
+    - -0.4
+    - 0.185
+    - 0.29
+    - 0.195
+    - -0.705
+    - 0.33
+    - 0.745
+    - -0.09000003
+    - 0.03
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 6, y: 0}
