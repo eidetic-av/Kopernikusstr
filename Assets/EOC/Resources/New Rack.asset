@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bec4b9d0591b9248bb95f5eb7eff2c2, type: 3}
-  m_Name: 
+  m_Name: EmanouellaRack
   m_EditorClassIdentifier: 
   Values:
     keys:
@@ -19,12 +19,16 @@ MonoBehaviour:
     - TranslateX
     - PlaybackSpeed
     - Scale
+    - TranslateY
+    - RotateZ
     values:
     - -0.42
-    - -0.515
-    - -0.065
-    - 0.18
-    - -0.585
+    - -0.535
+    - 0
+    - 1
+    - -0.58
+    - 0
+    - 1
   Connections:
     Connections:
     - Key: PointCloud
@@ -34,14 +38,14 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
   FolderName: Emanouella
-  PlaybackSpeed: 0.18
+  PlaybackSpeed: -0.40283203
   RotateX: -75.6
   RotateY: 0
-  RotateZ: 0
-  TranslateX: -0.97499996
+  RotateZ: -72.509766
+  TranslateX: 0
   TranslateY: 0
-  TranslateZ: -7.725
-  Scale: 1.0375
+  TranslateZ: -8.025001
+  Scale: 1.0500001
 --- !u!114 &-7372480596497256324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,24 +56,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bec4b9d0591b9248bb95f5eb7eff2c2, type: 3}
-  m_Name: 
+  m_Name: Emanouella
   m_EditorClassIdentifier: 
   Values:
-    keys: []
-    values: []
+    keys:
+    - TranslateY
+    - TranslateX
+    - PlaybackSpeed
+    - Scale
+    - RotateZ
+    - TranslateZ
+    - RotateX
+    values:
+    - -0.02
+    - -0.004999988
+    - 1
+    - -0.43
+    - 1
+    - -0.33
+    - -0.705
   Connections:
-    Connections: []
+    Connections:
+    - Key: PointCloud
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: 9027389411688654988}
   Rack: {fileID: 11400000}
-  Position: {x: 0, y: 0}
+  Position: {x: 2, y: 1}
   FolderName: Emanouella
-  PlaybackSpeed: 0
-  RotateX: 0
+  PlaybackSpeed: 1
+  RotateX: -126.899994
   RotateY: 0
-  RotateZ: 0
-  TranslateX: 0
-  TranslateY: 0
-  TranslateZ: 0
-  Scale: 1
+  RotateZ: 180
+  TranslateX: -0.07499982
+  TranslateY: -0.29999998
+  TranslateZ: -4.9500003
+  Scale: 1.425
 --- !u!114 &-6180524421869805823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +115,7 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 0}
-  Input: 0.55566406
+  Input: -0.40283203
   Scale: -0.34
   Offset: 0.74
 --- !u!114 &-3782579401328885452
@@ -121,7 +143,7 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 0}
-  Input: 0.55566406
+  Input: -0.40283203
   Scale: 0.42000002
   OffsetScale: -0.65999997
   Offset: 1
@@ -143,16 +165,16 @@ MonoBehaviour:
     - Scale
     - Offset
     values:
-    - -0.295
+    - -0.53
     - 0.4
     - 1
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
-  Input: 0.55566406
-  Scale: 1.1999999
-  OffsetScale: -0.885
+  Input: 0.15567361
+  Scale: 1.2
+  OffsetScale: -1.5899999
   Offset: 1
 --- !u!114 &-2591921403063782733
 MonoBehaviour:
@@ -180,19 +202,21 @@ MonoBehaviour:
     - Glow
     - TurbulenceScaleX
     - TurbulenceScaleY
+    - TurbulenceScaleZ
     values:
     - 1
-    - -0.385
-    - 0.63
-    - -0.505
-    - -0.27
+    - -0.5000001
+    - 1
+    - -0.62
+    - -0.08499999
     - -0.19
     - -0.1350001
-    - -0.185
+    - -0.235
     - -0.565
-    - 0.16
-    - -0.6
-    - 0.165
+    - -0.08999997
+    - -0.2500001
+    - -1
+    - -0.985
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
@@ -209,21 +233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9fd785df7010f408358b2c800aa9ef, type: 3}
   m_Name: New Rack
   m_EditorClassIdentifier: 
-  modules:
-  - {fileID: 2723041799373995609}
-  - {fileID: 8769648991363762815}
-  - {fileID: -2591921403063782733}
-  - {fileID: 3041474910365419992}
-  - {fileID: 9027389411688654988}
-  - {fileID: -3782579401328885452}
-  - {fileID: -6180524421869805823}
-  - {fileID: -2646614599038596120}
-  - {fileID: -8649821450974061416}
-  - {fileID: 0}
-  - {fileID: -7372480596497256324}
-  Open: 1
-  ScrollPosition: {x: -540, y: -210}
-  Zoom: 1
+  Modules: []
+  active: 1
+  ScrollPosition: {x: 0, y: 0}
+  Zoom: 0.94000006
 --- !u!114 &2723041799373995609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,24 +280,16 @@ MonoBehaviour:
       Value:
         MemberName: PointCloud
         Module: {fileID: 3041474910365419992}
-    - Key: PointCloud
-      Value:
-        MemberName: PointCloud
-        Module: {fileID: 9027389411688654988}
-    - Key: PointCloud
-      Value:
-        MemberName: PointCloud
-        Module: {fileID: 0}
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   FolderName: Emanouella
-  PlaybackSpeed: 0.39999998
-  RotateX: -53.100002
+  PlaybackSpeed: 0.4
+  RotateX: -53.1
   RotateY: -180
-  RotateZ: 87.51709
+  RotateZ: 135
   TranslateX: 0
   TranslateY: -0.30000016
-  TranslateZ: -2.7750003
+  TranslateZ: -2.775
   Scale: 1.6625
 --- !u!114 &3041474910365419992
 MonoBehaviour:
@@ -315,7 +320,7 @@ MonoBehaviour:
     - TurbulenceScaleZ
     values:
     - -1
-    - -0.54
+    - -1
     - 0.275
     - 0.02999997
     - -0.24
@@ -353,15 +358,11 @@ MonoBehaviour:
     values:
     - 1
     - 0.5
-    - 0.29
+    - 0.53
     - 0.8599999
-    - 0.04000002
+    - 0.295
   Connections:
     Connections:
-    - Key: TrackA-Saw
-      Value:
-        MemberName: RotateZ
-        Module: {fileID: 2723041799373995609}
     - Key: TrackA-Saw
       Value:
         MemberName: Input
@@ -370,13 +371,25 @@ MonoBehaviour:
       Value:
         MemberName: Input
         Module: {fileID: -6180524421869805823}
+    - Key: TrackC-Sin
+      Value:
+        MemberName: Glow
+        Module: {fileID: -2591921403063782733}
     - Key: TrackA-Saw
+      Value:
+        MemberName: RotateZ
+        Module: {fileID: -8649821450974061416}
+    - Key: TrackA-Saw
+      Value:
+        MemberName: PlaybackSpeed
+        Module: {fileID: -8649821450974061416}
+    - Key: TrackC-Sin
       Value:
         MemberName: Input
         Module: {fileID: -2646614599038596120}
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 0}
-  Clock: 152
+  Clock: 180.6875
   TrackA:
     MemberName: TrackA
     Module: {fileID: 8769648991363762815}
@@ -388,7 +401,7 @@ MonoBehaviour:
   TrackC:
     MemberName: TrackC
     Module: {fileID: 8769648991363762815}
-    speedIndex: 10
+    speedIndex: 12
   TrackD:
     MemberName: TrackD
     Module: {fileID: 8769648991363762815}
@@ -420,17 +433,17 @@ MonoBehaviour:
     - Glow
     - TurbulenceScaleY
     values:
+    - 1
+    - -0.62
     - -1
-    - -0.615
-    - -0.275
-    - -0.4
-    - 0.185
-    - 0.29
-    - 0.195
-    - -0.705
+    - -0.1149999
+    - -0.08999997
+    - 0.005000025
+    - 0.01500002
+    - -0.73
     - 0.33
     - 0.745
-    - -0.09000003
+    - 1
     - 0.03
   Connections:
     Connections: []
