@@ -1,5 +1,89 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8364508560025993359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - TrackA-SpeedIndex
+    - TrackB-SpeedIndex
+    - TrackC-SpeedIndex
+    - TrackD-SpeedIndex
+    values:
+    - 1
+    - 0.8899997
+    - 0.83
+    - 0.9299996
+  Connections:
+    Connections: []
+  Position: {x: 1, y: 0}
+  Clock: 120
+  TrackA:
+    MemberName: TrackA
+    Module: {fileID: -8364508560025993359}
+    speedIndex: 16
+  TrackB:
+    MemberName: TrackB
+    Module: {fileID: -8364508560025993359}
+    speedIndex: 15
+  TrackC:
+    MemberName: TrackC
+    Module: {fileID: -8364508560025993359}
+    speedIndex: 14
+  TrackD:
+    MemberName: TrackD
+    Module: {fileID: -8364508560025993359}
+    speedIndex: 15
+--- !u!114 &-3897832909566626426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26143fc9d9d0b44f9e76a8693de42b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - NoiseIntensity
+    - NoiseScaleX
+    - NoiseScaleY
+    - NoiseFrequency
+    - Speed
+    - Blend
+    - ImageB
+    - Warp
+    - Shards
+    - WarpDirectionX
+    - WarpDirectionY
+    values:
+    - -0.23
+    - 0.195
+    - 0.2
+    - -0.225
+    - -0.615
+    - 1
+    - 1
+    - -1
+    - 0.285
+    - 0.145
+    - 1
+  Connections:
+    Connections: []
+  Position: {x: 0, y: 0}
+  FolderName: Discount
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9fd785df7010f408358b2c800aa9ef, type: 3}
   m_Name: Discount
   m_EditorClassIdentifier: 
-  Modules: []
+  Modules:
+  - {fileID: -8364508560025993359}
+  - {fileID: -3897832909566626426}
   active: 1
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1

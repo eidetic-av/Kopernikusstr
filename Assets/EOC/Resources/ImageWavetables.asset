@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7910836918014246707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26143fc9d9d0b44f9e76a8693de42b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Image
+    values:
+    - 0.4350001
+  Connections:
+    Connections: []
+  Position: {x: 0, y: 0}
+  FolderName: Discount
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,26 +34,7 @@ MonoBehaviour:
   m_Name: ImageWavetables
   m_EditorClassIdentifier: 
   Modules:
-  - {fileID: 8188434418411139043}
-  active: 1
+  - {fileID: -7910836918014246707}
+  active: 0
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
---- !u!114 &8188434418411139043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26143fc9d9d0b44f9e76a8693de42b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys: []
-    values: []
-  Connections:
-    Connections: []
-  Position: {x: 0, y: 0}
-  FolderName: Discount
