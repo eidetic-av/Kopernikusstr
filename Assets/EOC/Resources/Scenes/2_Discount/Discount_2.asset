@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4703752121139064374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - TrackA-SpeedIndex
+    - TrackB-SpeedIndex
+    - TrackC-SpeedIndex
+    - TrackD-SpeedIndex
+    - Clock
+    values:
+    - 1
+    - 0.3
+    - 1
+    - 1
+    - -1
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  Clock: 35
+  TrackA:
+    MemberName: TrackA
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 16
+  TrackB:
+    MemberName: TrackB
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 10
+  TrackC:
+    MemberName: TrackC
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 16
+  TrackD:
+    MemberName: TrackD
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 16
+--- !u!114 &-2688792542186213482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d26143fc9d9d0b44f9e76a8693de42b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - ImageB
+    - ImageA
+    - Glow
+    - Speed
+    - NoiseIntensity
+    - NoiseFrequency
+    - NoiseScaleX
+    - NoiseScaleY
+    - ImageScale
+    - Warp
+    - Shards
+    - WarpDirectionX
+    - WarpDirectionY
+    - Blend
+    values:
+    - -1
+    - -1
+    - -0.495
+    - -0.265
+    - 1
+    - -0.26
+    - 0.495
+    - 0.11
+    - 0.6249999
+    - -1
+    - 0.5
+    - 0.265
+    - -0.395
+    - 1
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 1, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fd785df7010f408358b2c800aa9ef, type: 3}
+  m_Name: Discount_2
+  m_EditorClassIdentifier: 
+  Modules:
+  - {fileID: -2688792542186213482}
+  - {fileID: -4703752121139064374}
+  - {fileID: 2063150206651211638}
+  - {fileID: 5345879015551296457}
+  active: 0
+  layer: 2
+  ScrollPosition: {x: 0, y: 0}
+  Zoom: 0.985
+--- !u!114 &2063150206651211638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856091ef6b7da3f4087997b4debe8eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: Input
+        Module: {fileID: 5345879015551296457}
+  Rack: {fileID: 11400000}
+  Position: {x: 3, y: 0}
+  InputA: -1
+  InputB: -0.9997205
+  InputC: -1
+  InputD: -0.99992335
+  InputE: 0
+  InputF: 0
+--- !u!114 &2666819622113340357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 2, y: 0}
+  Instantiated: 0
+  InputA: 0
+  InputB: 0
+  InputC: 0
+  InputD: 0
+  InputE: 0
+  InputF: 0
+--- !u!114 &5345879015551296457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30be9d6181fc93549891d13ba851c0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Drag
+    - Offset
+    - OffsetScale
+    - Scale
+    values:
+    - -0.775
+    - 0.7049999
+    - -0.175
+    - 0.965
+  Connections:
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: NoiseIntensity
+        Module: {fileID: -2688792542186213482}
+  Rack: {fileID: 11400000}
+  Position: {x: 2, y: 0}
+  Input: 0
+  Scale: 2.895
+  OffsetScale: -0.525
+  Offset: 0.85249996
+  Drag: 0.01898438
+  Output: -0.44756246

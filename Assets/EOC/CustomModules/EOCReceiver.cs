@@ -13,17 +13,23 @@ namespace Eidetic.URack.Networking
 
         [SerializeField] public int Port = 9000;
 
-        [Input(-5f, 5f, 1, 0), Knob] public float Gain = 0f;
+        [Input(0, 0.5f, 3, 0), Knob] public float GainReduction = 0f;
         [Input(0, 5, 2, 1), Knob] public float Scale = 1f;
 
         [Output, Indicator] public float azim { get; set; } // Degrees 0-180
         [Output, Indicator] public float dist { get; set; } // Metres 1-10
-        [Output, Indicator] public float centroid { get; set; }
-        [Output, Indicator] public float flatness { get; set; }
-        [Output, Indicator] public float flux { get; set; }
+        // [Output, Indicator] public float centroid { get; set; }
+        public float centroid { get; set; }
+        // [Output, Indicator] public float flatness { get; set; }
+        public float flatness { get; set; }
+        // [Output, Indicator] public float flux { get; set; }
+        public float flux { get; set; }
         [Output, Indicator] public float harmonicity { get; set; }
+        // public float harmonicity { get; set; }
+
         [Output, Indicator] public float Energy { get; set; }
-        [Output, Indicator] public float pitch { get; set; }
+        // [Output, Indicator] public float pitch { get; set; }
+        public float pitch { get; set; }
 
         OscServer Server;
 
@@ -72,10 +78,14 @@ namespace Eidetic.URack.Networking
                 switch (subAddress[2])
                 {
                     case "azim":
-                        azim = data.GetElementAsFloat(0);
+                        azim = data.GetElementAsFloat(0).Map(-180, 180, -1, 1);
                         break;
                     case "dist":
-                        dist = data.GetElementAsFloat(0);
+                        dist = data.GetElementAsFloat(0).Map(0, 10, -1, 1);
+                        break;
+                    case "ad":
+                        azim = data.GetElementAsFloat(0);
+                        dist = data.GetElementAsFloat(1);
                         break;
                 }
             }
@@ -96,7 +106,7 @@ namespace Eidetic.URack.Networking
                         harmonicity = data.GetElementAsFloat(1);
                         break;
                     case "energy":
-                        Energy = (data.GetElementAsFloat(1) * Scale) + Gain;
+                        Energy = ((data.GetElementAsFloat(1) * Scale) - GainReduction).Clamp(0, 1);
                         break;
                     case "pitch":
                         pitch = data.GetElementAsFloat(1);
