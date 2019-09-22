@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8364508560025993359
+--- !u!114 &-4703752121139064374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,38 +13,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Values:
-    keys:
-    - TrackA-SpeedIndex
-    - TrackB-SpeedIndex
-    - TrackC-SpeedIndex
-    - TrackD-SpeedIndex
-    values:
-    - 1
-    - 0.8899997
-    - 0.83
-    - 0.9299996
+    keys: []
+    values: []
   Connections:
     Connections: []
-  Rack: {fileID: 0}
-  Position: {x: 1, y: 0}
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
   Clock: 120
   TrackA:
     MemberName: TrackA
-    Module: {fileID: -8364508560025993359}
-    speedIndex: 16
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 0
   TrackB:
     MemberName: TrackB
-    Module: {fileID: -8364508560025993359}
-    speedIndex: 15
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 0
   TrackC:
     MemberName: TrackC
-    Module: {fileID: -8364508560025993359}
-    speedIndex: 14
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 0
   TrackD:
     MemberName: TrackD
-    Module: {fileID: -8364508560025993359}
-    speedIndex: 15
---- !u!114 &-3897832909566626426
+    Module: {fileID: -4703752121139064374}
+    speedIndex: 0
+--- !u!114 &-2688792542186213482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,39 +46,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d26143fc9d9d0b44f9e76a8693de42b1, type: 3}
-  m_Name: Discount1
+  m_Name: 
   m_EditorClassIdentifier: 
   Values:
     keys:
+    - ImageB
+    - ImageA
+    - Glow
+    - Speed
     - NoiseIntensity
+    - NoiseFrequency
     - NoiseScaleX
     - NoiseScaleY
-    - NoiseFrequency
-    - Speed
-    - Blend
-    - ImageB
+    - ImageScale
     - Warp
     - Shards
     - WarpDirectionX
     - WarpDirectionY
-    - ImageA
-    - ImageScale
-    - Glow
+    - Blend
     values:
-    - -0.165
-    - 0.265
+    - -0.245
     - 0.325
-    - -0.195
-    - -0.47
-    - 1
+    - -0.555
+    - -0.655
+    - -0.36
+    - 0.004999995
+    - 0.195
+    - 0.09
+    - 0.24
+    - 0.8150001
+    - 0.43
+    - 0.465
+    - -0.255
     - -1
-    - -1
-    - 0.525
-    - -0.06500006
-    - 0.07499999
-    - -0.1050001
-    - 0.61
-    - -0.67
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
@@ -101,12 +93,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9fd785df7010f408358b2c800aa9ef, type: 3}
-  m_Name: Discount
+  m_Name: Discount_2
   m_EditorClassIdentifier: 
   Modules:
-  - {fileID: -8364508560025993359}
-  - {fileID: -3897832909566626426}
+  - {fileID: -2688792542186213482}
+  - {fileID: -4703752121139064374}
   active: 1
-  layer: 1
+  layer: 2
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1

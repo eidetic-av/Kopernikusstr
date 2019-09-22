@@ -18,6 +18,12 @@ TagManager:
   - Screen1
   - Screen2
   - PP
+  - URack_1
+  - URack_2
+  - URack_3
+  - URack_0
+  - URack_4
+  - URack_5
   - 
   - 
   - 
@@ -29,13 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Discount_PostProcessing
   - Backdrop
   - OutputSurface
   m_SortingLayers:
