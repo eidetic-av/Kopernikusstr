@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using Eidetic.URack.Base;
 using Eidetic.URack.Base.UI;
 using OscJack;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Eidetic.URack.Networking
@@ -24,6 +24,7 @@ namespace Eidetic.URack.Networking
         public float flatness { get; set; }
         // [Output, Indicator] public float flux { get; set; }
         public float flux { get; set; }
+
         [Output, Indicator] public float harmonicity { get; set; }
         // public float harmonicity { get; set; }
 
