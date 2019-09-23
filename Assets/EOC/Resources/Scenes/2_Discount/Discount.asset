@@ -35,12 +35,12 @@ MonoBehaviour:
         Module: {fileID: 4325953372544255652}
   Rack: {fileID: 11400000}
   Position: {x: 9, y: 0}
-  Input: 0.030977096
+  Input: 0
   Scale: 2.76
   OffsetScale: 0.32999998
   Offset: 0
   Drag: 0
-  Output: 0.08549678
+  Output: 0
 --- !u!114 &-3897832909566626426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   - {fileID: 9212597610471586110}
   - {fileID: 3545925808560558682}
   - {fileID: 6025785999088917502}
-  active: 1
+  active: 0
   layer: 1
   ScrollPosition: {x: -1350, y: 0}
   Zoom: 1.1349999
@@ -381,7 +381,7 @@ MonoBehaviour:
         Module: {fileID: -3897832909566626426}
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
-  InputA: 0.08549678
+  InputA: 0
   InputB: 0.235
 --- !u!114 &4721927183198413758
 MonoBehaviour:
@@ -408,9 +408,9 @@ MonoBehaviour:
         Module: {fileID: -3897832909566626426}
   Rack: {fileID: 11400000}
   Position: {x: 11, y: 0}
-  Input: -0.019944444
+  Input: 0
   Drag: 0.015759392
-  Output: -0.019944444
+  Output: 0
 --- !u!114 &4826883127700749938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,13 +503,13 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 8, y: 0}
   InputA: 0
-  ValueA: -0.019944444
+  ValueA: 0
   InputB: 0
-  ValueB: -0.019944444
+  ValueB: 0
   InputC: 0
-  ValueC: 0.019222222
+  ValueC: 0
   InputD: 0
-  ValueD: 0.019222222
+  ValueD: 0
   InputE: 0
   ValueE: 0
   InputF: 0
@@ -540,9 +540,9 @@ MonoBehaviour:
   InputA: 0
   InputB: 0
   InputC: 0
-  InputD: 0.0003218105
-  InputE: 0.0003218105
-  InputF: 0.030977096
+  InputD: 0
+  InputE: 0
+  InputF: 0
 --- !u!114 &9212597610471586110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,5 +570,5 @@ MonoBehaviour:
         Module: {fileID: -3897832909566626426}
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 1}
-  InputA: 0.08549678
+  InputA: 0
   InputB: -1

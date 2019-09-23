@@ -160,7 +160,8 @@ MonoBehaviour:
   - {fileID: -2643268204233800765}
   - {fileID: -8582545565761744318}
   - {fileID: 8321296268490722893}
-  active: 0
+  - {fileID: 8586151545409901193}
+  active: 1
   layer: 1
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
@@ -238,16 +239,38 @@ MonoBehaviour:
     keys:
     - Track
     - GainReduction
+    - Scale
     values:
     - 17
     - -1
+    - 0.02
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 8, y: 0}
   Port: 9000
   GainReduction: 0
-  Scale: 1
+  Scale: 1.3004999
+--- !u!114 &8586151545409901193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99685903dcec81a44953dd4081c25b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  Input: 0
 --- !u!114 &8899454064590469089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,11 +291,11 @@ MonoBehaviour:
     values:
     - 1
     - 0.495
-    - -0.27
+    - -0.42
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   Port: 9000
-  GainReduction: 0.024313563
+  GainReduction: 0.012194503
   Scale: 2.793781
