@@ -80,11 +80,11 @@ MonoBehaviour:
   MinZ: -5
   MaxZ: 5
   RotationX: -45
-  RotationY: 25.147371
+  RotationY: 145.18365
   RotationZ: -57.6
   TranslationX: 0
   TranslationY: -0.75
-  TranslationZ: 1.9811754
+  TranslationZ: -7.524297
   ScaleX: 1
   ScaleY: 1
   ScaleZ: 1
@@ -198,7 +198,7 @@ MonoBehaviour:
   - {fileID: -335800633868231519}
   - {fileID: 8214077341608218787}
   - {fileID: -6384385140188013337}
-  active: 1
+  active: 0
   layer: 2
   ScrollPosition: {x: -690, y: 0}
   Zoom: 1
@@ -281,12 +281,12 @@ MonoBehaviour:
         Module: {fileID: -1392617128932919474}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 0}
-  Input: 0.036415167
+  Input: 0
   Scale: 1.3799999
   OffsetScale: 1
   Offset: 0
   Drag: 0
-  Output: 0.05025292
+  Output: 0
 --- !u!114 &7703668438943146416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,12 +316,12 @@ MonoBehaviour:
         Module: {fileID: -1638428229065856859}
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 0}
-  Input: 0.85717773
+  Input: -0.14934087
   Scale: 0.73499995
   OffsetScale: -0.6
   Offset: 0.665
   Drag: 0
-  Output: 0.23102558
+  Output: -0.5087656
 --- !u!114 &8214077341608218787
 MonoBehaviour:
   m_ObjectHideFlags: 0
