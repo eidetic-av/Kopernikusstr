@@ -144,7 +144,7 @@ MonoBehaviour:
     - 0.1099999
     - 1
     - -0.585
-    - -0.815
+    - -0.39
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
@@ -308,7 +308,7 @@ MonoBehaviour:
   - {fileID: 6025785999088917502}
   - {fileID: -8609945156608119475}
   - {fileID: -7850949259130101418}
-  active: 1
+  active: 0
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
 --- !u!114 &1799665834463864308
