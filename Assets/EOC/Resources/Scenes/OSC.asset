@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: -8582545565761744318}
   - {fileID: 8321296268490722893}
   - {fileID: 8586151545409901193}
-  active: 1
+  active: 0
   layer: 1
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
