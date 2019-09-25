@@ -20,15 +20,7 @@ MonoBehaviour:
     - node
     - 1
   Connections:
-    Connections:
-    - Key: A
-      Value:
-        MemberName: InputB
-        Module: {fileID: 4325953372544255652}
-    - Key: B
-      Value:
-        MemberName: InputB
-        Module: {fileID: 9212597610471586110}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
   A: 1
@@ -83,15 +75,7 @@ MonoBehaviour:
     - -1
     - -1
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: InputA
-        Module: {fileID: 9212597610471586110}
-    - Key: Output
-      Value:
-        MemberName: InputA
-        Module: {fileID: 4325953372544255652}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 9, y: 0}
   Input: 0
@@ -149,6 +133,7 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 0}
+  output: -0.39
 --- !u!114 &-3693374236370853196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,11 +160,7 @@ MonoBehaviour:
     - 0.55
     - -1
   Connections:
-    Connections:
-    - Key: TrackD-Saw
-      Value:
-        MemberName: WarpDirectionX
-        Module: {fileID: -3897832909566626426}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   Clock: 35
@@ -223,15 +204,7 @@ MonoBehaviour:
     - 0.005
     - -0.57
   Connections:
-    Connections:
-    - Key: Energy
-      Value:
-        MemberName: InputD
-        Module: {fileID: 7079404218275813595}
-    - Key: azim
-      Value:
-        MemberName: ValueD
-        Module: {fileID: 7079404218275813595}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 5, y: 0}
   Port: 9000
@@ -261,19 +234,7 @@ MonoBehaviour:
     - 0.005
     - -0.56
   Connections:
-    Connections:
-    - Key: Energy
-      Value:
-        MemberName: InputC
-        Module: {fileID: 8476877621490633868}
-    - Key: Energy
-      Value:
-        MemberName: InputC
-        Module: {fileID: 7079404218275813595}
-    - Key: azim
-      Value:
-        MemberName: ValueC
-        Module: {fileID: 7079404218275813595}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 0}
   Port: 9000
@@ -335,19 +296,7 @@ MonoBehaviour:
     - 0.015
     - -0.57
   Connections:
-    Connections:
-    - Key: Energy
-      Value:
-        MemberName: InputB
-        Module: {fileID: 8476877621490633868}
-    - Key: Energy
-      Value:
-        MemberName: InputB
-        Module: {fileID: 7079404218275813595}
-    - Key: azim
-      Value:
-        MemberName: ValueB
-        Module: {fileID: 7079404218275813595}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 0}
   Port: 9000
@@ -377,19 +326,7 @@ MonoBehaviour:
     - -0.01
     - -0.585
   Connections:
-    Connections:
-    - Key: Energy
-      Value:
-        MemberName: InputA
-        Module: {fileID: 8476877621490633868}
-    - Key: Energy
-      Value:
-        MemberName: InputA
-        Module: {fileID: 7079404218275813595}
-    - Key: azim
-      Value:
-        MemberName: ValueA
-        Module: {fileID: 7079404218275813595}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
   Port: 9000
@@ -415,15 +352,11 @@ MonoBehaviour:
     - 1
     - 0.43
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: NoiseIntensity
-        Module: {fileID: -3897832909566626426}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
-  InputA: 0
-  InputB: 0.71500003
+  InputA: 1
+  InputB: 0.43
 --- !u!114 &4721927183198413758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,11 +375,7 @@ MonoBehaviour:
     values:
     - -0.9099999
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: WarpDirectionY
-        Module: {fileID: -3897832909566626426}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 11, y: 0}
   Input: 0
@@ -474,15 +403,7 @@ MonoBehaviour:
     - 0.77
     - -0.57
   Connections:
-    Connections:
-    - Key: Energy
-      Value:
-        MemberName: InputD
-        Module: {fileID: 8476877621490633868}
-    - Key: Energy
-      Value:
-        MemberName: InputE
-        Module: {fileID: 8476877621490633868}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 8, y: 0}
   Port: 9000
@@ -510,11 +431,7 @@ MonoBehaviour:
     - -0.595
     - 1
   Connections:
-    Connections:
-    - Key: Energy
-      Value:
-        MemberName: InputF
-        Module: {fileID: 8476877621490633868}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 10, y: 0}
   Port: 9000
@@ -536,11 +453,7 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: Input
-        Module: {fileID: 4721927183198413758}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 7, y: 0}
   InputA: 0
@@ -571,11 +484,7 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: Input
-        Module: {fileID: -4429957558294360711}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 12, y: 0}
   InputA: 0
@@ -604,12 +513,8 @@ MonoBehaviour:
     - 1
     - 1
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: Warp
-        Module: {fileID: -3897832909566626426}
+    Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 1}
-  InputA: 0
-  InputB: -1
+  InputA: 1
+  InputB: 1

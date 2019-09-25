@@ -1,6 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5968106244174910835
+--- !u!114 &-6893889377034893075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f446699843142f04e8a97380f645afa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - SpawnRate
+    - Lifetime
+    - Size
+    - Output
+    - Turbulence
+    - Noise
+    - Glow
+    - TurbulenceScaleX
+    - TurbulenceScaleY
+    values:
+    - 0.585
+    - -0.56
+    - -0.555
+    - -0.8249999
+    - 0.43
+    - -0.42
+    - 0.05500001
+    - -0.325
+    - -0.295
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 1, y: 0}
+  output: -0.8249999
+--- !u!114 &-359982797421180567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,6 +58,13 @@ MonoBehaviour:
     - MaxY
     - MinZ
     - MaxZ
+    - TranslationZ
+    - RotationY
+    - RotationZ
+    - RotationX
+    - ScaleY
+    - TranslationX
+    - TranslationY
     values:
     - -1
     - 1
@@ -27,8 +72,19 @@ MonoBehaviour:
     - 1
     - -1
     - 1
+    - -0.19
+    - -0.025
+    - -0.415
+    - 0.645
+    - -0.58
+    - 0
+    - -0.28
   Connections:
-    Connections: []
+    Connections:
+    - Key: PointCloud
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: 3556237573709693645}
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
   PreRotationX: 0
@@ -40,14 +96,14 @@ MonoBehaviour:
   MaxY: 5
   MinZ: -5
   MaxZ: 5
-  RotationX: 0
-  RotationY: 0
-  RotationZ: 0
+  RotationX: 116.1
+  RotationY: -4.5
+  RotationZ: -74.7
   TranslationX: 0
-  TranslationY: 0
-  TranslationZ: 0
+  TranslationY: -1.4
+  TranslationZ: -2.85
   ScaleX: 1
-  ScaleY: 1
+  ScaleY: -1.16
   ScaleZ: 1
   NewFrame: 0
   Address: 10.11.1.6
@@ -76,23 +132,31 @@ MonoBehaviour:
     - ScaleY
     - ScaleX
     - RotationY
+    - MinZ
+    - MaxZ
+    - TranslationX
+    - TranslationY
     values:
     - -1
-    - -0.315
+    - -0.31
     - 1
     - -1
     - 1
-    - 0.79
-    - 0.13
+    - 0.225
+    - -0.945
     - 0.445
     - -0.39
-    - 0.02
+    - -1
+    - -1
+    - 1
+    - -0.00500003
+    - 0.05
   Connections:
     Connections:
     - Key: PointCloud
       Value:
         MemberName: PointCloud
-        Module: {fileID: 8214077341608218787}
+        Module: {fileID: -6893889377034893075}
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   PreRotationX: 0
@@ -104,12 +168,12 @@ MonoBehaviour:
   MaxY: 5
   MinZ: -5
   MaxZ: 5
-  RotationX: 142.2
-  RotationY: 3.6
-  RotationZ: 23.4
-  TranslationX: 0
-  TranslationY: 0
-  TranslationZ: -4.725
+  RotationX: 40.5
+  RotationY: -180
+  RotationZ: -170.1
+  TranslationX: -0.025000151
+  TranslationY: 0.25
+  TranslationZ: -4.65
   ScaleX: -0.78
   ScaleY: 0.89
   ScaleZ: 1
@@ -130,32 +194,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Modules:
   - {fileID: -335800633868231519}
-  - {fileID: 8214077341608218787}
-  - {fileID: -5968106244174910835}
-  - {fileID: 4548992519026441706}
+  - {fileID: -6893889377034893075}
+  - {fileID: -359982797421180567}
+  - {fileID: 3556237573709693645}
+  - {fileID: 4098578444826162082}
   active: 1
-  ScrollPosition: {x: 0, y: -180}
+  ScrollPosition: {x: 0, y: 0}
   Zoom: 1
---- !u!114 &4548992519026441706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f446699843142f04e8a97380f645afa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys: []
-    values: []
-  Connections:
-    Connections: []
-  Rack: {fileID: 11400000}
-  Position: {x: 0, y: 0}
---- !u!114 &8214077341608218787
+--- !u!114 &3556237573709693645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,34 +215,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Values:
     keys:
-    - Lifetime
     - SpawnRate
-    - ColorOffsetRed
-    - ColorOffsetBlue
-    - ColorOffsetGreen
+    - Lifetime
     - Output
-    - Glow
-    - Size
     - Turbulence
-    - Noise
-    - TurbulenceScaleX
-    - TurbulenceScaleY
-    - TurbulenceScaleZ
+    - Glow
     values:
-    - -0.39
-    - 1
-    - -0.01000001
-    - 0
-    - -0.015
-    - -0.305
-    - 0.02499998
-    - -0.66
-    - 0.3950002
-    - -1
-    - -0.175
-    - -0.315
-    - -0.24
+    - 0.675
+    - -0.625
+    - -0.345
+    - -0.77
+    - 0.385
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 1, y: 0}
+  Position: {x: 1, y: 1}
+  output: -0.345
+--- !u!114 &4098578444826162082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30be9d6181fc93549891d13ba851c0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  Input: 0
+  Scale: 1
+  OffsetScale: 1
+  Offset: 0
+  Drag: 0
+  Output: 0
