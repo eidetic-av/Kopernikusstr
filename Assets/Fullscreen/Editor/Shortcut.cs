@@ -6,10 +6,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-namespace Fullscreen {
+namespace FullscreenEditor {
 
     [AttributeUsage(AttributeTargets.Field)]
     internal class DynamicMenuItemAttribute : Attribute {
@@ -28,11 +29,11 @@ namespace Fullscreen {
         //Always end with an space if the path has no shortcut
         [DynamicMenuItem(true)] public const string TOOLBAR_PATH = "Fullscreen/Show Toolbar _F8";
         [DynamicMenuItem(true)] public const string FULLSCREEN_ON_PLAY_PATH = "Fullscreen/Fullscreen On Play ";
-        [DynamicMenuItem(false)] public const string CURRENT_VIEW_PATH = "Fullscreen/Focused View _F9";
+        [DynamicMenuItem(true)] public const string PREFERENCES_PATH = "Fullscreen/Preferences... ";
+        [DynamicMenuItem(false)] public const string CURRENT_VIEW_PATH = "Fullscreen/Focused View %F";
         [DynamicMenuItem(false)] public const string GAME_VIEW_PATH = "Fullscreen/Game View _F10";
         [DynamicMenuItem(false)] public const string SCENE_VIEW_PATH = "Fullscreen/Scene View _F11";
         [DynamicMenuItem(false)] public const string MAIN_VIEW_PATH = "Fullscreen/Main View _F12";
-        [DynamicMenuItem(true)] public const string SETTINGS_PATH = "Fullscreen/Settings ";
 
         private const char CTRL_CHAR = '%';
         private const char SHIFT_CHAR = '#';
@@ -68,7 +69,7 @@ namespace Fullscreen {
                     return new StackFrame(true).GetFileName();
                 }
                 catch(Exception e) {
-                    Debug.LogException(e);
+                    Logger.Exception(e);
                     return string.Empty;
                 }
             }
@@ -121,7 +122,7 @@ namespace Fullscreen {
             KeyCode = Array.IndexOf(keys, constant);
 
             if(KeyCode < 0 || KeyCode >= keys.Length) {
-                Debug.LogWarning("Invalid shortcut term: " + constant);
+                Logger.Warning("Invalid shortcut term: {0}", constant);
                 KeyCode = 0;
             }
         }
@@ -158,6 +159,10 @@ namespace Fullscreen {
             GUI.changed = false;
 
             using(new EditorGUI.DisabledGroupScope(EditorApplication.isCompiling || !IsSourceFile)) {
+
+                if (InternalEditorUtility.GetUnityVersion() >= new Version(2019, 1))
+                    EditorGUILayout.HelpBox(string.Format("You can set custom shortcuts on a per user basis by editing them under {0} menu", FullscreenUtility.IsMacOS ? "Unity/Shortcuts" : "Edit/Shortcuts"), MessageType.Info);
+
                 foreach(var field in fieldsInfo)
                     DrawShortcut(field);
 
@@ -220,7 +225,7 @@ namespace Fullscreen {
             using(new EditorGUILayout.HorizontalScope()) {
                 EditorGUILayout.LabelField(shortcut.Label, GUILayout.Width(130f));
 
-                shortcut.Ctrl = GUILayout.Toggle(shortcut.Ctrl, Application.platform == RuntimePlatform.OSXEditor ? "Cmd" : "Ctrl", EditorStyles.miniButtonLeft, GUILayout.Width(50f));
+                shortcut.Ctrl = GUILayout.Toggle(shortcut.Ctrl, FullscreenUtility.IsMacOS ? "Cmd" : "Ctrl", EditorStyles.miniButtonLeft, GUILayout.Width(50f));
                 shortcut.Shift = GUILayout.Toggle(shortcut.Shift, "Shift", EditorStyles.miniButtonMid, GUILayout.Width(50f));
                 shortcut.Alt = GUILayout.Toggle(shortcut.Alt, "Alt", EditorStyles.miniButtonRight, GUILayout.Width(50f));
                 shortcut.KeyCode = EditorGUILayout.Popup(shortcut.KeyCode, keys);
@@ -232,7 +237,7 @@ namespace Fullscreen {
         private static void ReplaceConstant(string constantName, object newValue) {
             try {
                 if(!IsSourceFile) {
-                    Debug.LogError("Could not find the source code file to change value");
+                    Logger.Error("Could not find the source code file to change value");
                     return;
                 }
 
@@ -262,11 +267,11 @@ namespace Fullscreen {
                 if(changed)
                     File.WriteAllText(ThisFilePath, fileText.ToString());
                 else
-                    Debug.LogWarning("Failed to find field " + constantName + " on " + ThisFilePath);
+                    Logger.Warning("Failed to find field {0} on {1}", constantName, ThisFilePath);
             }
             catch(Exception e) {
-                Debug.LogException(e);
-                Debug.LogError("Failed to save Fullscreen Editor shortcuts");
+                Logger.Exception(e);
+                Logger.Error("Failed to save Fullscreen Editor shortcuts");
             }
         }
         #endregion

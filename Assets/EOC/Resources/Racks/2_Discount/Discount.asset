@@ -1,0 +1,412 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8409273884654323387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - GainReduction
+    values:
+    - 17
+    - 0.005
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 8, y: 0}
+  Port: 9000
+  GainReduction: 0.06344219
+  Scale: 1
+  Angle: 0
+  OnsetAngle: 0
+  Energy: 0
+  Onset: 0
+--- !u!114 &-5271025509499534850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854d6412ec087d541aab45a86a281e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 10, y: 0}
+  InputA: 0
+  InputB: 0
+  InputC: 0
+  InputD: 0
+  InputE: 0
+  InputF: 0
+  InputG: 0
+  InputH: 0
+  InputI: 0
+  ValueA: 0
+  ValueB: 0
+  ValueC: 0
+  ValueD: 0
+  ValueE: 0
+  ValueF: 0
+  ValueG: 0
+  ValueH: 0
+  ValueI: 0
+--- !u!114 &-336008502215437171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - Scale
+    - Gain
+    - GainReduction
+    values:
+    - 7
+    - 0.565
+    - 0.005
+    - -0.57
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputD
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 3, y: 0}
+  Port: 9000
+  GainReduction: 0.0049691875
+  Scale: 3.061531
+  Angle: -1
+  OnsetAngle: -1
+  Energy: 0
+  Onset: 0
+--- !u!114 &-80271856307502773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - Scale
+    - Gain
+    - GainReduction
+    values:
+    - 5
+    - 1
+    - 0.005
+    - -0.56
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputC
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 2, y: 0}
+  Port: 9000
+  GainReduction: 0.005324
+  Scale: 5
+  Angle: -1
+  OnsetAngle: -1
+  Energy: 0
+  Onset: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9fd785df7010f408358b2c800aa9ef, type: 3}
+  m_Name: Discount
+  m_EditorClassIdentifier: 
+  Modules:
+  - {fileID: 3836730731648516409}
+  - {fileID: 1799665834463864308}
+  - {fileID: -80271856307502773}
+  - {fileID: -336008502215437171}
+  - {fileID: 4826883127700749938}
+  - {fileID: 6025785999088917502}
+  - {fileID: 3354737368453228441}
+  - {fileID: -8409273884654323387}
+  - {fileID: 1835477183799054016}
+  - {fileID: 4354746900719579147}
+  - {fileID: -5271025509499534850}
+  active: 0
+  ScrollPosition: {x: 0, y: 0}
+  Zoom: 1
+--- !u!114 &1799665834463864308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - Scale
+    - Gain
+    - GainReduction
+    values:
+    - 3
+    - 0.595
+    - 0.015
+    - -0.57
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputB
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 1, y: 0}
+  Port: 9000
+  GainReduction: 0.0049691875
+  Scale: 3.1800315
+  Angle: 1
+  OnsetAngle: 1
+  Energy: 0
+  Onset: 0
+--- !u!114 &1835477183799054016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    values:
+    - 11
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputF
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 5, y: 0}
+  Port: 9000
+  GainReduction: 0
+  Scale: 1
+  Angle: 0
+  OnsetAngle: 0
+  Energy: 0
+  Onset: 0
+--- !u!114 &3354737368453228441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856091ef6b7da3f4087997b4debe8eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 9, y: 0}
+  InputA: 0
+  InputB: 0
+  InputC: 0
+  InputD: 0
+  InputE: 0
+  InputF: 0
+  InputG: 0
+  InputH: 0
+  InputI: 0
+--- !u!114 &3836730731648516409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - Scale
+    - Gain
+    - GainReduction
+    values:
+    - 1
+    - 0.825
+    - -0.01
+    - -0.43
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputA
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  Port: 9000
+  GainReduction: 0.011574562
+  Scale: 4.1632814
+  Angle: 0.6666667
+  OnsetAngle: 1
+  Energy: 0
+  Onset: 0
+--- !u!114 &4354746900719579147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    values:
+    - 15
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputH
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 7, y: 0}
+  Port: 9000
+  GainReduction: 0
+  Scale: 1
+  Angle: 0
+  OnsetAngle: 0
+  Energy: 0
+  Onset: 0
+--- !u!114 &4826883127700749938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - Scale
+    - GainReduction
+    values:
+    - 13
+    - 0.77
+    - -0.57
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputG
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 6, y: 0}
+  Port: 9000
+  GainReduction: 0.0049691875
+  Scale: 3.9161255
+  Angle: 0
+  OnsetAngle: 0
+  Energy: 0
+  Onset: 0
+--- !u!114 &6025785999088917502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc062c31140d8e42996df1f119f0364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Track
+    - GainReduction
+    - Scale
+    values:
+    - 9
+    - -0.595
+    - 1
+  Connections:
+    Connections:
+    - Key: Energy
+      Value:
+        MemberName: InputE
+        Module: {fileID: 3354737368453228441}
+  Rack: {fileID: 11400000}
+  Position: {x: 4, y: 0}
+  Port: 9000
+  GainReduction: 0.004151882
+  Scale: 5
+  Angle: 0
+  OnsetAngle: 0
+  Energy: 0
+  Onset: 0

@@ -16,21 +16,13 @@ namespace Eidetic.URack.Networking
         [Input(0, 0.5f, 3, 0), Knob] public float GainReduction = 0f;
         [Input(0, 5, 2, 1), Knob] public float Scale = 1f;
 
-        [Output, Indicator] public float azim { get; set; } // Degrees 0-180
-        [Output, Indicator] public float dist { get; set; } // Metres 1-10
-        // [Output, Indicator] public float centroid { get; set; }
-        public float centroid { get; set; }
-        // [Output, Indicator] public float flatness { get; set; }
-        public float flatness { get; set; }
-        // [Output, Indicator] public float flux { get; set; }
-        public float flux { get; set; }
+        [Output, Indicator] public float Angle;
+        [Output, Indicator] public float OnsetAngle;
+        [Output, Indicator] public float Energy;
 
-        [Output, Indicator] public float harmonicity { get; set; }
-        // public float harmonicity { get; set; }
+        [Output] public bool Onset;
 
-        [Output, Indicator] public float Energy { get; set; }
-        // [Output, Indicator] public float pitch { get; set; }
-        public float pitch { get; set; }
+        public int Track => int.Parse(Values["Track"]);
 
         OscServer Server;
 
@@ -56,6 +48,11 @@ namespace Eidetic.URack.Networking
             Element.Add(trackSelector = new IntSelector(this, "Track"));
         }
 
+        public void LateUpdate()
+        {
+            Onset = false;
+        }
+
         new void OnDestroy()
         {
             Tracks[Server].Remove(this);
@@ -79,14 +76,10 @@ namespace Eidetic.URack.Networking
                 switch (subAddress[2])
                 {
                     case "azim":
-                        azim = data.GetElementAsFloat(0).Map(-180, 180, -1, 1);
-                        break;
-                    case "dist":
-                        dist = data.GetElementAsFloat(0).Map(0, 10, -1, 1);
+                        Angle = data.GetElementAsFloat(0).Map(-180, 180, -1, 1);
                         break;
                     case "ad":
-                        azim = data.GetElementAsFloat(0);
-                        dist = data.GetElementAsFloat(1);
+                        Angle = data.GetElementAsFloat(0);
                         break;
                 }
             }
@@ -94,23 +87,14 @@ namespace Eidetic.URack.Networking
             {
                 switch (subAddress[1])
                 {
-                    case "centroid":
-                        centroid = data.GetElementAsFloat(1);
-                        break;
-                    case "flatness":
-                        flatness = data.GetElementAsFloat(1);
-                        break;
-                    case "flux":
-                        flux = data.GetElementAsFloat(1);
-                        break;
-                    case "harmonicity":
-                        harmonicity = data.GetElementAsFloat(1);
-                        break;
                     case "energy":
-                        Energy = ((data.GetElementAsFloat(1) * Scale) - GainReduction).Clamp(0, 1);
-                        break;
-                    case "pitch":
-                        pitch = data.GetElementAsFloat(1);
+                        var incomingEnergy = ((data.GetElementAsFloat(1) * Scale) - GainReduction).Clamp(0, 1);
+                        if (Energy == 0 && incomingEnergy > 0)
+                        {
+                            Onset = true;
+                            OnsetAngle = Angle;
+                        }
+                        Energy = incomingEnergy;
                         break;
                 }
             }
