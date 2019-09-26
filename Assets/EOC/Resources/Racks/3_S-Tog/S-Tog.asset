@@ -67,12 +67,12 @@ MonoBehaviour:
         Module: {fileID: 8848396950561418034}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 0}
-  Input: -0.42703855
-  Scale: 0.4332283
+  Input: -0.11390904
+  Scale: 0
   OffsetScale: 1
   Offset: 0
   Drag: 0
-  Output: -0.18500525
+  Output: 0
 --- !u!114 &-213591578948152440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,11 +104,11 @@ MonoBehaviour:
         Module: {fileID: -1648407574368768086}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 1}
-  A: 0.08661418
-  B: 0.53543305
-  C: 0.44094488
-  D: 0.33858266
-  E: 0.21259843
+  A: 0
+  B: 0
+  C: 0
+  D: 0.6062992
+  E: 0
   F: 0.5905512
 --- !u!114 &11400000
 MonoBehaviour:
@@ -139,7 +139,7 @@ MonoBehaviour:
   - {fileID: -213591578948152440}
   - {fileID: -1648407574368768086}
   active: 0
-  ScrollPosition: {x: 0, y: -750}
+  ScrollPosition: {x: 0, y: -780}
   Zoom: 1
 --- !u!114 &910602494761385350
 MonoBehaviour:
@@ -170,12 +170,12 @@ MonoBehaviour:
         Module: {fileID: -2392598311108278862}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
-  Input: 0.99297285
-  Scale: 0.4859055
+  Input: -0.15682843
+  Scale: 0
   OffsetScale: 1
   Offset: 0
   Drag: 0
-  Output: 0.48249096
+  Output: 0
 --- !u!114 &1223456638807336079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,11 +287,11 @@ MonoBehaviour:
         Module: {fileID: 3387238969991218457}
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 1}
-  A: -0.8267717
-  B: 0.070866145
-  C: -0.11811024
-  D: -0.32283464
-  E: -0.5748032
+  A: -1
+  B: -1
+  C: -1
+  D: 0.21259843
+  E: -1
   F: 0.18110237
 --- !u!114 &3387238969991218457
 MonoBehaviour:
@@ -552,10 +552,10 @@ MonoBehaviour:
         Module: {fileID: 1223456638807336079}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
-  A: 0.41732284
-  B: 1
-  C: 1
-  D: 0.9527559
+  A: 0.27559054
+  B: -1
+  C: -1
+  D: -1
   E: -1
   F: -1
 --- !u!114 &7791598795600820288
@@ -663,7 +663,7 @@ MonoBehaviour:
         Module: {fileID: -1648407574368768086}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 2}
-  Clock: 54.488186
+  Clock: 35
   TrackA:
     MemberName: TrackA
     Module: {fileID: 7842247442999464091}
@@ -775,6 +775,6 @@ MonoBehaviour:
         Module: {fileID: 1223456638807336079}
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 0}
-  InputA: 0.47716954
-  InputB: -0.23879242
+  InputA: 0
+  InputB: 0
   InputC: 0
