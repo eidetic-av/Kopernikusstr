@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6893889377034893075
+--- !u!114 &-2392598311108278862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18,172 +18,26 @@ MonoBehaviour:
     - Lifetime
     - Size
     - Output
-    - Turbulence
-    - Noise
     - Glow
-    - TurbulenceScaleX
-    - TurbulenceScaleY
-    - ScrollSpeed
+    - Turbulence
+    - ColorOffsetBlue
+    - ColorOffsetGreen
     - ColorOffsetRed
     values:
-    - 0.435
-    - -0.45
-    - -0.475
-    - -0.595
-    - -0.8
-    - -0.42
-    - 0.05500001
-    - 0.6799999
-    - 0.1
-    - -0.49
-    - 0.01
+    - 0.225
+    - -0.32
+    - -0.19
+    - -0.12
+    - -0.1
+    - -1
+    - -0.08
+    - -0.055
+    - -0.095
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 0}
-  output: -0.595
---- !u!114 &-359982797421180567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52fded8cf93a63443accda938fdd0cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys:
-    - MinX
-    - MaxX
-    - MinY
-    - MaxY
-    - MinZ
-    - MaxZ
-    - TranslationZ
-    - RotationY
-    - RotationZ
-    - RotationX
-    - ScaleY
-    - TranslationX
-    - TranslationY
-    values:
-    - -1
-    - 1
-    - -1
-    - 1
-    - -1
-    - 1
-    - -0.195
-    - -0.025
-    - -0.415
-    - 0.72
-    - -0.58
-    - 0
-    - -0.26
-  Connections:
-    Connections:
-    - Key: PointCloud
-      Value:
-        MemberName: PointCloud
-        Module: {fileID: 3556237573709693645}
-  Rack: {fileID: 11400000}
-  Position: {x: 0, y: 1}
-  PreRotationX: 0
-  PreRotationY: 0
-  PreRotationZ: 0
-  MinX: -5
-  MaxX: 5
-  MinY: -5
-  MaxY: 5
-  MinZ: -5
-  MaxZ: 5
-  RotationX: 129.6
-  RotationY: -4.5
-  RotationZ: -74.7
-  TranslationX: 0
-  TranslationY: -1.3
-  TranslationZ: -2.925
-  ScaleX: 1
-  ScaleY: -1.16
-  ScaleZ: 1
-  NewFrame: 0
-  Address: 10.11.1.6
-  Port: 48002
---- !u!114 &-335800633868231519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52fded8cf93a63443accda938fdd0cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys:
-    - MinX
-    - TranslationZ
-    - MaxX
-    - MinY
-    - MaxY
-    - RotationX
-    - RotationZ
-    - ScaleY
-    - ScaleX
-    - RotationY
-    - MinZ
-    - MaxZ
-    - TranslationX
-    - TranslationY
-    values:
-    - -1
-    - -0.31
-    - 1
-    - -1
-    - 1
-    - 0.225
-    - -0.945
-    - 0.445
-    - -0.39
-    - -1
-    - -1
-    - 1
-    - -0.00500003
-    - 0.05
-  Connections:
-    Connections:
-    - Key: PointCloud
-      Value:
-        MemberName: PointCloud
-        Module: {fileID: -6893889377034893075}
-  Rack: {fileID: 11400000}
-  Position: {x: 0, y: 0}
-  PreRotationX: 0
-  PreRotationY: 0
-  PreRotationZ: 0
-  MinX: -5
-  MaxX: 5
-  MinY: -5
-  MaxY: 5
-  MinZ: -5
-  MaxZ: 5
-  RotationX: 40.5
-  RotationY: -180
-  RotationZ: -170.1
-  TranslationX: -0.025000151
-  TranslationY: 0.25
-  TranslationZ: -4.65
-  ScaleX: -0.78
-  ScaleY: 0.89
-  ScaleZ: 1
-  NewFrame: 0
-  Address: 10.11.1.2
-  Port: 48002
+  output: -0.12
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,72 +51,16 @@ MonoBehaviour:
   m_Name: S-Tog
   m_EditorClassIdentifier: 
   Modules:
-  - {fileID: -335800633868231519}
-  - {fileID: -6893889377034893075}
-  - {fileID: -359982797421180567}
-  - {fileID: 3556237573709693645}
-  - {fileID: 4098578444826162082}
-  - {fileID: 9143378924261965835}
-  - {fileID: 2085255481724860833}
-  - {fileID: 1596754013264318671}
-  - {fileID: 6498026090153892728}
-  - {fileID: 8392486472417238784}
-  active: 0
-  ScrollPosition: {x: -30, y: 0}
+  - {fileID: 4665758092782765368}
+  - {fileID: -2392598311108278862}
+  - {fileID: 4777900928758873179}
+  - {fileID: 3387238969991218457}
+  - {fileID: 7791598795600820288}
+  - {fileID: 4010502798696131915}
+  active: 1
+  ScrollPosition: {x: 0, y: -648}
   Zoom: 1
---- !u!114 &1596754013264318671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys:
-    - TrackA-SpeedIndex
-    - TrackB-SpeedIndex
-    - TrackC-SpeedIndex
-    - TrackD-SpeedIndex
-    values:
-    - 0.83
-    - 0.47
-    - 0.61
-    - 0.44
-  Connections:
-    Connections:
-    - Key: TrackA-Saw
-      Value:
-        MemberName: TranslationZ
-        Module: {fileID: 9143378924261965835}
-    - Key: TrackB-Sin
-      Value:
-        MemberName: Turbulence
-        Module: {fileID: 8392486472417238784}
-  Rack: {fileID: 11400000}
-  Position: {x: 2, y: 1}
-  Clock: 120
-  TrackA:
-    MemberName: TrackA
-    Module: {fileID: 1596754013264318671}
-    speedIndex: 14
-  TrackB:
-    MemberName: TrackB
-    Module: {fileID: 1596754013264318671}
-    speedIndex: 11
-  TrackC:
-    MemberName: TrackC
-    Module: {fileID: 1596754013264318671}
-    speedIndex: 12
-  TrackD:
-    MemberName: TrackD
-    Module: {fileID: 1596754013264318671}
-    speedIndex: 11
---- !u!114 &2085255481724860833
+--- !u!114 &3387238969991218457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,54 +77,28 @@ MonoBehaviour:
     - SpawnRate
     - Lifetime
     - Output
-    - Glow
     - Size
-    values:
-    - -0.03999996
-    - -0.52
-    - 0.75
-    - 0.105
-    - -0.655
-  Connections:
-    Connections: []
-  Rack: {fileID: 11400000}
-  Position: {x: 4, y: 0}
-  output: 0.75
---- !u!114 &3556237573709693645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f446699843142f04e8a97380f645afa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys:
-    - SpawnRate
-    - Lifetime
-    - Output
+    - Glow
     - Turbulence
-    - Glow
-    - TurbulenceScaleX
-    - Size
+    - ColorOffsetGreen
+    - ColorOffsetRed
+    - ColorOffsetBlue
     values:
-    - -0.475
-    - -0.535
+    - 0.2
+    - -0.43
+    - 0.19
+    - -0.25
     - -0.2
-    - 0.61
-    - 0.36
-    - 0.325
-    - -0.335
+    - -0.085
+    - -0.065
+    - -0.09
+    - -0.05
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 1}
-  output: -0.2
---- !u!114 &4098578444826162082
+  output: 0.19
+--- !u!114 &4010502798696131915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,27 +107,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30be9d6181fc93549891d13ba851c0f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f446699843142f04e8a97380f645afa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Values:
-    keys:
-    - Offset
-    - OffsetScale
-    values:
-    - 1
-    - 0.715
+    keys: []
+    values: []
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 2, y: 0}
-  Input: 0
-  Scale: 1
-  OffsetScale: 2.145
-  Offset: 1
-  Drag: 0
-  Output: 2.145
---- !u!114 &6498026090153892728
+  Position: {x: 0, y: 0}
+  output: 0
+--- !u!114 &4665758092782765368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,77 +132,135 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Values:
     keys:
+    - MinX
+    - MaxX
+    - MinY
+    - MaxY
     - TranslationZ
     - RotationY
     - RotationX
+    - RotationZ
+    - MaxZ
+    - MinZ
+    - ScaleX
+    - ScaleY
+    - ScaleZ
+    - TranslationX
+    - TranslationY
+    - UpdateFrequency
     values:
-    - -0.255
-    - -0.25
+    - 0.01000002
     - 1
+    - -0.84
+    - -0.06500006
+    - 0.435
+    - 0.04499999
+    - 0.075
+    - 0.315
+    - 1
+    - -1
+    - 0.7399999
+    - 0.6849999
+    - 0.63
+    - -0.415
+    - 0.08500002
+    - -1
   Connections:
     Connections:
     - Key: PointCloud
       Value:
         MemberName: PointCloud
-        Module: {fileID: 8392486472417238784}
+        Module: {fileID: -2392598311108278862}
   Rack: {fileID: 11400000}
-  Position: {x: 5, y: 0}
-  PreRotationX: 0
-  PreRotationY: 0
-  PreRotationZ: 0
+  Position: {x: 0, y: 0}
+  UpdateFrequency: 0
+  MinX: 0.0500001
+  MaxX: 5
+  MinY: -4.2
+  MaxY: -0.3250003
+  MinZ: -5
+  MaxZ: 5
+  RotationX: 13.500001
+  RotationY: 8.099998
+  RotationZ: 56.7
+  TranslationX: -2.075
+  TranslationY: 0.42500013
+  TranslationZ: -6.525
+  ScaleX: 1.4799998
+  ScaleY: 1.3699998
+  ScaleZ: 1.26
+  NewFrame: 0
+  Address: 10.11.1.6
+  Port: 48002
+--- !u!114 &4777900928758873179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fded8cf93a63443accda938fdd0cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - MinX
+    - MaxX
+    - MinY
+    - MaxY
+    - MinZ
+    - MaxZ
+    - UpdateFrequency
+    - TranslationZ
+    - RotationY
+    - RotationZ
+    - TranslationY
+    - TranslationX
+    - RotationX
+    values:
+    - -1
+    - 1
+    - -1
+    - 1
+    - -1
+    - 1
+    - -1
+    - 0.245
+    - -1
+    - -0.85
+    - -0.07000002
+    - 0.055
+    - 0.225
+  Connections:
+    Connections:
+    - Key: PointCloud
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: 3387238969991218457}
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 1}
+  UpdateFrequency: 0
   MinX: -5
   MaxX: 5
   MinY: -5
   MaxY: 5
   MinZ: -5
   MaxZ: 5
-  RotationX: 180
-  RotationY: -45
-  RotationZ: 0
-  TranslationX: 0
-  TranslationY: 0
-  TranslationZ: -3.8249998
+  RotationX: 40.5
+  RotationY: -180
+  RotationZ: -153
+  TranslationX: 0.275
+  TranslationY: -0.3500001
+  TranslationZ: -3.6750002
   ScaleX: 1
   ScaleY: 1
   ScaleZ: 1
   NewFrame: 0
   Address: 10.11.1.2
   Port: 48002
---- !u!114 &8392486472417238784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f446699843142f04e8a97380f645afa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys:
-    - Output
-    - SpawnRate
-    - Lifetime
-    - Glow
-    - Turbulence
-    - Noise
-    - Size
-    values:
-    - 0.19
-    - 0.6350001
-    - -0.07500002
-    - -0.045
-    - 0.3
-    - -0.72
-    - -0.575
-  Connections:
-    Connections: []
-  Rack: {fileID: 11400000}
-  Position: {x: 6, y: 0}
-  output: 0.19
---- !u!114 &9143378924261965835
+--- !u!114 &7791598795600820288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,56 +273,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Values:
-    keys:
-    - TranslationZ
-    - RotationY
-    - RotationX
-    - RotationZ
-    - MinX
-    - PreRotationY
-    - MaxX
-    - MaxY
-    - MinY
-    - MinZ
-    - MaxZ
-    values:
-    - -0.285
-    - -0.17
-    - 0.79
-    - 0.1
-    - -0.045
-    - 0.025
-    - 1
-    - 1
-    - -1
-    - -1
-    - 0.97
+    keys: []
+    values: []
   Connections:
-    Connections:
-    - Key: PointCloud
-      Value:
-        MemberName: PointCloud
-        Module: {fileID: 2085255481724860833}
+    Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 3, y: 0}
-  PreRotationX: 0
-  PreRotationY: 4.5
-  PreRotationZ: 0
-  MinX: -0.22500001
+  Position: {x: 0, y: 2}
+  UpdateFrequency: 0
+  MinX: -5
   MaxX: 5
   MinY: -5
   MaxY: 5
   MinZ: -5
-  MaxZ: 4.8500004
-  RotationX: 142.2
-  RotationY: -30.6
-  RotationZ: 18
+  MaxZ: 5
+  RotationX: 0
+  RotationY: 0
+  RotationZ: 0
   TranslationX: 0
   TranslationY: 0
-  TranslationZ: 2.1209106
+  TranslationZ: 0
   ScaleX: 1
   ScaleY: 1
   ScaleZ: 1
   NewFrame: 0
-  Address: 10.11.1.2
+  Address: 10.11.1.68
   Port: 48002

@@ -23,7 +23,7 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
-  InputA: -0.19921875
+  InputA: -0.8691406
   InputB: 0
   InputC: 0
 --- !u!114 &-6024961737359441673
@@ -50,10 +50,10 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: -133031510966334469}
   Rack: {fileID: 11400000}
-  Position: {x: 7, y: 0}
-  Input: 0.60004985
+  Position: {x: 8, y: 0}
+  Input: 0
   Drag: 0.04725938
-  Output: 0.5572178
+  Output: 0.000000067312676
 --- !u!114 &-4913940378397413306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
         Module: {fileID: 941397718080380260}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 1}
-  Input: 0.23335254
+  Input: 0.000027767273
   Scale: 0.21259844
   OffsetScale: -0.014999986
   Offset: 0.51
@@ -140,7 +140,7 @@ MonoBehaviour:
         Module: {fileID: 4344757424898022679}
   Rack: {fileID: 11400000}
   Position: {x: 7, y: 1}
-  Input: 0.2098889
+  Input: 0.000011789169
   Scale: 1.3700787
   OffsetScale: 1
   Offset: 0
@@ -172,11 +172,11 @@ MonoBehaviour:
     - Glow
     values:
     - 1
-    - -0.97
+    - 1
     - 1
     - 0.59
     - 1
-    - -1
+    - 1
     - 1
     - 1
     - 1
@@ -216,8 +216,8 @@ MonoBehaviour:
         MemberName: InputB
         Module: {fileID: 102499269091515241}
   Rack: {fileID: 11400000}
-  Position: {x: 6, y: 0}
-  Input: 0.33582106
+  Position: {x: 7, y: 0}
+  Input: 0.00000086924496
   Scale: 0.21259844
   OffsetScale: 0.14999993
   Offset: 0.5025
@@ -256,7 +256,7 @@ MonoBehaviour:
   - {fileID: -4913940378397413306}
   - {fileID: 7519185554908220344}
   - {fileID: 45381579453026470}
-  active: 1
+  active: 0
   ScrollPosition: {x: 0, y: 0}
   Zoom: 1
 --- !u!114 &45381579453026470
@@ -275,11 +275,19 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections: []
+    Connections:
+    - Key: OutputA
+      Value:
+        MemberName: ImageB
+        Module: {fileID: 7476036934002900341}
+    - Key: OutputB
+      Value:
+        MemberName: ImageB
+        Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
-  Position: {x: 0, y: 0}
-  InputA: 0
-  InputB: 0
+  Position: {x: 2, y: 0}
+  InputA: 0.71653545
+  InputB: 0.26771653
   InputC: 0
 --- !u!114 &102499269091515241
 MonoBehaviour:
@@ -309,9 +317,9 @@ MonoBehaviour:
         MemberName: NoiseIntensity
         Module: {fileID: 7476036934002900341}
   Rack: {fileID: 11400000}
-  Position: {x: 5, y: 0}
+  Position: {x: 6, y: 0}
   InputA: 0.19685039
-  InputB: 0.14677
+  InputB: 0.07537515
   InputC: 0.27
   InputD: 0
 --- !u!114 &138706814640463318
@@ -338,10 +346,10 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: 6593341786384035197}
   Rack: {fileID: 11400000}
-  Position: {x: 10, y: 0}
-  Input: 0.60004985
+  Position: {x: 11, y: 0}
+  Input: 0
   Drag: 0.0234375
-  Output: 0.59621865
+  Output: 5.2847565e-13
 --- !u!114 &319741485387753869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,9 +376,9 @@ MonoBehaviour:
         MemberName: Warp
         Module: {fileID: 7476036934002900341}
   Rack: {fileID: 11400000}
-  Position: {x: 8, y: 0}
+  Position: {x: 9, y: 0}
   InputA: 0.23622048
-  InputB: 0
+  InputB: 0.000000001986512
   InputC: 0
   InputD: 0
 --- !u!114 &712890801221916528
@@ -442,14 +450,18 @@ MonoBehaviour:
       Value:
         MemberName: Blend
         Module: {fileID: 7476036934002900341}
+    - Key: F
+      Value:
+        MemberName: Blend
+        Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
-  Position: {x: 4, y: 0}
+  Position: {x: 5, y: 0}
   A: 1
   B: -0.7480315
   C: 0.25984251
   D: 0.023622047
   E: 0.33858266
-  F: -1
+  F: 1
 --- !u!114 &941397718080380260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +492,7 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 1}
   InputA: 0.19685039
-  InputB: 0.041960396
+  InputB: -0.0076440894
   InputC: 0.215
   InputD: 0
 --- !u!114 &2655380334720119376
@@ -521,7 +533,7 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: 138706814640463318}
   Rack: {fileID: 11400000}
-  Position: {x: 11, y: 0}
+  Position: {x: 12, y: 0}
   NameA: PositiveEnergyMax
   NameB: NegativeEnergyMax
   NameC: 
@@ -559,7 +571,7 @@ MonoBehaviour:
         MemberName: InputA
         Module: {fileID: -9166795714652657825}
   Rack: {fileID: 11400000}
-  Position: {x: 2, y: 0}
+  Position: {x: 3, y: 0}
   Clock: 120
   TrackA:
     MemberName: TrackA
@@ -605,7 +617,7 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 6, y: 1}
   InputA: 0.23622048
-  InputB: 0.82211554
+  InputB: 0.00019818894
   InputC: 0
   InputD: 0
 --- !u!114 &4907319480563074489
@@ -635,7 +647,7 @@ MonoBehaviour:
   Position: {x: 8, y: 1}
   Input: 0
   Drag: 0.038399998
-  Output: 0.022769243
+  Output: 0.0000006105294
 --- !u!114 &6593341786384035197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,8 +670,8 @@ MonoBehaviour:
         MemberName: InputB
         Module: {fileID: 319741485387753869}
   Rack: {fileID: 11400000}
-  Position: {x: 9, y: 0}
-  Input: 0.49346006
+  Position: {x: 10, y: 0}
+  Input: 3.5801806e-11
   Scale: 1.3700787
   OffsetScale: 1
   Offset: 0
@@ -693,7 +705,7 @@ MonoBehaviour:
     - Glow
     values:
     - 1
-    - -1
+    - 1
     - -1
     - 0.645
     - 1
@@ -738,7 +750,7 @@ MonoBehaviour:
   Position: {x: 5, y: 1}
   Input: 0
   Drag: 0.042084366
-  Output: 0.030382214
+  Output: 0.0000017638465
 --- !u!114 &7519185554908220344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,8 +840,16 @@ MonoBehaviour:
       Value:
         MemberName: ImageA
         Module: {fileID: 7476036934002900341}
+    - Key: E
+      Value:
+        MemberName: InputA
+        Module: {fileID: 45381579453026470}
+    - Key: F
+      Value:
+        MemberName: InputB
+        Module: {fileID: 45381579453026470}
   Rack: {fileID: 11400000}
-  Position: {x: 3, y: 0}
+  Position: {x: 4, y: 0}
   A: 0.19685039
   B: 0.070866145
   C: 0.23622048
