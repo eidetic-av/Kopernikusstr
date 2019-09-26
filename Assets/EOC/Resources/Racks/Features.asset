@@ -181,7 +181,7 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 15, y: 2}
-  InputA: 0
+  InputA: 0.60004985
   InputB: 0
   InputC: 0
   InputD: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   InputG: 0
   InputH: 0
   InputI: 0
-  Output: 0
+  Output: 0.60004985
   Change: 0
 --- !u!114 &-6917600316059460146
 MonoBehaviour:
@@ -415,10 +415,10 @@ MonoBehaviour:
   Port: 9000
   GainReduction: 0.012512604
   Scale: 1.225125
-  Angle: -1
-  OnsetAngle: -1
-  Energy: 0
-  Onset: 0
+  Angle: -0.85555553
+  OnsetAngle: -0.73333335
+  Energy: 0.60004985
+  Onset: 1
 --- !u!114 &-5335488054404574456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +529,7 @@ MonoBehaviour:
         Module: {fileID: 1184969833558869}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
-  InputA: 0
+  InputA: 0.60004985
   InputB: 0
   InputC: 0
   InputD: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   InputG: 0
   InputH: 0
   InputI: 0
-  ValueA: -1
+  ValueA: -0.14444445
   ValueB: 0
   ValueC: 0
   ValueD: -1
@@ -601,6 +601,28 @@ MonoBehaviour:
         Module: {fileID: 388879493134112937}
   Rack: {fileID: 11400000}
   Position: {x: 12, y: 2}
+--- !u!114 &-3442550285265605329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195e6ad060b10f84ca751f59f362dc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 5, y: 1}
+  NameA: 
+  NameB: 
+  NameC: 
 --- !u!114 &-2962671223067793952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,9 +821,9 @@ MonoBehaviour:
   - {fileID: -4314275025943071585}
   - {fileID: 6603586604739597258}
   - {fileID: -5335488054404574456}
-  - {fileID: 4861622015316031523}
+  - {fileID: -3442550285265605329}
   active: 1
-  ScrollPosition: {x: -330, y: 0}
+  ScrollPosition: {x: -300, y: 0}
   Zoom: 1
 --- !u!114 &1184969833558869
 MonoBehaviour:
@@ -864,7 +886,7 @@ MonoBehaviour:
         Module: {fileID: 1184969833558869}
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 1}
-  InputA: 0
+  InputA: 0.60004985
   InputB: 0
   InputC: 0
   InputD: 0
@@ -873,7 +895,7 @@ MonoBehaviour:
   InputG: 0
   InputH: 0
   InputI: 0
-  ValueA: -1
+  ValueA: 0.42777777
   ValueB: 0
   ValueC: 0
   ValueD: -1
@@ -939,7 +961,7 @@ MonoBehaviour:
         Module: {fileID: -6917600316059460146}
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
-  InputA: 0
+  InputA: 0.60004985
   InputB: 0
   InputC: 0
   InputD: 0
@@ -948,7 +970,7 @@ MonoBehaviour:
   InputG: 0
   InputH: 0
   InputI: 0
-  Output: 0
+  Output: 0.60004985
   Change: 0
 --- !u!114 &1332170297668277553
 MonoBehaviour:
@@ -1171,28 +1193,6 @@ MonoBehaviour:
   NameA: Angle4
   NameB: Angle5
   NameC: Angle6
---- !u!114 &4861622015316031523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195e6ad060b10f84ca751f59f362dc9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys: []
-    values: []
-  Connections:
-    Connections: []
-  Rack: {fileID: 11400000}
-  Position: {x: 15, y: 0}
-  NameA: 
-  NameB: 
-  NameC: 
 --- !u!114 &5045801142111661107
 MonoBehaviour:
   m_ObjectHideFlags: 0

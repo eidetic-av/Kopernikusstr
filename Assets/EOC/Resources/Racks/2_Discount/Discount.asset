@@ -23,7 +23,7 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
-  InputA: -0.8691406
+  InputA: 0.88369083
   InputB: 0
   InputC: 0
 --- !u!114 &-6024961737359441673
@@ -50,10 +50,10 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: -133031510966334469}
   Rack: {fileID: 11400000}
-  Position: {x: 8, y: 0}
+  Position: {x: 4, y: 0}
   Input: 0
   Drag: 0.04725938
-  Output: 0.000000067312676
+  Output: 0
 --- !u!114 &-4913940378397413306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   Position: {x: 1, y: 0}
   Input: 1
   Drag: 0.17339998
-  Output: 1
+  Output: 0.99999994
 --- !u!114 &-2382494296366507719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,8 +111,8 @@ MonoBehaviour:
         Module: {fileID: 941397718080380260}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 1}
-  Input: 0.000027767273
-  Scale: 0.21259844
+  Input: 0
+  Scale: 3
   OffsetScale: -0.014999986
   Offset: 0.51
 --- !u!114 &-1503452707104155406
@@ -140,10 +140,29 @@ MonoBehaviour:
         Module: {fileID: 4344757424898022679}
   Rack: {fileID: 11400000}
   Position: {x: 7, y: 1}
-  Input: 0.000011789169
-  Scale: 1.3700787
+  Input: 0
+  Scale: 0
   OffsetScale: 1
   Offset: 0
+--- !u!114 &-1141390348744724117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99685903dcec81a44953dd4081c25b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 13, y: 0}
 --- !u!114 &-1104508840086078555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,9 +235,9 @@ MonoBehaviour:
         MemberName: InputB
         Module: {fileID: 102499269091515241}
   Rack: {fileID: 11400000}
-  Position: {x: 7, y: 0}
-  Input: 0.00000086924496
-  Scale: 0.21259844
+  Position: {x: 8, y: 0}
+  Input: 0
+  Scale: 3
   OffsetScale: 0.14999993
   Offset: 0.5025
 --- !u!114 &11400000
@@ -256,8 +275,9 @@ MonoBehaviour:
   - {fileID: -4913940378397413306}
   - {fileID: 7519185554908220344}
   - {fileID: 45381579453026470}
+  - {fileID: -1141390348744724117}
   active: 0
-  ScrollPosition: {x: 0, y: 0}
+  ScrollPosition: {x: -390, y: 0}
   Zoom: 1
 --- !u!114 &45381579453026470
 MonoBehaviour:
@@ -286,8 +306,8 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
-  InputA: 0.71653545
-  InputB: 0.26771653
+  InputA: 0.19685039
+  InputB: 0.6692913
   InputC: 0
 --- !u!114 &102499269091515241
 MonoBehaviour:
@@ -318,8 +338,8 @@ MonoBehaviour:
         Module: {fileID: 7476036934002900341}
   Rack: {fileID: 11400000}
   Position: {x: 6, y: 0}
-  InputA: 0.19685039
-  InputB: 0.07537515
+  InputA: 0
+  InputB: 0.07537497
   InputC: 0.27
   InputD: 0
 --- !u!114 &138706814640463318
@@ -349,7 +369,7 @@ MonoBehaviour:
   Position: {x: 11, y: 0}
   Input: 0
   Drag: 0.0234375
-  Output: 5.2847565e-13
+  Output: 0
 --- !u!114 &319741485387753869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,8 +397,8 @@ MonoBehaviour:
         Module: {fileID: 7476036934002900341}
   Rack: {fileID: 11400000}
   Position: {x: 9, y: 0}
-  InputA: 0.23622048
-  InputB: 0.000000001986512
+  InputA: 0
+  InputB: 0
   InputC: 0
   InputD: 0
 --- !u!114 &712890801221916528
@@ -455,12 +475,12 @@ MonoBehaviour:
         MemberName: Blend
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
-  Position: {x: 5, y: 0}
+  Position: {x: 7, y: 0}
   A: 1
-  B: -0.7480315
+  B: -0.62204725
   C: 0.25984251
   D: 0.023622047
-  E: 0.33858266
+  E: 0.22834645
   F: 1
 --- !u!114 &941397718080380260
 MonoBehaviour:
@@ -491,8 +511,8 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 1}
-  InputA: 0.19685039
-  InputB: -0.0076440894
+  InputA: 0
+  InputB: -0.0076499926
   InputC: 0.215
   InputD: 0
 --- !u!114 &2655380334720119376
@@ -616,8 +636,8 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
   Position: {x: 6, y: 1}
-  InputA: 0.23622048
-  InputB: 0.00019818894
+  InputA: 0
+  InputB: 0
   InputC: 0
   InputD: 0
 --- !u!114 &4907319480563074489
@@ -647,7 +667,7 @@ MonoBehaviour:
   Position: {x: 8, y: 1}
   Input: 0
   Drag: 0.038399998
-  Output: 0.0000006105294
+  Output: 0
 --- !u!114 &6593341786384035197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,8 +691,8 @@ MonoBehaviour:
         Module: {fileID: 319741485387753869}
   Rack: {fileID: 11400000}
   Position: {x: 10, y: 0}
-  Input: 3.5801806e-11
-  Scale: 1.3700787
+  Input: 0
+  Scale: 0
   OffsetScale: 1
   Offset: 0
 --- !u!114 &7476036934002900341
@@ -703,6 +723,7 @@ MonoBehaviour:
     - NoiseScaleY
     - NoiseScaleX
     - Glow
+    - NoiseFrequency
     values:
     - 1
     - 1
@@ -718,6 +739,7 @@ MonoBehaviour:
     - 1
     - 1
     - -0.59
+    - 0.015
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
@@ -750,7 +772,7 @@ MonoBehaviour:
   Position: {x: 5, y: 1}
   Input: 0
   Drag: 0.042084366
-  Output: 0.0000017638465
+  Output: 0
 --- !u!114 &7519185554908220344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +800,7 @@ MonoBehaviour:
   Position: {x: 1, y: 1}
   Input: 1
   Drag: 0.17339998
-  Output: 1
+  Output: 0.99999994
 --- !u!114 &7799388611649374985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,21 +860,21 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
     - Key: E
       Value:
-        MemberName: ImageA
-        Module: {fileID: 7476036934002900341}
-    - Key: E
-      Value:
         MemberName: InputA
         Module: {fileID: 45381579453026470}
     - Key: F
       Value:
         MemberName: InputB
         Module: {fileID: 45381579453026470}
+    - Key: E
+      Value:
+        MemberName: ImageA
+        Module: {fileID: 7476036934002900341}
   Rack: {fileID: 11400000}
-  Position: {x: 4, y: 0}
-  A: 0.19685039
-  B: 0.070866145
-  C: 0.23622048
-  D: 0.4566929
-  E: 0.71653545
-  F: 0.26771653
+  Position: {x: 5, y: 0}
+  A: 0
+  B: 1
+  C: 0
+  D: 0
+  E: 0.19685039
+  F: 0.6692913

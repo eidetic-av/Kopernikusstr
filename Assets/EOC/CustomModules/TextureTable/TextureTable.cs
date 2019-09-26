@@ -48,8 +48,12 @@ namespace Eidetic.URack.VFX
             set => VisualEffect.SetFloat("ImageScale", value);
         }
 
-        Texture2D[] images;
-        Texture2D[] Images => images ?? (images = Resources.LoadAll<Texture2D>("Discount"));
+        Texture2D[] Images;
+        new public void Start()
+        {
+            Images = Resources.LoadAll<Texture2D>("Discount");
+            base.Start();
+        }
 
         [Input(0, 50, 2, 1), Knob]
         public float Speed
