@@ -36,7 +36,7 @@ MonoBehaviour:
         MemberName: Value9
         Module: {fileID: -6683140375376511289}
   Rack: {fileID: 11400000}
-  Position: {x: 12, y: 0}
+  Position: {x: 8, y: 0}
   NameA: OnsetAngle7
   NameB: OnsetAngle8
   NameC: OnsetAngle9
@@ -90,13 +90,9 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: InputA
-        Module: {fileID: -7494548705228566836}
+    Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 4, y: 0}
+  Position: {x: 3, y: 0}
   InputA: 0
   InputB: 0
   InputC: 0
@@ -128,17 +124,17 @@ MonoBehaviour:
         MemberName: Output
         Module: {fileID: 338714637912544146}
   Rack: {fileID: 11400000}
-  Position: {x: 13, y: 0}
-  Value1: -0.76666665
-  Value2: -0.9777778
+  Position: {x: 9, y: 0}
+  Value1: 0
+  Value2: 0
   Value3: 0
-  Value4: -1
-  Value5: 0.06666667
+  Value4: 0
+  Value5: 0
   Value6: 0
   Value7: 0
   Value8: 0
-  Value9: -0.5611111
-  Output: -0.93333334
+  Value9: 0
+  Output: 0
 --- !u!114 &-3614668893620170718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +183,7 @@ MonoBehaviour:
         MemberName: Input9
         Module: {fileID: -6683140375376511289}
   Rack: {fileID: 11400000}
-  Position: {x: 8, y: 0}
+  Position: {x: 7, y: 0}
   NameA: Onset7
   NameB: Onset8
   NameC: Onset9
@@ -212,12 +208,12 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 11, y: 1}
-  Input: -2.5725863
-  Scale: -0.53999996
+  Input: -4.324881
+  Scale: -0.54
   OffsetScale: 1
   Offset: 0
   Drag: 0
-  Output: 1.3891965
+  Output: 2.3354359
 --- !u!114 &-3314343543597941316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,13 +248,13 @@ MonoBehaviour:
         MemberName: RotationZ
         Module: {fileID: 7635897652676068825}
   Rack: {fileID: 11400000}
-  Position: {x: 4, y: 1}
-  Input: -0.55249023
-  Scale: -1.1138403
+  Position: {x: 8, y: 1}
+  Input: 0.892689
+  Scale: -1.259473
   OffsetScale: 2.22
   Offset: 1
   Drag: 0
-  Output: 2.835386
+  Output: 1.0956824
 --- !u!114 &-2405687547970940451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,12 +328,12 @@ MonoBehaviour:
         Module: {fileID: -3322529030981675653}
   Rack: {fileID: 11400000}
   Position: {x: 10, y: 1}
-  Input: -0.522301
-  Scale: 2.4450002
+  Input: -1.2362288
+  Scale: 2.4450004
   OffsetScale: -1.29
   Offset: 1
   Drag: 0
-  Output: -2.5670261
+  Output: -4.31258
 --- !u!114 &-1407597604499749531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +492,7 @@ MonoBehaviour:
         MemberName: Input3
         Module: {fileID: -6683140375376511289}
   Rack: {fileID: 11400000}
-  Position: {x: 3, y: 0}
+  Position: {x: 1, y: 0}
   NameA: Onset1
   NameB: Onset2
   NameC: Onset3
@@ -590,13 +586,9 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: InputC
-        Module: {fileID: -7494548705228566836}
+    Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 9, y: 0}
+  Position: {x: 5, y: 0}
   InputA: 0
   InputB: 0
   InputC: 0
@@ -623,12 +615,10 @@ MonoBehaviour:
   - {fileID: 6107427779570452800}
   - {fileID: 6650980671449735477}
   - {fileID: 338714637912544146}
-  - {fileID: -454465908073751786}
   - {fileID: 3176113367605510732}
   - {fileID: -1074891970993606108}
   - {fileID: -1407597604499749531}
   - {fileID: -3614668893620170718}
-  - {fileID: -7494548705228566836}
   - {fileID: -6732611871555986287}
   - {fileID: 8267868434594114771}
   - {fileID: -138022045473016315}
@@ -647,7 +637,7 @@ MonoBehaviour:
   - {fileID: 6682271201082181398}
   - {fileID: -3322529030981675653}
   active: 0
-  ScrollPosition: {x: 0, y: 0}
+  ScrollPosition: {x: -870, y: 0}
   Zoom: 1
 --- !u!114 &338714637912544146
 MonoBehaviour:
@@ -682,7 +672,7 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
-  output: -0.93333334
+  output: 0
 --- !u!114 &1116337924542068559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,12 +704,12 @@ MonoBehaviour:
         Module: {fileID: -3314343543597941316}
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 1}
-  A: 0.21618497
-  B: 0.91555834
-  C: -0.45696014
-  D: 0.6654484
-  E: -0.13303053
-  F: -0.41011184
+  A: 0.7722807
+  B: -0.40231436
+  C: -0.5167069
+  D: 0.4823724
+  E: -0.85977054
+  F: 0.7787533
 --- !u!114 &1178201438818916132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +775,7 @@ MonoBehaviour:
         Module: {fileID: 6650980671449735477}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
-  Input: 2
+  Input: 1
   True: 0.035
   False: 1
 --- !u!114 &6107427779570452800
@@ -834,13 +824,9 @@ MonoBehaviour:
     - 0.525
     - 0.54
   Connections:
-    Connections:
-    - Key: PointCloud
-      Value:
-        MemberName: InputB
-        Module: {fileID: -454465908073751786}
+    Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 8, y: 1}
+  Position: {x: 5, y: 1}
   UpdateFrequency: 0
   MinX: -5
   MaxX: 5
@@ -848,15 +834,15 @@ MonoBehaviour:
   MaxY: 5
   MinZ: -5
   MaxZ: 5
-  RotationX: -94.01418
+  RotationX: -222.5212
   RotationY: 39.6
-  RotationZ: 509.76373
+  RotationZ: 196.51346
   TranslationX: 0
-  TranslationY: -0.5750001
-  TranslationZ: -2.2499995
-  ScaleX: 1.0500001
+  TranslationY: -0.575
+  TranslationZ: -2.25
+  ScaleX: 1.05
   ScaleY: 1.08
-  ScaleZ: 0.90000004
+  ScaleZ: 0.9
   NewFrame: 0
   Address: 10.11.1.6
   Port: 48002
@@ -902,13 +888,9 @@ MonoBehaviour:
     - 0.625
     - 0.72
   Connections:
-    Connections:
-    - Key: PointCloud
-      Value:
-        MemberName: InputC
-        Module: {fileID: -454465908073751786}
+    Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 12, y: 1}
+  Position: {x: 13, y: 1}
   UpdateFrequency: 0
   MinX: -5
   MaxX: 5
@@ -918,7 +900,7 @@ MonoBehaviour:
   MaxZ: 5
   RotationX: 0
   RotationY: 0
-  RotationZ: -463.06552
+  RotationZ: -778.4786
   TranslationX: 0
   TranslationY: 1.9
   TranslationZ: 2.85
@@ -953,7 +935,7 @@ MonoBehaviour:
         Module: {fileID: 8749455668051734076}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
-  Input: 0.91555834
+  Input: -0.40231436
   Scale: 1
   Offset: 0
 --- !u!114 &6682271201082181398
@@ -974,8 +956,8 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 7, y: 1}
-  InputA: -0.27297243
+  Position: {x: 6, y: 1}
+  InputA: -0.86148334
   InputB: 0
   InputC: 0
 --- !u!114 &7635897652676068825
@@ -1016,13 +998,9 @@ MonoBehaviour:
     - -0.01
     - 0.005
   Connections:
-    Connections:
-    - Key: PointCloud
-      Value:
-        MemberName: InputA
-        Module: {fileID: -454465908073751786}
+    Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 9, y: 1}
+  Position: {x: 7, y: 1}
   UpdateFrequency: 0
   MinX: -5
   MaxX: 5
@@ -1032,7 +1010,7 @@ MonoBehaviour:
   MaxZ: 5
   RotationX: 0.9
   RotationY: -1.8
-  RotationZ: 497.01965
+  RotationZ: 191.60063
   TranslationX: 0
   TranslationY: 0
   TranslationZ: -5.325
@@ -1070,13 +1048,13 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: -1569600911351805315}
   Rack: {fileID: 11400000}
-  Position: {x: 5, y: 1}
-  Input: 0.37542725
+  Position: {x: 9, y: 1}
+  Input: 0.892689
   Scale: -1.38
   OffsetScale: 1
   Offset: 0
   Drag: 0
-  Output: -0.5180896
+  Output: -1.2319108
 --- !u!114 &8267868434594114771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,13 +1071,9 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections:
-    - Key: Output
-      Value:
-        MemberName: InputB
-        Module: {fileID: -7494548705228566836}
+    Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 7, y: 0}
+  Position: {x: 4, y: 0}
   InputA: 0
   InputB: 0
   InputC: 0
@@ -1139,10 +1113,10 @@ MonoBehaviour:
         MemberName: InputA
         Module: {fileID: 6682271201082181398}
   Rack: {fileID: 11400000}
-  Position: {x: 6, y: 1}
-  Input: 0.37542725
-  Scale: 0.76220214
-  OffsetScale: -0.56999993
+  Position: {x: 4, y: 1}
+  Input: 0.892689
+  Scale: -0.33492664
+  OffsetScale: -0.57
   Offset: 0.985
   Drag: 0
-  Output: -0.27529848
+  Output: -0.8604353
