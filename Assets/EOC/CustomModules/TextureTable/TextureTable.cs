@@ -10,8 +10,6 @@ namespace Eidetic.URack.VFX
     {
         public override VisualEffectAsset TemplateAsset => Resources.Load<VisualEffectAsset>("TextureTable");
 
-        // [Input, TextEntry] public string FolderName = "Discount";
-
         [Input, Knob]
         public float ImageA
         {
