@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8623763890604368078
+--- !u!114 &-8178365801108775443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,46 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Values:
     keys:
-    - BillboardStretch
-    - EmissionRate
-    - Speed
     - Output
-    - RadialVelocity
     - Gravity
     - Size
-    - NoiseDepth
-    - NoiseFrequency
-    - OrbitalVelocityY
-    - OrbitalVelocityX
+    - EmissionRate
     - Shape
-    - NoiseScroll
-    - StartSpeed
+    - RadialVelocity
+    - NoiseDepth
+    - Speed
+    - NoiseFrequency
     - Life
     values:
-    - -1
-    - 0.32
-    - -0.6950001
-    - -1
-    - 0.16
-    - 0.08500004
-    - 0.135
-    - 0.2899999
-    - -0.705
-    - 1
-    - 1
-    - 0.4549999
-    - 0.365
-    - 0.615
-    - -0.225
+    - 0.565
+    - 0.005
+    - 0.5450001
+    - -0.93
+    - 0.45
+    - -0.14
+    - 0.255
+    - 0.145
+    - 0.875
+    - 0.44
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 0, y: 0}
-  output: -1
+  Position: {x: 2, y: 1}
+  output: 0.565
   PointCloudInput: {fileID: 0}
   PointCloudOutput: {fileID: 0}
   CurrentMode: 0
---- !u!114 &-2767126401749835664
+--- !u!114 &-6901788331161289473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,51 +52,114 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 963f5396ac4ecde4fac82d67c7f48dc8, type: 3}
+  m_Script: {fileID: 11500000, guid: 97d982f6d9c2f6c418f4f31550e77cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Values:
     keys:
-    - TrackA-SpeedIndex
-    - TrackB-SpeedIndex
-    - TrackC-SpeedIndex
-    - TrackD-SpeedIndex
-    - Clock
+    - NameA
+    - NameB
     values:
-    - 1
-    - 0.6199999
-    - 0.85
-    - 1
-    - -1
+    - PositiveEnergyMax
+    - 
   Connections:
     Connections:
-    - Key: TrackA-Sin
+    - Key: OutputA
       Value:
-        MemberName: OrbitalVelocityY
-        Module: {fileID: -8623763890604368078}
-    - Key: TrackB-Sin
+        MemberName: Input
+        Module: {fileID: -6875170448236983433}
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  NameA: PositiveEnergyMax
+  NameB: 
+  NameC: 
+--- !u!114 &-6875170448236983433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30be9d6181fc93549891d13ba851c0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Scale
+    - Offset
+    values:
+    - 1
+    - 0.59
+  Connections:
+    Connections:
+    - Key: Output
       Value:
-        MemberName: OrbitalVelocityX
-        Module: {fileID: -8623763890604368078}
+        MemberName: Shape
+        Module: {fileID: 8906635565545824728}
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 0}
-  Clock: 35
-  TrackA:
-    MemberName: TrackA
-    Module: {fileID: -2767126401749835664}
-    speedIndex: 16
-  TrackB:
-    MemberName: TrackB
-    Module: {fileID: -2767126401749835664}
-    speedIndex: 12
-  TrackC:
-    MemberName: TrackC
-    Module: {fileID: -2767126401749835664}
-    speedIndex: 14
-  TrackD:
-    MemberName: TrackD
-    Module: {fileID: -2767126401749835664}
-    speedIndex: 16
+  Input: 0.0025872919
+  Scale: 3
+  OffsetScale: 1
+  Offset: 0.79499996
+  Drag: 0
+  Output: 0.80276185
+--- !u!114 &-3016999723443135848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18cf700d20f801449648028aea1a640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  output: 0
+  PointCloudInput: {fileID: 0}
+  PointCloudOutput: {fileID: 0}
+  CurrentMode: 0
+--- !u!114 &-2300194146464688368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30be9d6181fc93549891d13ba851c0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Scale
+    values:
+    - 0.37
+  Connections:
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: Shape
+        Module: {fileID: -8178365801108775443}
+  Rack: {fileID: 11400000}
+  Position: {x: 1, y: 1}
+  Input: 0.5345213
+  Scale: 1.11
+  OffsetScale: 1
+  Offset: 0
+  Drag: 0
+  Output: 0.59331864
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,8 +173,88 @@ MonoBehaviour:
   m_Name: Shuriken
   m_EditorClassIdentifier: 
   Modules:
-  - {fileID: -8623763890604368078}
-  - {fileID: -2767126401749835664}
+  - {fileID: -6875170448236983433}
+  - {fileID: -8178365801108775443}
+  - {fileID: 8906635565545824728}
+  - {fileID: -6901788331161289473}
+  - {fileID: 4797715377747780777}
+  - {fileID: -2300194146464688368}
+  - {fileID: -3016999723443135848}
   active: 0
-  ScrollPosition: {x: 0, y: 0}
+  ScrollPosition: {x: 0, y: -180}
   Zoom: 1
+--- !u!114 &4797715377747780777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d982f6d9c2f6c418f4f31550e77cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - NameA
+    values:
+    - NegativeEnergyMax
+  Connections:
+    Connections:
+    - Key: OutputA
+      Value:
+        MemberName: Input
+        Module: {fileID: -2300194146464688368}
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 1}
+  NameA: NegativeEnergyMax
+  NameB: 
+  NameC: 
+--- !u!114 &8906635565545824728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18cf700d20f801449648028aea1a640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Output
+    - Gravity
+    - Size
+    - EmissionRate
+    - Shape
+    - Speed
+    - RadialVelocity
+    - NoiseDepth
+    - NoiseScroll
+    - NoiseFrequency
+    - Life
+    - BillboardStretch
+    values:
+    - -0.805
+    - 0.005
+    - -0.63
+    - 0.54
+    - 0.535
+    - 0.21
+    - -0.985
+    - 1
+    - 0.6
+    - -0.00999999
+    - -1
+    - -1
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 2, y: 0}
+  output: -0.805
+  PointCloudInput: {fileID: 0}
+  PointCloudOutput: {fileID: 0}
+  CurrentMode: 0

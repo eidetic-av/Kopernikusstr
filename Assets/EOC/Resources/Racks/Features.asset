@@ -67,6 +67,40 @@ MonoBehaviour:
   NameA: Energy7
   NameB: Energy8
   NameC: Energy9
+--- !u!114 &-8740470891448879663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195e6ad060b10f84ca751f59f362dc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - NameA
+    - NameB
+    - NameC
+    - InputC
+    - InputB
+    - InputA
+    values:
+    - OnsetAngle4
+    - OnsetAngle5
+    - OnsetAngle6
+    - 1
+    - 1
+    - 1
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 8, y: 0}
+  NameA: OnsetAngle4
+  NameB: OnsetAngle5
+  NameC: OnsetAngle6
 --- !u!114 &-8388644364504844967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +131,7 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 16, y: 0}
+  Position: {x: 17, y: 0}
   NameA: Energy7
   NameB: Energy8
   NameC: Energy9
@@ -131,7 +165,7 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 11, y: 0}
+  Position: {x: 13, y: 0}
   NameA: Angle4
   NameB: Angle5
   NameC: Angle6
@@ -207,11 +241,11 @@ MonoBehaviour:
         Module: {fileID: -3442550285265605329}
   Rack: {fileID: 11400000}
   Position: {x: 15, y: 2}
-  InputA: 1
-  InputB: 1
-  InputC: 1
+  InputA: 0
+  InputB: 0
+  InputC: 0
   InputD: 0
-  InputE: 0
+  InputE: 1
   InputF: 0
   InputG: 0
   InputH: 0
@@ -264,7 +298,7 @@ MonoBehaviour:
     values:
     - 5
     - -0.43
-    - 0.004999995
+    - 0.925
   Connections:
     Connections:
     - Key: Energy
@@ -299,14 +333,18 @@ MonoBehaviour:
       Value:
         MemberName: InputC
         Module: {fileID: 3388088132220018830}
+    - Key: OnsetAngle
+      Value:
+        MemberName: InputC
+        Module: {fileID: 8417127694704694227}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
   Port: 9000
   GainReduction: 0.011574562
-  Scale: 1.2625313
-  Angle: 0
-  OnsetAngle: 0
-  Energy: 1
+  Scale: 4.6320314
+  Angle: -0.56666666
+  OnsetAngle: -0.9444444
+  Energy: 0
   Onset: 0
 --- !u!114 &-6085286166973757191
 MonoBehaviour:
@@ -355,7 +393,7 @@ MonoBehaviour:
     values:
     - 11
     - -0.445
-    - -0.01500001
+    - 0.77
   Connections:
     Connections:
     - Key: Energy
@@ -395,12 +433,12 @@ MonoBehaviour:
         MemberName: InputC
         Module: {fileID: 9066303188332160441}
   Rack: {fileID: 11400000}
-  Position: {x: 8, y: 0}
+  Position: {x: 10, y: 0}
   Port: 9000
   GainReduction: 0.010684618
-  Scale: 1.2127812
-  Angle: 0
-  OnsetAngle: 0
+  Scale: 3.9161255
+  Angle: -0.33888888
+  OnsetAngle: -0.33888888
   Energy: 0
   Onset: 0
 --- !u!114 &-5571833298371848992
@@ -423,7 +461,7 @@ MonoBehaviour:
     values:
     - 1
     - -0.415
-    - -0.01000004
+    - 0.7549999
   Connections:
     Connections:
     - Key: Energy
@@ -462,15 +500,19 @@ MonoBehaviour:
       Value:
         MemberName: InputA
         Module: {fileID: 3388088132220018830}
+    - Key: OnsetAngle
+      Value:
+        MemberName: InputA
+        Module: {fileID: 8417127694704694227}
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
   Port: 9000
   GainReduction: 0.012512604
-  Scale: 1.225125
-  Angle: 0.87222224
-  OnsetAngle: -0.74444443
-  Energy: 1
-  Onset: 1
+  Scale: 3.850031
+  Angle: 0.6666667
+  OnsetAngle: 0.41666666
+  Energy: 0
+  Onset: 0
 --- !u!114 &-5335488054404574456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +560,7 @@ MonoBehaviour:
     values:
     - 7
     - -0.455
-    - 0
+    - 0.83
   Connections:
     Connections:
     - Key: Energy
@@ -557,12 +599,16 @@ MonoBehaviour:
       Value:
         MemberName: InputA
         Module: {fileID: 9066303188332160441}
+    - Key: OnsetAngle
+      Value:
+        MemberName: InputA
+        Module: {fileID: -8740470891448879663}
   Rack: {fileID: 11400000}
   Position: {x: 6, y: 0}
   Port: 9000
   GainReduction: 0.010117412
-  Scale: 1.25
-  Angle: -1
+  Scale: 4.186125
+  Angle: -0.8150556
   OnsetAngle: -1
   Energy: 0
   Onset: 0
@@ -590,23 +636,23 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
   InputA: 0
-  InputB: 1
-  InputC: 1
+  InputB: 0
+  InputC: 0
   InputD: 0
-  InputE: 0
+  InputE: 1
   InputF: 0
   InputG: 0
   InputH: 0
   InputI: 0
-  ValueA: -0.9222222
-  ValueB: 0
+  ValueA: 0.41666666
+  ValueB: -0.7710555
   ValueC: 0
   ValueD: -1
-  ValueE: 0
-  ValueF: 0
+  ValueE: 0.7
+  ValueF: -0.33888888
   ValueG: 0
   ValueH: 0
-  ValueI: 0
+  ValueI: -0.081
 --- !u!114 &-4653814609183940311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +680,25 @@ MonoBehaviour:
         Module: {fileID: 388879493134112937}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 2}
+--- !u!114 &-4404053882001361297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99685903dcec81a44953dd4081c25b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 20, y: 0}
 --- !u!114 &-4314275025943071585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,7 +896,7 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 10, y: 0}
+  Position: {x: 14, y: 0}
   NameA: Energy4
   NameB: Energy5
   NameC: Energy6
@@ -915,8 +980,11 @@ MonoBehaviour:
   - {fileID: -243552502863092535}
   - {fileID: -7144984540269698744}
   - {fileID: 8417127694704694227}
-  active: 1
-  ScrollPosition: {x: -480, y: 0}
+  - {fileID: -4404053882001361297}
+  - {fileID: -8740470891448879663}
+  - {fileID: 2779098029575197060}
+  active: 0
+  ScrollPosition: {x: -900, y: 0}
   Zoom: 1
 --- !u!114 &1184969833558869
 MonoBehaviour:
@@ -980,23 +1048,23 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 1}
   InputA: 0
-  InputB: 1
-  InputC: 1
+  InputB: 0
+  InputC: 0
   InputD: 0
-  InputE: 0
+  InputE: 1
   InputF: 0
   InputG: 0
   InputH: 0
   InputI: 0
-  ValueA: 0.07777778
-  ValueB: 0
-  ValueC: 0
-  ValueD: -1
-  ValueE: 0
-  ValueF: 0
-  ValueG: 0
-  ValueH: 0
-  ValueI: 0
+  ValueA: 0.6666667
+  ValueB: -0.78855556
+  ValueC: -0.56666666
+  ValueD: -0.8150556
+  ValueE: 0.11111111
+  ValueF: -0.33888888
+  ValueG: 0.6510556
+  ValueH: -0.03277778
+  ValueI: 0.46666667
 --- !u!114 &388879493134112937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1059,16 +1127,16 @@ MonoBehaviour:
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
   InputA: 0
-  InputB: 1
-  InputC: 1
+  InputB: 0
+  InputC: 0
   InputD: 0
-  InputE: 0
+  InputE: 1
   InputF: 0
   InputG: 0
   InputH: 0
   InputI: 0
   Output: 1
-  Change: 1
+  Change: 0
 --- !u!114 &1332170297668277553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,10 +1194,32 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 4, y: 0}
+  Position: {x: 9, y: 0}
   NameA: Energy1
   NameB: Energy2
   NameC: Energy3
+--- !u!114 &2779098029575197060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195e6ad060b10f84ca751f59f362dc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 0, y: 0}
+  NameA: 
+  NameB: 
+  NameC: 
 --- !u!114 &3152821292744040306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,8 +1239,8 @@ MonoBehaviour:
     - Scale
     values:
     - 9
-    - -0.495
-    - -0.03999996
+    - -0.48
+    - 0.825
   Connections:
     Connections:
     - Key: Energy
@@ -1189,14 +1279,22 @@ MonoBehaviour:
       Value:
         MemberName: InputB
         Module: {fileID: 9066303188332160441}
+    - Key: OnsetAngle
+      Value:
+        MemberName: InputB
+        Module: {fileID: -8740470891448879663}
+    - Key: OnsetAngle
+      Value:
+        MemberName: InputC
+        Module: {fileID: -8740470891448879663}
   Rack: {fileID: 11400000}
   Position: {x: 7, y: 0}
   Port: 9000
-  GainReduction: 0.008049226
-  Scale: 1.1520001
-  Angle: 0
-  OnsetAngle: 0
-  Energy: 0
+  GainReduction: 0.008787999
+  Scale: 4.1632814
+  Angle: -0.044444446
+  OnsetAngle: 0.7
+  Energy: 1
   Onset: 0
 --- !u!114 &3388088132220018830
 MonoBehaviour:
@@ -1282,7 +1380,7 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 15, y: 0}
+  Position: {x: 16, y: 0}
   NameA: Onset7
   NameB: Onset8
   NameC: Onset9
@@ -1306,7 +1404,7 @@ MonoBehaviour:
     values:
     - 15
     - -0.485
-    - -0.055
+    - 0.77
   Connections:
     Connections:
     - Key: Energy
@@ -1346,11 +1444,11 @@ MonoBehaviour:
         MemberName: InputB
         Module: {fileID: 4034259629047513093}
   Rack: {fileID: 11400000}
-  Position: {x: 13, y: 0}
+  Position: {x: 12, y: 0}
   Port: 9000
   GainReduction: 0.008536929
-  Scale: 1.1162813
-  Angle: 0
+  Scale: 3.9161255
+  Angle: -0.03277778
   OnsetAngle: 0
   Energy: 0
   Onset: 0
@@ -1481,7 +1579,7 @@ MonoBehaviour:
     values:
     - 3
     - -0.435
-    - 0.00999999
+    - 0.82
   Connections:
     Connections:
     - Key: Energy
@@ -1520,14 +1618,18 @@ MonoBehaviour:
       Value:
         MemberName: InputB
         Module: {fileID: 3388088132220018830}
+    - Key: OnsetAngle
+      Value:
+        MemberName: InputB
+        Module: {fileID: 8417127694704694227}
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 0}
   Port: 9000
   GainReduction: 0.0112726325
-  Scale: 1.2751251
-  Angle: 0
-  OnsetAngle: 0
-  Energy: 1
+  Scale: 4.1405
+  Angle: -0.78855556
+  OnsetAngle: -0.7710555
+  Energy: 0
   Onset: 0
 --- !u!114 &6603586604739597258
 MonoBehaviour:
@@ -1576,7 +1678,7 @@ MonoBehaviour:
     values:
     - 13
     - -0.465
-    - -0.01499996
+    - 0.795
   Connections:
     Connections:
     - Key: Energy
@@ -1616,11 +1718,11 @@ MonoBehaviour:
         MemberName: InputA
         Module: {fileID: 4034259629047513093}
   Rack: {fileID: 11400000}
-  Position: {x: 12, y: 0}
+  Position: {x: 11, y: 0}
   Port: 9000
   GainReduction: 0.009570647
-  Scale: 1.2127813
-  Angle: 0
+  Scale: 4.0275316
+  Angle: 0.6510556
   OnsetAngle: 0
   Energy: 0
   Onset: 0
@@ -1677,15 +1779,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Values:
-    keys: []
-    values: []
+    keys:
+    - NameA
+    - NameB
+    - NameC
+    - InputA
+    - InputB
+    - InputC
+    values:
+    - OnsetAngle1
+    - OnsetAngle2
+    - OnsetAngle3
+    - 1
+    - 1
+    - 1
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 0, y: 0}
-  NameA: 
-  NameB: 
-  NameC: 
+  Position: {x: 4, y: 0}
+  NameA: OnsetAngle1
+  NameB: OnsetAngle2
+  NameC: OnsetAngle3
 --- !u!114 &8909138522925295208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1716,7 +1830,7 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 17, y: 0}
+  Position: {x: 18, y: 0}
   NameA: Angle7
   NameB: Angle8
   NameC: Angle9
@@ -1744,7 +1858,7 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 9, y: 0}
+  Position: {x: 15, y: 0}
   NameA: Onset4
   NameB: Onset5
   NameC: Onset6
@@ -1768,7 +1882,7 @@ MonoBehaviour:
     values:
     - 17
     - -0.455
-    - -0.01000002
+    - 0.775
   Connections:
     Connections:
     - Key: Energy
@@ -1808,11 +1922,11 @@ MonoBehaviour:
         MemberName: InputC
         Module: {fileID: 4034259629047513093}
   Rack: {fileID: 11400000}
-  Position: {x: 14, y: 0}
+  Position: {x: 19, y: 0}
   Port: 9000
   GainReduction: 0.010117412
-  Scale: 1.225125
-  Angle: 0
-  OnsetAngle: 0
+  Scale: 3.9382813
+  Angle: 0.46666667
+  OnsetAngle: -0.081
   Energy: 0
   Onset: 0

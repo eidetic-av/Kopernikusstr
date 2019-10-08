@@ -23,7 +23,7 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 1}
-  InputA: -0.9011097
+  InputA: 0.7439041
   InputB: 0
   InputC: 0
 --- !u!114 &-6024961737359441673
@@ -51,9 +51,9 @@ MonoBehaviour:
         Module: {fileID: -133031510966334469}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 0}
-  Input: 1
+  Input: 0
   Drag: 0.04725938
-  Output: 1
+  Output: 0
 --- !u!114 &-4913940378397413306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
         Module: {fileID: 941397718080380260}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 1}
-  Input: 1
+  Input: 0
   Scale: 0
   OffsetScale: -0.014999986
   Offset: 0.51
@@ -140,29 +140,10 @@ MonoBehaviour:
         Module: {fileID: 4344757424898022679}
   Rack: {fileID: 11400000}
   Position: {x: 7, y: 1}
-  Input: 1
+  Input: 0
   Scale: 0
   OffsetScale: 1
   Offset: 0
---- !u!114 &-1141390348744724117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99685903dcec81a44953dd4081c25b48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Values:
-    keys: []
-    values: []
-  Connections:
-    Connections: []
-  Rack: {fileID: 11400000}
-  Position: {x: 13, y: 0}
 --- !u!114 &-1104508840086078555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,10 +171,10 @@ MonoBehaviour:
     - WarpDirectionX
     - Glow
     values:
+    - 0.52
     - 1
     - 1
-    - 1
-    - 0.59
+    - 0.875
     - 1
     - 1
     - 1
@@ -206,7 +187,7 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
-  output: 1
+  output: 0.52
 --- !u!114 &-133031510966334469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +217,7 @@ MonoBehaviour:
         Module: {fileID: 102499269091515241}
   Rack: {fileID: 11400000}
   Position: {x: 8, y: 0}
-  Input: 1
+  Input: 0
   Scale: 0
   OffsetScale: 0.14999993
   Offset: 0.5025
@@ -275,9 +256,10 @@ MonoBehaviour:
   - {fileID: -4913940378397413306}
   - {fileID: 7519185554908220344}
   - {fileID: 45381579453026470}
-  - {fileID: -1141390348744724117}
+  - {fileID: 4107414738853111297}
+  - {fileID: 3243208931277705727}
   active: 0
-  ScrollPosition: {x: 0, y: 0}
+  ScrollPosition: {x: -330, y: 0}
   Zoom: 1
 --- !u!114 &45381579453026470
 MonoBehaviour:
@@ -306,8 +288,8 @@ MonoBehaviour:
         Module: {fileID: -1104508840086078555}
   Rack: {fileID: 11400000}
   Position: {x: 2, y: 0}
-  InputA: 0.70866144
-  InputB: 0.992126
+  InputA: 0.28346458
+  InputB: 0.27559054
   InputC: 0
 --- !u!114 &102499269091515241
 MonoBehaviour:
@@ -367,9 +349,9 @@ MonoBehaviour:
         Module: {fileID: 6593341786384035197}
   Rack: {fileID: 11400000}
   Position: {x: 11, y: 0}
-  Input: 1
+  Input: 0
   Drag: 0.0234375
-  Output: 1
+  Output: 0
 --- !u!114 &319741485387753869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +466,7 @@ MonoBehaviour:
   B: -0.63779527
   C: 0.13385826
   D: 0.33858266
-  E: 0.38582677
+  E: 0.32283464
   F: 1
 --- !u!114 &941397718080380260
 MonoBehaviour:
@@ -613,6 +595,58 @@ MonoBehaviour:
     MemberName: TrackD
     Module: {fileID: 2990465898901774050}
     speedIndex: 16
+--- !u!114 &3243208931277705727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c487e7429646a19448dc2972c6a384bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 10, y: 1}
+  InputA: 0
+  InputB: 0
+  InputC: 0
+--- !u!114 &4107414738853111297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cf38e454d11184c9dd3753f9cf7a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - Offset
+    - Scale
+    values:
+    - -1
+    - 0.72
+  Connections:
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: Output
+        Module: {fileID: 7476036934002900341}
+  Rack: {fileID: 11400000}
+  Position: {x: 9, y: 1}
+  Input: 0
+  Scale: 0.72
+  Offset: -1
 --- !u!114 &4344757424898022679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +705,7 @@ MonoBehaviour:
   Position: {x: 8, y: 1}
   Input: 0
   Drag: 0.038399998
-  Output: 0.28145278
+  Output: 0
 --- !u!114 &6593341786384035197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,7 +729,7 @@ MonoBehaviour:
         Module: {fileID: 319741485387753869}
   Rack: {fileID: 11400000}
   Position: {x: 10, y: 0}
-  Input: 1
+  Input: 0
   Scale: 0
   OffsetScale: 1
   Offset: 0
@@ -731,8 +765,8 @@ MonoBehaviour:
     values:
     - 1
     - 1
-    - -1
-    - 0.645
+    - 1
+    - 0.9399999
     - 1
     - 1
     - 1
@@ -748,7 +782,7 @@ MonoBehaviour:
     Connections: []
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 0}
-  output: -1
+  output: -0.72
 --- !u!114 &7493126980358868449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,7 +810,7 @@ MonoBehaviour:
   Position: {x: 5, y: 1}
   Input: 0
   Drag: 0.042084366
-  Output: 0.31679007
+  Output: 0
 --- !u!114 &7519185554908220344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,5 +914,5 @@ MonoBehaviour:
   B: 0
   C: 0
   D: 0
-  E: 0.70866144
-  F: 0.992126
+  E: 0.28346458
+  F: 0.27559054

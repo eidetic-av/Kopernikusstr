@@ -74,6 +74,35 @@ MonoBehaviour:
   ValueC: 0.295
   ValueD: 0
   Output: 0.295
+--- !u!114 &-7113949001683361044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412f18a30ffc76c4680cf8343ec13e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections:
+    - Key: A
+      Value:
+        MemberName: TurbulenceScaleY
+        Module: {fileID: 338714637912544146}
+  Rack: {fileID: 11400000}
+  Position: {x: 2, y: 1}
+  A: -0.41264862
+  B: 0.5476718
+  C: -0.107156396
+  D: 0.5930376
+  E: 0.67554927
+  F: -0.75368714
 --- !u!114 &-6732611871555986287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +119,11 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections: []
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: InputA
+        Module: {fileID: 1287828788725413664}
   Rack: {fileID: 11400000}
   Position: {x: 3, y: 0}
   InputA: 0
@@ -125,12 +158,12 @@ MonoBehaviour:
         Module: {fileID: 338714637912544146}
   Rack: {fileID: 11400000}
   Position: {x: 9, y: 0}
-  Value1: 0
-  Value2: 0
-  Value3: 0
-  Value4: 0
-  Value5: 0
-  Value6: 0
+  Value1: 0.00066666666
+  Value2: 0.00066666666
+  Value3: 0.012277778
+  Value4: 0.012277778
+  Value5: -0.044444446
+  Value6: -0.044444446
   Value7: 0
   Value8: 0
   Value9: 0
@@ -207,13 +240,13 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 11, y: 1}
-  Input: -4.324881
+  Position: {x: 12, y: 1}
+  Input: 1.4619211
   Scale: -0.54
   OffsetScale: 1
   Offset: 0
   Drag: 0
-  Output: 2.3354359
+  Output: -0.7894374
 --- !u!114 &-3314343543597941316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,13 +281,13 @@ MonoBehaviour:
         MemberName: RotationZ
         Module: {fileID: 7635897652676068825}
   Rack: {fileID: 11400000}
-  Position: {x: 8, y: 1}
-  Input: 0.892689
-  Scale: -1.259473
+  Position: {x: 9, y: 1}
+  Input: -0.82069397
+  Scale: 2.364618
   OffsetScale: 2.22
   Offset: 1
   Drag: 0
-  Output: 1.0956824
+  Output: 0.27937225
 --- !u!114 &-2405687547970940451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,13 +360,47 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: -3322529030981675653}
   Rack: {fileID: 11400000}
-  Position: {x: 10, y: 1}
-  Input: -1.2362288
+  Position: {x: 11, y: 1}
+  Input: 1.1275303
   Scale: 2.4450004
   OffsetScale: -1.29
   Offset: 1
   Drag: 0
-  Output: -4.31258
+  Output: 1.4668121
+--- !u!114 &-1494407488955441571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp:Eidetic.URack.Math:PointCloudSwitch
+  Values:
+    keys:
+    - Index
+    values:
+    - 1
+  Connections:
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: PointCloud
+        Module: {fileID: 338714637912544146}
+    - Key: IndexOut
+      Value:
+        MemberName: Input
+        Module: {fileID: 3176113367605510732}
+  Rack: {fileID: 11400000}
+  Position: {x: 12, y: 0}
+  index: 1
+  InputA: {fileID: 0}
+  InputB: {fileID: 0}
+  InputC: {fileID: 0}
+  InputD: {fileID: 0}
 --- !u!114 &-1407597604499749531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +493,7 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: 8749455668051734076}
   Rack: {fileID: 11400000}
-  Position: {x: 3, y: 1}
+  Position: {x: 4, y: 1}
   Clock: 35
   TrackA:
     MemberName: TrackA
@@ -570,6 +637,30 @@ MonoBehaviour:
   InputB: {fileID: 0}
   InputC: {fileID: 0}
   InputD: {fileID: 0}
+--- !u!114 &-296834786506302496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50560128a48e10b4b8bcb0f3137611c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys: []
+    values: []
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 13, y: 0}
+  index: 0
+  InputA: {fileID: 0}
+  InputB: {fileID: 0}
+  InputC: {fileID: 0}
+  InputD: {fileID: 0}
 --- !u!114 &-138022045473016315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +677,11 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections: []
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: InputC
+        Module: {fileID: 1287828788725413664}
   Rack: {fileID: 11400000}
   Position: {x: 5, y: 0}
   InputA: 0
@@ -636,8 +731,11 @@ MonoBehaviour:
   - {fileID: 8749455668051734076}
   - {fileID: 6682271201082181398}
   - {fileID: -3322529030981675653}
+  - {fileID: 1287828788725413664}
+  - {fileID: -7113949001683361044}
+  - {fileID: -296834786506302496}
   active: 0
-  ScrollPosition: {x: -870, y: 0}
+  ScrollPosition: {x: -810, y: 0}
   Zoom: 1
 --- !u!114 &338714637912544146
 MonoBehaviour:
@@ -660,14 +758,20 @@ MonoBehaviour:
     - Glow
     - Noise
     - Size
+    - ColorOffsetGreen
+    - TurbulenceScaleX
+    - TurbulenceScaleY
     values:
     - 1
-    - -0.565
-    - 1
+    - -0.605
+    - 0.8700001
     - -1
-    - 0.54
+    - 0.94
+    - -0.875
+    - -0.725
     - -1
-    - -0.78
+    - -1
+    - -1
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
@@ -702,14 +806,26 @@ MonoBehaviour:
       Value:
         MemberName: Scale
         Module: {fileID: -3314343543597941316}
+    - Key: D
+      Value:
+        MemberName: ColorOffsetGreen
+        Module: {fileID: 338714637912544146}
+    - Key: E
+      Value:
+        MemberName: Turbulence
+        Module: {fileID: 338714637912544146}
+    - Key: F
+      Value:
+        MemberName: TurbulenceScaleX
+        Module: {fileID: 338714637912544146}
   Rack: {fileID: 11400000}
   Position: {x: 1, y: 1}
-  A: 0.7722807
-  B: -0.40231436
-  C: -0.5167069
-  D: 0.4823724
-  E: -0.85977054
-  F: 0.7787533
+  A: 0.75061464
+  B: -0.8932879
+  C: 0.9700997
+  D: 0.37664068
+  E: -0.8089998
+  F: 0.49502838
 --- !u!114 &1178201438818916132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,11 +849,45 @@ MonoBehaviour:
       Value:
         MemberName: Generate
         Module: {fileID: 1116337924542068559}
+    - Key: OutputA
+      Value:
+        MemberName: Generate
+        Module: {fileID: -7113949001683361044}
   Rack: {fileID: 11400000}
   Position: {x: 0, y: 1}
   NameA: Onset
   NameB: 
   NameC: 
+--- !u!114 &1287828788725413664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a3a3459d5a1ab4395b6957bd57b2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Values:
+    keys:
+    - ValueA
+    - ValueB
+    - ValueC
+    values:
+    - -1
+    - -0.29
+    - 0.155
+  Connections:
+    Connections: []
+  Rack: {fileID: 11400000}
+  Position: {x: 12, y: 0}
+  ValueA: -1
+  ValueB: -0.29
+  ValueC: 0.155
+  ValueD: 0
+  Output: 0.155
 --- !u!114 &3176113367605510732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,6 +957,7 @@ MonoBehaviour:
     - ScaleZ
     - ScaleX
     - ScaleY
+    - UpdateFrequency
     values:
     - 1
     - -1
@@ -816,17 +967,18 @@ MonoBehaviour:
     - -1
     - 1
     - 1
-    - 0.22
+    - 0.135
     - 1
-    - -0.115
-    - 0.15
+    - -0.045
+    - 0.17
     - 0.45
     - 0.525
     - 0.54
+    - -1
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 5, y: 1}
+  Position: {x: 6, y: 1}
   UpdateFrequency: 0
   MinX: -5
   MaxX: 5
@@ -834,12 +986,12 @@ MonoBehaviour:
   MaxY: 5
   MinZ: -5
   MaxZ: 5
-  RotationX: -222.5212
-  RotationY: 39.6
-  RotationZ: 196.51346
+  RotationX: 202.95546
+  RotationY: 24.300001
+  RotationZ: 51.8376
   TranslationX: 0
-  TranslationY: -0.575
-  TranslationZ: -2.25
+  TranslationY: -0.22500001
+  TranslationZ: -2.55
   ScaleX: 1.05
   ScaleY: 1.08
   ScaleZ: 0.9
@@ -873,6 +1025,8 @@ MonoBehaviour:
     - TranslationY
     - ScaleY
     - ScaleZ
+    - UpdateFrequency
+    - RotationY
     values:
     - 1
     - -1
@@ -882,11 +1036,13 @@ MonoBehaviour:
     - -1
     - 1
     - 1
-    - -0.19
+    - 0.325
     - 0.62
-    - 0.38
+    - -0.02999998
     - 0.625
     - 0.72
+    - -1
+    - 0.01
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
@@ -899,16 +1055,16 @@ MonoBehaviour:
   MinZ: -5
   MaxZ: 5
   RotationX: 0
-  RotationY: 0
-  RotationZ: -778.4786
+  RotationY: 1.8
+  RotationZ: 263.14578
   TranslationX: 0
-  TranslationY: 1.9
-  TranslationZ: 2.85
+  TranslationY: -0.1499999
+  TranslationZ: -4.875
   ScaleX: 1.24
   ScaleY: 1.25
   ScaleZ: 1.44
   NewFrame: 0
-  Address: 10.11.1.2
+  Address: 10.11.1.4
   Port: 48002
 --- !u!114 &6657632294562079974
 MonoBehaviour:
@@ -934,8 +1090,8 @@ MonoBehaviour:
         MemberName: Scale
         Module: {fileID: 8749455668051734076}
   Rack: {fileID: 11400000}
-  Position: {x: 2, y: 1}
-  Input: -0.40231436
+  Position: {x: 3, y: 1}
+  Input: -0.8932879
   Scale: 1
   Offset: 0
 --- !u!114 &6682271201082181398
@@ -956,8 +1112,8 @@ MonoBehaviour:
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 6, y: 1}
-  InputA: -0.86148334
+  Position: {x: 7, y: 1}
+  InputA: 0.046159722
   InputB: 0
   InputC: 0
 --- !u!114 &7635897652676068825
@@ -985,22 +1141,26 @@ MonoBehaviour:
     - RotationZ
     - RotationY
     - RotationX
+    - UpdateFrequency
+    - TranslationY
     values:
     - 1
     - -1
     - 1
     - -1
     - 1
-    - 0.355
+    - 0.37
     - -1
     - 1
     - 0.95
-    - -0.01
+    - -0.015
     - 0.005
+    - -1
+    - -0.045
   Connections:
     Connections: []
   Rack: {fileID: 11400000}
-  Position: {x: 7, y: 1}
+  Position: {x: 8, y: 1}
   UpdateFrequency: 0
   MinX: -5
   MaxX: 5
@@ -1009,11 +1169,11 @@ MonoBehaviour:
   MinZ: -5
   MaxZ: 5
   RotationX: 0.9
-  RotationY: -1.8
-  RotationZ: 191.60063
+  RotationY: -2.7
+  RotationZ: 50.54166
   TranslationX: 0
-  TranslationY: 0
-  TranslationZ: -5.325
+  TranslationY: -0.22500001
+  TranslationZ: -5.55
   ScaleX: 1
   ScaleY: 1
   ScaleZ: 1
@@ -1048,13 +1208,13 @@ MonoBehaviour:
         MemberName: Input
         Module: {fileID: -1569600911351805315}
   Rack: {fileID: 11400000}
-  Position: {x: 9, y: 1}
-  Input: 0.892689
+  Position: {x: 10, y: 1}
+  Input: -0.82069397
   Scale: -1.38
   OffsetScale: 1
   Offset: 0
   Drag: 0
-  Output: -1.2319108
+  Output: 1.1325576
 --- !u!114 &8267868434594114771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,7 +1231,11 @@ MonoBehaviour:
     keys: []
     values: []
   Connections:
-    Connections: []
+    Connections:
+    - Key: Output
+      Value:
+        MemberName: InputB
+        Module: {fileID: 1287828788725413664}
   Rack: {fileID: 11400000}
   Position: {x: 4, y: 0}
   InputA: 0
@@ -1113,10 +1277,10 @@ MonoBehaviour:
         MemberName: InputA
         Module: {fileID: 6682271201082181398}
   Rack: {fileID: 11400000}
-  Position: {x: 4, y: 1}
-  Input: 0.892689
-  Scale: -0.33492664
+  Position: {x: 5, y: 1}
+  Input: -0.82069397
+  Scale: -0.743662
   OffsetScale: -0.57
   Offset: 0.985
   Drag: 0
-  Output: -0.8604353
+  Output: 0.048868913
